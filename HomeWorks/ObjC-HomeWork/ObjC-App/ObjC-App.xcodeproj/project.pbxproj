@@ -22,6 +22,8 @@
 		4ACAF4202707AA120083280F /* TeamDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACAF41F2707AA120083280F /* TeamDetailTableViewCell.m */; };
 		4ACAF4232707CA9C0083280F /* PilotsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACAF4222707CA9C0083280F /* PilotsTableViewController.m */; };
 		4ACAF4312707CF340083280F /* PilotDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACAF4302707CF340083280F /* PilotDetailTableViewCell.m */; };
+		4ACAF4392708F5F40083280F /* TeamListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACAF4382708F5F40083280F /* TeamListPresenter.m */; };
+		4ACAF43C270902C20083280F /* TeamDetailPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACAF43B270902C20083280F /* TeamDetailPresenter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,10 @@
 		4ACAF4222707CA9C0083280F /* PilotsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PilotsTableViewController.m; sourceTree = "<group>"; };
 		4ACAF42F2707CF340083280F /* PilotDetailTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PilotDetailTableViewCell.h; sourceTree = "<group>"; };
 		4ACAF4302707CF340083280F /* PilotDetailTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PilotDetailTableViewCell.m; sourceTree = "<group>"; };
+		4ACAF4372708F45E0083280F /* TeamListPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamListPresenter.h; sourceTree = "<group>"; };
+		4ACAF4382708F5F40083280F /* TeamListPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamListPresenter.m; sourceTree = "<group>"; };
+		4ACAF43A270901E10083280F /* TeamDetailPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamDetailPresenter.h; sourceTree = "<group>"; };
+		4ACAF43B270902C20083280F /* TeamDetailPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamDetailPresenter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +156,8 @@
 			children = (
 				4ACAF41B2707A0740083280F /* TeamDetailTableViewController.h */,
 				4ACAF4182707A0740083280F /* TeamDetailTableViewController.m */,
+				4ACAF43A270901E10083280F /* TeamDetailPresenter.h */,
+				4ACAF43B270902C20083280F /* TeamDetailPresenter.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -186,6 +194,8 @@
 			children = (
 				4ACAF41A2707A0740083280F /* TeamListTableViewController.h */,
 				4ACAF4192707A0740083280F /* TeamListTableViewController.m */,
+				4ACAF4372708F45E0083280F /* TeamListPresenter.h */,
+				4ACAF4382708F5F40083280F /* TeamListPresenter.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -299,6 +309,7 @@
 			files = (
 				4ACAF40B2707A0530083280F /* DataManager.m in Sources */,
 				4ACAF3F227079F850083280F /* AppDelegate.m in Sources */,
+				4ACAF43C270902C20083280F /* TeamDetailPresenter.m in Sources */,
 				4ACAF4202707AA120083280F /* TeamDetailTableViewCell.m in Sources */,
 				4ACAF41C2707A0740083280F /* TeamDetailTableViewController.m in Sources */,
 				4ACAF4312707CF340083280F /* PilotDetailTableViewCell.m in Sources */,
@@ -306,6 +317,7 @@
 				4ACAF4122707A0610083280F /* Pilot.m in Sources */,
 				4ACAF4232707CA9C0083280F /* PilotsTableViewController.m in Sources */,
 				4ACAF40327079F870083280F /* main.m in Sources */,
+				4ACAF4392708F5F40083280F /* TeamListPresenter.m in Sources */,
 				4ACAF4112707A0610083280F /* Team.m in Sources */,
 				4ACAF3F527079F850083280F /* SceneDelegate.m in Sources */,
 			);

@@ -15,6 +15,8 @@ typedef enum DataSourceType {
 
 @interface DataManager : NSObject
 
++ (instancetype)sharedInstance;
+
 - (void)loadData;
 
 @property (nonatomic, strong, readonly) NSArray *teams;

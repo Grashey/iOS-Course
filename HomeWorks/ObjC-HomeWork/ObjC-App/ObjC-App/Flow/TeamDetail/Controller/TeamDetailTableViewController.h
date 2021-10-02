@@ -6,13 +6,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Team.h"
+#import "TeamDetailPresenter.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TeamDetailTableViewController : UITableViewController
 
-@property (nonatomic, strong) Team *team;
+@property (nonatomic, strong) TeamDetailPresenter *presenter;
 
 @end
 

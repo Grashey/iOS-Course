@@ -16,19 +16,16 @@
 @implementation PilotsTableViewController
 
 #pragma mark - Table view data source
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return _pilots.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PilotDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
     if (!cell) {
         cell = [[PilotDetailTableViewCell alloc] initWithStyle: UITableViewCellStyleSubtitle reuseIdentifier:ReuseIdentifier];
     }
-    Pilot *pilot = _pilots[indexPath.row];
-    [cell configureWithPilot:pilot];
+    [cell configureWithPilot:_pilots[indexPath.row]];
     return cell;
 }
 
