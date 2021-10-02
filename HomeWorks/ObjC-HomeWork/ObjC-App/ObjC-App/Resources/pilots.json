@@ -1,0 +1,142 @@
+[
+    {
+        "name": "Lewis Hamilton",
+        "team": "Mercedes-AMG Petronas F1 Team",
+        "country": "United Kingdom",
+        "number": 44,
+        "achievement": "World Champion 2008, 2014, 2015, 2017, 2018, 2019, 2020"
+    },
+    {
+        "name": "Valtteri Bottas",
+        "team": "Mercedes-AMG Petronas F1 Team",
+        "country": "Finland",
+        "number": 77,
+        "achievement": "Best result: 2nd (2019, 2020)"
+    },
+    {
+        "name": "Max Verstappen",
+        "team": "Red Bull Racing Honda",
+        "country": "Netherlands",
+        "number": 33,
+        "achievement": "Best result: 3rd (2019, 2020)"
+    },
+    {
+        "name": "Sergio Perez",
+        "team": "Red Bull Racing Honda",
+        "country": "Mexico",
+        "number": 11,
+        "achievement": "Best result: 4th (2020)"
+    },
+    {
+        "name": "Daniel Ricciardo",
+        "team": "McLaren F1 Team",
+        "country": "Australia",
+        "number": 3,
+        "achievement": "Best result: 3rd (2014, 2016)"
+    },
+    {
+        "name": "Lando Norris",
+        "team": "McLaren F1 Team",
+        "country": "United Kingdom",
+        "number": 4,
+        "achievement": "Best result: 9th (2020)"
+    },
+    {
+        "name": "Charles Leclerc",
+        "team": "Scuderia Ferrari Mission Winnow",
+        "country": "Monaco",
+        "number": 16,
+        "achievement": "Best result: 4th (2019)"
+    },
+    {
+        "name": "Carlos Sainz",
+        "team": "Scuderia Ferrari Mission Winnow",
+        "country": "Spain",
+        "number": 55,
+        "achievement": "Best result: 6th (2019, 2020)"
+    },
+    {
+        "name": "Fernando Alonso",
+        "team": "Alpine F1 Team",
+        "country": "Spain",
+        "number": 14,
+        "achievement": "World Champion 2005, 2006"
+    },
+    {
+        "name": "Esteban Ocon",
+        "team": "Alpine F1 Team",
+        "country": "France",
+        "number": 31,
+        "achievement": "Best result: 8th (2017)"
+    },
+    {
+        "name": "Pierre Gasly",
+        "team": "Scuderia AlphaTauri Honda",
+        "country": "France",
+        "number": 10,
+        "achievement": "Best result: 7th (2019)"
+    },
+    {
+        "name": "Yuki Tsunoda",
+        "team": "Scuderia AlphaTauri Honda",
+        "country": "Japan",
+        "number": 22,
+        "achievement": "Debutant"
+    },
+    {
+        "name": "Sebastian Vettel",
+        "team": "Aston Martin Cognizant F1 Team",
+        "country": "Germany",
+        "number": 5,
+        "achievement": "World Champion 2010, 2011, 2012, 2013"
+    },
+    {
+        "name": "Lance Stroll",
+        "team": "Aston Martin Cognizant F1 Team",
+        "country": "Canada",
+        "number": 18,
+        "achievement": "Best result: 11th (2020)"
+    },
+    {
+        "name": "George Russell",
+        "team": "Williams Racing",
+        "country": "United Kingdom",
+        "number": 63,
+        "achievement": "Best result: 18th (2020)"
+    },
+    {
+        "name": "Nicholas Latifi",
+        "team": "Williams Racing",
+        "country": "Canada",
+        "number": 6,
+        "achievement": "Best result: 21st (2020)"
+    },
+    {
+        "name": "Kimi Raikkonen",
+        "team": "Alfa Romeo Racing ORLEN",
+        "country": "Finland",
+        "number": 7,
+        "achievement": "World Champion 2007"
+    },
+    {
+        "name": "Antonio Giovinazzi",
+        "team": "Alfa Romeo Racing ORLEN",
+        "country": "Italy",
+        "number": 99,
+        "achievement": "Best result: 17th (2019, 2020)"
+    },
+    {
+        "name": "Mick Schumacher",
+        "team": "Uralkali Haas F1 Team",
+        "country": "Germany",
+        "number": 47,
+        "achievement": "Debutant"
+    },
+    {
+        "name": "Nikita Mazepin",
+        "team": "Uralkali Haas F1 Team",
+        "country": "Russia",
+        "number": 9,
+        "achievement": "Debutant"
+    }
+]

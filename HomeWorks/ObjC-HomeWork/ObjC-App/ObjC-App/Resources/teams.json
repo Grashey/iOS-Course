@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Mercedes-AMG Petronas F1 Team",
+        "chassis": "Mercedes-AMG W12 E Performance",
+        "engine": "Mercedes",
+        "head": "Toto Wolff",
+        "base": "Brackley, United Kingdom"
+    },
+    {
+        "name": "Red Bull Racing Honda",
+        "chassis": "RB16B",
+        "engine": "Honda",
+        "head": "Christian Horner",
+        "base": "Milton Keynes, United Kingdom"
+    },
+    {
+        "name": "McLaren F1 Team",
+        "chassis": "MCL35M",
+        "engine": "Mercedes",
+        "head": "Andreas Seidl",
+        "base": "Woking, United Kingdom"
+    },
+    {
+        "name": "Scuderia Ferrari Mission Winnow",
+        "chassis": "Ferrari SF21",
+        "engine": "Ferrari",
+        "head": "Mattia Binotto",
+        "base": "Maranello, Italy"
+    },
+    {
+        "name": "Alpine F1 Team",
+        "chassis": "A521",
+        "engine": "Renault",
+        "head": "Davide Brivio",
+        "base": "Enstone, United Kingdom"
+    },
+    {
+        "name": "Scuderia AlphaTauri Honda",
+        "chassis": "AT02",
+        "engine": "Honda",
+        "head": "Franz Tost",
+        "base": "Faenza, Italy"
+    },
+    {
+        "name": "Aston Martin Cognizant F1 Team",
+        "chassis": "AMR21",
+        "engine": "Mercedes",
+        "head": "Otmar Szafnauer",
+        "base": "Silverstone, United Kingdom"
+    },
+    {
+        "name": "Williams Racing",
+        "chassis": "FW43B",
+        "engine": "Mercedes",
+        "head": "Jost Capito",
+        "base": "Grove, United Kingdom"
+    },
+    {
+        "name": "Alfa Romeo Racing ORLEN",
+        "chassis": "C41",
+        "engine": "Ferrari",
+        "head": "Frederic Vasseur",
+        "base": "Hinwil, Switzerland"
+    },
+    {
+        "name": "Uralkali Haas F1 Team",
+        "chassis": "VF-21",
+        "engine": "Ferrari",
+        "head": "Guenther Steiner",
+        "base": "Kannapolis, United States"
+    }
+]
