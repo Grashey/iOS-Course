@@ -9,12 +9,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void (^CompletionBlock)(void);
+
 @interface TeamListPresenter : NSObject
 
 @property (nonatomic, weak) UITableViewController *controller;
 @property (nonatomic, strong) NSArray *teamsArray;
 
-- (void)getData;
+- (void)getData:(CompletionBlock)completionBlock;
 - (NSString *)makeModel:(NSInteger)index;
 - (UIViewController *)prepareVC:(NSInteger)index;
 

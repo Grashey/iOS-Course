@@ -18,7 +18,9 @@
     [super viewDidLoad];
 
     self.title = @"Formula One Teams";
-    [_presenter getData];
+    [_presenter getData: ^{
+        [self.tableView reloadData];
+    }];
 }
 
 #pragma mark - UITableViewDataSource

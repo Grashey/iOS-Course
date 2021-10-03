@@ -16,10 +16,10 @@
 
 @implementation TeamListPresenter
 
-- (void)getData {
+- (void)getData:(CompletionBlock)completionBlock {
     [[DataManager sharedInstance] loadData];
     _teamsArray = [DataManager sharedInstance].teams;
-    [_controller.tableView reloadData];
+    completionBlock();
 }
 
 - (NSString *)makeModel:(NSInteger)index {
