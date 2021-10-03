@@ -6,8 +6,7 @@
 //
 
 #import "SceneDelegate.h"
-#import "TeamListTableViewController.h"
-#import "TeamListPresenter.h"
+#import "ViewControllerFactory.h"
 
 @interface SceneDelegate ()
 
@@ -20,11 +19,7 @@
 
     UIWindowScene *windowScene = [[UIWindowScene alloc] initWithSession:session connectionOptions:connectionOptions];
     self.window = [[UIWindow alloc] initWithWindowScene:windowScene];
-    TeamListPresenter *presenter = [TeamListPresenter alloc];
-    TeamListTableViewController *controller = [TeamListTableViewController alloc];
-    controller.presenter = presenter;
-    presenter.controller = controller;
-    UIViewController *firstViewController = controller;
+    UIViewController *firstViewController = [[ViewControllerFactory alloc] createTeamListVC];
     firstViewController.view.backgroundColor = [UIColor whiteColor];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:firstViewController];
     navController.view.backgroundColor = firstViewController.view.backgroundColor;

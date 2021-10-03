@@ -24,6 +24,7 @@
 		4ACAF4312707CF340083280F /* PilotDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACAF4302707CF340083280F /* PilotDetailTableViewCell.m */; };
 		4ACAF4392708F5F40083280F /* TeamListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACAF4382708F5F40083280F /* TeamListPresenter.m */; };
 		4ACAF43C270902C20083280F /* TeamDetailPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACAF43B270902C20083280F /* TeamDetailPresenter.m */; };
+		4ACAF440270927A40083280F /* ViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACAF43F270927A40083280F /* ViewControllerFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,9 @@
 		4ACAF4382708F5F40083280F /* TeamListPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamListPresenter.m; sourceTree = "<group>"; };
 		4ACAF43A270901E10083280F /* TeamDetailPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamDetailPresenter.h; sourceTree = "<group>"; };
 		4ACAF43B270902C20083280F /* TeamDetailPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamDetailPresenter.m; sourceTree = "<group>"; };
+		4ACAF43D270925D50083280F /* ViewControllerFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerFactory.h; sourceTree = "<group>"; };
+		4ACAF43E2709268E0083280F /* ViewControllerAbstractFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerAbstractFactory.h; sourceTree = "<group>"; };
+		4ACAF43F270927A40083280F /* ViewControllerFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewControllerFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +99,7 @@
 				4ACAF3F327079F850083280F /* SceneDelegate.h */,
 				4ACAF3F427079F850083280F /* SceneDelegate.m */,
 				4ACAF4242707CD120083280F /* Flow */,
-				4ACAF42A2707CD900083280F /* Managers */,
+				4ACAF4422709325D0083280F /* Helpers */,
 				4ACAF4132707A0680083280F /* Resources */,
 				4ACAF40C2707A0610083280F /* Model */,
 				4ACAF3FC27079F870083280F /* Assets.xcassets */,
@@ -236,6 +240,25 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		4ACAF441270932320083280F /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				4ACAF43D270925D50083280F /* ViewControllerFactory.h */,
+				4ACAF43F270927A40083280F /* ViewControllerFactory.m */,
+				4ACAF43E2709268E0083280F /* ViewControllerAbstractFactory.h */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		4ACAF4422709325D0083280F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4ACAF441270932320083280F /* Factory */,
+				4ACAF42A2707CD900083280F /* Managers */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -310,6 +333,7 @@
 				4ACAF40B2707A0530083280F /* DataManager.m in Sources */,
 				4ACAF3F227079F850083280F /* AppDelegate.m in Sources */,
 				4ACAF43C270902C20083280F /* TeamDetailPresenter.m in Sources */,
+				4ACAF440270927A40083280F /* ViewControllerFactory.m in Sources */,
 				4ACAF4202707AA120083280F /* TeamDetailTableViewCell.m in Sources */,
 				4ACAF41C2707A0740083280F /* TeamDetailTableViewController.m in Sources */,
 				4ACAF4312707CF340083280F /* PilotDetailTableViewCell.m in Sources */,

@@ -6,9 +6,9 @@
 //
 
 #import "TeamListPresenter.h"
-#import "TeamDetailTableViewController.h"
-#import "TeamDetailPresenter.h"
+#import "ViewControllerFactory.h"
 #import "DataManager.h"
+#import "TeamDetailTableViewController.h"
 
 @interface TeamListPresenter ()
 
@@ -26,13 +26,10 @@
     Team *team = _teamsArray[index];
     return  team.name;
 }
-
+          
 - (UIViewController *)prepareVC:(NSInteger)index {
-    TeamDetailTableViewController *controller = [[TeamDetailTableViewController alloc] init];
-    TeamDetailPresenter *presenter = [[TeamDetailPresenter alloc] init];
-    presenter.team = _teamsArray[index];
-    controller.presenter = presenter;
-    presenter.controller = controller;
+    UITableViewController *controller = [[ViewControllerFactory alloc] createTeamDetailVC];
+    ((TeamDetailTableViewController *)controller).presenter.team = _teamsArray[index];
     return controller;
 }
 
