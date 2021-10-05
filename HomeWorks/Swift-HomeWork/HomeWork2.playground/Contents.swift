@@ -1,4 +1,5 @@
 import UIKit
+import Foundation
 
 /**
 1. Создать менеджер и протокол для менеджера, которые будут принимать универсальный тип
@@ -65,5 +66,21 @@ manager.showAdress(adress: "Baker str, London")
  }
  */
 
+protocol RequestManager {
+    associatedtype Result
 
+    func get() -> Result
+}
 
+class NetworkManager<Manager> where Manager:RequestManager {
+    
+    var requestManager: Manager?
+    
+    init(requestManager: Manager) {
+        self.requestManager = requestManager
+    }
+
+    func getAllMovies() {
+        requestManager?.get()
+    }
+}
