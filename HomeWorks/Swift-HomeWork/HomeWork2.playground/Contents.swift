@@ -10,46 +10,39 @@ import UIKit
  */
 
 protocol Profile {
-    var name: String {get set}
-    var lastName: String { get set}
+    associatedtype ProfileType
     
-    func showProfile()
-}
-
-extension Profile {
-    func showProfile() {
-        print("\(lastName) \(name)")
-    }
+    func showProfile(profile: ProfileType)
 }
 
 protocol Adress {
-    var adress: String {get set}
-}
-
-extension Adress {
-    var adressDescription: String {
-        return adress
-    }
-}
-
-class Manager: Profile, Adress {
-    var name: String
-    var lastName: String
-    var adress: String
+    associatedtype AdressType
     
-    init(name: String, lastName: String) {
-        self.name = name
-        self.lastName = lastName
-        self.adress = ""
+    func showAdress(adress: AdressType)
+}
+
+
+class Manager {}
+    
+extension Manager: Profile {
+    typealias ProfileType = String
+    
+    func showProfile(profile: String) {
+        print(profile)
     }
 }
 
-let manager = Manager(name: "Ivan", lastName: "Ivanov")
-manager.adress = "Baker str, London"
-manager.showProfile()
-print(manager.adressDescription)
+extension Manager: Adress {
+    typealias AdressType = String
+    
+    func showAdress(adress: String) {
+        print(adress)
+    }
+}
 
-
+let manager = Manager()
+manager.showProfile(profile: "Ivan Ivanov")
+manager.showAdress(adress: "Baker str, London")
 
 /**
  2. Создать класс, который будет иметь опциональное свойство и его тип ввиде протокола.
@@ -71,5 +64,6 @@ print(manager.adressDescription)
      }
  }
  */
+
 
 
