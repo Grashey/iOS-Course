@@ -72,6 +72,14 @@ protocol RequestManager {
     func get() -> Result
 }
 
+class ReqManager: RequestManager {
+    typealias Result = String
+    
+    func get() -> String {
+        return "AllMovies"
+    }
+}
+
 class NetworkManager<Manager> where Manager:RequestManager {
     
     var requestManager: Manager?
@@ -81,6 +89,10 @@ class NetworkManager<Manager> where Manager:RequestManager {
     }
 
     func getAllMovies() {
-        requestManager?.get()
+        print(requestManager?.get() ?? "Error")
     }
 }
+
+let netManager = NetworkManager(requestManager: ReqManager())
+netManager.getAllMovies()
+
