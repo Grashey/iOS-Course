@@ -15,6 +15,7 @@
 		4A25C66C2711DCDC00EC8398 /* MoviePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A25C66B2711DCDC00EC8398 /* MoviePresenter.swift */; };
 		4A25C6702711DE7600EC8398 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A25C66F2711DE7500EC8398 /* MovieViewModel.swift */; };
 		4A25C6722711E05C00EC8398 /* MoviePresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A25C6712711E05C00EC8398 /* MoviePresenterProtocol.swift */; };
+		4A4E4740271215730047EE86 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E473F271215730047EE86 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		4A25C66B2711DCDC00EC8398 /* MoviePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePresenter.swift; sourceTree = "<group>"; };
 		4A25C66F2711DE7500EC8398 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		4A25C6712711E05C00EC8398 /* MoviePresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePresenterProtocol.swift; sourceTree = "<group>"; };
+		4A4E473F271215730047EE86 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +87,17 @@
 			isa = PBXGroup;
 			children = (
 				4A25C66D2711DE1400EC8398 /* Movies */,
+				4A4E47412712157A0047EE86 /* Other */,
 			);
 			path = Flows;
+			sourceTree = "<group>";
+		};
+		4A4E47412712157A0047EE86 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				4A4E473F271215730047EE86 /* TabBarController.swift */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +174,7 @@
 				4A25C66A2711DC4400EC8398 /* MovieViewController.swift in Sources */,
 				4A25C6722711E05C00EC8398 /* MoviePresenterProtocol.swift in Sources */,
 				4A25C6562711CF9400EC8398 /* AppDelegate.swift in Sources */,
+				4A4E4740271215730047EE86 /* TabBarController.swift in Sources */,
 				4A25C66C2711DCDC00EC8398 /* MoviePresenter.swift in Sources */,
 				4A25C6582711CF9400EC8398 /* SceneDelegate.swift in Sources */,
 			);
