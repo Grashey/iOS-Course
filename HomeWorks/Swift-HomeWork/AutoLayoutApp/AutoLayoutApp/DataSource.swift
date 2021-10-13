@@ -53,6 +53,7 @@ extension DataSource: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         index = indexPath.row
+        tableView.scrollToRow(at: indexPath, at: .top, animated: true)
         collectionView.selectItem(at: IndexPath(item: .zero, section: .zero), animated: false, scrollPosition: .left)
         setDescription(item: .zero)
         collectionView.reloadData()
@@ -80,6 +81,7 @@ extension DataSource: UICollectionViewDataSource, UICollectionViewDelegate, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         setDescription(item: indexPath.item)
     }
 }
