@@ -21,14 +21,13 @@ class MovieDescriptionViewController: UIViewController, MovieDescriptionDelegate
         label.lineBreakMode = .byWordWrapping
         label.font = UIFont.systemFont(ofSize: 16)
         label.layer.cornerRadius = 10
+        label.clipsToBounds = true
         return label
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.layer.cornerRadius = 10
-        view.translatesAutoresizingMaskIntoConstraints = false
         addSubview()
         addConstraints()
     }
@@ -41,8 +40,7 @@ class MovieDescriptionViewController: UIViewController, MovieDescriptionDelegate
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: view.topAnchor),
             label.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            label.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            label.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
     

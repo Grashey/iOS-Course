@@ -46,6 +46,7 @@ class ContainerViewController: UIViewController {
     }
     
     func addChild(controller: UIViewController, containerView: UIView) {
+        controller.view.frame = containerView.frame
         containerView.addSubview(controller.view)
         self.addChild(controller)
         controller.didMove(toParent: self)
