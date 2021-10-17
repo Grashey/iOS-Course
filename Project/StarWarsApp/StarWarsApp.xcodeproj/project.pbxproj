@@ -19,6 +19,7 @@
 		4A4E47432712170D0047EE86 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E47422712170D0047EE86 /* RootCoordinator.swift */; };
 		4A4E4745271217C20047EE86 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E4744271217C20047EE86 /* TabBarCoordinator.swift */; };
 		4A4E4747271218BB0047EE86 /* MovieCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E4746271218BB0047EE86 /* MovieCoordinator.swift */; };
+		4A4E47E9271CC81F0047EE86 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E47E8271CC81F0047EE86 /* MovieTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		4A4E47422712170D0047EE86 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		4A4E4744271217C20047EE86 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		4A4E4746271218BB0047EE86 /* MovieCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCoordinator.swift; sourceTree = "<group>"; };
+		4A4E47E8271CC81F0047EE86 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 		4A4E474A27121ACC0047EE86 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4A4E47E8271CC81F0047EE86 /* MovieTableViewCell.swift */,
 				4A25C66F2711DE7500EC8398 /* MovieViewModel.swift */,
 			);
 			path = View;
@@ -228,6 +231,7 @@
 				4A4E4745271217C20047EE86 /* TabBarCoordinator.swift in Sources */,
 				4A4E4740271215730047EE86 /* TabBarController.swift in Sources */,
 				4A25C66C2711DCDC00EC8398 /* MoviePresenter.swift in Sources */,
+				4A4E47E9271CC81F0047EE86 /* MovieTableViewCell.swift in Sources */,
 				4A25C6582711CF9400EC8398 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
