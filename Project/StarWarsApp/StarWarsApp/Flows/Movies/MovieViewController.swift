@@ -12,11 +12,14 @@ class MovieViewController: UITableViewController {
     var presenter: MoviePresenterProtocol?
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: MovieTableViewCell.description())
         presenter?.getData()
         title = "Movies"
-        
+
+        tableView.backgroundView = UIImageView(image: UIImage(named: "backgroundLayer")!)
+        tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = UITableView.automaticDimension
     }
@@ -34,11 +37,14 @@ class MovieViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.description(), for: indexPath) as? MovieTableViewCell else {
             return UITableViewCell()
         }
-        cell.isUserInteractionEnabled = false
         if let model = presenter?.viewModel[indexPath.row] {
             cell.configureWith(model: model)
         }
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }

@@ -14,53 +14,47 @@ class MovieTableViewCell: UITableViewCell {
     lazy var posterImageView: UIImageView = {
         let view = UIImageView()
         view.layer.cornerRadius = 10
-        view.clipsToBounds = true
+        view.layer.shadowOffset = CGSize.zero
+        view.layer.shadowRadius = 5
+        view.layer.shadowOpacity = 1
+        view.layer.shadowColor = UIColor.white.cgColor
         return view
     }()
     
     lazy var episodeLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.font = UIFont(name: "Star Jedi", size: 12)
+        label.textColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
         return label
     }()
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.font = UIFont(name: "Star Jedi", size: 18)
+        label.textColor = .white
         return label
-    }()
-
-    lazy var openingCrawlLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        return label
-    }()
-    
-    lazy var detailsButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Подробнее", for: .normal)
-        button.backgroundColor = .green
-        return button
     }()
     
     lazy var contentStackView: UIStackView = {
         let stackview = UIStackView()
-        stackview.axis = .horizontal
+        stackview.axis = .vertical
         stackview.distribution = .fill
+        stackview.alignment = .center
         stackview.translatesAutoresizingMaskIntoConstraints = false
-        stackview.spacing = 10
         return stackview
     }()
     
     lazy var infoStackView: UIStackView = {
         let stackview = UIStackView()
         stackview.axis = .vertical
-        stackview.distribution = .fill
+        stackview.distribution = .fillEqually
+        stackview.alignment = .leading
         return stackview
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.backgroundColor = .clear
         addSubviews()
         addConstraints()
     }
@@ -69,55 +63,28 @@ class MovieTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset))
-    }
-    
     private func addSubviews() {
         contentView.addSubview(contentStackView)
         contentStackView.addArrangedSubview(posterImageView)
         contentStackView.addArrangedSubview(infoStackView)
         infoStackView.addArrangedSubview(episodeLabel)
         infoStackView.addArrangedSubview(nameLabel)
-        infoStackView.addArrangedSubview(openingCrawlLabel)
-        infoStackView.addArrangedSubview(detailsButton)
     }
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            contentStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            contentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            contentStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 2*inset),
+            contentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -inset),
             contentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             contentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
         ])
-        
-        openingCrawlLabel.setContentCompressionResistancePriority(.required, for: .vertical)
-        posterImageView.setContentHuggingPriority(.required, for: .horizontal)
-        infoStackView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
     }
     
     func configureWith(model: MovieViewModel) {
         guard let image = UIImage(named: "episode\(model.episodeNumber)") else { return }
-        posterImageView.image = resizeImage(image: image, targetWidth: (contentView.frame.width + 2*inset)/3)
+        posterImageView.image = image
         episodeLabel.text = "Episode \(model.episodeNumber)"
         nameLabel.text = model.title
-        openingCrawlLabel.text = model.annotation
-    }
-    
-    private func resizeImage(image: UIImage, targetWidth: CGFloat) -> UIImage {
-        let size = image.size
-        let ratio = size.height/size.width
-        let newSize = CGSize(width: CGFloat(roundf(Float(targetWidth))), height: targetWidth*ratio)
-        let rect = CGRect(x: .zero, y: .zero, width: newSize.width, height: newSize.height)
-
-        UIGraphicsBeginImageContext(newSize)
-        image.draw(in: rect)
-        guard let newImage = UIGraphicsGetImageFromCurrentImageContext() else { return UIImage() }
-        UIGraphicsEndImageContext()
-
-        return newImage
     }
     
 }

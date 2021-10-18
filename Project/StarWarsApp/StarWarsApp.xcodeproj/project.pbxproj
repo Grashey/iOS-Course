@@ -20,6 +20,8 @@
 		4A4E4745271217C20047EE86 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E4744271217C20047EE86 /* TabBarCoordinator.swift */; };
 		4A4E4747271218BB0047EE86 /* MovieCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E4746271218BB0047EE86 /* MovieCoordinator.swift */; };
 		4A4E47E9271CC81F0047EE86 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E47E8271CC81F0047EE86 /* MovieTableViewCell.swift */; };
+		4A4E47EF271D33C10047EE86 /* Starjedi.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A4E47EA271D282A0047EE86 /* Starjedi.ttf */; };
+		4A4E47F0271D33C40047EE86 /* Starjhol.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A4E47EB271D283A0047EE86 /* Starjhol.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		4A4E4744271217C20047EE86 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		4A4E4746271218BB0047EE86 /* MovieCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCoordinator.swift; sourceTree = "<group>"; };
 		4A4E47E8271CC81F0047EE86 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		4A4E47EA271D282A0047EE86 /* Starjedi.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Starjedi.ttf; sourceTree = "<group>"; };
+		4A4E47EB271D283A0047EE86 /* Starjhol.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Starjhol.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,9 +78,9 @@
 				4A25C6572711CF9400EC8398 /* SceneDelegate.swift */,
 				4A4E474827121AAD0047EE86 /* Core */,
 				4A25C66E2711DE4700EC8398 /* Flows */,
-				4A25C65E2711CF9700EC8398 /* Assets.xcassets */,
 				4A25C6602711CF9700EC8398 /* LaunchScreen.storyboard */,
 				4A25C6632711CF9700EC8398 /* Info.plist */,
+				4A4E47ED271D28630047EE86 /* Resources */,
 			);
 			path = StarWarsApp;
 			sourceTree = "<group>";
@@ -152,6 +156,24 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		4A4E47EC271D284A0047EE86 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4A4E47EA271D282A0047EE86 /* Starjedi.ttf */,
+				4A4E47EB271D283A0047EE86 /* Starjhol.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		4A4E47ED271D28630047EE86 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4A25C65E2711CF9700EC8398 /* Assets.xcassets */,
+				4A4E47EC271D284A0047EE86 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -211,7 +233,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A25C6622711CF9700EC8398 /* LaunchScreen.storyboard in Resources */,
+				4A4E47EF271D33C10047EE86 /* Starjedi.ttf in Resources */,
 				4A25C65F2711CF9700EC8398 /* Assets.xcassets in Resources */,
+				4A4E47F0271D33C40047EE86 /* Starjhol.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
