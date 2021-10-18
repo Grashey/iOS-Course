@@ -13,8 +13,12 @@ class MovieViewController: UITableViewController {
     
     override func viewDidLoad() {
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: MovieTableViewCell.description())
         presenter?.getData()
+        title = "Movies"
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = UITableView.automaticDimension
     }
     
     func reload() {
@@ -22,26 +26,19 @@ class MovieViewController: UITableViewController {
     }
     
     //MARK: TableView DataSource
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter?.viewModel.count ?? .zero
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        if let model = presenter?.viewModel[indexPath.section] {
-            cell.textLabel?.text = model.director
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.description(), for: indexPath) as? MovieTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.isUserInteractionEnabled = false
+        if let model = presenter?.viewModel[indexPath.row] {
+            cell.configureWith(model: model)
         }
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if let model = presenter?.viewModel[section] {
-            return model.title
-        }
-        return String()
-    }
 }
