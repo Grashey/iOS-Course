@@ -14,4 +14,9 @@ struct MovieViewModel {
     let director: String
     let producer: String
     let releaseDate: String
+    let characters: [String]? = nil
+    let planets: [String]? = nil
+    let species: [String]? = nil
+    let starships: [String]? = nil
+    let vehicles: [String]? = nil
 }
