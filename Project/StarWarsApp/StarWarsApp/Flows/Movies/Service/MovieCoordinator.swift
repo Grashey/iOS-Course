@@ -10,16 +10,21 @@ import UIKit
 class MovieCoordinator {
 
     var navigationController: UINavigationController
+    var vcAssembler: ViewControllerAssemblerProtocol
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+        vcAssembler = MovieViewControllerAssembler()
     }
 
     func start() {
-        let controller = MovieViewController()
-        let presenter = MoviePresenter()
-        controller.presenter = presenter
-        presenter.viewController = controller
+        guard let controller = vcAssembler.create() as? MovieViewController else { return }
         navigationController.viewControllers = [controller]
+        
+        controller.onDetails = { model in
+            let detailsVC = MovieDetailViewController()
+            detailsVC.model = model
+            self.navigationController.pushViewController(detailsVC, animated: true)
+        }
     }
 }

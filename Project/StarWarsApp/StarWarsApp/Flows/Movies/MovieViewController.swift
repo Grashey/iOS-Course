@@ -11,6 +11,8 @@ class MovieViewController: UITableViewController {
     
     var presenter: MoviePresenterProtocol?
     
+    var onDetails: ((MovieViewModel) -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,6 +47,9 @@ class MovieViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if let model = presenter?.viewModel[indexPath.row] {
+            onDetails?(model)
+        }
     }
     
 }
