@@ -26,15 +26,19 @@
 		4A4E47F5271D56A30047EE86 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E47F4271D56A30047EE86 /* MovieDetailView.swift */; };
 		4A4E47F7272045860047EE86 /* ViewControllerAssemblerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E47F6272045860047EE86 /* ViewControllerAssemblerProtocol.swift */; };
 		4A4E47F9272045F60047EE86 /* MovieViewControllerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E47F8272045F60047EE86 /* MovieViewControllerAssembler.swift */; };
-		4A4E47FB27204CD40047EE86 /* EntittyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E47FA27204CD40047EE86 /* EntittyViewController.swift */; };
+		4A4E47FB27204CD40047EE86 /* EntityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E47FA27204CD40047EE86 /* EntityViewController.swift */; };
 		4A4E47FE2720513C0047EE86 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E47FD2720513C0047EE86 /* Entity.swift */; };
 		4A4E4800272052ED0047EE86 /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E47FF272052EC0047EE86 /* CharacterViewModel.swift */; };
 		4A4E4802272054AC0047EE86 /* PlanetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E4801272054AC0047EE86 /* PlanetViewModel.swift */; };
 		4A4E48042720557D0047EE86 /* StarshipViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E48032720557D0047EE86 /* StarshipViewModel.swift */; };
 		4A4E4806272056B20047EE86 /* VehicleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E4805272056B20047EE86 /* VehicleViewModel.swift */; };
 		4A4E4808272057000047EE86 /* SpeciesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E4807272057000047EE86 /* SpeciesViewModel.swift */; };
-		4A4E480B2720594B0047EE86 /* ShortViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E480A2720594A0047EE86 /* ShortViewModel.swift */; };
+		4A4E480B2720594B0047EE86 /* EntityShortViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E480A2720594A0047EE86 /* EntityShortViewModel.swift */; };
 		4A4E480D27205B0C0047EE86 /* EntityShortViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E480C27205B0C0047EE86 /* EntityShortViewModelProtocol.swift */; };
+		4A4E480F272063580047EE86 /* EntityPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E480E272063580047EE86 /* EntityPresenter.swift */; };
+		4A4E4811272063AF0047EE86 /* EntityViewControllerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E4810272063AF0047EE86 /* EntityViewControllerAssembler.swift */; };
+		4A4E48132720644B0047EE86 /* EntityPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E48122720644B0047EE86 /* EntityPresenterProtocol.swift */; };
+		4A4E481627207FA10047EE86 /* EntityCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E481527207FA10047EE86 /* EntityCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,15 +63,19 @@
 		4A4E47F4271D56A30047EE86 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 		4A4E47F6272045860047EE86 /* ViewControllerAssemblerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAssemblerProtocol.swift; sourceTree = "<group>"; };
 		4A4E47F8272045F60047EE86 /* MovieViewControllerAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewControllerAssembler.swift; sourceTree = "<group>"; };
-		4A4E47FA27204CD40047EE86 /* EntittyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntittyViewController.swift; sourceTree = "<group>"; };
+		4A4E47FA27204CD40047EE86 /* EntityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityViewController.swift; sourceTree = "<group>"; };
 		4A4E47FD2720513C0047EE86 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		4A4E47FF272052EC0047EE86 /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
 		4A4E4801272054AC0047EE86 /* PlanetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetViewModel.swift; sourceTree = "<group>"; };
 		4A4E48032720557D0047EE86 /* StarshipViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipViewModel.swift; sourceTree = "<group>"; };
 		4A4E4805272056B20047EE86 /* VehicleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleViewModel.swift; sourceTree = "<group>"; };
 		4A4E4807272057000047EE86 /* SpeciesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesViewModel.swift; sourceTree = "<group>"; };
-		4A4E480A2720594A0047EE86 /* ShortViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortViewModel.swift; sourceTree = "<group>"; };
+		4A4E480A2720594A0047EE86 /* EntityShortViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityShortViewModel.swift; sourceTree = "<group>"; };
 		4A4E480C27205B0C0047EE86 /* EntityShortViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityShortViewModelProtocol.swift; sourceTree = "<group>"; };
+		4A4E480E272063580047EE86 /* EntityPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityPresenter.swift; sourceTree = "<group>"; };
+		4A4E4810272063AF0047EE86 /* EntityViewControllerAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityViewControllerAssembler.swift; sourceTree = "<group>"; };
+		4A4E48122720644B0047EE86 /* EntityPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityPresenterProtocol.swift; sourceTree = "<group>"; };
+		4A4E481527207FA10047EE86 /* EntityCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,9 +224,12 @@
 		4A4E47FC27204CEE0047EE86 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				4A4E47FA27204CD40047EE86 /* EntittyViewController.swift */,
-				4A4E47FD2720513C0047EE86 /* Entity.swift */,
+				4A4E481427207F210047EE86 /* Service */,
 				4A4E4809272057CD0047EE86 /* ViewModel */,
+				4A4E48122720644B0047EE86 /* EntityPresenterProtocol.swift */,
+				4A4E47FA27204CD40047EE86 /* EntityViewController.swift */,
+				4A4E480E272063580047EE86 /* EntityPresenter.swift */,
+				4A4E47FD2720513C0047EE86 /* Entity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -227,7 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				4A4E480C27205B0C0047EE86 /* EntityShortViewModelProtocol.swift */,
-				4A4E480A2720594A0047EE86 /* ShortViewModel.swift */,
+				4A4E480A2720594A0047EE86 /* EntityShortViewModel.swift */,
 				4A4E47FF272052EC0047EE86 /* CharacterViewModel.swift */,
 				4A4E4801272054AC0047EE86 /* PlanetViewModel.swift */,
 				4A4E48032720557D0047EE86 /* StarshipViewModel.swift */,
@@ -235,6 +246,15 @@
 				4A4E4807272057000047EE86 /* SpeciesViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4A4E481427207F210047EE86 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4A4E4810272063AF0047EE86 /* EntityViewControllerAssembler.swift */,
+				4A4E481527207FA10047EE86 /* EntityCoordinator.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,23 +329,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A4E48132720644B0047EE86 /* EntityPresenterProtocol.swift in Sources */,
 				4A4E47432712170D0047EE86 /* RootCoordinator.swift in Sources */,
 				4A4E4747271218BB0047EE86 /* MovieCoordinator.swift in Sources */,
 				4A25C6702711DE7600EC8398 /* MovieViewModel.swift in Sources */,
 				4A25C66A2711DC4400EC8398 /* MovieViewController.swift in Sources */,
 				4A4E47F2271D56140047EE86 /* MovieDetailViewController.swift in Sources */,
 				4A4E47F9272045F60047EE86 /* MovieViewControllerAssembler.swift in Sources */,
-				4A4E480B2720594B0047EE86 /* ShortViewModel.swift in Sources */,
-				4A4E47FB27204CD40047EE86 /* EntittyViewController.swift in Sources */,
+				4A4E480B2720594B0047EE86 /* EntityShortViewModel.swift in Sources */,
+				4A4E47FB27204CD40047EE86 /* EntityViewController.swift in Sources */,
 				4A4E47FE2720513C0047EE86 /* Entity.swift in Sources */,
 				4A4E48042720557D0047EE86 /* StarshipViewModel.swift in Sources */,
 				4A25C6722711E05C00EC8398 /* MoviePresenterProtocol.swift in Sources */,
+				4A4E480F272063580047EE86 /* EntityPresenter.swift in Sources */,
 				4A4E4802272054AC0047EE86 /* PlanetViewModel.swift in Sources */,
 				4A25C6562711CF9400EC8398 /* AppDelegate.swift in Sources */,
 				4A4E4800272052ED0047EE86 /* CharacterViewModel.swift in Sources */,
 				4A4E47F5271D56A30047EE86 /* MovieDetailView.swift in Sources */,
 				4A4E4745271217C20047EE86 /* TabBarCoordinator.swift in Sources */,
 				4A4E4740271215730047EE86 /* TabBarController.swift in Sources */,
+				4A4E4811272063AF0047EE86 /* EntityViewControllerAssembler.swift in Sources */,
 				4A4E4806272056B20047EE86 /* VehicleViewModel.swift in Sources */,
 				4A25C66C2711DCDC00EC8398 /* MoviePresenter.swift in Sources */,
 				4A4E47E9271CC81F0047EE86 /* MovieTableViewCell.swift in Sources */,
@@ -333,6 +356,7 @@
 				4A25C6582711CF9400EC8398 /* SceneDelegate.swift in Sources */,
 				4A4E480D27205B0C0047EE86 /* EntityShortViewModelProtocol.swift in Sources */,
 				4A4E47F7272045860047EE86 /* ViewControllerAssemblerProtocol.swift in Sources */,
+				4A4E481627207FA10047EE86 /* EntityCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

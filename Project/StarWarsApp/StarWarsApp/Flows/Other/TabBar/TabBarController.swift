@@ -10,14 +10,15 @@ import UIKit
 class TabBarController: UITabBarController {
 
     let movieNavigation = UINavigationController()
-    let otherNavigation = UINavigationController()
+    let entityNavigation = UINavigationController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
       
         movieNavigation.tabBarItem = UITabBarItem(title: "Movies", image: nil, selectedImage: nil)
-        otherNavigation.tabBarItem = UITabBarItem(title: "Other", image: nil, selectedImage: nil)
-        viewControllers = [movieNavigation, otherNavigation]
+        entityNavigation.tabBarItem = UITabBarItem(title: "Universe", image: nil, selectedImage: nil)
+        
+        viewControllers = [movieNavigation, entityNavigation]
     }
 
 }
