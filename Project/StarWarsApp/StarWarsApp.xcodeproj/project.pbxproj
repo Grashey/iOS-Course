@@ -39,6 +39,8 @@
 		4A4E4811272063AF0047EE86 /* EntityViewControllerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E4810272063AF0047EE86 /* EntityViewControllerAssembler.swift */; };
 		4A4E48132720644B0047EE86 /* EntityPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E48122720644B0047EE86 /* EntityPresenterProtocol.swift */; };
 		4A4E481627207FA10047EE86 /* EntityCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E481527207FA10047EE86 /* EntityCoordinator.swift */; };
+		4A4E481A2722ED2B0047EE86 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E48192722ED2B0047EE86 /* MenuViewController.swift */; };
+		4A4E481C2722F1F90047EE86 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E481B2722F1F90047EE86 /* MenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +78,8 @@
 		4A4E4810272063AF0047EE86 /* EntityViewControllerAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityViewControllerAssembler.swift; sourceTree = "<group>"; };
 		4A4E48122720644B0047EE86 /* EntityPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityPresenterProtocol.swift; sourceTree = "<group>"; };
 		4A4E481527207FA10047EE86 /* EntityCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityCoordinator.swift; sourceTree = "<group>"; };
+		4A4E48192722ED2B0047EE86 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		4A4E481B2722F1F90047EE86 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,9 +139,9 @@
 			isa = PBXGroup;
 			children = (
 				4A25C66D2711DE1400EC8398 /* Movies */,
-				4A4E47412712157A0047EE86 /* Other */,
 				4A4E47F3271D561A0047EE86 /* MovieDetail */,
 				4A4E47FC27204CEE0047EE86 /* Entity */,
+				4A4E47412712157A0047EE86 /* Other */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -230,6 +234,8 @@
 				4A4E47FA27204CD40047EE86 /* EntityViewController.swift */,
 				4A4E480E272063580047EE86 /* EntityPresenter.swift */,
 				4A4E47FD2720513C0047EE86 /* Entity.swift */,
+				4A4E48192722ED2B0047EE86 /* MenuViewController.swift */,
+				4A4E481B2722F1F90047EE86 /* MenuView.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -329,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A4E481A2722ED2B0047EE86 /* MenuViewController.swift in Sources */,
 				4A4E48132720644B0047EE86 /* EntityPresenterProtocol.swift in Sources */,
 				4A4E47432712170D0047EE86 /* RootCoordinator.swift in Sources */,
 				4A4E4747271218BB0047EE86 /* MovieCoordinator.swift in Sources */,
@@ -353,6 +360,7 @@
 				4A25C66C2711DCDC00EC8398 /* MoviePresenter.swift in Sources */,
 				4A4E47E9271CC81F0047EE86 /* MovieTableViewCell.swift in Sources */,
 				4A4E4808272057000047EE86 /* SpeciesViewModel.swift in Sources */,
+				4A4E481C2722F1F90047EE86 /* MenuView.swift in Sources */,
 				4A25C6582711CF9400EC8398 /* SceneDelegate.swift in Sources */,
 				4A4E480D27205B0C0047EE86 /* EntityShortViewModelProtocol.swift in Sources */,
 				4A4E47F7272045860047EE86 /* ViewControllerAssemblerProtocol.swift in Sources */,
