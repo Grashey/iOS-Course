@@ -11,11 +11,11 @@ class EntityPresenter: EntityPresenterProtocol {
     
     weak var viewController: EntityViewController?
     
-    var entity: Entity?
+    var entity = Entity.characters
     
-    init(entity: Entity) {
-        self.entity = entity
-    }
+//    init(entity: Entity) {
+//        self.entity = entity
+//    }
 
     var viewModel: [EntityShortViewModel] = []
     
@@ -38,8 +38,16 @@ class EntityPresenter: EntityPresenterProtocol {
         case .vehicles:
             let request = vehicles.map { VehicleViewModel(name: $0.name, model: "", vehicleClass: "", manufacturer: "", costInCredits: "", length: "", crew: "", passengers: "", maxAtmospheringSpeed: "", cargoCapacity: "", consumables: "")}
             viewModel = request.map { EntityShortViewModel(entityViewModel: $0) }
-        default:
-            print("Oops")
+        }
+    }
+    
+    func getTitleName() -> String {
+        switch entity {
+        case .characters: return "Characters"
+        case .planets: return "Planets"
+        case .species: return "Species"
+        case .starships: return "Starships"
+        case .vehicles: return "Vehicles"
         }
     }
     

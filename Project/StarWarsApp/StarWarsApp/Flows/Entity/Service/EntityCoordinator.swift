@@ -12,19 +12,18 @@ class EntityCoordinator {
     var navigationController: UINavigationController
     var vcAssembler: ViewControllerAssemblerProtocol
 
-    init(navigationController: UINavigationController, entity: Entity) {
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        vcAssembler = EntityViewControllerAssembler(entity: entity)
+        vcAssembler = EntityViewControllerAssembler()
     }
 
     func start() {
         guard let controller = vcAssembler.create() as? EntityViewController else { return }
         navigationController.viewControllers = [controller]
         
-        controller.onDetails = { entity in
-//            let detailsVC = MovieDetailViewController()
-//            detailsVC.model = model
-//            self.navigationController.pushViewController(detailsVC, animated: true)
+        controller.onSwitchEntity = {
+            controller.presenter?.entity = $0
+            controller.loadNewData()
         }
     }
 }

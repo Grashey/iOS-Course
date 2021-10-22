@@ -10,6 +10,8 @@ import Foundation
 protocol EntityPresenterProtocol {
     
     var viewModel: [EntityShortViewModel] { get set }
+    var entity: Entity { get set }
 
     func getData()
+    func getTitleName() -> String
 }
