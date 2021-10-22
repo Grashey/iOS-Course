@@ -17,7 +17,7 @@ class EntityViewController: UIViewController {
         addMenuButton()
         loadNewData()
        
-        guard let image = UIImage(named: "backgroundLayer") else { return }
+        guard let image = UIImage(named: Constants.ImageName.backgroundImage) else { return }
         self.view.addSubview(UIImageView(image: image))
     }
     
@@ -27,7 +27,7 @@ class EntityViewController: UIViewController {
     }
     
     private func addMenuButton() {
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "iconMenu"),
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: Constants.ImageName.menuIcon),
                                                                 style: .plain,
                                                                 target: self,
                                                                 action: #selector(showMenu))

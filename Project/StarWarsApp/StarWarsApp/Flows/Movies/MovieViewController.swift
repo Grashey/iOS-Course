@@ -18,9 +18,9 @@ class MovieViewController: UITableViewController {
         
         tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: MovieTableViewCell.description())
         presenter?.getData()
-        title = "Movies"
+        self.navigationItem.title = Constants.TabBarTitle.movies
 
-        tableView.backgroundView = UIImageView(image: UIImage(named: "backgroundLayer")!)
+        tableView.backgroundView = UIImageView(image: UIImage(named: Constants.ImageName.backgroundImage)!)
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = UITableView.automaticDimension

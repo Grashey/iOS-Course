@@ -23,14 +23,14 @@ class MovieTableViewCell: UITableViewCell {
     
     lazy var episodeLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Star Jedi", size: 12)
+        label.font = UIFont(name: Constants.Fonts.font, size: 12)
         label.textColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
         return label
     }()
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Star Jedi", size: 18)
+        label.font = UIFont(name: Constants.Fonts.font, size: 18)
         label.textColor = .white
         return label
     }()

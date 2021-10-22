@@ -9,6 +9,8 @@ import Foundation
 
 struct EntityShortViewModel {
     
+    let undefined = "undefined"
+    
     let entityViewModel: EntityShortViewModelProtocol?
     
     init(entityViewModel: EntityShortViewModelProtocol) {
@@ -16,6 +18,6 @@ struct EntityShortViewModel {
     }
     
     var name: String {
-        return entityViewModel?.name ?? "undefined"
+        return entityViewModel?.name ?? undefined
     }
 }

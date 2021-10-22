@@ -10,6 +10,12 @@ import UIKit
 class MovieDetailView: UIView {
 
     let inset: CGFloat = 10
+    
+    let smallFont = UIFont(name: Constants.Fonts.font, size: 12)
+    let mediumFont = UIFont(name: Constants.Fonts.font, size: 16)
+    let bigFont = UIFont(name: Constants.Fonts.font, size: 18)
+    
+    let labelTextColor: UIColor = .white
 
     lazy var posterImageView: UIImageView = {
         let view = UIImageView()
@@ -23,79 +29,79 @@ class MovieDetailView: UIView {
     
     lazy var episodeLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Star Jedi", size: 12)
+        label.font = smallFont
         label.textColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
         return label
     }()
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Star Jedi", size: 18)
-        label.textColor = .white
+        label.font = bigFont
+        label.textColor = labelTextColor
         return label
     }()
     
     lazy var openingCrawlLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Star Jedi", size: 16)
-        label.textColor = .white
+        label.font = mediumFont
+        label.textColor = labelTextColor
         label.numberOfLines = 0
         return label
     }()
     
     lazy var directorLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Star Jedi", size: 12)
-        label.textColor = .white
+        label.font = smallFont
+        label.textColor = labelTextColor
         return label
     }()
     
     lazy var producerLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Star Jedi", size: 12)
-        label.textColor = .white
+        label.font = smallFont
+        label.textColor = labelTextColor
         return label
     }()
     
     lazy var releaseDateLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Star Jedi", size: 12)
-        label.textColor = .white
+        label.font = smallFont
+        label.textColor = labelTextColor
         return label
     }()
     
     lazy var charactersLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Star Jedi", size: 12)
-        label.textColor = .white
+        label.font = smallFont
+        label.textColor = labelTextColor
         return label
     }()
     
     lazy var planetsLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Star Jedi", size: 12)
-        label.textColor = .white
+        label.font = smallFont
+        label.textColor = labelTextColor
         return label
     }()
     
     lazy var speciesLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Star Jedi", size: 12)
-        label.textColor = .white
+        label.font = smallFont
+        label.textColor = labelTextColor
         return label
     }()
     
     lazy var starshipsLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Star Jedi", size: 12)
-        label.textColor = .white
+        label.font = smallFont
+        label.textColor = labelTextColor
         return label
     }()
     
     lazy var vehiclesLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Star Jedi", size: 12)
-        label.textColor = .white
+        label.font = smallFont
+        label.textColor = labelTextColor
         return label
     }()
     

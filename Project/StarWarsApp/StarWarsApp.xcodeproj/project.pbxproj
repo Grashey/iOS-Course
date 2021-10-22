@@ -41,6 +41,7 @@
 		4A4E481627207FA10047EE86 /* EntityCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E481527207FA10047EE86 /* EntityCoordinator.swift */; };
 		4A4E481A2722ED2B0047EE86 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E48192722ED2B0047EE86 /* MenuViewController.swift */; };
 		4A4E481C2722F1F90047EE86 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E481B2722F1F90047EE86 /* MenuView.swift */; };
+		4A4E4823272334860047EE86 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E4822272334860047EE86 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		4A4E481527207FA10047EE86 /* EntityCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityCoordinator.swift; sourceTree = "<group>"; };
 		4A4E48192722ED2B0047EE86 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4A4E481B2722F1F90047EE86 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		4A4E4822272334860047EE86 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +132,6 @@
 				4A4E474A27121ACC0047EE86 /* View */,
 				4A25C6692711DC4400EC8398 /* MovieViewController.swift */,
 				4A25C66B2711DCDC00EC8398 /* MoviePresenter.swift */,
-				4A25C6712711E05C00EC8398 /* MoviePresenterProtocol.swift */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -138,6 +139,7 @@
 		4A25C66E2711DE4700EC8398 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				4A4E4822272334860047EE86 /* Constants.swift */,
 				4A25C66D2711DE1400EC8398 /* Movies */,
 				4A4E47F3271D561A0047EE86 /* MovieDetail */,
 				4A4E47FC27204CEE0047EE86 /* Entity */,
@@ -220,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				4A4E47F1271D56140047EE86 /* MovieDetailViewController.swift */,
+				4A25C6712711E05C00EC8398 /* MoviePresenterProtocol.swift */,
 				4A4E47F4271D56A30047EE86 /* MovieDetailView.swift */,
 			);
 			path = MovieDetail;
@@ -230,12 +233,11 @@
 			children = (
 				4A4E481427207F210047EE86 /* Service */,
 				4A4E4809272057CD0047EE86 /* ViewModel */,
+				4A4E481D27232FD40047EE86 /* Menu */,
 				4A4E48122720644B0047EE86 /* EntityPresenterProtocol.swift */,
 				4A4E47FA27204CD40047EE86 /* EntityViewController.swift */,
 				4A4E480E272063580047EE86 /* EntityPresenter.swift */,
 				4A4E47FD2720513C0047EE86 /* Entity.swift */,
-				4A4E48192722ED2B0047EE86 /* MenuViewController.swift */,
-				4A4E481B2722F1F90047EE86 /* MenuView.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -261,6 +263,15 @@
 				4A4E481527207FA10047EE86 /* EntityCoordinator.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		4A4E481D27232FD40047EE86 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				4A4E48192722ED2B0047EE86 /* MenuViewController.swift */,
+				4A4E481B2722F1F90047EE86 /* MenuView.swift */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,6 +360,7 @@
 				4A4E48042720557D0047EE86 /* StarshipViewModel.swift in Sources */,
 				4A25C6722711E05C00EC8398 /* MoviePresenterProtocol.swift in Sources */,
 				4A4E480F272063580047EE86 /* EntityPresenter.swift in Sources */,
+				4A4E4823272334860047EE86 /* Constants.swift in Sources */,
 				4A4E4802272054AC0047EE86 /* PlanetViewModel.swift in Sources */,
 				4A25C6562711CF9400EC8398 /* AppDelegate.swift in Sources */,
 				4A4E4800272052ED0047EE86 /* CharacterViewModel.swift in Sources */,

@@ -12,11 +12,6 @@ class EntityPresenter: EntityPresenterProtocol {
     weak var viewController: EntityViewController?
     
     var entity = Entity.characters
-    
-//    init(entity: Entity) {
-//        self.entity = entity
-//    }
-
     var viewModel: [EntityShortViewModel] = []
     
     func getData() {
@@ -43,11 +38,11 @@ class EntityPresenter: EntityPresenterProtocol {
     
     func getTitleName() -> String {
         switch entity {
-        case .characters: return "Characters"
-        case .planets: return "Planets"
-        case .species: return "Species"
-        case .starships: return "Starships"
-        case .vehicles: return "Vehicles"
+        case .characters: return Constants.Entity.characters
+        case .planets: return Constants.Entity.planets
+        case .species: return Constants.Entity.species
+        case .starships: return Constants.Entity.starships
+        case .vehicles: return Constants.Entity.vehicles
         }
     }
     
@@ -60,11 +55,11 @@ class EntityPresenter: EntityPresenterProtocol {
     
     func makeData() {
         for index in 1...10 {
-            self.characters.append(Character(name: "Character \(index)"))
-            self.planets.append(Planet(name: "Planet \(index)"))
-            self.starships.append(Starship(name: "Starship \(index)"))
-            self.vehicles.append(Vehicle(name: "Vehicle \(index)"))
-            self.species.append(Species(name: "Species \(index)"))
+            self.characters.append(Character(name: "\(Constants.Entity.characters) \(index)"))
+            self.planets.append(Planet(name: "\(Constants.Entity.planets) \(index)"))
+            self.starships.append(Starship(name: "\(Constants.Entity.starships) \(index)"))
+            self.vehicles.append(Vehicle(name: "\(Constants.Entity.vehicles) \(index)"))
+            self.species.append(Species(name: "\(Constants.Entity.species) \(index)"))
         }
     }
     
