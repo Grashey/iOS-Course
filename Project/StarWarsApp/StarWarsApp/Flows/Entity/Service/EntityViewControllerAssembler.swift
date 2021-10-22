@@ -9,15 +9,9 @@ import UIKit
 
 class EntityViewControllerAssembler: ViewControllerAssemblerProtocol {
     
-    var entity: Entity
-    
-    init(entity: Entity) {
-        self.entity = entity
-    }
-    
     func create() -> UIViewController {
         let controller = EntityViewController()
-        let presenter = EntityPresenter(entity: entity)
+        let presenter = EntityPresenter()
         
         controller.presenter = presenter
         presenter.viewController = controller

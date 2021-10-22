@@ -12,7 +12,7 @@ class TabBarCoordinator {
     var window: UIWindow?
     let controller = TabBarController()
     lazy var movieCoordinator = MovieCoordinator(navigationController: controller.movieNavigation)
-    lazy var entityCoordinator = EntityCoordinator(navigationController: controller.entityNavigation, entity: .characters)
+    lazy var entityCoordinator = EntityCoordinator(navigationController: controller.entityNavigation)
 
     init(window: UIWindow?) {
         self.window = window
