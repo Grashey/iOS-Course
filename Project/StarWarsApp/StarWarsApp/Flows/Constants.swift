@@ -10,7 +10,7 @@ import Foundation
 struct Constants {
     
     struct Fonts {
-        static let font = "Star Jedi"
+        static let font = "Star Jedi Outline"
     }
     
     struct Entity {

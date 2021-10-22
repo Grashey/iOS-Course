@@ -20,8 +20,6 @@
 		4A4E4745271217C20047EE86 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E4744271217C20047EE86 /* TabBarCoordinator.swift */; };
 		4A4E4747271218BB0047EE86 /* MovieCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E4746271218BB0047EE86 /* MovieCoordinator.swift */; };
 		4A4E47E9271CC81F0047EE86 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E47E8271CC81F0047EE86 /* MovieTableViewCell.swift */; };
-		4A4E47EF271D33C10047EE86 /* Starjedi.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A4E47EA271D282A0047EE86 /* Starjedi.ttf */; };
-		4A4E47F0271D33C40047EE86 /* Starjhol.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A4E47EB271D283A0047EE86 /* Starjhol.ttf */; };
 		4A4E47F2271D56140047EE86 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E47F1271D56140047EE86 /* MovieDetailViewController.swift */; };
 		4A4E47F5271D56A30047EE86 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E47F4271D56A30047EE86 /* MovieDetailView.swift */; };
 		4A4E47F7272045860047EE86 /* ViewControllerAssemblerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E47F6272045860047EE86 /* ViewControllerAssemblerProtocol.swift */; };
@@ -42,6 +40,7 @@
 		4A4E481A2722ED2B0047EE86 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E48192722ED2B0047EE86 /* MenuViewController.swift */; };
 		4A4E481C2722F1F90047EE86 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E481B2722F1F90047EE86 /* MenuView.swift */; };
 		4A4E4823272334860047EE86 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E4822272334860047EE86 /* Constants.swift */; };
+		4A4E482527233EA40047EE86 /* Starjout.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A4E482427233EA40047EE86 /* Starjout.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,8 +59,6 @@
 		4A4E4744271217C20047EE86 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		4A4E4746271218BB0047EE86 /* MovieCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCoordinator.swift; sourceTree = "<group>"; };
 		4A4E47E8271CC81F0047EE86 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
-		4A4E47EA271D282A0047EE86 /* Starjedi.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Starjedi.ttf; sourceTree = "<group>"; };
-		4A4E47EB271D283A0047EE86 /* Starjhol.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Starjhol.ttf; sourceTree = "<group>"; };
 		4A4E47F1271D56140047EE86 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		4A4E47F4271D56A30047EE86 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 		4A4E47F6272045860047EE86 /* ViewControllerAssemblerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAssemblerProtocol.swift; sourceTree = "<group>"; };
@@ -82,6 +79,7 @@
 		4A4E48192722ED2B0047EE86 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4A4E481B2722F1F90047EE86 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		4A4E4822272334860047EE86 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4A4E482427233EA40047EE86 /* Starjout.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Starjout.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,8 +201,7 @@
 		4A4E47EC271D284A0047EE86 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				4A4E47EA271D282A0047EE86 /* Starjedi.ttf */,
-				4A4E47EB271D283A0047EE86 /* Starjhol.ttf */,
+				4A4E482427233EA40047EE86 /* Starjout.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -332,10 +329,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A4E482527233EA40047EE86 /* Starjout.ttf in Resources */,
 				4A25C6622711CF9700EC8398 /* LaunchScreen.storyboard in Resources */,
-				4A4E47EF271D33C10047EE86 /* Starjedi.ttf in Resources */,
 				4A25C65F2711CF9700EC8398 /* Assets.xcassets in Resources */,
-				4A4E47F0271D33C40047EE86 /* Starjhol.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
