@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct Constants {
+enum Constants {
     
-    struct Fonts {
+    enum Fonts {
         static let font = "Star Jedi Outline"
     }
     
-    struct Entity {
+    enum Entity {
         static let characters = "Characters"
         static let planets = "Planets"
         static let species = "Species"
@@ -21,12 +21,12 @@ struct Constants {
         static let vehicles = "Vehicles"
     }
     
-    struct ImageName {
+    enum ImageName {
         static let menuIcon = "iconMenu"
         static let backgroundImage = "backgroundLayer"
     }
     
-    struct TabBarTitle {
+    enum TabBarTitle {
         static let movies = "Movies"
         static let universe = "Universe"
     }
