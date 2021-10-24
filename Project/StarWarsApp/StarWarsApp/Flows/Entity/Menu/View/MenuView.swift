@@ -58,6 +58,7 @@ class MenuView: UIView {
         stackview.axis = .vertical
         stackview.distribution = .fillProportionally
         stackview.alignment = .leading
+        stackview.spacing = inset
         stackview.translatesAutoresizingMaskIntoConstraints = false
         return stackview
     }()

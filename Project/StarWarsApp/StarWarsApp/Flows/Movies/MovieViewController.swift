@@ -33,14 +33,14 @@ class MovieViewController: UITableViewController {
     
     //MARK: TableView DataSource
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter?.viewModel.count ?? .zero
+        return presenter?.viewModel?.count ?? .zero
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.description(), for: indexPath) as? MovieTableViewCell else {
             return UITableViewCell()
         }
-        if let model = presenter?.viewModel[indexPath.row] {
+        if let model = presenter?.viewModel?[indexPath.row] {
             cell.configureWith(model: model)
         }
         cell.selectionStyle = .none
@@ -48,7 +48,7 @@ class MovieViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let model = presenter?.viewModel[indexPath.row] {
+        if let model = presenter?.viewModel?[indexPath.row] {
             onDetails?(model)
         }
     }

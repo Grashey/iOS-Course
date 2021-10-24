@@ -21,7 +21,6 @@ class EntityViewController: UIViewController {
         if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         }
-        
         return collectionView
     }()
     
@@ -30,6 +29,7 @@ class EntityViewController: UIViewController {
     }
 
     override func viewDidLoad() {
+        
         addMenuButton()
         loadNewData()
         
@@ -42,6 +42,7 @@ class EntityViewController: UIViewController {
     func loadNewData() {
         self.navigationItem.title = presenter?.getTitleName()
         presenter?.getData()
+        collectionView.scrollToItem(at: IndexPath(item: .zero, section: .zero), at: .top, animated: false)
         collectionView.reloadData()
     }
     
@@ -90,7 +91,8 @@ class EntityViewController: UIViewController {
         let controller = MenuViewController()
         addChild(controller: controller, containerView: menuContainerView)
         controller.completionHandler = { [weak self] in
-            self?.onSwitchEntity?($0)
+            guard let self = self, self.presenter?.entity != $0 else { return }
+            self.onSwitchEntity?($0)
         }
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissController))

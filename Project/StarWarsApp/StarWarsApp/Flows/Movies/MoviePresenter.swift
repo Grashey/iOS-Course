@@ -10,7 +10,7 @@ import Foundation
 class MoviePresenter: MoviePresenterProtocol {
     
     weak var viewController: MovieViewController?
-    var viewModel: [MovieViewModel] = []
+    var viewModel: [MovieViewModel]?
     var movies: [Movie] = []
     
     //temporary data
