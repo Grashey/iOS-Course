@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct PlanetViewModel: EntityShortViewModelProtocol {
-    var name: String
+struct PlanetViewModel {
     
+    let name: String
     let diameter: String
     let rotationPeriod: String
     let orbitalPeriod: String

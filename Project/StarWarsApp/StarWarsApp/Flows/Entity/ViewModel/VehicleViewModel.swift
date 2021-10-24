@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct VehicleViewModel: EntityShortViewModelProtocol {
-    var name: String
+struct VehicleViewModel {
     
+    let name: String
     let model: String
     let vehicleClass: String
     let manufacturer: String

@@ -6,18 +6,10 @@
 //
 
 import Foundation
+import UIKit
 
 struct EntityShortViewModel {
     
-    let undefined = "undefined"
-    
-    let entityViewModel: EntityShortViewModelProtocol?
-    
-    init(entityViewModel: EntityShortViewModelProtocol) {
-        self.entityViewModel = entityViewModel
-    }
-    
-    var name: String {
-        return entityViewModel?.name ?? undefined
-    }
+    var name: String
+    var image: UIImage? = nil
 }

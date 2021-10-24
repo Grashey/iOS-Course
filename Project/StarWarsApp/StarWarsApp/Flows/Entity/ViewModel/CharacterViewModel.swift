@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct CharacterViewModel: EntityShortViewModelProtocol {
-    var name: String
+struct CharacterViewModel {
     
+    let name: String
     let birthYear: String
     let eyeColor: String
     let gender: String

@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct SpeciesViewModel: EntityShortViewModelProtocol {
-    var name: String
+struct SpeciesViewModel {
     
+    let name: String
     let classification: String
     let designation: String
     let averageHeight: String

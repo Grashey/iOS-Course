@@ -57,7 +57,6 @@ class MenuView: UIView {
         let stackview = UIStackView()
         stackview.axis = .vertical
         stackview.distribution = .fillProportionally
-        stackview.alignment = .top
         stackview.translatesAutoresizingMaskIntoConstraints = false
         return stackview
     }()
@@ -65,8 +64,9 @@ class MenuView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .black
+        self.translatesAutoresizingMaskIntoConstraints = false
         self.isOpaque = false
-        self.alpha = 0.4
+        self.alpha = 0.8
         addSubviews()
         addConstraints()
     }
@@ -86,7 +86,7 @@ class MenuView: UIView {
             stackView.topAnchor.constraint(equalTo: self.topAnchor),
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: inset),
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -inset),
-            stackView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.33)
+            stackView.heightAnchor.constraint(equalTo: self.heightAnchor)
         ])
     }
 

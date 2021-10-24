@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct StarshipViewModel: EntityShortViewModelProtocol {
-    var name: String
+struct StarshipViewModel {
     
+    let name: String
     let model: String
     let starshipClass: String
     let manufacturer: String

@@ -20,19 +20,19 @@ class EntityPresenter: EntityPresenterProtocol {
         switch entity {
         case .characters:
             let request = characters.map { CharacterViewModel(name: $0.name, birthYear: "", eyeColor: "", gender: "", hairColor: "", mass: "", skinColor: "", homeworld: "")}
-            viewModel = request.map { EntityShortViewModel(entityViewModel: $0) }
+            viewModel = request.map { EntityShortViewModel(name: $0.name) }
         case .planets:
             let request = planets.map { PlanetViewModel(name: $0.name, diameter: "", rotationPeriod: "", orbitalPeriod: "", gravity: "", population: "", climate: "", terrain: "", waterSurface: "")}
-            viewModel = request.map { EntityShortViewModel(entityViewModel: $0) }
+            viewModel = request.map { EntityShortViewModel(name: $0.name) }
         case .species:
             let request = species.map { SpeciesViewModel(name: $0.name, classification: "", designation: "", averageHeight: "", averageLifespan: "", eyeColors: "", hairColors: "", skinColors: "", language: "", homeworld: "")}
-            viewModel = request.map { EntityShortViewModel(entityViewModel: $0) }
+            viewModel = request.map { EntityShortViewModel(name: $0.name) }
         case .starships:
             let request = starships.map { StarshipViewModel(name: $0.name, model: "", starshipClass: "", manufacturer: "", costInCredits: "", length: "", crew: "", passengers: "", maxAtmospheringSpeed: "", hyperdriveRating: "", maxNumberOfMegalights: "", cargoCapacity: "", consumables: "")}
-            viewModel = request.map { EntityShortViewModel(entityViewModel: $0) }
+            viewModel = request.map { EntityShortViewModel(name: $0.name) }
         case .vehicles:
             let request = vehicles.map { VehicleViewModel(name: $0.name, model: "", vehicleClass: "", manufacturer: "", costInCredits: "", length: "", crew: "", passengers: "", maxAtmospheringSpeed: "", cargoCapacity: "", consumables: "")}
-            viewModel = request.map { EntityShortViewModel(entityViewModel: $0) }
+            viewModel = request.map { EntityShortViewModel(name: $0.name) }
         }
     }
     
@@ -54,7 +54,13 @@ class EntityPresenter: EntityPresenterProtocol {
     var species = [Species]()
     
     func makeData() {
-        for index in 1...10 {
+        characters.removeAll()
+        planets.removeAll()
+        starships.removeAll()
+        vehicles.removeAll()
+        species.removeAll()
+        
+        for index in 1...20 {
             self.characters.append(Character(name: "\(Constants.Entity.characters) \(index)"))
             self.planets.append(Planet(name: "\(Constants.Entity.planets) \(index)"))
             self.starships.append(Starship(name: "\(Constants.Entity.starships) \(index)"))
