@@ -22,8 +22,9 @@ class MovieCoordinator {
         navigationController.viewControllers = [controller]
         
         controller.onDetails = { model in
-            let detailsVC = MovieDetailViewController()
-            detailsVC.model = model
+            self.vcAssembler = MovieDetailViewControllerAssembler()
+            guard let detailsVC = self.vcAssembler.create() as? MovieDetailViewController else { return }
+            detailsVC.presenter?.model = model
             self.navigationController.pushViewController(detailsVC, animated: true)
         }
     }

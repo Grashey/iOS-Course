@@ -41,6 +41,9 @@
 		4A4E4823272334860047EE86 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E4822272334860047EE86 /* Constants.swift */; };
 		4A4E4827272343B00047EE86 /* EntityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E4826272343B00047EE86 /* EntityCollectionViewCell.swift */; };
 		4A4E482A2723556E0047EE86 /* Starjout.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A4E482427233EA40047EE86 /* Starjout.ttf */; };
+		4A4E48382725B0460047EE86 /* MovieDetailPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E48372725B0460047EE86 /* MovieDetailPresenterProtocol.swift */; };
+		4A4E483A2725B07A0047EE86 /* MovieDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E48392725B07A0047EE86 /* MovieDetailPresenter.swift */; };
+		4A4E483C2725B1F70047EE86 /* MovieDetailViewControllerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E483B2725B1F70047EE86 /* MovieDetailViewControllerAssembler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +83,9 @@
 		4A4E4822272334860047EE86 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4A4E482427233EA40047EE86 /* Starjout.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Starjout.ttf; sourceTree = "<group>"; };
 		4A4E4826272343B00047EE86 /* EntityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityCollectionViewCell.swift; sourceTree = "<group>"; };
+		4A4E48372725B0460047EE86 /* MovieDetailPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailPresenterProtocol.swift; sourceTree = "<group>"; };
+		4A4E48392725B07A0047EE86 /* MovieDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailPresenter.swift; sourceTree = "<group>"; };
+		4A4E483B2725B1F70047EE86 /* MovieDetailViewControllerAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewControllerAssembler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +137,7 @@
 				4A4E474A27121ACC0047EE86 /* View */,
 				4A25C6692711DC4400EC8398 /* MovieViewController.swift */,
 				4A25C66B2711DCDC00EC8398 /* MoviePresenter.swift */,
+				4A25C6712711E05C00EC8398 /* MoviePresenterProtocol.swift */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -218,9 +225,11 @@
 		4A4E47F3271D561A0047EE86 /* MovieDetail */ = {
 			isa = PBXGroup;
 			children = (
+				4A4E483D2725B2830047EE86 /* Service */,
 				4A4E482C272556E70047EE86 /* View */,
 				4A4E47F1271D56140047EE86 /* MovieDetailViewController.swift */,
-				4A25C6712711E05C00EC8398 /* MoviePresenterProtocol.swift */,
+				4A4E48372725B0460047EE86 /* MovieDetailPresenterProtocol.swift */,
+				4A4E48392725B07A0047EE86 /* MovieDetailPresenter.swift */,
 			);
 			path = MovieDetail;
 			sourceTree = "<group>";
@@ -303,6 +312,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		4A4E483D2725B2830047EE86 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4A4E483B2725B1F70047EE86 /* MovieDetailViewControllerAssembler.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -376,6 +393,7 @@
 			files = (
 				4A4E481A2722ED2B0047EE86 /* MenuViewController.swift in Sources */,
 				4A4E48132720644B0047EE86 /* EntityPresenterProtocol.swift in Sources */,
+				4A4E48382725B0460047EE86 /* MovieDetailPresenterProtocol.swift in Sources */,
 				4A4E47432712170D0047EE86 /* RootCoordinator.swift in Sources */,
 				4A4E4747271218BB0047EE86 /* MovieCoordinator.swift in Sources */,
 				4A25C6702711DE7600EC8398 /* MovieViewModel.swift in Sources */,
@@ -384,6 +402,7 @@
 				4A4E47F9272045F60047EE86 /* MovieViewControllerAssembler.swift in Sources */,
 				4A4E480B2720594B0047EE86 /* EntityShortViewModel.swift in Sources */,
 				4A4E47FB27204CD40047EE86 /* EntityViewController.swift in Sources */,
+				4A4E483C2725B1F70047EE86 /* MovieDetailViewControllerAssembler.swift in Sources */,
 				4A4E47FE2720513C0047EE86 /* Entity.swift in Sources */,
 				4A4E48042720557D0047EE86 /* StarshipViewModel.swift in Sources */,
 				4A25C6722711E05C00EC8398 /* MoviePresenterProtocol.swift in Sources */,
@@ -391,6 +410,7 @@
 				4A4E4823272334860047EE86 /* Constants.swift in Sources */,
 				4A4E4802272054AC0047EE86 /* PlanetViewModel.swift in Sources */,
 				4A25C6562711CF9400EC8398 /* AppDelegate.swift in Sources */,
+				4A4E483A2725B07A0047EE86 /* MovieDetailPresenter.swift in Sources */,
 				4A4E4800272052ED0047EE86 /* CharacterViewModel.swift in Sources */,
 				4A4E47F5271D56A30047EE86 /* MovieDetailView.swift in Sources */,
 				4A4E4745271217C20047EE86 /* TabBarCoordinator.swift in Sources */,
