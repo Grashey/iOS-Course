@@ -8,6 +8,13 @@
 import UIKit
 
 class MovieDetailView: UIView {
+    
+    private enum LabelValues: String {
+        case episode = "Episode "
+        case director = "Director: "
+        case producer = "Producer: "
+        case releaseDate = "Release Date: "
+    }
 
     let inset: CGFloat = 10
     
@@ -29,8 +36,9 @@ class MovieDetailView: UIView {
     lazy var backgroundView: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        guard let image = UIImage(named: Constants.ImageName.backgroundImage) else { return UIImageView() }
-        view.image = image
+        if let image = UIImage(named: Constants.ImageName.backgroundImage) {
+            view.image = image
+        }
         return view
     }()
 
@@ -45,6 +53,14 @@ class MovieDetailView: UIView {
     }()
     
     lazy var episodeLabel: UILabel = {
+        let label = UILabel()
+        label.font = smallFont
+        label.textColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
+        label.text = LabelValues.episode.rawValue
+        return label
+    }()
+    
+    lazy var episodeValueLabel: UILabel = {
         let label = UILabel()
         label.font = smallFont
         label.textColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
@@ -70,6 +86,14 @@ class MovieDetailView: UIView {
         let label = UILabel()
         label.font = smallFont
         label.textColor = labelTextColor
+        label.text = LabelValues.director.rawValue
+        return label
+    }()
+    
+    lazy var directorValueLabel: UILabel = {
+        let label = UILabel()
+        label.font = smallFont
+        label.textColor = labelTextColor
         return label
     }()
     
@@ -77,10 +101,26 @@ class MovieDetailView: UIView {
         let label = UILabel()
         label.font = smallFont
         label.textColor = labelTextColor
+        label.text = LabelValues.producer.rawValue
+        return label
+    }()
+    
+    lazy var producerValueLabel: UILabel = {
+        let label = UILabel()
+        label.font = smallFont
+        label.textColor = labelTextColor
         return label
     }()
     
     lazy var releaseDateLabel: UILabel = {
+        let label = UILabel()
+        label.font = smallFont
+        label.textColor = labelTextColor
+        label.text = LabelValues.releaseDate.rawValue
+        return label
+    }()
+    
+    lazy var releaseDateValueLabel: UILabel = {
         let label = UILabel()
         label.font = smallFont
         label.textColor = labelTextColor
@@ -122,10 +162,46 @@ class MovieDetailView: UIView {
         return label
     }()
     
+    lazy var episodeStackView: UIStackView = {
+        let stackview = UIStackView()
+        stackview.axis = .horizontal
+        stackview.distribution = .fill
+        stackview.alignment = .leading
+        stackview.translatesAutoresizingMaskIntoConstraints = false
+        return stackview
+    }()
+    
+    lazy var directorStackView: UIStackView = {
+        let stackview = UIStackView()
+        stackview.axis = .horizontal
+        stackview.distribution = .fill
+        stackview.alignment = .leading
+        stackview.translatesAutoresizingMaskIntoConstraints = false
+        return stackview
+    }()
+    
+    lazy var producerStackView: UIStackView = {
+        let stackview = UIStackView()
+        stackview.axis = .horizontal
+        stackview.distribution = .fill
+        stackview.alignment = .leading
+        stackview.translatesAutoresizingMaskIntoConstraints = false
+        return stackview
+    }()
+    
+    lazy var releaseDateStackView: UIStackView = {
+        let stackview = UIStackView()
+        stackview.axis = .horizontal
+        stackview.distribution = .fill
+        stackview.alignment = .leading
+        stackview.translatesAutoresizingMaskIntoConstraints = false
+        return stackview
+    }()
     
     lazy var contentStackView: UIStackView = {
         let stackview = UIStackView()
         stackview.axis = .vertical
+        stackview.spacing = inset
         stackview.distribution = .fill
         stackview.alignment = .center
         stackview.translatesAutoresizingMaskIntoConstraints = false
@@ -154,11 +230,26 @@ class MovieDetailView: UIView {
     private func addSubviews() {
         self.addSubview(backgroundView)
         self.addSubview(scrollView)
+        
         scrollView.addSubview(contentStackView)
+        
         contentStackView.addArrangedSubview(posterImageView)
         contentStackView.addArrangedSubview(infoStackView)
-        let detailsArreay = [episodeLabel, nameLabel, openingCrawlLabel, directorLabel, producerLabel, releaseDateLabel, charactersLabel, planetsLabel, speciesLabel, starshipsLabel, vehiclesLabel]
-        detailsArreay.forEach { infoStackView.addArrangedSubview($0) }
+        
+        episodeStackView.addArrangedSubview(episodeLabel)
+        episodeStackView.addArrangedSubview(episodeValueLabel)
+        
+        directorStackView.addArrangedSubview(directorLabel)
+        directorStackView.addArrangedSubview(directorValueLabel)
+        
+        producerStackView.addArrangedSubview(producerLabel)
+        producerStackView.addArrangedSubview(producerValueLabel)
+        
+        releaseDateStackView.addArrangedSubview(releaseDateLabel)
+        releaseDateStackView.addArrangedSubview(releaseDateValueLabel)
+        
+        let detailsArray = [episodeStackView, nameLabel, openingCrawlLabel, directorStackView, producerStackView, releaseDateStackView, charactersLabel, planetsLabel, speciesLabel, starshipsLabel, vehiclesLabel]
+        detailsArray.forEach { infoStackView.addArrangedSubview($0) }
     }
     
     private func addConstraints() {
@@ -185,12 +276,14 @@ class MovieDetailView: UIView {
     func configureWith(model: MovieViewModel) {
         guard let image = UIImage(named: "episode\(model.episodeNumber)") else { return }
         posterImageView.image = image
-        episodeLabel.text = "Episode \(model.episodeNumber)"
+        
+        episodeValueLabel.text = String(model.episodeNumber)
         nameLabel.text = model.title
         openingCrawlLabel.text = model.annotation
-        directorLabel.text = "Director: \(model.director)"
-        producerLabel.text = "Producer: \(model.producer)"
-        releaseDateLabel.text = "Release date: \(model.releaseDate)"
+        directorValueLabel.text = model.director
+        producerValueLabel.text = model.producer
+        releaseDateValueLabel.text = model.releaseDate
+        
         charactersLabel.text = "Characters: SomeCharacters"
         planetsLabel.text = "Planets: SomePlanets"
         speciesLabel.text = "Species: SomeSpecies"
