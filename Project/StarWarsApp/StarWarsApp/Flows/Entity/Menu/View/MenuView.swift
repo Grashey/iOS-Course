@@ -57,6 +57,7 @@ class MenuView: UIView {
         let stackview = UIStackView()
         stackview.axis = .vertical
         stackview.distribution = .fillProportionally
+        stackview.alignment = .leading
         stackview.translatesAutoresizingMaskIntoConstraints = false
         return stackview
     }()
