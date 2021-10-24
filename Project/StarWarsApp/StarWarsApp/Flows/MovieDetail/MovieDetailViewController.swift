@@ -9,16 +9,16 @@ import UIKit
 
 class MovieDetailViewController: UIViewController {
     
-    var moviewDetailView = MovieDetailView()
+    var movieDetailView = MovieDetailView()
     var model: MovieViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .black
-        moviewDetailView = MovieDetailView(frame: view.frame)
-        moviewDetailView.configureWith(model: model!)
-        self.view.addSubview(moviewDetailView)
+        movieDetailView = MovieDetailView(frame: view.frame)
+        movieDetailView.configureWith(model: model!)
+        self.view.addSubview(movieDetailView)
     }
 
 }

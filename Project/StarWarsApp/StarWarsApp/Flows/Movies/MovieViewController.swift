@@ -20,7 +20,8 @@ class MovieViewController: UITableViewController {
         presenter?.getData()
         self.navigationItem.title = Constants.TabBarTitle.movies
 
-        tableView.backgroundView = UIImageView(image: UIImage(named: Constants.ImageName.backgroundImage)!)
+        guard let image = UIImage(named: Constants.ImageName.backgroundImage) else { return }
+        tableView.backgroundView = UIImageView(image: image)
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = UITableView.automaticDimension
@@ -42,11 +43,11 @@ class MovieViewController: UITableViewController {
         if let model = presenter?.viewModel[indexPath.row] {
             cell.configureWith(model: model)
         }
+        cell.selectionStyle = .none
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
         if let model = presenter?.viewModel[indexPath.row] {
             onDetails?(model)
         }
