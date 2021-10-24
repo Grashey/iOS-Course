@@ -16,6 +16,23 @@ class MovieDetailView: UIView {
     let bigFont = UIFont(name: Constants.Fonts.font, size: 18)
     
     let labelTextColor: UIColor = .white
+    
+    lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.backgroundColor = .clear
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.contentInset = UIEdgeInsets(top: inset, left: .zero, bottom: inset, right: .zero)
+        scrollView.showsVerticalScrollIndicator = false
+        return scrollView
+    }()
+    
+    lazy var backgroundView: UIImageView = {
+        let view = UIImageView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        guard let image = UIImage(named: Constants.ImageName.backgroundImage) else { return UIImageView() }
+        view.image = image
+        return view
+    }()
 
     lazy var posterImageView: UIImageView = {
         let view = UIImageView()
@@ -135,7 +152,9 @@ class MovieDetailView: UIView {
     }
     
     private func addSubviews() {
-        self.addSubview(contentStackView)
+        self.addSubview(backgroundView)
+        self.addSubview(scrollView)
+        scrollView.addSubview(contentStackView)
         contentStackView.addArrangedSubview(posterImageView)
         contentStackView.addArrangedSubview(infoStackView)
         let detailsArreay = [episodeLabel, nameLabel, openingCrawlLabel, directorLabel, producerLabel, releaseDateLabel, charactersLabel, planetsLabel, speciesLabel, starshipsLabel, vehiclesLabel]
@@ -144,10 +163,22 @@ class MovieDetailView: UIView {
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            contentStackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            contentStackView.leadingAnchor.constraint(equalTo: self.layoutMarginsGuide.leadingAnchor),
-            contentStackView.trailingAnchor.constraint(equalTo: self.layoutMarginsGuide.trailingAnchor),
-            contentStackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
+            scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: self.layoutMarginsGuide.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: self.layoutMarginsGuide.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+            
+            backgroundView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            backgroundView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            backgroundView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            
+            contentStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            
+            posterImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
     }
     
@@ -166,5 +197,4 @@ class MovieDetailView: UIView {
         starshipsLabel.text = "Starships: SomeStarships"
         vehiclesLabel.text = "vehicles: Somevehicles"
     }
-
 }
