@@ -44,6 +44,7 @@
 		4A4E48382725B0460047EE86 /* MovieDetailPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E48372725B0460047EE86 /* MovieDetailPresenterProtocol.swift */; };
 		4A4E483A2725B07A0047EE86 /* MovieDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E48392725B07A0047EE86 /* MovieDetailPresenter.swift */; };
 		4A4E483C2725B1F70047EE86 /* MovieDetailViewControllerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E483B2725B1F70047EE86 /* MovieDetailViewControllerAssembler.swift */; };
+		4A9BE1A12729C5B600F0CD05 /* EntityCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9BE1A02729C5B600F0CD05 /* EntityCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		4A4E48372725B0460047EE86 /* MovieDetailPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailPresenterProtocol.swift; sourceTree = "<group>"; };
 		4A4E48392725B07A0047EE86 /* MovieDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailPresenter.swift; sourceTree = "<group>"; };
 		4A4E483B2725B1F70047EE86 /* MovieDetailViewControllerAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewControllerAssembler.swift; sourceTree = "<group>"; };
+		4A9BE1A02729C5B600F0CD05 /* EntityCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				4A4E4826272343B00047EE86 /* EntityCollectionViewCell.swift */,
+				4A9BE1A02729C5B600F0CD05 /* EntityCollectionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				4A4E483C2725B1F70047EE86 /* MovieDetailViewControllerAssembler.swift in Sources */,
 				4A4E47FE2720513C0047EE86 /* Entity.swift in Sources */,
 				4A4E48042720557D0047EE86 /* StarshipViewModel.swift in Sources */,
+				4A9BE1A12729C5B600F0CD05 /* EntityCollectionView.swift in Sources */,
 				4A25C6722711E05C00EC8398 /* MoviePresenterProtocol.swift in Sources */,
 				4A4E480F272063580047EE86 /* EntityPresenter.swift in Sources */,
 				4A4E4823272334860047EE86 /* Constants.swift in Sources */,

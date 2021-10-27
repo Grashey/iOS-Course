@@ -23,7 +23,7 @@ class EntityCoordinator {
         
         controller.onSwitchEntity = {
             controller.presenter?.entity = $0
-            controller.loadNewData()
+            controller.presenter?.getData()
         }
     }
 }

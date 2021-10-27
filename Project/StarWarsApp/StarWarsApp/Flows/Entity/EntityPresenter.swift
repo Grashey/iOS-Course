@@ -17,9 +17,11 @@ class EntityPresenter: EntityPresenterProtocol {
     func getData() {
         makeData()
         
+        viewController?.navigationItem.title = getTitleName()
+        
         switch entity {
         case .characters:
-            let request = characters.map { CharacterViewModel(name: $0.name, birthYear: "", eyeColor: "", gender: "", hairColor: "", mass: "", skinColor: "", homeworld: "")}
+            let request = characters.map { CharacterViewModel(name: $0.name, birthYear: "", eyeColor: "", gender: "", hairColor: "", mass: "", height: "", skinColor: "", homeworld: "")}
             viewModel = request.map { EntityShortViewModel(name: $0.name) }
         case .planets:
             let request = planets.map { PlanetViewModel(name: $0.name, diameter: "", rotationPeriod: "", orbitalPeriod: "", gravity: "", population: "", climate: "", terrain: "", waterSurface: "")}
@@ -34,9 +36,12 @@ class EntityPresenter: EntityPresenterProtocol {
             let request = vehicles.map { VehicleViewModel(name: $0.name, model: "", vehicleClass: "", manufacturer: "", costInCredits: "", length: "", crew: "", passengers: "", maxAtmospheringSpeed: "", cargoCapacity: "", consumables: "")}
             viewModel = request.map { EntityShortViewModel(name: $0.name) }
         }
+        
+        viewController?.collectionView.scrollToItem(at: IndexPath(item: .zero, section: .zero), at: .top, animated: false)
+        viewController?.collectionView.reloadData()
     }
     
-    func getTitleName() -> String {
+    private func getTitleName() -> String {
         switch entity {
         case .characters: return Constants.Entity.characters
         case .planets: return Constants.Entity.planets

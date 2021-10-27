@@ -37,11 +37,9 @@ class MovieViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.description(), for: indexPath) as? MovieTableViewCell else {
-            return UITableViewCell()
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.description(), for: indexPath)
         if let model = presenter?.viewModel?[indexPath.row] {
-            cell.configureWith(model: model)
+            (cell as? MovieTableViewCell)?.configureWith(model: model)
         }
         cell.selectionStyle = .none
         return cell

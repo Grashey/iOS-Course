@@ -12,11 +12,12 @@ class MenuView: UIView {
     let inset: CGFloat = 10
     
     let font = UIFont(name: Constants.Fonts.font, size: 16)
+    let titleColor: UIColor = .yellow
 
     lazy var charactersButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = font
-        button.setTitleColor(.yellow, for: .normal)
+        button.setTitleColor(titleColor, for: .normal)
         button.setTitle(Constants.Entity.characters, for: .normal)
         return button
     }()
@@ -24,7 +25,7 @@ class MenuView: UIView {
     lazy var planetsButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = font
-        button.setTitleColor(.yellow, for: .normal)
+        button.setTitleColor(titleColor, for: .normal)
         button.setTitle(Constants.Entity.planets, for: .normal)
         return button
     }()
@@ -32,7 +33,7 @@ class MenuView: UIView {
     lazy var speciesButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = font
-        button.setTitleColor(.yellow, for: .normal)
+        button.setTitleColor(titleColor, for: .normal)
         button.setTitle(Constants.Entity.species, for: .normal)
         return button
     }()
@@ -40,7 +41,7 @@ class MenuView: UIView {
     lazy var starshipsButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = font
-        button.setTitleColor(.yellow, for: .normal)
+        button.setTitleColor(titleColor, for: .normal)
         button.setTitle(Constants.Entity.starships, for: .normal)
         return button
     }()
@@ -48,7 +49,7 @@ class MenuView: UIView {
     lazy var vehiclesButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = font
-        button.setTitleColor(.yellow, for: .normal)
+        button.setTitleColor(titleColor, for: .normal)
         button.setTitle(Constants.Entity.vehicles, for: .normal)
         return button
     }()

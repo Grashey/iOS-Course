@@ -15,6 +15,7 @@ struct CharacterViewModel {
     let gender: String
     let hairColor: String
     let mass: String
+    let height: String
     let skinColor: String
     let homeworld: String
     let movies: [String]? = nil

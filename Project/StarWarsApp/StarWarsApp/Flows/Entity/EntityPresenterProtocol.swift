@@ -13,5 +13,4 @@ protocol EntityPresenterProtocol {
     var entity: Entity { get set }
 
     func getData()
-    func getTitleName() -> String
 }

@@ -13,37 +13,23 @@ class EntityViewController: UIViewController {
     var onDetails: ((Entity) -> Void)?
     var onSwitchEntity: ((Entity) -> Void)?
     
-    lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.register(EntityCollectionViewCell.self, forCellWithReuseIdentifier: EntityCollectionViewCell.description())
-        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        }
-        return collectionView
-    }()
+    lazy var collectionView = EntityCollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     
     override func loadView() {
         view = collectionView
     }
 
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
         
         addMenuButton()
-        loadNewData()
+        presenter?.getData()
         
-        
-       
         guard let image = UIImage(named: Constants.ImageName.backgroundImage) else { return }
         collectionView.backgroundView = UIImageView(image: image)
-    }
-    
-    func loadNewData() {
-        self.navigationItem.title = presenter?.getTitleName()
-        presenter?.getData()
-        collectionView.scrollToItem(at: IndexPath(item: .zero, section: .zero), at: .top, animated: false)
-        collectionView.reloadData()
     }
     
     private func addMenuButton() {
@@ -61,7 +47,7 @@ class EntityViewController: UIViewController {
         navigationItem.leftBarButtonItem = menuButton
     }
     
-    @objc func showMenu(){
+    @objc private func showMenu(){
         if self.children.count > .zero {
            dismissController()
         } else {
@@ -69,7 +55,7 @@ class EntityViewController: UIViewController {
         }
     }
     
-    @objc func dismissController(){
+    @objc private func dismissController(){
         view.gestureRecognizers?.removeLast()
         guard let controller = children.last else { return }
         removeChild(controller: controller)
@@ -120,7 +106,7 @@ extension EntityViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EntityCollectionViewCell.description(), for: indexPath) as? EntityCollectionViewCell else { return UICollectionViewCell() }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EntityCollectionViewCell.description(), for: indexPath)
         if let model = presenter?.viewModel[indexPath.item] {
             var image = UIImage()
             switch presenter?.entity {
@@ -134,7 +120,7 @@ extension EntityViewController: UICollectionViewDelegate, UICollectionViewDataSo
             if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
                 let side = (collectionView.visibleSize.width - flowLayout.minimumLineSpacing*3)/3
                 let size = CGSize(width: side, height: side)
-                cell.configureWith(name: model.name, image: image, imageSize: size)
+                (cell as? EntityCollectionViewCell)?.configureWith(name: model.name, image: image, imageSize: size)
             }
         }
         return cell
