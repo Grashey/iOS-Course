@@ -10,7 +10,7 @@ import UIKit
 class EntityViewController: UIViewController {
     
     var presenter: EntityPresenterProtocol?
-    var onDetails: ((Entity) -> Void)?
+    var onDetails: ((Entity, String) -> Void)?
     var onSwitchEntity: ((Entity) -> Void)?
     
     lazy var collectionView = EntityCollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
@@ -124,6 +124,13 @@ extension EntityViewController: UICollectionViewDelegate, UICollectionViewDataSo
             }
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let entity = presenter?.entity, let model = presenter?.viewModel[indexPath.item] else { return }
+        // name пока стоит заглушкой
+        //TODO: вытягивать url из модели данных (отличная от вьюмодель)
+        onDetails?(entity, model.name)
     }
 
 }

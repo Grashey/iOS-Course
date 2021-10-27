@@ -12,6 +12,4 @@ class MovieDetailPresenter: MovieDetailPresenterProtocol {
     weak var viewController: MovieDetailViewController?
     
     var model: MovieViewModel?
-    
-    
 }

@@ -25,5 +25,16 @@ class EntityCoordinator {
             controller.presenter?.entity = $0
             controller.presenter?.getData()
         }
+        
+        controller.onDetails = { entity, entityUrl in
+            switch entity {
+            case .characters:
+                self.vcAssembler = CharacterDetailViewControllerAssembler()
+                guard let detailsVC = self.vcAssembler.create() as? CharacterDetailViewController else { return }
+                detailsVC.presenter?.entityUrl = entityUrl
+                self.navigationController.pushViewController(detailsVC, animated: true)
+            default: return
+            }
+        }
     }
 }

@@ -21,7 +21,7 @@ class EntityPresenter: EntityPresenterProtocol {
         
         switch entity {
         case .characters:
-            let request = characters.map { CharacterViewModel(name: $0.name, birthYear: "", eyeColor: "", gender: "", hairColor: "", mass: "", height: "", skinColor: "", homeworld: "")}
+            let request = characters.map { CharacterViewModel(name: $0.name, birthYear: "", eyeColor: "", gender: "", hairColor: "", mass: "", height: "", skinColor: "", homeworld: "", movies: nil, species: nil, starships: nil, vehicles: nil)}
             viewModel = request.map { EntityShortViewModel(name: $0.name) }
         case .planets:
             let request = planets.map { PlanetViewModel(name: $0.name, diameter: "", rotationPeriod: "", orbitalPeriod: "", gravity: "", population: "", climate: "", terrain: "", waterSurface: "")}
