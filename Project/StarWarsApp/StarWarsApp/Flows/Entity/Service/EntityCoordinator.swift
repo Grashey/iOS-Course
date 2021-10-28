@@ -33,6 +33,11 @@ class EntityCoordinator {
                 guard let detailsVC = self.vcAssembler.create() as? CharacterDetailViewController else { return }
                 detailsVC.presenter?.entityUrl = entityUrl
                 self.navigationController.pushViewController(detailsVC, animated: true)
+            case .planets:
+                self.vcAssembler = PlanetDetailViewControllerAssembler()
+                guard let detailsVC = self.vcAssembler.create() as? PlanetDetailViewController else { return }
+                detailsVC.presenter?.entityUrl = entityUrl
+                self.navigationController.pushViewController(detailsVC, animated: true)
             default: return
             }
         }

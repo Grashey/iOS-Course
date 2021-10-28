@@ -18,6 +18,6 @@ struct PlanetViewModel {
     let climate: String
     let terrain: String
     let waterSurface: String
-    let movies: [String]? = nil
-    let residents: [String]? = nil
+    let movies: [String]?
+    let residents: [String]?
 }

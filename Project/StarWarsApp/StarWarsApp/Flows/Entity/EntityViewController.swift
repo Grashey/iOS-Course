@@ -14,6 +14,7 @@ class EntityViewController: UIViewController {
     var onSwitchEntity: ((Entity) -> Void)?
     
     lazy var collectionView = EntityCollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+    lazy var menuContainerView = UIView()
     
     override func loadView() {
         view = collectionView
@@ -59,11 +60,12 @@ class EntityViewController: UIViewController {
         view.gestureRecognizers?.removeLast()
         guard let controller = children.last else { return }
         removeChild(controller: controller)
-        view.subviews.last?.removeFromSuperview()
+        menuContainerView.removeFromSuperview()
     }
     
     private func showController() {
-        let menuContainerView = UIView()
+        // Баг: неправильно привязан к супервью, меню меняет точку ориджин соответственно прокрутке коллекции
+        //TODO: написать custom presentation controller
         menuContainerView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(menuContainerView)
         
