@@ -60,6 +60,11 @@
 		4AF1D60C272ADDB300E897B2 /* SpeciesDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1D60B272ADDB300E897B2 /* SpeciesDetailPresenter.swift */; };
 		4AF1D60E272ADDFC00E897B2 /* SpeciesDetailViewControllerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1D60D272ADDFC00E897B2 /* SpeciesDetailViewControllerAssembler.swift */; };
 		4AF1D611272ADE4500E897B2 /* SpeciesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1D610272ADE4500E897B2 /* SpeciesDetailView.swift */; };
+		4AF1D614272B32B900E897B2 /* StarshipDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1D613272B32B900E897B2 /* StarshipDetailViewController.swift */; };
+		4AF1D617272B331200E897B2 /* StarshipDetailPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1D616272B331200E897B2 /* StarshipDetailPresenterProtocol.swift */; };
+		4AF1D619272B333A00E897B2 /* StarshipDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1D618272B333A00E897B2 /* StarshipDetailPresenter.swift */; };
+		4AF1D61B272B33E100E897B2 /* StarshipDetailViewControllerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1D61A272B33E100E897B2 /* StarshipDetailViewControllerAssembler.swift */; };
+		4AF1D61E272B345500E897B2 /* StarshipDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1D61D272B345500E897B2 /* StarshipDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +123,11 @@
 		4AF1D60B272ADDB300E897B2 /* SpeciesDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesDetailPresenter.swift; sourceTree = "<group>"; };
 		4AF1D60D272ADDFC00E897B2 /* SpeciesDetailViewControllerAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesDetailViewControllerAssembler.swift; sourceTree = "<group>"; };
 		4AF1D610272ADE4500E897B2 /* SpeciesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesDetailView.swift; sourceTree = "<group>"; };
+		4AF1D613272B32B900E897B2 /* StarshipDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipDetailViewController.swift; sourceTree = "<group>"; };
+		4AF1D616272B331200E897B2 /* StarshipDetailPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipDetailPresenterProtocol.swift; sourceTree = "<group>"; };
+		4AF1D618272B333A00E897B2 /* StarshipDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipDetailPresenter.swift; sourceTree = "<group>"; };
+		4AF1D61A272B33E100E897B2 /* StarshipDetailViewControllerAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipDetailViewControllerAssembler.swift; sourceTree = "<group>"; };
+		4AF1D61D272B345500E897B2 /* StarshipDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -360,6 +370,7 @@
 				4A9BE1A52729CD2B00F0CD05 /* CharacterDetail */,
 				4AF1D5FB272ACB3100E897B2 /* PlanetDetail */,
 				4AF1D608272ADCCC00E897B2 /* SpeciesDetail */,
+				4AF1D615272B32BE00E897B2 /* StarshipDetail */,
 			);
 			path = EntityDetail;
 			sourceTree = "<group>";
@@ -448,6 +459,34 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		4AF1D615272B32BE00E897B2 /* StarshipDetail */ = {
+			isa = PBXGroup;
+			children = (
+				4AF1D61C272B340800E897B2 /* Service */,
+				4AF1D61F272B346400E897B2 /* View */,
+				4AF1D613272B32B900E897B2 /* StarshipDetailViewController.swift */,
+				4AF1D616272B331200E897B2 /* StarshipDetailPresenterProtocol.swift */,
+				4AF1D618272B333A00E897B2 /* StarshipDetailPresenter.swift */,
+			);
+			path = StarshipDetail;
+			sourceTree = "<group>";
+		};
+		4AF1D61C272B340800E897B2 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4AF1D61A272B33E100E897B2 /* StarshipDetailViewControllerAssembler.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		4AF1D61F272B346400E897B2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4AF1D61D272B345500E897B2 /* StarshipDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -524,6 +563,7 @@
 				4A4E48382725B0460047EE86 /* MovieDetailPresenterProtocol.swift in Sources */,
 				4A9BE1AB2729CE8900F0CD05 /* CharacterDetailView.swift in Sources */,
 				4A4E47432712170D0047EE86 /* RootCoordinator.swift in Sources */,
+				4AF1D614272B32B900E897B2 /* StarshipDetailViewController.swift in Sources */,
 				4A4E4747271218BB0047EE86 /* MovieCoordinator.swift in Sources */,
 				4A25C6702711DE7600EC8398 /* MovieViewModel.swift in Sources */,
 				4A25C66A2711DC4400EC8398 /* MovieViewController.swift in Sources */,
@@ -533,11 +573,14 @@
 				4AF1D607272ADCBE00E897B2 /* SpeciesDetailViewController.swift in Sources */,
 				4A4E480B2720594B0047EE86 /* EntityShortViewModel.swift in Sources */,
 				4A4E47FB27204CD40047EE86 /* EntityViewController.swift in Sources */,
+				4AF1D617272B331200E897B2 /* StarshipDetailPresenterProtocol.swift in Sources */,
 				4A4E483C2725B1F70047EE86 /* MovieDetailViewControllerAssembler.swift in Sources */,
 				4A9BE1A72729CDC300F0CD05 /* CharacterDetailPresenterProtocol.swift in Sources */,
+				4AF1D61E272B345500E897B2 /* StarshipDetailView.swift in Sources */,
 				4A4E47FE2720513C0047EE86 /* Entity.swift in Sources */,
 				4A4E48042720557D0047EE86 /* StarshipViewModel.swift in Sources */,
 				4AF1D60A272ADD8A00E897B2 /* SpeciesDetailPresenterProtocol.swift in Sources */,
+				4AF1D619272B333A00E897B2 /* StarshipDetailPresenter.swift in Sources */,
 				4AF1D601272ACCBB00E897B2 /* PlanetDetailViewControllerAssembler.swift in Sources */,
 				4A9BE1A12729C5B600F0CD05 /* EntityCollectionView.swift in Sources */,
 				4AF1D604272ACD0900E897B2 /* PlanetDetailView.swift in Sources */,
@@ -562,6 +605,7 @@
 				4AF1D5FF272ACC6400E897B2 /* PlanetDetailPresenter.swift in Sources */,
 				4A4E47E9271CC81F0047EE86 /* MovieTableViewCell.swift in Sources */,
 				4A4E4808272057000047EE86 /* SpeciesViewModel.swift in Sources */,
+				4AF1D61B272B33E100E897B2 /* StarshipDetailViewControllerAssembler.swift in Sources */,
 				4A4E481C2722F1F90047EE86 /* MenuView.swift in Sources */,
 				4A25C6582711CF9400EC8398 /* SceneDelegate.swift in Sources */,
 				4A9BE1AE2729F77600F0CD05 /* CharacterDetailViewControllerAssembler.swift in Sources */,
