@@ -18,7 +18,7 @@ struct SpeciesViewModel {
     let hairColors: String
     let skinColors: String
     let language: String
-    let homeworld: String
-    let movies: [String]? = nil
-    let characters: [String]? = nil
+    let homeworld: String // url
+    let movies: [String]?
+    let characters: [String]?
 }
