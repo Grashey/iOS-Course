@@ -33,7 +33,7 @@ class EntityPresenter: EntityPresenterProtocol {
             let request = starships.map { StarshipViewModel(name: $0.name, model: "", starshipClass: "", manufacturer: "", costInCredits: "", length: "", crew: "", passengers: "", maxAtmospheringSpeed: "", hyperdriveRating: "", maxNumberOfMegalights: "", cargoCapacity: "", consumables: "", movies: nil, pilots: nil)}
             viewModel = request.map { EntityShortViewModel(name: $0.name) }
         case .vehicles:
-            let request = vehicles.map { VehicleViewModel(name: $0.name, model: "", vehicleClass: "", manufacturer: "", costInCredits: "", length: "", crew: "", passengers: "", maxAtmospheringSpeed: "", cargoCapacity: "", consumables: "")}
+            let request = vehicles.map { VehicleViewModel(name: $0.name, model: "", vehicleClass: "", manufacturer: "", costInCredits: "", length: "", crew: "", passengers: "", maxAtmospheringSpeed: "", cargoCapacity: "", consumables: "", movies: nil, pilots: nil)}
             viewModel = request.map { EntityShortViewModel(name: $0.name) }
         }
         

@@ -20,6 +20,6 @@ struct VehicleViewModel {
     let maxAtmospheringSpeed: String
     let cargoCapacity: String
     let consumables: String
-    let movies: [String]? = nil
-    let pilots: [String]? = nil
+    let movies: [String]?
+    let pilots: [String]?
 }

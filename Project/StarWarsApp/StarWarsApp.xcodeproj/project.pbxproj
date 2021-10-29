@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A180477272C60DE00E77660 /* VehicleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A180476272C60DE00E77660 /* VehicleDetailViewController.swift */; };
+		4A18047A272C61A500E77660 /* VehicleDetailPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A180479272C61A500E77660 /* VehicleDetailPresenterProtocol.swift */; };
+		4A18047C272C61D700E77660 /* VehicleDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A18047B272C61D700E77660 /* VehicleDetailPresenter.swift */; };
+		4A18047E272C621800E77660 /* VehicleDetailViewControllerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A18047D272C621800E77660 /* VehicleDetailViewControllerAssembler.swift */; };
+		4A180481272C626200E77660 /* VehicleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A180480272C626200E77660 /* VehicleDetailView.swift */; };
 		4A25C6562711CF9400EC8398 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A25C6552711CF9400EC8398 /* AppDelegate.swift */; };
 		4A25C6582711CF9400EC8398 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A25C6572711CF9400EC8398 /* SceneDelegate.swift */; };
 		4A25C65F2711CF9700EC8398 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A25C65E2711CF9700EC8398 /* Assets.xcassets */; };
@@ -68,6 +73,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A180476272C60DE00E77660 /* VehicleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailViewController.swift; sourceTree = "<group>"; };
+		4A180479272C61A500E77660 /* VehicleDetailPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailPresenterProtocol.swift; sourceTree = "<group>"; };
+		4A18047B272C61D700E77660 /* VehicleDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailPresenter.swift; sourceTree = "<group>"; };
+		4A18047D272C621800E77660 /* VehicleDetailViewControllerAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailViewControllerAssembler.swift; sourceTree = "<group>"; };
+		4A180480272C626200E77660 /* VehicleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailView.swift; sourceTree = "<group>"; };
 		4A25C6522711CF9400EC8398 /* StarWarsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWarsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A25C6552711CF9400EC8398 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A25C6572711CF9400EC8398 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +151,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A180478272C60E900E77660 /* VehicleDetail */ = {
+			isa = PBXGroup;
+			children = (
+				4A18047F272C624100E77660 /* Service */,
+				4A180482272C627800E77660 /* View */,
+				4A180476272C60DE00E77660 /* VehicleDetailViewController.swift */,
+				4A180479272C61A500E77660 /* VehicleDetailPresenterProtocol.swift */,
+				4A18047B272C61D700E77660 /* VehicleDetailPresenter.swift */,
+			);
+			path = VehicleDetail;
+			sourceTree = "<group>";
+		};
+		4A18047F272C624100E77660 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4A18047D272C621800E77660 /* VehicleDetailViewControllerAssembler.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		4A180482272C627800E77660 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4A180480272C626200E77660 /* VehicleDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4A25C6492711CF9300EC8398 = {
 			isa = PBXGroup;
 			children = (
@@ -371,6 +409,7 @@
 				4AF1D5FB272ACB3100E897B2 /* PlanetDetail */,
 				4AF1D608272ADCCC00E897B2 /* SpeciesDetail */,
 				4AF1D615272B32BE00E897B2 /* StarshipDetail */,
+				4A180478272C60E900E77660 /* VehicleDetail */,
 			);
 			path = EntityDetail;
 			sourceTree = "<group>";
@@ -594,22 +633,27 @@
 				4A4E4800272052ED0047EE86 /* CharacterViewModel.swift in Sources */,
 				4A4E47F5271D56A30047EE86 /* MovieDetailView.swift in Sources */,
 				4A4E4745271217C20047EE86 /* TabBarCoordinator.swift in Sources */,
+				4A180481272C626200E77660 /* VehicleDetailView.swift in Sources */,
 				4A4E4740271215730047EE86 /* TabBarController.swift in Sources */,
 				4AF1D60E272ADDFC00E897B2 /* SpeciesDetailViewControllerAssembler.swift in Sources */,
 				4A9BE1A32729CCCD00F0CD05 /* CharacterDetailViewController.swift in Sources */,
+				4A18047E272C621800E77660 /* VehicleDetailViewControllerAssembler.swift in Sources */,
 				4AF1D5FD272ACC4500E897B2 /* PlanetDetailPresenterProtocol.swift in Sources */,
 				4A4E4811272063AF0047EE86 /* EntityViewControllerAssembler.swift in Sources */,
 				4A4E4806272056B20047EE86 /* VehicleViewModel.swift in Sources */,
+				4A180477272C60DE00E77660 /* VehicleDetailViewController.swift in Sources */,
 				4AF1D5FA272ACB2C00E897B2 /* PlanetDetailViewController.swift in Sources */,
 				4A25C66C2711DCDC00EC8398 /* MoviePresenter.swift in Sources */,
 				4AF1D5FF272ACC6400E897B2 /* PlanetDetailPresenter.swift in Sources */,
 				4A4E47E9271CC81F0047EE86 /* MovieTableViewCell.swift in Sources */,
 				4A4E4808272057000047EE86 /* SpeciesViewModel.swift in Sources */,
 				4AF1D61B272B33E100E897B2 /* StarshipDetailViewControllerAssembler.swift in Sources */,
+				4A18047A272C61A500E77660 /* VehicleDetailPresenterProtocol.swift in Sources */,
 				4A4E481C2722F1F90047EE86 /* MenuView.swift in Sources */,
 				4A25C6582711CF9400EC8398 /* SceneDelegate.swift in Sources */,
 				4A9BE1AE2729F77600F0CD05 /* CharacterDetailViewControllerAssembler.swift in Sources */,
 				4A4E4827272343B00047EE86 /* EntityCollectionViewCell.swift in Sources */,
+				4A18047C272C61D700E77660 /* VehicleDetailPresenter.swift in Sources */,
 				4A4E47F7272045860047EE86 /* ViewControllerAssemblerProtocol.swift in Sources */,
 				4AF1D60C272ADDB300E897B2 /* SpeciesDetailPresenter.swift in Sources */,
 				4A4E481627207FA10047EE86 /* EntityCoordinator.swift in Sources */,

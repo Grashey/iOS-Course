@@ -48,7 +48,11 @@ class EntityCoordinator {
                 guard let detailsVC = self.vcAssembler.create() as? StarshipDetailViewController else { return }
                 detailsVC.presenter?.entityUrl = entityUrl
                 self.navigationController.pushViewController(detailsVC, animated: true)
-            default: return
+            case .vehicles:
+                self.vcAssembler = VehicleDetailViewControllerAssembler()
+                guard let detailsVC = self.vcAssembler.create() as? VehicleDetailViewController else { return }
+                detailsVC.presenter?.entityUrl = entityUrl
+                self.navigationController.pushViewController(detailsVC, animated: true)
             }
         }
     }
