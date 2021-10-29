@@ -29,7 +29,6 @@ class SpeciesDetailView: UIView {
     private let inset: CGFloat = 10
     private let smallFont = UIFont(name: Constants.Fonts.font, size: 12)
     private let bigFont = UIFont(name: Constants.Fonts.font, size: 18)
-    private let labelTextColor: UIColor = .white
     private let titleColor: UIColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
     
     private lazy var scrollView: UIScrollView = {
@@ -59,122 +58,60 @@ class SpeciesDetailView: UIView {
         return $0
     }(UILabel())
     
-    private lazy var classificationLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var classificationLabel: BaseLabel = {
         $0.text = LabelValues.classification
         return $0
-    }(UILabel())
-    
-    private lazy var classificationValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var designationLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    }(BaseLabel())
+        
+    private lazy var designationLabel: BaseLabel = {
         $0.text = LabelValues.designation
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var designationValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var averageHeightLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var averageHeightLabel: BaseLabel = {
         $0.text = LabelValues.averageHeight
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var averageHeightValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var averageLifespanLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var averageLifespanLabel: BaseLabel = {
         $0.text = LabelValues.averageLifespan
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var averageLifespanValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var eyeColorsLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var eyeColorsLabel: BaseLabel = {
         $0.text = LabelValues.eyeColors
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var eyeColorsValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var hairColorsLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var hairColorsLabel: BaseLabel = {
         $0.text = LabelValues.hairColors
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var hairColorsValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var skinColorsLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var skinColorsLabel: BaseLabel = {
         $0.text = LabelValues.skinColors
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var skinColorsValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var languageLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var languageLabel: BaseLabel = {
         $0.text = LabelValues.language
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var languageValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var homeworldLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var homeworldLabel: BaseLabel = {
         $0.text = LabelValues.homeworld
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var homeworldValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
+    private lazy var classificationValueLabel = BaseValueLabel()
+    private lazy var designationValueLabel = BaseValueLabel()
+    private lazy var averageHeightValueLabel = BaseValueLabel()
+    private lazy var averageLifespanValueLabel = BaseValueLabel()
+    private lazy var eyeColorsValueLabel = BaseValueLabel()
+    private lazy var hairColorsValueLabel = BaseValueLabel()
+    private lazy var skinColorsValueLabel = BaseValueLabel()
+    private lazy var languageValueLabel = BaseValueLabel()
+    private lazy var homeworldValueLabel = BaseValueLabel()
     
     lazy var moviesButton: UIButton = {
         $0.titleLabel?.font = smallFont
@@ -208,77 +145,15 @@ class SpeciesDetailView: UIView {
         return $0
     }(UIStackView())
 
-    private lazy var classificationStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var designationStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var averageHeightStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var averageLifespanStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var eyeColorsStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var hairColorsStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var skinColorsStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var languageStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var homeworldStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
+    private lazy var classificationStackView = BaseLabelStackView()
+    private lazy var designationStackView = BaseLabelStackView()
+    private lazy var averageHeightStackView = BaseLabelStackView()
+    private lazy var averageLifespanStackView = BaseLabelStackView()
+    private lazy var eyeColorsStackView = BaseLabelStackView()
+    private lazy var hairColorsStackView = BaseLabelStackView()
+    private lazy var skinColorsStackView = BaseLabelStackView()
+    private lazy var languageStackView = BaseLabelStackView()
+    private lazy var homeworldStackView = BaseLabelStackView()
      
     override init(frame: CGRect) {
         super.init(frame: frame)

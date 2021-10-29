@@ -28,7 +28,6 @@ class PlanetDetailView: UIView {
     private let inset: CGFloat = 10
     private let smallFont = UIFont(name: Constants.Fonts.font, size: 12)
     private let bigFont = UIFont(name: Constants.Fonts.font, size: 18)
-    private let labelTextColor: UIColor = .white
     private let titleColor: UIColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
     
     private lazy var scrollView: UIScrollView = {
@@ -58,109 +57,54 @@ class PlanetDetailView: UIView {
         return $0
     }(UILabel())
     
-    private lazy var diameterLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var diameterLabel: BaseLabel = {
         $0.text = LabelValues.diameter
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var diameterValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var rotationPeriodLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var rotationPeriodLabel: BaseLabel = {
         $0.text = LabelValues.rotationPeriod
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var rotationPeriodValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var orbitalPeriodLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var orbitalPeriodLabel: BaseLabel = {
         $0.text = LabelValues.orbitalPeriod
         return $0
-    }(UILabel())
-    
-    private lazy var orbitalPeriodValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var gravityLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    }(BaseLabel())
+        
+    private lazy var gravityLabel: BaseLabel = {
         $0.text = LabelValues.gravity
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var gravityValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var populationLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var populationLabel: BaseLabel = {
         $0.text = LabelValues.population
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var populationValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var climateLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var climateLabel: BaseLabel = {
         $0.text = LabelValues.climate
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var climateValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var terrainLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var terrainLabel: BaseLabel = {
         $0.text = LabelValues.terrain
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var terrainValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var surfaceWaterLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var surfaceWaterLabel: BaseLabel = {
         $0.text = LabelValues.surfaceWater
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var surfaceWaterValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
+    private lazy var diameterValueLabel = BaseValueLabel()
+    private lazy var rotationPeriodValueLabel = BaseValueLabel()
+    private lazy var orbitalPeriodValueLabel = BaseValueLabel()
+    private lazy var gravityValueLabel = BaseValueLabel()
+    private lazy var populationValueLabel = BaseValueLabel()
+    private lazy var climateValueLabel = BaseValueLabel()
+    private lazy var terrainValueLabel = BaseValueLabel()
+    private lazy var surfaceWaterValueLabel = BaseValueLabel()
     
     lazy var moviesButton: UIButton = {
         $0.titleLabel?.font = smallFont
@@ -194,69 +138,14 @@ class PlanetDetailView: UIView {
         return $0
     }(UIStackView())
 
-    private lazy var diameterStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var rotationPeriodStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var orbitalPeriodStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var gravityStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var populationStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var climateStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var terrainStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var surfaceWaterStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
+    private lazy var diameterStackView = BaseLabelStackView()
+    private lazy var rotationPeriodStackView = BaseLabelStackView()
+    private lazy var orbitalPeriodStackView = BaseLabelStackView()
+    private lazy var gravityStackView = BaseLabelStackView()
+    private lazy var populationStackView = BaseLabelStackView()
+    private lazy var climateStackView = BaseLabelStackView()
+    private lazy var terrainStackView = BaseLabelStackView()
+    private lazy var surfaceWaterStackView = BaseLabelStackView()
      
     override init(frame: CGRect) {
         super.init(frame: frame)

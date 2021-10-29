@@ -10,11 +10,11 @@ import UIKit
 class CharacterDetailView: UIView {
     
     private struct LabelValues {
-        static let birthYear = "Birth Year: "
+        static let birthYear = "Birth year: "
         static let gender = "Gender: "
-        static let hairColor = "Hair Color: "
-        static let eyeColor = "Eye Color: "
-        static let skinColor = "Skin Color: "
+        static let hairColor = "Hair color: "
+        static let eyeColor = "Eye color: "
+        static let skinColor = "Skin color: "
         static let height = "Height: "
         static let weight = "Weight: "
         static let homeworld = "Homeworld: "
@@ -30,7 +30,6 @@ class CharacterDetailView: UIView {
     private let inset: CGFloat = 10
     private let smallFont = UIFont(name: Constants.Fonts.font, size: 12)
     private let bigFont = UIFont(name: Constants.Fonts.font, size: 18)
-    private let labelTextColor: UIColor = .white
     private let titleColor: UIColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
     
     private lazy var scrollView: UIScrollView = {
@@ -60,109 +59,54 @@ class CharacterDetailView: UIView {
         return $0
     }(UILabel())
     
-    private lazy var birthYearLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var birthYearLabel: BaseLabel = {
         $0.text = LabelValues.birthYear
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var birthYearValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var genderLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var genderLabel: BaseLabel = {
         $0.text = LabelValues.gender
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var genderValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var hairColorLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var hairColorLabel: BaseLabel = {
         $0.text = LabelValues.hairColor
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var hairColorValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var eyeColorLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var eyeColorLabel: BaseLabel = {
         $0.text = LabelValues.eyeColor
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var eyeColorValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var skinColorLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var skinColorLabel: BaseLabel = {
         $0.text = LabelValues.skinColor
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var skinColorValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var heightLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var heightLabel: BaseLabel = {
         $0.text = LabelValues.height
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var heightValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var weightLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var weightLabel: BaseLabel = {
         $0.text = LabelValues.weight
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var weightValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var homeworldLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var homeworldLabel: BaseLabel = {
         $0.text = LabelValues.homeworld
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var homeworldValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
+    private lazy var birthYearValueLabel = BaseValueLabel()
+    private lazy var genderValueLabel = BaseValueLabel()
+    private lazy var hairColorValueLabel = BaseValueLabel()
+    private lazy var eyeColorValueLabel = BaseValueLabel()
+    private lazy var skinColorValueLabel = BaseValueLabel()
+    private lazy var heightValueLabel = BaseValueLabel()
+    private lazy var weightValueLabel = BaseValueLabel()
+    private lazy var homeworldValueLabel = BaseValueLabel()
     
     lazy var moviesButton: UIButton = {
         $0.titleLabel?.font = smallFont
@@ -210,69 +154,14 @@ class CharacterDetailView: UIView {
         return $0
     }(UIStackView())
 
-    private lazy var birthYearStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var genderStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var hairColorStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var eyeColorStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var skinColorStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var heightStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var weightStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var homeworldStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
+    private lazy var birthYearStackView = BaseLabelStackView()
+    private lazy var genderStackView = BaseLabelStackView()
+    private lazy var hairColorStackView = BaseLabelStackView()
+    private lazy var eyeColorStackView = BaseLabelStackView()
+    private lazy var skinColorStackView = BaseLabelStackView()
+    private lazy var heightStackView = BaseLabelStackView()
+    private lazy var weightStackView = BaseLabelStackView()
+    private lazy var homeworldStackView = BaseLabelStackView()
      
     override init(frame: CGRect) {
         super.init(frame: frame)

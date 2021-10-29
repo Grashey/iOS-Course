@@ -30,7 +30,6 @@ class VehicleDetailView: UIView {
     private let inset: CGFloat = 10
     private let smallFont = UIFont(name: Constants.Fonts.font, size: 12)
     private let bigFont = UIFont(name: Constants.Fonts.font, size: 18)
-    private let labelTextColor: UIColor = .white
     private let titleColor: UIColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
     
     private lazy var scrollView: UIScrollView = {
@@ -60,139 +59,66 @@ class VehicleDetailView: UIView {
         return $0
     }(UILabel())
     
-    private lazy var modelLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var modelLabel: BaseLabel = {
         $0.text = LabelValues.model
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var modelValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var vehicleClassLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var vehicleClassLabel: BaseLabel = {
         $0.text = LabelValues.vehicleClass
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var vehicleClassValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        $0.numberOfLines = 0
-        $0.lineBreakMode = .byWordWrapping
-        return $0
-    }(UILabel())
-    
-    private lazy var manufacturerLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var manufacturerLabel: BaseLabel = {
         $0.text = LabelValues.manufacturer
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var manufacturerValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        $0.numberOfLines = 0
-        $0.lineBreakMode = .byWordWrapping
-        return $0
-    }(UILabel())
-    
-    private lazy var costInCreditsLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var costInCreditsLabel: BaseLabel = {
         $0.text = LabelValues.costInCredits
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var costInCreditsValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var lengthLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var lengthLabel: BaseLabel = {
         $0.text = LabelValues.length
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var lengthValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var crewLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var crewLabel: BaseLabel = {
         $0.text = LabelValues.crew
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var crewValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var passengersLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var passengersLabel: BaseLabel = {
         $0.text = LabelValues.passengers
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var passengersValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var cargoCapacityLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var cargoCapacityLabel: BaseLabel = {
         $0.text = LabelValues.cargoCapacity
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var cargoCapacityValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var maxAtmospheringSpeedLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var maxAtmospheringSpeedLabel: BaseLabel = {
         $0.text = LabelValues.maxAtmospheringSpeed
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var maxAtmospheringSpeedValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
-    
-    private lazy var consumablesLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
+    private lazy var consumablesLabel: BaseLabel = {
         $0.text = LabelValues.consumables
         return $0
-    }(UILabel())
+    }(BaseLabel())
     
-    private lazy var consumablesValueLabel: UILabel = {
-        $0.font = smallFont
-        $0.textColor = labelTextColor
-        return $0
-    }(UILabel())
+    private lazy var modelValueLabel = BaseValueLabel()
+    private lazy var vehicleClassValueLabel = BaseValueLabel()
+    private lazy var manufacturerValueLabel = BaseValueLabel()
+    private lazy var costInCreditsValueLabel = BaseValueLabel()
+    private lazy var lengthValueLabel = BaseValueLabel()
+    private lazy var crewValueLabel = BaseValueLabel()
+    private lazy var passengersValueLabel = BaseValueLabel()
+    private lazy var cargoCapacityValueLabel = BaseValueLabel()
+    private lazy var maxAtmospheringSpeedValueLabel = BaseValueLabel()
+    private lazy var consumablesValueLabel = BaseValueLabel()
     
     lazy var moviesButton: UIButton = {
         $0.titleLabel?.font = smallFont
@@ -226,85 +152,16 @@ class VehicleDetailView: UIView {
         return $0
     }(UIStackView())
 
-    private lazy var modelStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var vehicleClassStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var manufacturerStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var costInCreditsStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var lengthStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var crewStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var passengersStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var cargoCapacityStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var maxAtmospheringSpeedStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
-    
-    private lazy var consumablesStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .leading
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
+    private lazy var modelStackView = BaseLabelStackView()
+    private lazy var vehicleClassStackView = BaseLabelStackView()
+    private lazy var manufacturerStackView = BaseLabelStackView()
+    private lazy var costInCreditsStackView = BaseLabelStackView()
+    private lazy var lengthStackView = BaseLabelStackView()
+    private lazy var crewStackView = BaseLabelStackView()
+    private lazy var passengersStackView = BaseLabelStackView()
+    private lazy var cargoCapacityStackView = BaseLabelStackView()
+    private lazy var maxAtmospheringSpeedStackView = BaseLabelStackView()
+    private lazy var consumablesStackView = BaseLabelStackView()
      
     override init(frame: CGRect) {
         super.init(frame: frame)

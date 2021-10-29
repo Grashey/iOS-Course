@@ -9,158 +9,123 @@ import UIKit
 
 class MovieDetailView: UIView {
     
-    private enum LabelValues: String {
-        case episode = "Episode "
-        case director = "Director: "
-        case producer = "Producer: "
-        case releaseDate = "Release Date: "
+    private struct LabelValues {
+        static let episode = "Episode "
+        static let director = "Director: "
+        static let producer = "Producer: "
+        static let releaseDate = "Release date: "
+        static let characters = "Characters: "
+        static let planets = "Planets: "
+        static let species = "Species: "
+        static let starships = "Starships: "
+        static let vehicles = "vehicles: "
     }
 
     let inset: CGFloat = 10
-    
     let smallFont = UIFont(name: Constants.Fonts.font, size: 12)
     let mediumFont = UIFont(name: Constants.Fonts.font, size: 16)
     let bigFont = UIFont(name: Constants.Fonts.font, size: 18)
-    
     let labelTextColor: UIColor = .white
     
     lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.backgroundColor = .clear
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.contentInset = UIEdgeInsets(top: inset, left: .zero, bottom: inset, right: .zero)
-        scrollView.showsVerticalScrollIndicator = false
-        return scrollView
-    }()
+        $0.backgroundColor = .clear
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.contentInset = UIEdgeInsets(top: inset, left: .zero, bottom: inset, right: .zero)
+        $0.showsVerticalScrollIndicator = false
+        return $0
+    }(UIScrollView())
     
     lazy var backgroundView: UIImageView = {
-        let view = UIImageView()
-        view.translatesAutoresizingMaskIntoConstraints = false
+        $0.translatesAutoresizingMaskIntoConstraints = false
         if let image = UIImage(named: Constants.ImageName.backgroundImage) {
-            view.image = image
+            $0.image = image
         }
-        return view
-    }()
+        return $0
+    }(UIImageView())
 
     lazy var posterImageView: UIImageView = {
-        let view = UIImageView()
-        view.layer.cornerRadius = 10
-        view.layer.shadowOffset = CGSize.zero
-        view.layer.shadowRadius = 5
-        view.layer.shadowOpacity = 1
-        view.layer.shadowColor = UIColor.white.cgColor
-        return view
-    }()
+        $0.layer.cornerRadius = 10
+        $0.layer.shadowOffset = CGSize.zero
+        $0.layer.shadowRadius = 5
+        $0.layer.shadowOpacity = 1
+        $0.layer.shadowColor = UIColor.white.cgColor
+        return $0
+    }(UIImageView())
     
     lazy var episodeLabel: UILabel = {
-        let label = UILabel()
-        label.font = smallFont
-        label.textColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
-        label.text = LabelValues.episode.rawValue
-        return label
-    }()
+        $0.font = smallFont
+        $0.textColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
+        $0.text = LabelValues.episode
+        return $0
+    }(UILabel())
     
     lazy var episodeValueLabel: UILabel = {
-        let label = UILabel()
-        label.font = smallFont
-        label.textColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
-        return label
-    }()
+        $0.font = smallFont
+        $0.textColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
+        return $0
+    }(UILabel())
     
     lazy var nameLabel: UILabel = {
-        let label = UILabel()
-        label.font = bigFont
-        label.textColor = labelTextColor
-        return label
-    }()
+        $0.font = bigFont
+        $0.textColor = labelTextColor
+        return $0
+    }(UILabel())
     
     lazy var openingCrawlLabel: UILabel = {
-        let label = UILabel()
-        label.font = mediumFont
-        label.textColor = labelTextColor
-        label.numberOfLines = 0
-        return label
-    }()
+        $0.font = mediumFont
+        $0.textColor = labelTextColor
+        $0.numberOfLines = 0
+        return $0
+    }(UILabel())
     
-    lazy var directorLabel: UILabel = {
-        let label = UILabel()
-        label.font = smallFont
-        label.textColor = labelTextColor
-        label.text = LabelValues.director.rawValue
-        return label
-    }()
+    lazy var directorLabel: BaseLabel = {
+        $0.text = LabelValues.director
+        return $0
+    }(BaseLabel())
     
-    lazy var directorValueLabel: UILabel = {
-        let label = UILabel()
-        label.font = smallFont
-        label.textColor = labelTextColor
-        return label
-    }()
+    lazy var producerLabel: BaseLabel = {
+        $0.text = LabelValues.producer
+        return $0
+    }(BaseLabel())
     
-    lazy var producerLabel: UILabel = {
-        let label = UILabel()
-        label.font = smallFont
-        label.textColor = labelTextColor
-        label.text = LabelValues.producer.rawValue
-        return label
-    }()
+    lazy var releaseDateLabel: BaseLabel = {
+        $0.text = LabelValues.releaseDate
+        return $0
+    }(BaseLabel())
     
-    lazy var producerValueLabel: UILabel = {
-        let label = UILabel()
-        label.font = smallFont
-        label.textColor = labelTextColor
-        return label
-    }()
+    lazy var charactersLabel: BaseLabel = {
+        $0.text = LabelValues.characters
+        return $0
+    }(BaseLabel())
     
-    lazy var releaseDateLabel: UILabel = {
-        let label = UILabel()
-        label.font = smallFont
-        label.textColor = labelTextColor
-        label.text = LabelValues.releaseDate.rawValue
-        return label
-    }()
+    lazy var planetsLabel: BaseLabel = {
+        $0.text = LabelValues.planets
+        return $0
+    }(BaseLabel())
     
-    lazy var releaseDateValueLabel: UILabel = {
-        let label = UILabel()
-        label.font = smallFont
-        label.textColor = labelTextColor
-        return label
-    }()
+    lazy var speciesLabel: BaseLabel = {
+        $0.text = LabelValues.species
+        return $0
+    }(BaseLabel())
     
-    lazy var charactersLabel: UILabel = {
-        let label = UILabel()
-        label.font = smallFont
-        label.textColor = labelTextColor
-        return label
-    }()
+    lazy var starshipsLabel: BaseLabel = {
+        $0.text = LabelValues.starships
+        return $0
+    }(BaseLabel())
     
-    lazy var planetsLabel: UILabel = {
-        let label = UILabel()
-        label.font = smallFont
-        label.textColor = labelTextColor
-        return label
-    }()
+    lazy var vehiclesLabel: BaseLabel = {
+        $0.text = LabelValues.vehicles
+        return $0
+    }(BaseLabel())
     
-    lazy var speciesLabel: UILabel = {
-        let label = UILabel()
-        label.font = smallFont
-        label.textColor = labelTextColor
-        return label
-    }()
-    
-    lazy var starshipsLabel: UILabel = {
-        let label = UILabel()
-        label.font = smallFont
-        label.textColor = labelTextColor
-        return label
-    }()
-    
-    lazy var vehiclesLabel: UILabel = {
-        let label = UILabel()
-        label.font = smallFont
-        label.textColor = labelTextColor
-        return label
-    }()
+    lazy var directorValueLabel = BaseValueLabel()
+    lazy var producerValueLabel = BaseValueLabel()
+    lazy var releaseDateValueLabel = BaseValueLabel()
+    lazy var charactersValueLabel = BaseValueLabel()
+    lazy var planetsValueLabel = BaseValueLabel()
+    lazy var speciesValueLabel = BaseValueLabel()
+    lazy var starshipsValueLabel = BaseValueLabel()
+    lazy var vehiclesValueLabel = BaseValueLabel()
     
     lazy var episodeStackView: UIStackView = {
         let stackview = UIStackView()
@@ -171,32 +136,14 @@ class MovieDetailView: UIView {
         return stackview
     }()
     
-    lazy var directorStackView: UIStackView = {
-        let stackview = UIStackView()
-        stackview.axis = .horizontal
-        stackview.distribution = .fill
-        stackview.alignment = .leading
-        stackview.translatesAutoresizingMaskIntoConstraints = false
-        return stackview
-    }()
-    
-    lazy var producerStackView: UIStackView = {
-        let stackview = UIStackView()
-        stackview.axis = .horizontal
-        stackview.distribution = .fill
-        stackview.alignment = .leading
-        stackview.translatesAutoresizingMaskIntoConstraints = false
-        return stackview
-    }()
-    
-    lazy var releaseDateStackView: UIStackView = {
-        let stackview = UIStackView()
-        stackview.axis = .horizontal
-        stackview.distribution = .fill
-        stackview.alignment = .leading
-        stackview.translatesAutoresizingMaskIntoConstraints = false
-        return stackview
-    }()
+    lazy var directorStackView = BaseLabelStackView()
+    lazy var producerStackView = BaseLabelStackView()
+    lazy var releaseDateStackView = BaseLabelStackView()
+    lazy var charactersStackView = BaseLabelStackView()
+    lazy var planetsStackView = BaseLabelStackView()
+    lazy var speciesStackView = BaseLabelStackView()
+    lazy var starshipsStackView = BaseLabelStackView()
+    lazy var vehiclesStackView = BaseLabelStackView()
     
     lazy var contentStackView: UIStackView = {
         let stackview = UIStackView()
@@ -234,22 +181,33 @@ class MovieDetailView: UIView {
         scrollView.addSubview(contentStackView)
         
         contentStackView.addArrangedSubview(posterImageView)
+        contentStackView.addArrangedSubview(episodeStackView)
+        contentStackView.addArrangedSubview(nameLabel)
+        contentStackView.addArrangedSubview(openingCrawlLabel)
         contentStackView.addArrangedSubview(infoStackView)
         
         episodeStackView.addArrangedSubview(episodeLabel)
         episodeStackView.addArrangedSubview(episodeValueLabel)
         
-        directorStackView.addArrangedSubview(directorLabel)
-        directorStackView.addArrangedSubview(directorValueLabel)
+
         
-        producerStackView.addArrangedSubview(producerLabel)
-        producerStackView.addArrangedSubview(producerValueLabel)
-        
-        releaseDateStackView.addArrangedSubview(releaseDateLabel)
-        releaseDateStackView.addArrangedSubview(releaseDateValueLabel)
-        
-        let detailsArray = [episodeStackView, nameLabel, openingCrawlLabel, directorStackView, producerStackView, releaseDateStackView, charactersLabel, planetsLabel, speciesLabel, starshipsLabel, vehiclesLabel]
-        detailsArray.forEach { infoStackView.addArrangedSubview($0) }
+        let stackArray = [directorStackView, producerStackView, releaseDateStackView, charactersStackView, planetsStackView, speciesStackView, starshipsStackView, vehiclesStackView]
+        let labelArray = [[directorLabel, directorValueLabel],
+                          [producerLabel, producerValueLabel],
+                          [releaseDateLabel, releaseDateValueLabel],
+                          [charactersLabel, charactersValueLabel],
+                          [planetsLabel, planetsValueLabel],
+                          [speciesLabel, speciesValueLabel],
+                          [starshipsLabel, starshipsValueLabel],
+                          [vehiclesLabel, vehiclesValueLabel]
+        ]
+        for index in Int.zero ..< stackArray.count {
+            infoStackView.addArrangedSubview(stackArray[index])
+            if let firstLabel = labelArray[index].first, let lastLabel = labelArray[index].last {
+                stackArray[index].addArrangedSubview(firstLabel)
+                stackArray[index].addArrangedSubview(lastLabel)
+            }
+        }
     }
     
     private func addConstraints() {
@@ -269,7 +227,8 @@ class MovieDetailView: UIView {
             contentStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             contentStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             
-            posterImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+            posterImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            infoStackView.widthAnchor.constraint(equalTo: self.layoutMarginsGuide.widthAnchor, constant: -inset*2)
         ])
     }
     
@@ -284,10 +243,10 @@ class MovieDetailView: UIView {
         producerValueLabel.text = model.producer
         releaseDateValueLabel.text = model.releaseDate
         
-        charactersLabel.text = "Characters: SomeCharacters"
-        planetsLabel.text = "Planets: SomePlanets"
-        speciesLabel.text = "Species: SomeSpecies"
-        starshipsLabel.text = "Starships: SomeStarships"
-        vehiclesLabel.text = "vehicles: Somevehicles"
+        charactersValueLabel.text = "SomeCharacters"
+        planetsValueLabel.text = "SomePlanets"
+        speciesValueLabel.text = "SomeSpecies"
+        starshipsValueLabel.text = "SomeStarships"
+        vehiclesValueLabel.text = "Somevehicles"
     }
 }

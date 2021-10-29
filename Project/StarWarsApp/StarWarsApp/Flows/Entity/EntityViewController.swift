@@ -64,7 +64,6 @@ class EntityViewController: UIViewController {
     }
     
     private func showController() {
-        // Баг: неправильно привязан к супервью, меню меняет точку ориджин соответственно прокрутке коллекции
         //TODO: написать custom presentation controller
         menuContainerView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(menuContainerView)
@@ -88,7 +87,6 @@ class EntityViewController: UIViewController {
     }
     
     private func addChild(controller: UIViewController, containerView: UIView) {
-        controller.view.frame = containerView.frame
         containerView.addSubview(controller.view)
         self.addChild(controller)
         controller.didMove(toParent: self)
