@@ -5,41 +5,75 @@
 //  Created by Aleksandr Fetisov on 09.10.2021.
 //
 
-import Foundation
+import UIKit
 
 class MoviePresenter: MoviePresenterProtocol {
-    
+ 
     weak var viewController: MovieViewController?
-    var viewModel: [MovieViewModel]?
-    var movies: [Movie] = []
     
-    //temporary data
-    let film1 = Movie(title: "Title1", episodeNumber: 1, annotation: "some info1", director: "director1", producer: "producer1", releaseDate: "someDate1")
-    let film2 = Movie(title: "Title2", episodeNumber: 2, annotation: "some info2", director: "director2", producer: "producer2", releaseDate: "someDate2")
-    let film3 = Movie(title: "Title3", episodeNumber: 3, annotation: "some info3", director: "director3", producer: "producer3", releaseDate: "someDate3")
-    let film4 = Movie(title: "Title4", episodeNumber: 4, annotation: "some info4", director: "director4", producer: "producer4", releaseDate: "someDate4")
-    let film5 = Movie(title: "Title5", episodeNumber: 5, annotation: "some info5", director: "director5", producer: "producer5", releaseDate: "someDate5")
-    let film6 = Movie(title: "Title6", episodeNumber: 6, annotation: "some info6", director: "director6", producer: "producer6", releaseDate: "someDate6")
+    private let service = MovieNetworkService()
+    var movies: [MovieData] = []
+    var viewModels: [MovieViewModel] = []
     
-    func getData() {
-        movies = [film1, film2, film3, film4, film5, film6]
-        self.viewModel = movies.map { MovieViewModel(title: $0.title,
-                                                    episodeNumber: $0.episodeNumber,
-                                                    annotation: $0.annotation,
-                                                    director: $0.director,
-                                                    producer: $0.producer,
-                                                     releaseDate: $0.releaseDate) }
-        viewController?.reload()
+    private var isLoading = false {
+        didSet {
+            guard oldValue != isLoading else { return }
+            viewController?.showSpinner(isShown: isLoading)
+        }
     }
     
-}
-
-//temporary data
-struct Movie {
-    let title: String
-    let episodeNumber: Int
-    let annotation: String
-    let director: String
-    let producer: String
-    let releaseDate: String
+    func getData() {
+        isLoading = true
+        service.fetchMovies { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let data):
+                self.movies = data.results.sorted { $0.episodeId < $1.episodeId }
+                self.mapViewModel()
+                
+                DispatchQueue.main.async {
+                    self.viewController?.reloadTable()
+                    self.isLoading = false
+                }
+                
+                for (index, _) in self.viewModels.enumerated() {
+                    self.getImage(for: index)
+                }
+            case .failure(let error):
+                self.showAlert(message: error.message)
+            }
+        }
+    }
+    
+    private func getImage(for index: Int) {
+        self.service.fetchImage(for: index) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let data):
+                self.viewModels[index].image = UIImage(data: data)
+                DispatchQueue.main.async {
+                    self.viewController?.reloadCell(index: index)
+                }
+            case .failure(let error):
+                self.showAlert(message: error.message)
+            }
+        }
+    }
+    
+    private func showAlert(message: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Опаньки, что-то пошло не так!",
+                                          message: message,
+                                          preferredStyle: .alert)
+            self.viewController?.present(alert, animated: true)
+        }
+    }
+    
+    private func mapViewModel() {
+        //TODO: сделать красивую заглушку (анимированную?) для постера
+        let image = UIImage(named: Constants.ImageName.backgroundImage)
+        guard let image = image else { return }
+        self.viewModels = self.movies.map { MovieViewModel(title: $0.title, episodeNumber: $0.episodeId, image: image)}
+    }
+    
 }

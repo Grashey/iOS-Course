@@ -11,7 +11,8 @@ class MovieViewController: UITableViewController {
     
     var presenter: MoviePresenterProtocol?
     
-    var onDetails: ((MovieViewModel) -> Void)?
+    var onDetails: ((MovieData) -> Void)?
+    private let spinner = SpinnerViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,18 +28,40 @@ class MovieViewController: UITableViewController {
         tableView.estimatedRowHeight = UITableView.automaticDimension
     }
     
-    func reload() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        spinner.view.frame = view.frame
+    }
+    
+    func reloadTable() {
         tableView.reloadData()
+    }
+    
+    func reloadCell(index: Int) {
+        let indexPath = IndexPath(row: index, section: .zero)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
+    func showSpinner(isShown: Bool) {
+        if isShown {
+            addChild(spinner)
+            view.addSubview(spinner.view)
+            spinner.didMove(toParent: self)
+        } else {
+            spinner.willMove(toParent: nil)
+            spinner.view.removeFromSuperview()
+            spinner.removeFromParent()
+        }
     }
     
     //MARK: TableView DataSource
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter?.viewModel?.count ?? .zero
+        return presenter?.viewModels.count ?? .zero
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.description(), for: indexPath)
-        if let model = presenter?.viewModel?[indexPath.row] {
+        if let model = presenter?.viewModels[indexPath.row] {
             (cell as? MovieTableViewCell)?.configureWith(model: model)
         }
         cell.selectionStyle = .none
@@ -46,7 +69,7 @@ class MovieViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let model = presenter?.viewModel?[indexPath.row] {
+        if let model = presenter?.movies[indexPath.row] {
             onDetails?(model)
         }
     }

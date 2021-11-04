@@ -9,48 +9,59 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
     
-    let inset: CGFloat = 10
+    private struct LabelValues {
+        static let episode = "Episode "
+    }
+    
+    private let inset: CGFloat = 10
+    private let posterImageSize = CGSize(width: 200, height: 300)
 
-    lazy var posterImageView: UIImageView = {
-        let view = UIImageView()
-        view.layer.cornerRadius = 10
-        view.layer.shadowOffset = CGSize.zero
-        view.layer.shadowRadius = 5
-        view.layer.shadowOpacity = 1
-        view.layer.shadowColor = UIColor.white.cgColor
-        return view
-    }()
+    private lazy var posterImageView: UIImageView = {
+        $0.layer.cornerRadius = 10
+        $0.layer.shadowOffset = CGSize.zero
+        $0.layer.shadowRadius = 5
+        $0.layer.shadowOpacity = 1
+        $0.layer.shadowColor = UIColor.white.cgColor
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.contentMode = .scaleToFill
+        return $0
+    }(UIImageView())
     
-    lazy var episodeLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: Constants.Fonts.font, size: 12)
-        label.textColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
-        return label
-    }()
+    private lazy var episodeLabel: UILabel = {
+        $0.font = UIFont(name: Constants.Fonts.font, size: 12)
+        $0.textColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
+        $0.text = LabelValues.episode
+        return $0
+    }(UILabel())
     
-    lazy var nameLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: Constants.Fonts.font, size: 18)
-        label.textColor = .white
-        return label
-    }()
+    private lazy var episodeValueLabel: UILabel = {
+        $0.font = UIFont(name: Constants.Fonts.font, size: 12)
+        $0.textColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
+        return $0
+    }(UILabel())
     
-    lazy var contentStackView: UIStackView = {
-        let stackview = UIStackView()
-        stackview.axis = .vertical
-        stackview.distribution = .fill
-        stackview.alignment = .center
-        stackview.translatesAutoresizingMaskIntoConstraints = false
-        return stackview
-    }()
+    private lazy var nameLabel: UILabel = {
+        $0.font = UIFont(name: Constants.Fonts.font, size: 18)
+        $0.textColor = .white
+        return $0
+    }(UILabel())
     
-    lazy var infoStackView: UIStackView = {
-        let stackview = UIStackView()
-        stackview.axis = .vertical
-        stackview.distribution = .fillEqually
-        stackview.alignment = .leading
-        return stackview
-    }()
+    private lazy var contentStackView: UIStackView = {
+        $0.axis = .vertical
+        $0.distribution = .fill
+        $0.alignment = .center
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        return $0
+    }(UIStackView())
+    
+    private lazy var infoStackView: UIStackView = {
+        $0.axis = .vertical
+        $0.distribution = .fillEqually
+        $0.alignment = .center
+        return $0
+    }(UIStackView())
+    
+    private lazy var episodeStackView = BaseLabelStackView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -67,8 +78,10 @@ class MovieTableViewCell: UITableViewCell {
         contentView.addSubview(contentStackView)
         contentStackView.addArrangedSubview(posterImageView)
         contentStackView.addArrangedSubview(infoStackView)
-        infoStackView.addArrangedSubview(episodeLabel)
+        infoStackView.addArrangedSubview(episodeStackView)
         infoStackView.addArrangedSubview(nameLabel)
+        episodeStackView.addArrangedSubview(episodeLabel)
+        episodeStackView.addArrangedSubview(episodeValueLabel)
     }
     
     private func addConstraints() {
@@ -81,10 +94,24 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     func configureWith(model: MovieViewModel) {
-        guard let image = UIImage(named: "episode\(model.episodeNumber)") else { return }
-        posterImageView.image = image
-        episodeLabel.text = "Episode \(model.episodeNumber)"
+        episodeValueLabel.text = String(model.episodeNumber)
         nameLabel.text = model.title
+        guard let image = model.image else { return }
+        posterImageView.image = resizeImage(image: image, targetSize: posterImageSize)
     }
     
+    private func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage? {
+        let size = image.size
+        let widthRatio = targetSize.width / size.width
+        let heightRatio = targetSize.height / size.height
+        let newSize = CGSize(width: size.width * widthRatio, height: size.height * heightRatio)
+        let rect = CGRect(origin: .zero, size: newSize)
+        
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1)
+        image.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
 }

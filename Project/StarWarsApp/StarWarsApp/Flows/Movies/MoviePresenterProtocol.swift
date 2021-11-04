@@ -9,7 +9,8 @@ import Foundation
 
 protocol MoviePresenterProtocol {
     
-    var viewModel: [MovieViewModel]? { get set }
+    var movies: [MovieData] { get set }
+    var viewModels: [MovieViewModel] { get set }
 
     func getData()
 }
