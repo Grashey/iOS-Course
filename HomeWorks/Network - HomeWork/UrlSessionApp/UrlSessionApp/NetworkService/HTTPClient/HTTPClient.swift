@@ -5,7 +5,6 @@
 //  Created by Aleksandr Fetisov on 01.11.2021.
 //
 
-import Foundation
 import UIKit
 
 class HTTPClient: HTTPClientProtocol {
@@ -19,16 +18,6 @@ class HTTPClient: HTTPClientProtocol {
 
     func request<ResponseType: Decodable>(for route: Route, completion: @escaping (Result<ResponseType, NetworkServiceError>) -> Void) {
         
-        var components = URLComponents(string: route.makeURL())
-        if !route.parameters.isEmpty {
-            route.parameters.forEach { param in
-                components?.queryItems?.append(URLQueryItem(name: param.key, value: param.value as? String))
-            }
-        }
-        
-        guard let url = components?.url else { return completion(.failure(.wrongUrl)) }
-        var request = URLRequest(url: url)
-        request.httpMethod = route.method
         let handler: Handler = { rawData, response, error in
             do {
                 let data = try self.httpResponse(data: rawData, response: response)
@@ -39,7 +28,13 @@ class HTTPClient: HTTPClientProtocol {
             }
         }
         
-        session.dataTask(with: request, completionHandler: handler).resume()
+        do {
+            let request: URLRequest = try makeRequest(route: route)
+            session.dataTask(with: request, completionHandler: handler).resume()
+        } catch {
+            completion(.failure(error as? NetworkServiceError ?? .unknown))
+        }
+
     }
     
     private func httpResponse(data: Data?, response: URLResponse?) throws -> Data {
@@ -58,16 +53,17 @@ class HTTPClient: HTTPClientProtocol {
         return data
     }
     
-    func imageDataRequest(for route: Route, completion: @escaping (Result<Data, NetworkServiceError>) -> Void) {
-        let components = URLComponents(string: route.makeURL())
-        guard let url = components?.url else { return completion(.failure(.wrongUrl)) }
-        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy)
-        request.httpMethod = route.method
-        
-        let handler: Handler = { rawData, _, error in
-            guard let data = rawData else { return completion(.failure(.data)) }
-            completion(.success(data))
+    private func makeRequest(route: Route) throws -> URLRequest {
+        var components = URLComponents(string: route.makeURL())
+        if !route.parameters.isEmpty {
+            route.parameters.forEach { param in
+                components?.queryItems?.append(URLQueryItem(name: param.key, value: param.value as? String))
+            }
         }
-        session.dataTask(with: request, completionHandler: handler).resume()
+        
+        guard let url = components?.url else { throw NetworkServiceError.wrongUrl }
+        var request = URLRequest(url: url)
+        request.httpMethod = route.method
+        return request
     }
 }

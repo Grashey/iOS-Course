@@ -8,6 +8,11 @@
 import Foundation
 import UIKit
 
+private enum ViewModel {
+    case short
+    case long
+}
+
 class MoviePresenter: MoviePresenterProtocol {
  
     weak var viewController: MovieViewController?
@@ -16,7 +21,6 @@ class MoviePresenter: MoviePresenterProtocol {
     private var movies: [GetMoviesDataResponse] = []
     var viewModels: [MovieViewModel] = []
     var shortViewModels: [MovieShortViewModel] = []
-    private let image = UIImage(named: "backgroundLayer")
     
     private var isLoading = false {
         didSet {
@@ -31,17 +35,18 @@ class MoviePresenter: MoviePresenterProtocol {
             guard let self = self else { return }
             switch result {
             case .success(let data):
-                guard let image = self.image else { return }
                 self.movies = data.results.sorted { $0.episodeId < $1.episodeId }
-                DispatchQueue.global(qos: .background).async {
-                    self.viewModels = self.movies.map { MovieViewModel(title: $0.title, episodeNumber: $0.episodeId, annotation: $0.openingCrawl, director: $0.director, producer: $0.producer, releaseDate: $0.releaseDate, characters: $0.characters, planets: $0.planets, species: $0.species, starships: $0.starships, vehicles: $0.vehicles, image: image)
-                    }
-                }
-                self.shortViewModels = self.movies.map { MovieShortViewModel(title: $0.title, episodeNumber: $0.episodeId, image: image)}
+                self.mapViewModel(model: .short)
+                
                 DispatchQueue.main.async {
                     self.viewController?.reloadTable()
                     self.isLoading = false
                 }
+                
+                DispatchQueue.global(qos: .background).async {
+                    self.mapViewModel(model: .long)
+                }
+                
                 for (index, _) in self.shortViewModels.enumerated() {
                     self.getImage(for: index)
                 }
@@ -73,6 +78,18 @@ class MoviePresenter: MoviePresenterProtocol {
                                           message: message,
                                           preferredStyle: .alert)
             self.viewController?.present(alert, animated: true)
+        }
+    }
+    
+    private func mapViewModel(model: ViewModel) {
+        let image = UIImage(named: "backgroundLayer")
+        guard let image = image else { return }
+        switch model {
+        case .short:
+            self.shortViewModels = self.movies.map { MovieShortViewModel(title: $0.title, episodeNumber: $0.episodeId, image: image)}
+        case .long:
+            self.viewModels = self.movies.map { MovieViewModel(title: $0.title, episodeNumber: $0.episodeId, annotation: $0.openingCrawl, director: $0.director, producer: $0.producer, releaseDate: $0.releaseDate, characters: $0.characters, planets: $0.planets, species: $0.species, starships: $0.starships, vehicles: $0.vehicles, image: image)
+            }
         }
     }
     

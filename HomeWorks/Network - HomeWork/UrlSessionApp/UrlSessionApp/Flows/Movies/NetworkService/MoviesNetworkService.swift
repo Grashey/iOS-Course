@@ -10,9 +10,11 @@ import UIKit
 class MoviesNetworkService {
 
     let httpClient: HTTPClientProtocol
+    let imageLoader: ImageLoaderProtocol
 
-    init(httpClient: HTTPClientProtocol = HTTPClient()) {
+    init(httpClient: HTTPClientProtocol = HTTPClient(), imageLoader: ImageLoaderProtocol = ImageLoaderService()) {
         self.httpClient = httpClient
+        self.imageLoader = imageLoader
     }
 
     func fetchMovies(completion: @escaping (Result<GetMoviesResponse, NetworkServiceError>) -> Void) {
@@ -37,6 +39,6 @@ class MoviesNetworkService {
             imageRoute = ImageRoute.episodeSix
         default: return
         }
-        httpClient.imageDataRequest(for: imageRoute, completion: completion)
+        imageLoader.request(for: imageRoute, completion: completion)
     }
 }

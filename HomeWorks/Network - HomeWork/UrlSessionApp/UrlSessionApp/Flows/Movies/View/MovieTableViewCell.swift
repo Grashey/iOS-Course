@@ -92,8 +92,9 @@ class MovieTableViewCell: UITableViewCell {
     
     private func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage? {
         let size = image.size
-        let sideRatio = targetSize.width / size.width
-        let newSize = CGSize(width: size.width * sideRatio, height: size.height * sideRatio)
+        let widthRatio = targetSize.width / size.width
+        let heightRatio = targetSize.height / size.height
+        let newSize = CGSize(width: size.width * widthRatio, height: size.height * heightRatio)
         let rect = CGRect(origin: .zero, size: newSize)
         
         UIGraphicsBeginImageContextWithOptions(newSize, false, 1)

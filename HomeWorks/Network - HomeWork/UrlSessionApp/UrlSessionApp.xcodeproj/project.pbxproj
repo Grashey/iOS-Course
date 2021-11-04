@@ -27,6 +27,8 @@
 		4A1804D12730717900E77660 /* ImageRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1804D02730717900E77660 /* ImageRoute.swift */; };
 		4A1804D32730773A00E77660 /* HTTPClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1804D22730773A00E77660 /* HTTPClientProtocol.swift */; };
 		4A1804D5273191CB00E77660 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1804D4273191CA00E77660 /* SpinnerViewController.swift */; };
+		4A1804DA2733D5D600E77660 /* ImageLoaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1804D92733D5D600E77660 /* ImageLoaderProtocol.swift */; };
+		4A1804DC2733D61600E77660 /* ImageLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1804DB2733D61600E77660 /* ImageLoaderService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		4A1804D02730717900E77660 /* ImageRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRoute.swift; sourceTree = "<group>"; };
 		4A1804D22730773A00E77660 /* HTTPClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientProtocol.swift; sourceTree = "<group>"; };
 		4A1804D4273191CA00E77660 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
+		4A1804D92733D5D600E77660 /* ImageLoaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderProtocol.swift; sourceTree = "<group>"; };
+		4A1804DB2733D61600E77660 /* ImageLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +105,8 @@
 			children = (
 				4A1804AE27301AD800E77660 /* NetworkServiceError.swift */,
 				4A1804B12730211100E77660 /* Route.swift */,
-				4A1804D22730773A00E77660 /* HTTPClientProtocol.swift */,
-				4A1804B32730223B00E77660 /* HTTPClient.swift */,
+				4A1804DD2733D69C00E77660 /* HTTPClient */,
+				4A1804DE2733D6A800E77660 /* ImageLoaderService */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -164,6 +168,24 @@
 				4A1804D4273191CA00E77660 /* SpinnerViewController.swift */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		4A1804DD2733D69C00E77660 /* HTTPClient */ = {
+			isa = PBXGroup;
+			children = (
+				4A1804D22730773A00E77660 /* HTTPClientProtocol.swift */,
+				4A1804B32730223B00E77660 /* HTTPClient.swift */,
+			);
+			path = HTTPClient;
+			sourceTree = "<group>";
+		};
+		4A1804DE2733D6A800E77660 /* ImageLoaderService */ = {
+			isa = PBXGroup;
+			children = (
+				4A1804D92733D5D600E77660 /* ImageLoaderProtocol.swift */,
+				4A1804DB2733D61600E77660 /* ImageLoaderService.swift */,
+			);
+			path = ImageLoaderService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A1804DA2733D5D600E77660 /* ImageLoaderProtocol.swift in Sources */,
 				4A1804C22730628B00E77660 /* MoviePresenter.swift in Sources */,
 				4A1804CD273068FF00E77660 /* MoviePresenterProtocol.swift in Sources */,
 				4A18049B273009E700E77660 /* MovieViewController.swift in Sources */,
@@ -249,6 +272,7 @@
 				4A1804AB2730132B00E77660 /* Constants.swift in Sources */,
 				4A1804B82730235100E77660 /* MoviesNetworkService.swift in Sources */,
 				4A1804BA273031A300E77660 /* MovieViewModel.swift in Sources */,
+				4A1804DC2733D61600E77660 /* ImageLoaderService.swift in Sources */,
 				4A1804D12730717900E77660 /* ImageRoute.swift in Sources */,
 				4A1804B22730211100E77660 /* Route.swift in Sources */,
 				4A1804D32730773A00E77660 /* HTTPClientProtocol.swift in Sources */,
