@@ -9,5 +9,8 @@ import Foundation
 
 protocol MovieDetailPresenterProtocol {
     
-    var model: MovieViewModel? {get set}
+    var model: MovieDetailViewModel? {get set}
+    var movie: MovieData? {get set}
+    
+    func makeModel() -> MovieDetailViewModel?
 }

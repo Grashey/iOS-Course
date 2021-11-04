@@ -16,7 +16,7 @@ class MovieDetailViewController: UIViewController {
         
         view.backgroundColor = .black
         let movieDetailView = MovieDetailView(frame: view.frame)
-        guard let model = presenter?.model else { return }
+        guard let model = presenter?.makeModel() else { return }
         movieDetailView.configureWith(model: model)
         self.view.addSubview(movieDetailView)
     }
