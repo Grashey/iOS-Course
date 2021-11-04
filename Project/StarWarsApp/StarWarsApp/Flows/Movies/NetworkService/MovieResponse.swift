@@ -29,4 +29,5 @@ struct MovieData: Decodable {
     let created: String
     let edited: String
     let url: String
+    var imageData: Data?
 }

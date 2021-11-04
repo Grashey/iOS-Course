@@ -22,8 +22,6 @@ class MovieTableViewCell: UITableViewCell {
         $0.layer.shadowRadius = 5
         $0.layer.shadowOpacity = 1
         $0.layer.shadowColor = UIColor.white.cgColor
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.contentMode = .scaleToFill
         return $0
     }(UIImageView())
     

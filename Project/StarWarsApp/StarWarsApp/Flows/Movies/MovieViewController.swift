@@ -69,8 +69,8 @@ class MovieViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let model = presenter?.movies[indexPath.row] {
-            onDetails?(model)
+        if let movie = presenter?.movies[indexPath.row] {
+            onDetails?(movie)
         }
     }
     

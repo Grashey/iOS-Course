@@ -50,6 +50,7 @@ class MoviePresenter: MoviePresenterProtocol {
             guard let self = self else { return }
             switch result {
             case .success(let data):
+                self.movies[index].imageData = data
                 self.viewModels[index].image = UIImage(data: data)
                 DispatchQueue.main.async {
                     self.viewController?.reloadCell(index: index)
@@ -71,8 +72,7 @@ class MoviePresenter: MoviePresenterProtocol {
     
     private func mapViewModel() {
         //TODO: сделать красивую заглушку (анимированную?) для постера
-        let image = UIImage(named: Constants.ImageName.backgroundImage)
-        guard let image = image else { return }
+        guard let image = UIImage(named: Constants.ImageName.backgroundImage) else { return }
         self.viewModels = self.movies.map { MovieViewModel(title: $0.title, episodeNumber: $0.episodeId, image: image)}
     }
     

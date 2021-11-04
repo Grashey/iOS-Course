@@ -21,10 +21,10 @@ class MovieCoordinator {
         guard let controller = vcAssembler.create() as? MovieViewController else { return }
         navigationController.viewControllers = [controller]
         
-        controller.onDetails = { model in
+        controller.onDetails = {
             self.vcAssembler = MovieDetailViewControllerAssembler()
             guard let detailsVC = self.vcAssembler.create() as? MovieDetailViewController else { return }
-//            detailsVC.presenter?.model = model
+            detailsVC.presenter?.movie = $0
             self.navigationController.pushViewController(detailsVC, animated: true)
         }
     }
