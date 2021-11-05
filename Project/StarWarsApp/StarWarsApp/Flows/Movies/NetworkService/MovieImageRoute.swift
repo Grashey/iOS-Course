@@ -1,5 +1,5 @@
 //
-//  ImageRoute.swift
+//  MovieImageRoute.swift
 //  StarWarsApp
 //
 //  Created by Aleksandr Fetisov on 04.11.2021.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ImageRoute {
+enum MovieImageRoute {
     case episodeOne
     case episodeTwo
     case episodeThree
@@ -16,7 +16,7 @@ enum ImageRoute {
     case episodeSix
 }
 
-extension ImageRoute: Route {
+extension MovieImageRoute: Route {
     
     var baseURL: String {
         switch self {

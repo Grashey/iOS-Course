@@ -9,5 +9,5 @@ import Foundation
 
 protocol HTTPClientProtocol {
     
-    func request<ResponseType: Decodable>(for route: Route, completion: @escaping (Result<ResponseType, NetworkServiceError>) -> Void)
+    func request<ResponseType: Decodable>(for route: Route, page: Int?, completion: @escaping (Result<ResponseType, NetworkServiceError>) -> Void)
 }

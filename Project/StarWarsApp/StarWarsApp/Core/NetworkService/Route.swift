@@ -15,7 +15,7 @@ protocol Route  {
 
     var baseURL: String { get }
 
-    var parameters: [String: Any] { get }
+    var parameters: [String: Int] { get }
 
     func makeURL() -> String
 }
@@ -23,10 +23,11 @@ protocol Route  {
 extension Route {
 
     var method: String { "GET" }
-
-    var parameters: [String: Any] { [:] }
+    
+    var parameters: [String: Int] { [:] }
 
     func makeURL() -> String {
        baseURL.appending(url)
     }
+
 }

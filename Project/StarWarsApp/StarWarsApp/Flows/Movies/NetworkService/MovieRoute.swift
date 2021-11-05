@@ -14,10 +14,7 @@ enum MovieRoute {
 extension MovieRoute: Route {
     
     var baseURL: String {
-        switch self {
-        default:
-            return Constants.ApiMethods.baseUrl
-        }
+        Constants.ApiMethods.baseUrl
     }
 
     var url: String {

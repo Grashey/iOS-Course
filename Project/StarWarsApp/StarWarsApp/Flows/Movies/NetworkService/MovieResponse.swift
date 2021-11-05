@@ -26,8 +26,6 @@ struct MovieData: Decodable {
     let starships: [String]
     let vehicles: [String]
     let species: [String]
-    let created: String
-    let edited: String
     let url: String
     var imageData: Data?
 }

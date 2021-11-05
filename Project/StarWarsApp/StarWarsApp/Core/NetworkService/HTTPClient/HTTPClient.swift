@@ -16,20 +16,20 @@ class HTTPClient: HTTPClientProtocol {
         return $0
     } (JSONDecoder())
 
-    func request<ResponseType: Decodable>(for route: Route, completion: @escaping (Result<ResponseType, NetworkServiceError>) -> Void) {
+    func request<ResponseType: Decodable>(for route: Route, page: Int?, completion: @escaping (Result<ResponseType, NetworkServiceError>) -> Void) {
         
         let handler: Handler = { rawData, response, error in
             do {
                 let data = try self.httpResponse(data: rawData, response: response)
-                let response = try self.decoder.decode(ResponseType.self, from: data)
-                completion(.success(response))
+                let decoded = try self.decoder.decode(ResponseType.self, from: data)
+                completion(.success(decoded))
             } catch {
                 completion(.failure(error as? NetworkServiceError ?? .decodable))
             }
         }
         
         do {
-            let request: URLRequest = try makeRequest(route: route)
+            let request: URLRequest = try makeRequest(route: route, page: page)
             session.dataTask(with: request, completionHandler: handler).resume()
         } catch {
             completion(.failure(error as? NetworkServiceError ?? .unknown))
@@ -53,11 +53,11 @@ class HTTPClient: HTTPClientProtocol {
         return data
     }
     
-    private func makeRequest(route: Route) throws -> URLRequest {
+    private func makeRequest(route: Route, page: Int?) throws -> URLRequest {
         var components = URLComponents(string: route.makeURL())
-        if !route.parameters.isEmpty {
-            route.parameters.forEach { param in
-                components?.queryItems?.append(URLQueryItem(name: param.key, value: param.value as? String))
+        if let page = page {
+            route.parameters.forEach {
+                components?.queryItems = [URLQueryItem(name: $0.key, value: String(page))]
             }
         }
         
