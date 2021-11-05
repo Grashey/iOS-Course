@@ -9,9 +9,9 @@ import UIKit
 
 class EntityCollectionViewCell: UICollectionViewCell {
     
-    let inset: CGFloat = 10
+    private let inset: CGFloat = 10
     
-    lazy var imageView: UIImageView = {
+    private lazy var imageView: UIImageView = {
         let view = UIImageView()
         view.layer.cornerRadius = 10
         view.clipsToBounds = true
@@ -19,7 +19,7 @@ class EntityCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    lazy var label: UILabel = {
+    private lazy var label: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: Constants.Fonts.font, size: 10)
@@ -57,12 +57,12 @@ class EntityCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    func configureWith(name: String, image: UIImage, imageSize: CGSize) {
+    func configureWith(model: EntityShortViewModel, image: UIImage, imageSize: CGSize) {
         self.imageView.image = resizeImage(image: image, targetSize: imageSize)
-        self.label.text = name
+        self.label.text = model.name
     }
     
-    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage? {
+    private func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage? {
         let size = image.size
         let sideRatio = targetSize.width / size.width
         let newSize = CGSize(width: size.width * sideRatio, height: size.height * sideRatio)

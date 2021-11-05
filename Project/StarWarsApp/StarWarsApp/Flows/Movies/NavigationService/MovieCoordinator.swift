@@ -9,7 +9,7 @@ import UIKit
 
 class MovieCoordinator {
 
-    var navigationController: UINavigationController
+    private var navigationController: UINavigationController
     var vcAssembler: ViewControllerAssemblerProtocol
 
     init(navigationController: UINavigationController) {

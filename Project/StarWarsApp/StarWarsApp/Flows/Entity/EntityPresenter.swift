@@ -5,43 +5,46 @@
 //  Created by Aleksandr Fetisov on 20.10.2021.
 //
 
-import Foundation
+import UIKit
 
 class EntityPresenter: EntityPresenterProtocol {
     
     weak var viewController: EntityViewController?
     
-    var entity = Entity.characters
+    var entity = EntityRoute.characters
     var viewModel: [EntityShortViewModel] = []
+    private let service = EntityNetworkService()
+    var characters: [CharacterData] = []
+    var pageIndex: Int? = 1
     
     func getData() {
-        makeData()
+        viewController?.isLoading = true
         
-        viewController?.navigationItem.title = getTitleName()
-        
-        switch entity {
-        case .characters:
-            let request = characters.map { CharacterViewModel(name: $0.name, birthYear: "", eyeColor: "", gender: "", hairColor: "", mass: "", height: "", skinColor: "", homeworld: "", movies: nil, species: nil, starships: nil, vehicles: nil)}
-            viewModel = request.map { EntityShortViewModel(name: $0.name) }
-        case .planets:
-            let request = planets.map { PlanetViewModel(name: $0.name, diameter: "", rotationPeriod: "", orbitalPeriod: "", gravity: "", population: "", climate: "", terrain: "", waterSurface: "", movies: nil, residents: nil)}
-            viewModel = request.map { EntityShortViewModel(name: $0.name) }
-        case .species:
-            let request = species.map { SpeciesViewModel(name: $0.name, classification: "", designation: "", averageHeight: "", averageLifespan: "", eyeColors: "", hairColors: "", skinColors: "", language: "", homeworld: "", movies: nil, characters: nil)}
-            viewModel = request.map { EntityShortViewModel(name: $0.name) }
-        case .starships:
-            let request = starships.map { StarshipViewModel(name: $0.name, model: "", starshipClass: "", manufacturer: "", costInCredits: "", length: "", crew: "", passengers: "", maxAtmospheringSpeed: "", hyperdriveRating: "", maxNumberOfMegalights: "", cargoCapacity: "", consumables: "", movies: nil, pilots: nil)}
-            viewModel = request.map { EntityShortViewModel(name: $0.name) }
-        case .vehicles:
-            let request = vehicles.map { VehicleViewModel(name: $0.name, model: "", vehicleClass: "", manufacturer: "", costInCredits: "", length: "", crew: "", passengers: "", maxAtmospheringSpeed: "", cargoCapacity: "", consumables: "", movies: nil, pilots: nil)}
-            viewModel = request.map { EntityShortViewModel(name: $0.name) }
+        guard let pageIndex = pageIndex else {
+            self.viewController?.isLoading = false
+            return
         }
-        
-        viewController?.collectionView.scrollToItem(at: IndexPath(item: .zero, section: .zero), at: .top, animated: false)
-        viewController?.collectionView.reloadData()
+        service.fetchCharacters(pageIndex: pageIndex) { [weak self] result in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let data):
+                    self.characters.append(contentsOf: data.results)
+                    
+                    self.viewModel = self.characters.map { EntityShortViewModel(name: $0.name) }
+                    self.viewController?.collectionView.reloadData()
+//                    self.viewController?.collectionView.scrollToItem(at: IndexPath(item: .zero, section: .zero), at: .top, animated: false)
+                    self.pageIndex = self.makeIndex(from: data.next)
+                    
+                case .failure(let error):
+                    self.showAlert(message: error.message)
+                }
+                self.viewController?.isLoading = false
+            }
+        }
     }
     
-    private func getTitleName() -> String {
+    func getTitleName() -> String {
         switch entity {
         case .characters: return Constants.Entity.characters
         case .planets: return Constants.Entity.planets
@@ -51,49 +54,19 @@ class EntityPresenter: EntityPresenterProtocol {
         }
     }
     
-//temporary data
-    var characters = [Character]()
-    var planets = [Planet]()
-    var starships = [Starship]()
-    var vehicles = [Vehicle]()
-    var species = [Species]()
-    
-    func makeData() {
-        characters.removeAll()
-        planets.removeAll()
-        starships.removeAll()
-        vehicles.removeAll()
-        species.removeAll()
-        
-        for index in 1...20 {
-            self.characters.append(Character(name: "\(Constants.Entity.characters) \(index)"))
-            self.planets.append(Planet(name: "\(Constants.Entity.planets) \(index)"))
-            self.starships.append(Starship(name: "\(Constants.Entity.starships) \(index)"))
-            self.vehicles.append(Vehicle(name: "\(Constants.Entity.vehicles) \(index)"))
-            self.species.append(Species(name: "\(Constants.Entity.species) \(index)"))
+    private func showAlert(message: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Опаньки, что-то пошло не так!",
+                                          message: message,
+                                          preferredStyle: .alert)
+            self.viewController?.present(alert, animated: true)
         }
     }
     
+    private func makeIndex(from string: String?)  -> Int? {
+        guard let string = string, let lastChar: Character = string.last,
+            let number = NumberFormatter().number(from: String(lastChar)) else { return nil }
+        return Int(truncating: number)
+    }
+    
 }
-
-//temporary data
-struct Character {
-    let name: String
-}
-
-struct Planet {
-    let name: String
-}
-
-struct Starship {
-    let name: String
-}
-
-struct Vehicle {
-    let name: String
-}
-
-struct Species {
-    let name: String
-}
-

@@ -10,8 +10,16 @@ import UIKit
 class EntityViewController: UIViewController {
     
     var presenter: EntityPresenterProtocol?
-    var onDetails: ((Entity, String) -> Void)?
-    var onSwitchEntity: ((Entity) -> Void)?
+    var onDetails: ((EntityRoute, String) -> Void)?
+    var onSwitchEntity: ((EntityRoute) -> Void)?
+    private let spinner = SpinnerViewController()
+    
+    var isLoading = false {
+        didSet {
+            guard oldValue != isLoading else { return }
+            showSpinner(isShown: isLoading)
+        }
+    }
     
     lazy var collectionView = EntityCollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     lazy var menuContainerView = UIView()
@@ -28,9 +36,15 @@ class EntityViewController: UIViewController {
         
         addMenuButton()
         presenter?.getData()
+        navigationItem.title = presenter?.getTitleName()
         
         guard let image = UIImage(named: Constants.ImageName.backgroundImage) else { return }
         collectionView.backgroundView = UIImageView(image: image)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        spinner.view.frame = view.frame
     }
     
     private func addMenuButton() {
@@ -97,9 +111,21 @@ class EntityViewController: UIViewController {
         controller.view.removeFromSuperview()
         controller.removeFromParent()
     }
+    
+    func showSpinner(isShown: Bool) {
+        if isShown {
+            addChild(spinner)
+            view.addSubview(spinner.view)
+            spinner.didMove(toParent: self)
+        } else {
+            spinner.willMove(toParent: nil)
+            spinner.view.removeFromSuperview()
+            spinner.removeFromParent()
+        }
+    }
 }
 
-extension EntityViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension EntityViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         presenter?.viewModel.count ?? .zero
@@ -120,17 +146,26 @@ extension EntityViewController: UICollectionViewDelegate, UICollectionViewDataSo
             if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
                 let side = (collectionView.visibleSize.width - flowLayout.minimumLineSpacing*3)/3
                 let size = CGSize(width: side, height: side)
-                (cell as? EntityCollectionViewCell)?.configureWith(name: model.name, image: image, imageSize: size)
+                (cell as? EntityCollectionViewCell)?.configureWith(model: model, image: image, imageSize: size)
             }
         }
         return cell
     }
-    
+}
+
+extension EntityViewController: UICollectionViewDelegate {
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let entity = presenter?.entity, let model = presenter?.viewModel[indexPath.item] else { return }
         // name пока стоит заглушкой
         //TODO: вытягивать url из модели данных (отличная от вьюмодель)
         onDetails?(entity, model.name)
     }
-
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let count = presenter?.viewModel.count else { return }
+        if indexPath.item == count - 1, !isLoading {
+            presenter?.getData()
+        }
+    }
 }

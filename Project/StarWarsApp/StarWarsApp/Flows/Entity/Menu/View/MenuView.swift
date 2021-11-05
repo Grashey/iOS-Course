@@ -9,10 +9,9 @@ import UIKit
 
 class MenuView: UIView {
 
-    let inset: CGFloat = 10
-    
-    let font = UIFont(name: Constants.Fonts.font, size: 16)
-    let titleColor: UIColor = .yellow
+    private let inset: CGFloat = 10
+    private let font = UIFont(name: Constants.Fonts.font, size: 16)
+    private let titleColor: UIColor = .yellow
 
     lazy var charactersButton: UIButton = {
         let button = UIButton()
@@ -54,7 +53,7 @@ class MenuView: UIView {
         return button
     }()
     
-    lazy var stackView: UIStackView = {
+    private lazy var stackView: UIStackView = {
         let stackview = UIStackView()
         stackview.axis = .vertical
         stackview.distribution = .fillProportionally

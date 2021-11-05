@@ -9,7 +9,7 @@ import UIKit
 
 class MenuViewController: UIViewController {
     
-    var completionHandler:((Entity) -> Void)?
+    var completionHandler:((EntityRoute) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,23 +25,23 @@ class MenuViewController: UIViewController {
     }
     
     @objc func setEntityCharacters() {
-        self.completionHandler?(Entity.characters)
+        self.completionHandler?(EntityRoute.characters)
     }
     
     @objc func setEntityPlanets() {
-        self.completionHandler?(Entity.planets)
+        self.completionHandler?(EntityRoute.planets)
     }
     
     @objc func setEntitySpecies() {
-        self.completionHandler?(Entity.species)
+        self.completionHandler?(EntityRoute.species)
     }
     
     @objc func setEntityStarships() {
-        self.completionHandler?(Entity.starships)
+        self.completionHandler?(EntityRoute.starships)
     }
     
     @objc func setEntityVehicles() {
-        self.completionHandler?(Entity.vehicles)
+        self.completionHandler?(EntityRoute.vehicles)
     }
 
 }
