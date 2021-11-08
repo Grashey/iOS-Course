@@ -9,6 +9,7 @@ import Foundation
 
 protocol SpeciesDetailPresenterProtocol {
     
-    var model: SpeciesViewModel? {get set}
-    var entityUrl: String? { get set}
+    var entity: SpeciesData? { get set}
+    
+    func makeViewModel() -> SpeciesViewModel?
 }

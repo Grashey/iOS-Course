@@ -219,8 +219,7 @@ class SpeciesDetailView: UIView {
     }
     
     func configureWith(model: SpeciesViewModel) {
-        guard let image = UIImage(named: "iconSpecies") else { return }
-        iconImageView.image = image
+        iconImageView.image = model.image
         
         nameLabel.text = model.name
         classificationValueLabel.text = model.classification
@@ -231,7 +230,7 @@ class SpeciesDetailView: UIView {
         hairColorsValueLabel.text = model.hairColors
         skinColorsValueLabel.text = model.skinColors
         languageValueLabel.text = model.language
-        homeworldValueLabel.text = model.homeworld // тут приходит урл
+        homeworldValueLabel.text = model.homeworld
         
         if let _ = model.movies {
             infoStackView.addArrangedSubview(moviesButton)

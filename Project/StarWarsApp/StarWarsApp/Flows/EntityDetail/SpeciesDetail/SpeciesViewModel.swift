@@ -5,7 +5,7 @@
 //  Created by Aleksandr Fetisov on 20.10.2021.
 //
 
-import Foundation
+import UIKit
 
 struct SpeciesViewModel {
     
@@ -18,7 +18,8 @@ struct SpeciesViewModel {
     let hairColors: String
     let skinColors: String
     let language: String
-    let homeworld: String // url
+    let homeworld: String?
     let movies: [String]?
     let characters: [String]?
+    let image: UIImage?
 }

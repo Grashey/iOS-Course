@@ -11,10 +11,10 @@ struct SpeciesResponse: Decodable {
     let count: Int
     let next: String?
     let previous: String?
-    let results: [SpeciestData]
+    let results: [SpeciesData]
 }
 
-struct SpeciestData: Decodable {
+struct SpeciesData: Decodable {
     let name: String
     let classification: String
     let designation: String
@@ -24,9 +24,9 @@ struct SpeciestData: Decodable {
     let hairColors: String
     let skinColors: String
     let language: String
-    let homeworld: String // url
+    let homeworld: String?
     let films: [String]
     let people: [String]
     let url: String
-    var imageData: Data?
+    let imageData: Data?
 }
