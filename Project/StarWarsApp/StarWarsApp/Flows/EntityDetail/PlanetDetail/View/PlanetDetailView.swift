@@ -210,8 +210,7 @@ class PlanetDetailView: UIView {
     }
     
     func configureWith(model: PlanetViewModel) {
-        guard let image = UIImage(named: "planet") else { return }
-        iconImageView.image = image
+        iconImageView.image = model.image
         
         nameLabel.text = model.name
         diameterValueLabel.text = model.diameter

@@ -9,6 +9,7 @@ import Foundation
 
 protocol PlanetDetailPresenterProtocol {
     
-    var model: PlanetViewModel? {get set}
-    var entityUrl: String? { get set}
+    var entity: PlanetData? { get set}
+    
+    func makeViewModel() -> PlanetViewModel?
 }

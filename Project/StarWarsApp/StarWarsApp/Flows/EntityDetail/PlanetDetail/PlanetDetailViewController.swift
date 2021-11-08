@@ -16,8 +16,7 @@ class PlanetDetailViewController: UIViewController {
         
         view.backgroundColor = .black
         let planetDetailView = PlanetDetailView(frame: view.frame)
-        let model = PlanetViewModel(name: "Earth", diameter: "smthing", rotationPeriod: "24", orbitalPeriod: "30", gravity: "1-1", population: "7 000 000 000", climate: "average", terrain: "flat", waterSurface: "70", movies: ["one", "two"], residents: ["Alex Smith"])
-//        guard let model = presenter?.model else { return }
+        guard let model = presenter?.makeViewModel() else { return }
         planetDetailView.configureWith(model: model)
         self.view.addSubview(planetDetailView)
     }
