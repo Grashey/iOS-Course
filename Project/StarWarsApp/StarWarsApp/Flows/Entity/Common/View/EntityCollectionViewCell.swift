@@ -26,6 +26,7 @@ class EntityCollectionViewCell: UICollectionViewCell {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.textColor = .white
+        label.textAlignment = .center
         return label
     }()
 
@@ -51,13 +52,16 @@ class EntityCollectionViewCell: UICollectionViewCell {
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
-            label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            label.leadingAnchor.constraint(equalTo: imageView.leadingAnchor),
+            label.trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
+         
             label.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: inset/2),
             label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -inset)
         ])
     }
     
-    func configureWith(model: EntityShortViewModel, image: UIImage, imageSize: CGSize) {
+    func configureWith(model: EntityShortViewModel, imageSize: CGSize) {
+        guard let image = model.image else { return }
         self.imageView.image = resizeImage(image: image, targetSize: imageSize)
         self.label.text = model.name
     }

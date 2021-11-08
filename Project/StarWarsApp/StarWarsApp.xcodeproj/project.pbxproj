@@ -40,7 +40,22 @@
 		4A3855D827344C4900E99451 /* SpeciesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3855D727344C4900E99451 /* SpeciesResponse.swift */; };
 		4A3855DA27344CD900E99451 /* StarshipResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3855D927344CD900E99451 /* StarshipResponse.swift */; };
 		4A3855DC27344DC500E99451 /* VehicleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3855DB27344DC500E99451 /* VehicleResponse.swift */; };
-		4A3855DF27344E6900E99451 /* EntityNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3855DE27344E6900E99451 /* EntityNetworkService.swift */; };
+		4A3855DF27344E6900E99451 /* CharacterNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3855DE27344E6900E99451 /* CharacterNetworkService.swift */; };
+		4A3855E12736A5F300E99451 /* EntityContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3855E02736A5F300E99451 /* EntityContainerViewController.swift */; };
+		4A3855E32736B9F000E99451 /* SpinnerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3855E22736B9F000E99451 /* SpinnerManager.swift */; };
+		4A3855E62736BE5C00E99451 /* EntityContainerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3855E52736BE5C00E99451 /* EntityContainerCoordinator.swift */; };
+		4A3855F02736CF5A00E99451 /* PlanetNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3855EF2736CF5A00E99451 /* PlanetNetworkService.swift */; };
+		4A3855F22736CF9E00E99451 /* PlanetViewControllerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3855F12736CF9E00E99451 /* PlanetViewControllerAssembler.swift */; };
+		4A3855F52736CFEE00E99451 /* PlanetPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3855F42736CFEE00E99451 /* PlanetPresenter.swift */; };
+		4A3855F92736EF5500E99451 /* SpeciesNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3855F82736EF5500E99451 /* SpeciesNetworkService.swift */; };
+		4A3855FB2736EF9300E99451 /* SpeciesViewControllerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3855FA2736EF9300E99451 /* SpeciesViewControllerAssembler.swift */; };
+		4A3856002736F02300E99451 /* SpeciesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3855FF2736F02300E99451 /* SpeciesPresenter.swift */; };
+		4A3856042736FBD900E99451 /* StarshipNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3856032736FBD900E99451 /* StarshipNetworkService.swift */; };
+		4A3856062736FC0D00E99451 /* StarshipViewControllerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3856052736FC0D00E99451 /* StarshipViewControllerAssembler.swift */; };
+		4A38560B2736FC9A00E99451 /* StarshipPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A38560A2736FC9A00E99451 /* StarshipPresenter.swift */; };
+		4A38560F27370E5A00E99451 /* VehicleNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A38560E27370E5A00E99451 /* VehicleNetworkService.swift */; };
+		4A38561127370E9400E99451 /* VehicleViewControllerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A38561027370E9400E99451 /* VehicleViewControllerAssembler.swift */; };
+		4A38561627370F1800E99451 /* VehiclePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A38561527370F1800E99451 /* VehiclePresenter.swift */; };
 		4A4E4740271215730047EE86 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E473F271215730047EE86 /* TabBarController.swift */; };
 		4A4E47432712170D0047EE86 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E47422712170D0047EE86 /* RootCoordinator.swift */; };
 		4A4E4745271217C20047EE86 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E4744271217C20047EE86 /* TabBarCoordinator.swift */; };
@@ -58,10 +73,9 @@
 		4A4E4806272056B20047EE86 /* VehicleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E4805272056B20047EE86 /* VehicleViewModel.swift */; };
 		4A4E4808272057000047EE86 /* SpeciesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E4807272057000047EE86 /* SpeciesViewModel.swift */; };
 		4A4E480B2720594B0047EE86 /* EntityShortViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E480A2720594A0047EE86 /* EntityShortViewModel.swift */; };
-		4A4E480F272063580047EE86 /* EntityPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E480E272063580047EE86 /* EntityPresenter.swift */; };
-		4A4E4811272063AF0047EE86 /* EntityViewControllerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E4810272063AF0047EE86 /* EntityViewControllerAssembler.swift */; };
+		4A4E480F272063580047EE86 /* CharacterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E480E272063580047EE86 /* CharacterPresenter.swift */; };
+		4A4E4811272063AF0047EE86 /* CharacterViewControllerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E4810272063AF0047EE86 /* CharacterViewControllerAssembler.swift */; };
 		4A4E48132720644B0047EE86 /* EntityPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E48122720644B0047EE86 /* EntityPresenterProtocol.swift */; };
-		4A4E481627207FA10047EE86 /* EntityCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E481527207FA10047EE86 /* EntityCoordinator.swift */; };
 		4A4E481A2722ED2B0047EE86 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E48192722ED2B0047EE86 /* MenuViewController.swift */; };
 		4A4E481C2722F1F90047EE86 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E481B2722F1F90047EE86 /* MenuView.swift */; };
 		4A4E4823272334860047EE86 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E4822272334860047EE86 /* Constants.swift */; };
@@ -129,7 +143,22 @@
 		4A3855D727344C4900E99451 /* SpeciesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesResponse.swift; sourceTree = "<group>"; };
 		4A3855D927344CD900E99451 /* StarshipResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipResponse.swift; sourceTree = "<group>"; };
 		4A3855DB27344DC500E99451 /* VehicleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleResponse.swift; sourceTree = "<group>"; };
-		4A3855DE27344E6900E99451 /* EntityNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityNetworkService.swift; sourceTree = "<group>"; };
+		4A3855DE27344E6900E99451 /* CharacterNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterNetworkService.swift; sourceTree = "<group>"; };
+		4A3855E02736A5F300E99451 /* EntityContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityContainerViewController.swift; sourceTree = "<group>"; };
+		4A3855E22736B9F000E99451 /* SpinnerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerManager.swift; sourceTree = "<group>"; };
+		4A3855E52736BE5C00E99451 /* EntityContainerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityContainerCoordinator.swift; sourceTree = "<group>"; };
+		4A3855EF2736CF5A00E99451 /* PlanetNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetNetworkService.swift; sourceTree = "<group>"; };
+		4A3855F12736CF9E00E99451 /* PlanetViewControllerAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetViewControllerAssembler.swift; sourceTree = "<group>"; };
+		4A3855F42736CFEE00E99451 /* PlanetPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetPresenter.swift; sourceTree = "<group>"; };
+		4A3855F82736EF5500E99451 /* SpeciesNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesNetworkService.swift; sourceTree = "<group>"; };
+		4A3855FA2736EF9300E99451 /* SpeciesViewControllerAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesViewControllerAssembler.swift; sourceTree = "<group>"; };
+		4A3855FF2736F02300E99451 /* SpeciesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesPresenter.swift; sourceTree = "<group>"; };
+		4A3856032736FBD900E99451 /* StarshipNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipNetworkService.swift; sourceTree = "<group>"; };
+		4A3856052736FC0D00E99451 /* StarshipViewControllerAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipViewControllerAssembler.swift; sourceTree = "<group>"; };
+		4A38560A2736FC9A00E99451 /* StarshipPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipPresenter.swift; sourceTree = "<group>"; };
+		4A38560E27370E5A00E99451 /* VehicleNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleNetworkService.swift; sourceTree = "<group>"; };
+		4A38561027370E9400E99451 /* VehicleViewControllerAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleViewControllerAssembler.swift; sourceTree = "<group>"; };
+		4A38561527370F1800E99451 /* VehiclePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclePresenter.swift; sourceTree = "<group>"; };
 		4A4E473F271215730047EE86 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		4A4E47422712170D0047EE86 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		4A4E4744271217C20047EE86 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -147,10 +176,9 @@
 		4A4E4805272056B20047EE86 /* VehicleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleViewModel.swift; sourceTree = "<group>"; };
 		4A4E4807272057000047EE86 /* SpeciesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesViewModel.swift; sourceTree = "<group>"; };
 		4A4E480A2720594A0047EE86 /* EntityShortViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityShortViewModel.swift; sourceTree = "<group>"; };
-		4A4E480E272063580047EE86 /* EntityPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityPresenter.swift; sourceTree = "<group>"; };
-		4A4E4810272063AF0047EE86 /* EntityViewControllerAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityViewControllerAssembler.swift; sourceTree = "<group>"; };
+		4A4E480E272063580047EE86 /* CharacterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPresenter.swift; sourceTree = "<group>"; };
+		4A4E4810272063AF0047EE86 /* CharacterViewControllerAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewControllerAssembler.swift; sourceTree = "<group>"; };
 		4A4E48122720644B0047EE86 /* EntityPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityPresenterProtocol.swift; sourceTree = "<group>"; };
-		4A4E481527207FA10047EE86 /* EntityCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityCoordinator.swift; sourceTree = "<group>"; };
 		4A4E48192722ED2B0047EE86 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4A4E481B2722F1F90047EE86 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		4A4E4822272334860047EE86 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -340,30 +368,174 @@
 		4A3855D2273446D000E99451 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
-				4A4E47FD2720513C0047EE86 /* EntityRoute.swift */,
-				4A3855DE27344E6900E99451 /* EntityNetworkService.swift */,
-				4A3855DD27344E3900E99451 /* Response */,
+				4A3855D327344A5F00E99451 /* CharacterResponse.swift */,
+				4A3855DE27344E6900E99451 /* CharacterNetworkService.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
 		};
-		4A3855DD27344E3900E99451 /* Response */ = {
+		4A3855E42736BAE700E99451 /* Spinner */ = {
 			isa = PBXGroup;
 			children = (
-				4A3855D327344A5F00E99451 /* CharacterResponse.swift */,
-				4A3855D527344BAE00E99451 /* PlanetResponse.swift */,
-				4A3855D727344C4900E99451 /* SpeciesResponse.swift */,
-				4A3855D927344CD900E99451 /* StarshipResponse.swift */,
-				4A3855DB27344DC500E99451 /* VehicleResponse.swift */,
+				4A1804E12733FB6F00E77660 /* SpinnerViewController.swift */,
+				4A3855E22736B9F000E99451 /* SpinnerManager.swift */,
 			);
-			path = Response;
+			path = Spinner;
+			sourceTree = "<group>";
+		};
+		4A3855E72736BEE600E99451 /* Character */ = {
+			isa = PBXGroup;
+			children = (
+				4A3855D2273446D000E99451 /* NetworkService */,
+				4A4E481427207F210047EE86 /* NavigationService */,
+				4A4E480E272063580047EE86 /* CharacterPresenter.swift */,
+			);
+			path = Character;
+			sourceTree = "<group>";
+		};
+		4A3855E82736BFBF00E99451 /* EntityContainer */ = {
+			isa = PBXGroup;
+			children = (
+				4A3855EA2736CE7E00E99451 /* NavigationService */,
+				4A4E481D27232FD40047EE86 /* Menu */,
+				4A3855E02736A5F300E99451 /* EntityContainerViewController.swift */,
+			);
+			path = EntityContainer;
+			sourceTree = "<group>";
+		};
+		4A3855E92736C50B00E99451 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				4A4E4809272057CD0047EE86 /* ViewModel */,
+				4A4E482E272557210047EE86 /* View */,
+				4A4E48122720644B0047EE86 /* EntityPresenterProtocol.swift */,
+				4A4E47FD2720513C0047EE86 /* EntityRoute.swift */,
+				4A4E47FA27204CD40047EE86 /* EntityViewController.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		4A3855EA2736CE7E00E99451 /* NavigationService */ = {
+			isa = PBXGroup;
+			children = (
+				4A3855E52736BE5C00E99451 /* EntityContainerCoordinator.swift */,
+			);
+			path = NavigationService;
+			sourceTree = "<group>";
+		};
+		4A3855ED2736CECE00E99451 /* Planet */ = {
+			isa = PBXGroup;
+			children = (
+				4A3855EE2736CF2F00E99451 /* NetworkService */,
+				4A3855F32736CFD000E99451 /* NavigationService */,
+				4A3855F42736CFEE00E99451 /* PlanetPresenter.swift */,
+			);
+			path = Planet;
+			sourceTree = "<group>";
+		};
+		4A3855EE2736CF2F00E99451 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				4A3855D527344BAE00E99451 /* PlanetResponse.swift */,
+				4A3855EF2736CF5A00E99451 /* PlanetNetworkService.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		4A3855F32736CFD000E99451 /* NavigationService */ = {
+			isa = PBXGroup;
+			children = (
+				4A3855F12736CF9E00E99451 /* PlanetViewControllerAssembler.swift */,
+			);
+			path = NavigationService;
+			sourceTree = "<group>";
+		};
+		4A3855F62736EF0D00E99451 /* Species */ = {
+			isa = PBXGroup;
+			children = (
+				4A3855F72736EF3500E99451 /* NetworkService */,
+				4A3855FC2736EF9800E99451 /* NavigationService */,
+				4A3855FF2736F02300E99451 /* SpeciesPresenter.swift */,
+			);
+			path = Species;
+			sourceTree = "<group>";
+		};
+		4A3855F72736EF3500E99451 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				4A3855D727344C4900E99451 /* SpeciesResponse.swift */,
+				4A3855F82736EF5500E99451 /* SpeciesNetworkService.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		4A3855FC2736EF9800E99451 /* NavigationService */ = {
+			isa = PBXGroup;
+			children = (
+				4A3855FA2736EF9300E99451 /* SpeciesViewControllerAssembler.swift */,
+			);
+			path = NavigationService;
+			sourceTree = "<group>";
+		};
+		4A3856012736FBA400E99451 /* Starship */ = {
+			isa = PBXGroup;
+			children = (
+				4A3856022736FBB700E99451 /* NetworkService */,
+				4A3856072736FC1200E99451 /* NavigationService */,
+				4A38560A2736FC9A00E99451 /* StarshipPresenter.swift */,
+			);
+			path = Starship;
+			sourceTree = "<group>";
+		};
+		4A3856022736FBB700E99451 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				4A3855D927344CD900E99451 /* StarshipResponse.swift */,
+				4A3856032736FBD900E99451 /* StarshipNetworkService.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		4A3856072736FC1200E99451 /* NavigationService */ = {
+			isa = PBXGroup;
+			children = (
+				4A3856052736FC0D00E99451 /* StarshipViewControllerAssembler.swift */,
+			);
+			path = NavigationService;
+			sourceTree = "<group>";
+		};
+		4A38560C27370E0D00E99451 /* Vehicle */ = {
+			isa = PBXGroup;
+			children = (
+				4A38560D27370E3600E99451 /* NetworkService */,
+				4A38561227370E9900E99451 /* NavigationService */,
+				4A38561527370F1800E99451 /* VehiclePresenter.swift */,
+			);
+			path = Vehicle;
+			sourceTree = "<group>";
+		};
+		4A38560D27370E3600E99451 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				4A3855DB27344DC500E99451 /* VehicleResponse.swift */,
+				4A38560E27370E5A00E99451 /* VehicleNetworkService.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		4A38561227370E9900E99451 /* NavigationService */ = {
+			isa = PBXGroup;
+			children = (
+				4A38561027370E9400E99451 /* VehicleViewControllerAssembler.swift */,
+			);
+			path = NavigationService;
 			sourceTree = "<group>";
 		};
 		4A4E47412712157A0047EE86 /* Other */ = {
 			isa = PBXGroup;
 			children = (
 				4A4E474B27121AFD0047EE86 /* TabBar */,
-				4A1804E12733FB6F00E77660 /* SpinnerViewController.swift */,
+				4A3855E42736BAE700E99451 /* Spinner */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -446,14 +618,13 @@
 		4A4E47FC27204CEE0047EE86 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				4A3855D2273446D000E99451 /* NetworkService */,
-				4A4E481427207F210047EE86 /* NavigationService */,
-				4A4E4809272057CD0047EE86 /* ViewModel */,
-				4A4E481D27232FD40047EE86 /* Menu */,
-				4A4E482E272557210047EE86 /* View */,
-				4A4E48122720644B0047EE86 /* EntityPresenterProtocol.swift */,
-				4A4E47FA27204CD40047EE86 /* EntityViewController.swift */,
-				4A4E480E272063580047EE86 /* EntityPresenter.swift */,
+				4A3855E92736C50B00E99451 /* Common */,
+				4A3855E82736BFBF00E99451 /* EntityContainer */,
+				4A3855E72736BEE600E99451 /* Character */,
+				4A3855ED2736CECE00E99451 /* Planet */,
+				4A3855F62736EF0D00E99451 /* Species */,
+				4A3856012736FBA400E99451 /* Starship */,
+				4A38560C27370E0D00E99451 /* Vehicle */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -469,8 +640,7 @@
 		4A4E481427207F210047EE86 /* NavigationService */ = {
 			isa = PBXGroup;
 			children = (
-				4A4E4810272063AF0047EE86 /* EntityViewControllerAssembler.swift */,
-				4A4E481527207FA10047EE86 /* EntityCoordinator.swift */,
+				4A4E4810272063AF0047EE86 /* CharacterViewControllerAssembler.swift */,
 			);
 			path = NavigationService;
 			sourceTree = "<group>";
@@ -728,17 +898,21 @@
 				4A4E48132720644B0047EE86 /* EntityPresenterProtocol.swift in Sources */,
 				4A4E48382725B0460047EE86 /* MovieDetailPresenterProtocol.swift in Sources */,
 				4A9BE1AB2729CE8900F0CD05 /* CharacterDetailView.swift in Sources */,
+				4A3856002736F02300E99451 /* SpeciesPresenter.swift in Sources */,
 				4A4E47432712170D0047EE86 /* RootCoordinator.swift in Sources */,
 				4AF1D614272B32B900E897B2 /* StarshipDetailViewController.swift in Sources */,
+				4A38560B2736FC9A00E99451 /* StarshipPresenter.swift in Sources */,
 				4A4E4747271218BB0047EE86 /* MovieCoordinator.swift in Sources */,
 				4A180484272C6A0500E77660 /* BaseLabel.swift in Sources */,
 				4A25C6702711DE7600EC8398 /* MovieDetailViewModel.swift in Sources */,
 				4A25C66A2711DC4400EC8398 /* MovieViewController.swift in Sources */,
 				4A3855D427344A5F00E99451 /* CharacterResponse.swift in Sources */,
 				4AF1D611272ADE4500E897B2 /* SpeciesDetailView.swift in Sources */,
+				4A38561127370E9400E99451 /* VehicleViewControllerAssembler.swift in Sources */,
 				4A4E47F2271D56140047EE86 /* MovieDetailViewController.swift in Sources */,
 				4A4E47F9272045F60047EE86 /* MovieViewControllerAssembler.swift in Sources */,
 				4AF1D607272ADCBE00E897B2 /* SpeciesDetailViewController.swift in Sources */,
+				4A3856042736FBD900E99451 /* StarshipNetworkService.swift in Sources */,
 				4A4E480B2720594B0047EE86 /* EntityShortViewModel.swift in Sources */,
 				4A4E47FB27204CD40047EE86 /* EntityViewController.swift in Sources */,
 				4AF1D617272B331200E897B2 /* StarshipDetailPresenterProtocol.swift in Sources */,
@@ -747,21 +921,24 @@
 				4A1804FB2733FF9F00E77660 /* MovieImageRoute.swift in Sources */,
 				4AF1D61E272B345500E897B2 /* StarshipDetailView.swift in Sources */,
 				4A1804EE2733FD0800E77660 /* HTTPClient.swift in Sources */,
+				4A3855F22736CF9E00E99451 /* PlanetViewControllerAssembler.swift in Sources */,
 				4A1804E22733FB6F00E77660 /* SpinnerViewController.swift in Sources */,
 				4A4E47FE2720513C0047EE86 /* EntityRoute.swift in Sources */,
 				4A4E48042720557D0047EE86 /* StarshipViewModel.swift in Sources */,
+				4A3855F02736CF5A00E99451 /* PlanetNetworkService.swift in Sources */,
 				4A1804F12733FD7600E77660 /* ImageDataLoaderProtocol.swift in Sources */,
+				4A3855E62736BE5C00E99451 /* EntityContainerCoordinator.swift in Sources */,
 				4A1804EA2733FCCF00E77660 /* Route.swift in Sources */,
 				4A3855DA27344CD900E99451 /* StarshipResponse.swift in Sources */,
 				4AF1D60A272ADD8A00E897B2 /* SpeciesDetailPresenterProtocol.swift in Sources */,
 				4AF1D619272B333A00E897B2 /* StarshipDetailPresenter.swift in Sources */,
-				4A3855DF27344E6900E99451 /* EntityNetworkService.swift in Sources */,
+				4A3855DF27344E6900E99451 /* CharacterNetworkService.swift in Sources */,
 				4AF1D601272ACCBB00E897B2 /* PlanetDetailViewControllerAssembler.swift in Sources */,
 				4A9BE1A12729C5B600F0CD05 /* EntityCollectionView.swift in Sources */,
 				4AF1D604272ACD0900E897B2 /* PlanetDetailView.swift in Sources */,
 				4A25C6722711E05C00EC8398 /* MoviePresenterProtocol.swift in Sources */,
 				4A9BE1A92729CE1100F0CD05 /* CharacterDetailPresenter.swift in Sources */,
-				4A4E480F272063580047EE86 /* EntityPresenter.swift in Sources */,
+				4A4E480F272063580047EE86 /* CharacterPresenter.swift in Sources */,
 				4A1804EC2733FCF000E77660 /* HTTPClientProtocol.swift in Sources */,
 				4A4E4823272334860047EE86 /* Constants.swift in Sources */,
 				4A4E4802272054AC0047EE86 /* PlanetViewModel.swift in Sources */,
@@ -780,17 +957,24 @@
 				4A18047E272C621800E77660 /* VehicleDetailViewControllerAssembler.swift in Sources */,
 				4AF1D5FD272ACC4500E897B2 /* PlanetDetailPresenterProtocol.swift in Sources */,
 				4A3855D627344BAE00E99451 /* PlanetResponse.swift in Sources */,
-				4A4E4811272063AF0047EE86 /* EntityViewControllerAssembler.swift in Sources */,
+				4A38561627370F1800E99451 /* VehiclePresenter.swift in Sources */,
+				4A4E4811272063AF0047EE86 /* CharacterViewControllerAssembler.swift in Sources */,
 				4A4E4806272056B20047EE86 /* VehicleViewModel.swift in Sources */,
+				4A3855E12736A5F300E99451 /* EntityContainerViewController.swift in Sources */,
+				4A3856062736FC0D00E99451 /* StarshipViewControllerAssembler.swift in Sources */,
+				4A3855E32736B9F000E99451 /* SpinnerManager.swift in Sources */,
+				4A3855FB2736EF9300E99451 /* SpeciesViewControllerAssembler.swift in Sources */,
 				4A180477272C60DE00E77660 /* VehicleDetailViewController.swift in Sources */,
 				4A180489272C6DBC00E77660 /* BaseLabelStackView.swift in Sources */,
 				4AF1D5FA272ACB2C00E897B2 /* PlanetDetailViewController.swift in Sources */,
 				4AF1D5FF272ACC6400E897B2 /* PlanetDetailPresenter.swift in Sources */,
 				4A180486272C6B4400E77660 /* BaseValueLabel.swift in Sources */,
+				4A3855F92736EF5500E99451 /* SpeciesNetworkService.swift in Sources */,
 				4A1804E42733FBD700E77660 /* MovieViewModel.swift in Sources */,
 				4A3855DC27344DC500E99451 /* VehicleResponse.swift in Sources */,
 				4A4E47E9271CC81F0047EE86 /* MovieTableViewCell.swift in Sources */,
 				4A4E4808272057000047EE86 /* SpeciesViewModel.swift in Sources */,
+				4A38560F27370E5A00E99451 /* VehicleNetworkService.swift in Sources */,
 				4AF1D61B272B33E100E897B2 /* StarshipDetailViewControllerAssembler.swift in Sources */,
 				4A18047A272C61A500E77660 /* VehicleDetailPresenterProtocol.swift in Sources */,
 				4A4E481C2722F1F90047EE86 /* MenuView.swift in Sources */,
@@ -804,7 +988,7 @@
 				4A1804F62733FE6300E77660 /* MovieResponse.swift in Sources */,
 				4AF1D60C272ADDB300E897B2 /* SpeciesDetailPresenter.swift in Sources */,
 				4A1804FD2733FFD900E77660 /* MovieNetworkService.swift in Sources */,
-				4A4E481627207FA10047EE86 /* EntityCoordinator.swift in Sources */,
+				4A3855F52736CFEE00E99451 /* PlanetPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

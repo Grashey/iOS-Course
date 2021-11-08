@@ -15,6 +15,7 @@ class EntityCollectionView: UICollectionView {
         if let flowLayout = layout as? UICollectionViewFlowLayout {
             let size = CGSize(width: 100, height: 100)
             flowLayout.estimatedItemSize = size
+            
         }
     }
     
