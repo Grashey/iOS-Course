@@ -32,9 +32,10 @@ class EntityCollectionViewCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.contentView.backgroundColor = .black
+        self.contentView.backgroundColor = .clear
         addSubviews()
         addConstraints()
+        self.layoutIfNeeded()
     }
     
     required init?(coder: NSCoder) {

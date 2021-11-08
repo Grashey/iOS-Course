@@ -25,7 +25,7 @@ class StarshipDetailPresenter: StarshipDetailPresenterProtocol {
                                       passengers: entity.passengers,
                                       maxAtmospheringSpeed: entity.maxAtmospheringSpeed,
                                       hyperdriveRating: entity.hyperdriveRating,
-                                      maxNumberOfMegalights: entity.mglt,
+                                      maxNumberOfMegalights: entity.MGLT,
                                       cargoCapacity: entity.cargoCapacity,
                                       consumables: entity.consumables,
                                       movies: entity.films,

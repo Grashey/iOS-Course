@@ -90,6 +90,9 @@
 		4A9BE1A92729CE1100F0CD05 /* CharacterDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9BE1A82729CE1100F0CD05 /* CharacterDetailPresenter.swift */; };
 		4A9BE1AB2729CE8900F0CD05 /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9BE1AA2729CE8900F0CD05 /* CharacterDetailView.swift */; };
 		4A9BE1AE2729F77600F0CD05 /* CharacterDetailViewControllerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9BE1AD2729F77600F0CD05 /* CharacterDetailViewControllerAssembler.swift */; };
+		4AA2A00227398DAF0077573F /* Formatter + Exetension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA29FFF27398DAF0077573F /* Formatter + Exetension.swift */; };
+		4AA2A00327398DAF0077573F /* Int + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A00027398DAF0077573F /* Int + Extension.swift */; };
+		4AA2A00427398DAF0077573F /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A00127398DAF0077573F /* String + Extension.swift */; };
 		4AF1D5FA272ACB2C00E897B2 /* PlanetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1D5F9272ACB2C00E897B2 /* PlanetDetailViewController.swift */; };
 		4AF1D5FD272ACC4500E897B2 /* PlanetDetailPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1D5FC272ACC4500E897B2 /* PlanetDetailPresenterProtocol.swift */; };
 		4AF1D5FF272ACC6400E897B2 /* PlanetDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1D5FE272ACC6400E897B2 /* PlanetDetailPresenter.swift */; };
@@ -193,6 +196,9 @@
 		4A9BE1A82729CE1100F0CD05 /* CharacterDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailPresenter.swift; sourceTree = "<group>"; };
 		4A9BE1AA2729CE8900F0CD05 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
 		4A9BE1AD2729F77600F0CD05 /* CharacterDetailViewControllerAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewControllerAssembler.swift; sourceTree = "<group>"; };
+		4AA29FFF27398DAF0077573F /* Formatter + Exetension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Formatter + Exetension.swift"; sourceTree = "<group>"; };
+		4AA2A00027398DAF0077573F /* Int + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int + Extension.swift"; sourceTree = "<group>"; };
+		4AA2A00127398DAF0077573F /* String + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
 		4AF1D5F9272ACB2C00E897B2 /* PlanetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailViewController.swift; sourceTree = "<group>"; };
 		4AF1D5FC272ACC4500E897B2 /* PlanetDetailPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailPresenterProtocol.swift; sourceTree = "<group>"; };
 		4AF1D5FE272ACC6400E897B2 /* PlanetDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailPresenter.swift; sourceTree = "<group>"; };
@@ -332,6 +338,7 @@
 				4A4E474827121AAD0047EE86 /* Core */,
 				4A25C66E2711DE4700EC8398 /* Flows */,
 				4A25C6602711CF9700EC8398 /* LaunchScreen.storyboard */,
+				4AA29FFE27398DAF0077573F /* Extensions */,
 				4A25C6632711CF9700EC8398 /* Info.plist */,
 				4A4E47ED271D28630047EE86 /* Resources */,
 			);
@@ -736,6 +743,16 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		4AA29FFE27398DAF0077573F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4AA29FFF27398DAF0077573F /* Formatter + Exetension.swift */,
+				4AA2A00027398DAF0077573F /* Int + Extension.swift */,
+				4AA2A00127398DAF0077573F /* String + Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		4AF1D5FB272ACB3100E897B2 /* PlanetDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -910,6 +927,7 @@
 				4AF1D611272ADE4500E897B2 /* SpeciesDetailView.swift in Sources */,
 				4A38561127370E9400E99451 /* VehicleViewControllerAssembler.swift in Sources */,
 				4A4E47F2271D56140047EE86 /* MovieDetailViewController.swift in Sources */,
+				4AA2A00327398DAF0077573F /* Int + Extension.swift in Sources */,
 				4A4E47F9272045F60047EE86 /* MovieViewControllerAssembler.swift in Sources */,
 				4AF1D607272ADCBE00E897B2 /* SpeciesDetailViewController.swift in Sources */,
 				4A3856042736FBD900E99451 /* StarshipNetworkService.swift in Sources */,
@@ -937,6 +955,7 @@
 				4A9BE1A12729C5B600F0CD05 /* EntityCollectionView.swift in Sources */,
 				4AF1D604272ACD0900E897B2 /* PlanetDetailView.swift in Sources */,
 				4A25C6722711E05C00EC8398 /* MoviePresenterProtocol.swift in Sources */,
+				4AA2A00427398DAF0077573F /* String + Extension.swift in Sources */,
 				4A9BE1A92729CE1100F0CD05 /* CharacterDetailPresenter.swift in Sources */,
 				4A4E480F272063580047EE86 /* CharacterPresenter.swift in Sources */,
 				4A1804EC2733FCF000E77660 /* HTTPClientProtocol.swift in Sources */,
@@ -950,6 +969,7 @@
 				4A4E4745271217C20047EE86 /* TabBarCoordinator.swift in Sources */,
 				4A180481272C626200E77660 /* VehicleDetailView.swift in Sources */,
 				4A4E4740271215730047EE86 /* TabBarController.swift in Sources */,
+				4AA2A00227398DAF0077573F /* Formatter + Exetension.swift in Sources */,
 				4A1804E02733F85B00E77660 /* MoviePresenter.swift in Sources */,
 				4A1804F32733FDA700E77660 /* ImageDataLoader.swift in Sources */,
 				4AF1D60E272ADDFC00E897B2 /* SpeciesDetailViewControllerAssembler.swift in Sources */,

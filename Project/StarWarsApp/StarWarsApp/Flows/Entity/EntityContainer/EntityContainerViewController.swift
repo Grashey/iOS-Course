@@ -9,11 +9,11 @@ import UIKit
 
 class EntityContainerViewController: UIViewController {
 
-    lazy var menuContainerView = UIView()
-    var entity: EntityRoute = .characters
-    var childVC: UIViewController?
-    let menuVC = MenuViewController()
-    var menuIsShown: Bool = false
+    private lazy var menuContainerView = UIView()
+    private var entity: EntityRoute = .characters
+    private var childVC: UIViewController?
+    private lazy var menuVC = MenuViewController()
+    private var menuIsShown: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()

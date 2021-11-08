@@ -25,7 +25,7 @@ struct StarshipData: Decodable {
     let passengers: String
     let maxAtmospheringSpeed: String
     let hyperdriveRating: String
-    let mglt: String
+    let MGLT: String
     let cargoCapacity: String
     let consumables: String
     let films: [String]
