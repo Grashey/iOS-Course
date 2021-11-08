@@ -76,6 +76,7 @@ class MovieDetailView: UIView {
         $0.font = mediumFont
         $0.textColor = labelTextColor
         $0.numberOfLines = 0
+        $0.lineBreakMode = .byWordWrapping
         return $0
     }(UILabel())
     

@@ -55,6 +55,8 @@ class SpeciesDetailView: UIView {
     private lazy var nameLabel: UILabel = {
         $0.font = bigFont
         $0.textColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
+        $0.numberOfLines = 0
+        $0.lineBreakMode = .byWordWrapping
         return $0
     }(UILabel())
     

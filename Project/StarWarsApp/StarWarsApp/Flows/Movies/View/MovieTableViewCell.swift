@@ -41,6 +41,8 @@ class MovieTableViewCell: UITableViewCell {
     private lazy var nameLabel: UILabel = {
         $0.font = UIFont(name: Constants.Fonts.font, size: 18)
         $0.textColor = .white
+        $0.numberOfLines = 0
+        $0.lineBreakMode = .byWordWrapping
         return $0
     }(UILabel())
     

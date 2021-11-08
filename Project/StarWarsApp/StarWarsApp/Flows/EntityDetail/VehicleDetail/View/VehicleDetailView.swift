@@ -56,6 +56,8 @@ class VehicleDetailView: UIView {
     private lazy var nameLabel: UILabel = {
         $0.font = bigFont
         $0.textColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
+        $0.numberOfLines = 0
+        $0.lineBreakMode = .byWordWrapping
         return $0
     }(UILabel())
     
@@ -234,12 +236,12 @@ class VehicleDetailView: UIView {
         modelValueLabel.text = model.model
         vehicleClassValueLabel.text = model.vehicleClass
         manufacturerValueLabel.text = model.manufacturer
-        costInCreditsValueLabel.text = model.costInCredits
+        costInCreditsValueLabel.text = model.costInCredits.formattedWithSeparator
         lengthValueLabel.text = model.length
-        crewValueLabel.text = model.crew
-        passengersValueLabel.text = model.passengers
-        cargoCapacityValueLabel.text = model.cargoCapacity
-        maxAtmospheringSpeedValueLabel.text = model.maxAtmospheringSpeed
+        crewValueLabel.text = model.crew.formattedWithSeparator
+        passengersValueLabel.text = model.passengers.formattedWithSeparator
+        cargoCapacityValueLabel.text = model.cargoCapacity.formattedWithSeparator
+        maxAtmospheringSpeedValueLabel.text = model.maxAtmospheringSpeed.formattedWithSeparator
         consumablesValueLabel.text = model.consumables
         
         if let _ = model.movies {

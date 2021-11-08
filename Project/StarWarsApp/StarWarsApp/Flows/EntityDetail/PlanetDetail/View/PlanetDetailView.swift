@@ -17,7 +17,7 @@ class PlanetDetailView: UIView {
         static let population = "Population: "
         static let climate = "Climate: "
         static let terrain = "Terrain: "
-        static let surfaceWater = "Surface water: "
+        static let surfaceWater = "Water surface: "
     }
     
     private struct ButtonLabelValues {
@@ -54,6 +54,8 @@ class PlanetDetailView: UIView {
     private lazy var nameLabel: UILabel = {
         $0.font = bigFont
         $0.textColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
+        $0.numberOfLines = 0
+        $0.lineBreakMode = .byWordWrapping
         return $0
     }(UILabel())
     
@@ -213,14 +215,14 @@ class PlanetDetailView: UIView {
         iconImageView.image = model.image
         
         nameLabel.text = model.name
-        diameterValueLabel.text = model.diameter
+        diameterValueLabel.text = model.diameter.formattedWithSeparator
         rotationPeriodValueLabel.text = model.rotationPeriod
-        orbitalPeriodValueLabel.text = model.orbitalPeriod
+        orbitalPeriodValueLabel.text = model.orbitalPeriod.formattedWithSeparator
         gravityValueLabel.text = model.gravity
-        populationValueLabel.text = model.population
+        populationValueLabel.text = model.population.formattedWithSeparator
         climateValueLabel.text = model.climate
         terrainValueLabel.text = model.terrain
-        surfaceWaterValueLabel.text = model.waterSurface
+        surfaceWaterValueLabel.text = model.waterSurface.formattedWithPercent
         
         if let _ = model.movies {
             infoStackView.addArrangedSubview(moviesButton)
