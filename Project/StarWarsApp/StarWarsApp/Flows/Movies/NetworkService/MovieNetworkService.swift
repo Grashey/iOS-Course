@@ -9,16 +9,16 @@ import Foundation
 
 class MovieNetworkService {
 
-    let httpClient: HTTPClientProtocol
+    let httpClient: MovieHTTPClientProtocol
     let imageDataLoader: ImageDataLoaderProtocol
 
-    init(httpClient: HTTPClientProtocol = HTTPClient(), imageDataLoader: ImageDataLoaderProtocol = ImageDataLoader()) {
+    init(httpClient: MovieHTTPClientProtocol = MovieHTTPClient(), imageDataLoader: ImageDataLoaderProtocol = ImageDataLoader()) {
         self.httpClient = httpClient
         self.imageDataLoader = imageDataLoader
     }
 
     func fetchMovies(completion: @escaping (Result<MovieResponse, NetworkServiceError>) -> Void) {
-        httpClient.request(for: MovieRoute.movies, page: nil, completion: completion)
+        httpClient.request(for: MovieRoute.movies, completion: completion)
     }
     
     func fetchImage(for index: Int, completion: @escaping (Result<Data, NetworkServiceError>) -> Void) {

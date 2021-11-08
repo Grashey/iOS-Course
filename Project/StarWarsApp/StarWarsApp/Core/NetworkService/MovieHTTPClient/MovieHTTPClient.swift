@@ -1,13 +1,13 @@
 //
-//  HTTPClient.swift
+//  MovieHTTPClient.swift
 //  StarWarsApp
 //
-//  Created by Aleksandr Fetisov on 04.11.2021.
+//  Created by Aleksandr Fetisov on 08.11.2021.
 //
 
 import Foundation
 
-class HTTPClient: HTTPClientProtocol {
+class MovieHTTPClient: MovieHTTPClientProtocol {
 
     let session = URLSession(configuration: .default)
     typealias Handler = (Data?, URLResponse?, Error?) -> Void
@@ -16,7 +16,7 @@ class HTTPClient: HTTPClientProtocol {
         return $0
     } (JSONDecoder())
 
-    func request<ResponseType: Decodable>(for route: Route, page: Int?, completion: @escaping (Result<ResponseType, NetworkServiceError>) -> Void) {
+    func request<ResponseType: Decodable>(for route: Route, completion: @escaping (Result<ResponseType, NetworkServiceError>) -> Void) {
         
         let handler: Handler = { rawData, response, error in
             do {
@@ -29,7 +29,7 @@ class HTTPClient: HTTPClientProtocol {
         }
         
         do {
-            let request: URLRequest = try makeRequest(route: route, page: page)
+            let request: URLRequest = try makeRequest(route: route)
             session.dataTask(with: request, completionHandler: handler).resume()
         } catch {
             completion(.failure(error as? NetworkServiceError ?? .unknown))
@@ -53,14 +53,8 @@ class HTTPClient: HTTPClientProtocol {
         return data
     }
     
-    private func makeRequest(route: Route, page: Int?) throws -> URLRequest {
-        var components = URLComponents(string: route.makeURL())
-        if let page = page {
-            route.parameters.forEach {
-                components?.queryItems = [URLQueryItem(name: $0.key, value: String(page))]
-            }
-        }
-        
+    private func makeRequest(route: Route) throws -> URLRequest {
+        let components = URLComponents(string: route.makeURL())
         guard let url = components?.url else { throw NetworkServiceError.wrongUrl }
         var request = URLRequest(url: url)
         request.httpMethod = route.method

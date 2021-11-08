@@ -9,9 +9,9 @@ import Foundation
 
 class VehicleNetworkService {
 
-    let httpClient: HTTPClientProtocol
+    let httpClient: EntityHTTPClientProtocol
 
-    init(httpClient: HTTPClientProtocol = HTTPClient()) {
+    init(httpClient: EntityHTTPClientProtocol = EntityHTTPClient()) {
         self.httpClient = httpClient
     }
 
