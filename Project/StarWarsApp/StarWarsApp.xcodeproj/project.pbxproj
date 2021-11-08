@@ -20,8 +20,8 @@
 		4A1804E42733FBD700E77660 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1804E32733FBD700E77660 /* MovieViewModel.swift */; };
 		4A1804E82733FC8D00E77660 /* NetworkServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1804E72733FC8D00E77660 /* NetworkServiceError.swift */; };
 		4A1804EA2733FCCF00E77660 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1804E92733FCCF00E77660 /* Route.swift */; };
-		4A1804EC2733FCF000E77660 /* HTTPClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1804EB2733FCF000E77660 /* HTTPClientProtocol.swift */; };
-		4A1804EE2733FD0800E77660 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1804ED2733FD0800E77660 /* HTTPClient.swift */; };
+		4A1804EC2733FCF000E77660 /* EntityHTTPClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1804EB2733FCF000E77660 /* EntityHTTPClientProtocol.swift */; };
+		4A1804EE2733FD0800E77660 /* EntityHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1804ED2733FD0800E77660 /* EntityHTTPClient.swift */; };
 		4A1804F12733FD7600E77660 /* ImageDataLoaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1804F02733FD7600E77660 /* ImageDataLoaderProtocol.swift */; };
 		4A1804F32733FDA700E77660 /* ImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1804F22733FDA700E77660 /* ImageDataLoader.swift */; };
 		4A1804F62733FE6300E77660 /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1804F52733FE6300E77660 /* MovieResponse.swift */; };
@@ -93,6 +93,11 @@
 		4AA2A00227398DAF0077573F /* Formatter + Exetension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA29FFF27398DAF0077573F /* Formatter + Exetension.swift */; };
 		4AA2A00327398DAF0077573F /* Int + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A00027398DAF0077573F /* Int + Extension.swift */; };
 		4AA2A00427398DAF0077573F /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A00127398DAF0077573F /* String + Extension.swift */; };
+		4AA2A00627399C830077573F /* MovieHTTPClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A00527399C830077573F /* MovieHTTPClientProtocol.swift */; };
+		4AA2A00827399CBB0077573F /* MovieHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A00727399CBB0077573F /* MovieHTTPClient.swift */; };
+		4AA2A00B27399DC50077573F /* EntityDetailHTTPClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A00A27399DC50077573F /* EntityDetailHTTPClientProtocol.swift */; };
+		4AA2A00D27399F740077573F /* EntityDetailHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A00C27399F740077573F /* EntityDetailHTTPClient.swift */; };
+		4AA2A0112739A1200077573F /* CharacterDetailNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A0102739A1200077573F /* CharacterDetailNetworkService.swift */; };
 		4AF1D5FA272ACB2C00E897B2 /* PlanetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1D5F9272ACB2C00E897B2 /* PlanetDetailViewController.swift */; };
 		4AF1D5FD272ACC4500E897B2 /* PlanetDetailPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1D5FC272ACC4500E897B2 /* PlanetDetailPresenterProtocol.swift */; };
 		4AF1D5FF272ACC6400E897B2 /* PlanetDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1D5FE272ACC6400E897B2 /* PlanetDetailPresenter.swift */; };
@@ -124,8 +129,8 @@
 		4A1804E32733FBD700E77660 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		4A1804E72733FC8D00E77660 /* NetworkServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceError.swift; sourceTree = "<group>"; };
 		4A1804E92733FCCF00E77660 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
-		4A1804EB2733FCF000E77660 /* HTTPClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientProtocol.swift; sourceTree = "<group>"; };
-		4A1804ED2733FD0800E77660 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		4A1804EB2733FCF000E77660 /* EntityHTTPClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityHTTPClientProtocol.swift; sourceTree = "<group>"; };
+		4A1804ED2733FD0800E77660 /* EntityHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityHTTPClient.swift; sourceTree = "<group>"; };
 		4A1804F02733FD7600E77660 /* ImageDataLoaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataLoaderProtocol.swift; sourceTree = "<group>"; };
 		4A1804F22733FDA700E77660 /* ImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataLoader.swift; sourceTree = "<group>"; };
 		4A1804F52733FE6300E77660 /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
@@ -199,6 +204,11 @@
 		4AA29FFF27398DAF0077573F /* Formatter + Exetension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Formatter + Exetension.swift"; sourceTree = "<group>"; };
 		4AA2A00027398DAF0077573F /* Int + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int + Extension.swift"; sourceTree = "<group>"; };
 		4AA2A00127398DAF0077573F /* String + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
+		4AA2A00527399C830077573F /* MovieHTTPClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieHTTPClientProtocol.swift; sourceTree = "<group>"; };
+		4AA2A00727399CBB0077573F /* MovieHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieHTTPClient.swift; sourceTree = "<group>"; };
+		4AA2A00A27399DC50077573F /* EntityDetailHTTPClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityDetailHTTPClientProtocol.swift; sourceTree = "<group>"; };
+		4AA2A00C27399F740077573F /* EntityDetailHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityDetailHTTPClient.swift; sourceTree = "<group>"; };
+		4AA2A0102739A1200077573F /* CharacterDetailNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailNetworkService.swift; sourceTree = "<group>"; };
 		4AF1D5F9272ACB2C00E897B2 /* PlanetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailViewController.swift; sourceTree = "<group>"; };
 		4AF1D5FC272ACC4500E897B2 /* PlanetDetailPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailPresenterProtocol.swift; sourceTree = "<group>"; };
 		4AF1D5FE272ACC6400E897B2 /* PlanetDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailPresenter.swift; sourceTree = "<group>"; };
@@ -280,18 +290,20 @@
 				4A1804E72733FC8D00E77660 /* NetworkServiceError.swift */,
 				4A1804E92733FCCF00E77660 /* Route.swift */,
 				4A1804F42733FDD100E77660 /* ImageDataLoader */,
-				4A1804EF2733FD3800E77660 /* HTTPClient */,
+				4AA2A00927399D130077573F /* MovieHTTPClient */,
+				4A1804EF2733FD3800E77660 /* EntityHTTPClient */,
+				4AA2A00E2739A0150077573F /* EntityDetailHTTPClient */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
 		};
-		4A1804EF2733FD3800E77660 /* HTTPClient */ = {
+		4A1804EF2733FD3800E77660 /* EntityHTTPClient */ = {
 			isa = PBXGroup;
 			children = (
-				4A1804EB2733FCF000E77660 /* HTTPClientProtocol.swift */,
-				4A1804ED2733FD0800E77660 /* HTTPClient.swift */,
+				4A1804EB2733FCF000E77660 /* EntityHTTPClientProtocol.swift */,
+				4A1804ED2733FD0800E77660 /* EntityHTTPClient.swift */,
 			);
-			path = HTTPClient;
+			path = EntityHTTPClient;
 			sourceTree = "<group>";
 		};
 		4A1804F42733FDD100E77660 /* ImageDataLoader */ = {
@@ -337,10 +349,10 @@
 				4A25C6572711CF9400EC8398 /* SceneDelegate.swift */,
 				4A4E474827121AAD0047EE86 /* Core */,
 				4A25C66E2711DE4700EC8398 /* Flows */,
-				4A25C6602711CF9700EC8398 /* LaunchScreen.storyboard */,
 				4AA29FFE27398DAF0077573F /* Extensions */,
-				4A25C6632711CF9700EC8398 /* Info.plist */,
 				4A4E47ED271D28630047EE86 /* Resources */,
+				4A25C6602711CF9700EC8398 /* LaunchScreen.storyboard */,
+				4A25C6632711CF9700EC8398 /* Info.plist */,
 			);
 			path = StarWarsApp;
 			sourceTree = "<group>";
@@ -717,8 +729,9 @@
 		4A9BE1A52729CD2B00F0CD05 /* CharacterDetail */ = {
 			isa = PBXGroup;
 			children = (
-				4A4E47FF272052EC0047EE86 /* CharacterViewModel.swift */,
-				4A9BE1AF2729F7D200F0CD05 /* Service */,
+				4A9BE1AF2729F7D200F0CD05 /* NavigationService */,
+				4AA2A0122739A1270077573F /* NetworkService */,
+				4AA2A00F2739A0EE0077573F /* ViewModel */,
 				4A9BE1AC2729CE9000F0CD05 /* View */,
 				4A9BE1A22729CCCD00F0CD05 /* CharacterDetailViewController.swift */,
 				4A9BE1A62729CDC300F0CD05 /* CharacterDetailPresenterProtocol.swift */,
@@ -735,12 +748,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		4A9BE1AF2729F7D200F0CD05 /* Service */ = {
+		4A9BE1AF2729F7D200F0CD05 /* NavigationService */ = {
 			isa = PBXGroup;
 			children = (
 				4A9BE1AD2729F77600F0CD05 /* CharacterDetailViewControllerAssembler.swift */,
 			);
-			path = Service;
+			path = NavigationService;
 			sourceTree = "<group>";
 		};
 		4AA29FFE27398DAF0077573F /* Extensions */ = {
@@ -751,6 +764,40 @@
 				4AA2A00127398DAF0077573F /* String + Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4AA2A00927399D130077573F /* MovieHTTPClient */ = {
+			isa = PBXGroup;
+			children = (
+				4AA2A00527399C830077573F /* MovieHTTPClientProtocol.swift */,
+				4AA2A00727399CBB0077573F /* MovieHTTPClient.swift */,
+			);
+			path = MovieHTTPClient;
+			sourceTree = "<group>";
+		};
+		4AA2A00E2739A0150077573F /* EntityDetailHTTPClient */ = {
+			isa = PBXGroup;
+			children = (
+				4AA2A00A27399DC50077573F /* EntityDetailHTTPClientProtocol.swift */,
+				4AA2A00C27399F740077573F /* EntityDetailHTTPClient.swift */,
+			);
+			path = EntityDetailHTTPClient;
+			sourceTree = "<group>";
+		};
+		4AA2A00F2739A0EE0077573F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4A4E47FF272052EC0047EE86 /* CharacterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4AA2A0122739A1270077573F /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				4AA2A0102739A1200077573F /* CharacterDetailNetworkService.swift */,
+			);
+			path = NetworkService;
 			sourceTree = "<group>";
 		};
 		4AF1D5FB272ACB3100E897B2 /* PlanetDetail */ = {
@@ -938,7 +985,7 @@
 				4A9BE1A72729CDC300F0CD05 /* CharacterDetailPresenterProtocol.swift in Sources */,
 				4A1804FB2733FF9F00E77660 /* MovieImageRoute.swift in Sources */,
 				4AF1D61E272B345500E897B2 /* StarshipDetailView.swift in Sources */,
-				4A1804EE2733FD0800E77660 /* HTTPClient.swift in Sources */,
+				4A1804EE2733FD0800E77660 /* EntityHTTPClient.swift in Sources */,
 				4A3855F22736CF9E00E99451 /* PlanetViewControllerAssembler.swift in Sources */,
 				4A1804E22733FB6F00E77660 /* SpinnerViewController.swift in Sources */,
 				4A4E47FE2720513C0047EE86 /* EntityRoute.swift in Sources */,
@@ -946,10 +993,12 @@
 				4A3855F02736CF5A00E99451 /* PlanetNetworkService.swift in Sources */,
 				4A1804F12733FD7600E77660 /* ImageDataLoaderProtocol.swift in Sources */,
 				4A3855E62736BE5C00E99451 /* EntityContainerCoordinator.swift in Sources */,
+				4AA2A00827399CBB0077573F /* MovieHTTPClient.swift in Sources */,
 				4A1804EA2733FCCF00E77660 /* Route.swift in Sources */,
 				4A3855DA27344CD900E99451 /* StarshipResponse.swift in Sources */,
 				4AF1D60A272ADD8A00E897B2 /* SpeciesDetailPresenterProtocol.swift in Sources */,
 				4AF1D619272B333A00E897B2 /* StarshipDetailPresenter.swift in Sources */,
+				4AA2A00D27399F740077573F /* EntityDetailHTTPClient.swift in Sources */,
 				4A3855DF27344E6900E99451 /* CharacterNetworkService.swift in Sources */,
 				4AF1D601272ACCBB00E897B2 /* PlanetDetailViewControllerAssembler.swift in Sources */,
 				4A9BE1A12729C5B600F0CD05 /* EntityCollectionView.swift in Sources */,
@@ -958,7 +1007,7 @@
 				4AA2A00427398DAF0077573F /* String + Extension.swift in Sources */,
 				4A9BE1A92729CE1100F0CD05 /* CharacterDetailPresenter.swift in Sources */,
 				4A4E480F272063580047EE86 /* CharacterPresenter.swift in Sources */,
-				4A1804EC2733FCF000E77660 /* HTTPClientProtocol.swift in Sources */,
+				4A1804EC2733FCF000E77660 /* EntityHTTPClientProtocol.swift in Sources */,
 				4A4E4823272334860047EE86 /* Constants.swift in Sources */,
 				4A4E4802272054AC0047EE86 /* PlanetViewModel.swift in Sources */,
 				4A25C6562711CF9400EC8398 /* AppDelegate.swift in Sources */,
@@ -982,8 +1031,10 @@
 				4A4E4806272056B20047EE86 /* VehicleViewModel.swift in Sources */,
 				4A3855E12736A5F300E99451 /* EntityContainerViewController.swift in Sources */,
 				4A3856062736FC0D00E99451 /* StarshipViewControllerAssembler.swift in Sources */,
+				4AA2A00627399C830077573F /* MovieHTTPClientProtocol.swift in Sources */,
 				4A3855E32736B9F000E99451 /* SpinnerManager.swift in Sources */,
 				4A3855FB2736EF9300E99451 /* SpeciesViewControllerAssembler.swift in Sources */,
+				4AA2A0112739A1200077573F /* CharacterDetailNetworkService.swift in Sources */,
 				4A180477272C60DE00E77660 /* VehicleDetailViewController.swift in Sources */,
 				4A180489272C6DBC00E77660 /* BaseLabelStackView.swift in Sources */,
 				4AF1D5FA272ACB2C00E897B2 /* PlanetDetailViewController.swift in Sources */,
@@ -1008,6 +1059,7 @@
 				4A1804F62733FE6300E77660 /* MovieResponse.swift in Sources */,
 				4AF1D60C272ADDB300E897B2 /* SpeciesDetailPresenter.swift in Sources */,
 				4A1804FD2733FFD900E77660 /* MovieNetworkService.swift in Sources */,
+				4AA2A00B27399DC50077573F /* EntityDetailHTTPClientProtocol.swift in Sources */,
 				4A3855F52736CFEE00E99451 /* PlanetPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

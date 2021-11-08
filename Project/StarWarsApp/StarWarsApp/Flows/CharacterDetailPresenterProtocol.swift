@@ -9,7 +9,8 @@ import Foundation
 
 protocol CharacterDetailPresenterProtocol {
     
-    var entity: CharacterData? { get set}
+    var entity: CharacterData? {get set}
+    var model: CharacterViewModel? {get set}
     
-    func makeViewModel() -> CharacterViewModel?
+    func getData()
 }
