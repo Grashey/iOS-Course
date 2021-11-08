@@ -246,8 +246,7 @@ class StarshipDetailView: UIView {
     }
     
     func configureWith(model: StarshipViewModel) {
-        guard let image = UIImage(named: "iconStarships") else { return }
-        iconImageView.image = image
+        iconImageView.image = model.image
         
         nameLabel.text = model.name
         modelValueLabel.text = model.model

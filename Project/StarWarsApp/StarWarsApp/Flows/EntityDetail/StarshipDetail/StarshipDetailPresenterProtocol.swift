@@ -9,6 +9,7 @@ import Foundation
 
 protocol StarshipDetailPresenterProtocol {
     
-    var model: StarshipViewModel? {get set}
-    var entityUrl: String? { get set}
+    var entity: StarshipData? { get set}
+    
+    func makeViewModel() -> StarshipViewModel?
 }
