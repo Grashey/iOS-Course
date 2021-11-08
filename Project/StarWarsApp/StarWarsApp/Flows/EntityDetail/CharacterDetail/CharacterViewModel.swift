@@ -5,7 +5,7 @@
 //  Created by Aleksandr Fetisov on 20.10.2021.
 //
 
-import Foundation
+import UIKit
 
 struct CharacterViewModel {
     
@@ -22,4 +22,5 @@ struct CharacterViewModel {
     let species: [String]?
     let starships: [String]?
     let vehicles: [String]?
+    let image: UIImage?
 }

@@ -16,8 +16,7 @@ class CharacterDetailViewController: UIViewController {
         
         view.backgroundColor = .black
         let characterDetailView = CharacterDetailView(frame: view.frame)
-        let model = CharacterViewModel(name: "Alex Smith", birthYear: "11.07.1981", eyeColor: "blue", gender: "male", hairColor: "Blond", mass: "80", height: "176", skinColor: "white", homeworld: "Earth", movies: ["one","two"], species: ["human"], starships: nil, vehicles: ["peugeot"])
-//        guard let model = presenter?.model else { return }
+        guard let model = presenter?.makeViewModel() else { return }
         characterDetailView.configureWith(model: model)
         self.view.addSubview(characterDetailView)
     }

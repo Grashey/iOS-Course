@@ -29,5 +29,5 @@ struct CharacterData: Decodable {
     let starships: [String]?
     let vehicles: [String]?
     let url: String
-    var imageData: Data?
+    let imageData: Data?
 }

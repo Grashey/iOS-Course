@@ -9,6 +9,7 @@ import Foundation
 
 protocol CharacterDetailPresenterProtocol {
     
-    var model: CharacterViewModel? {get set}
-    var entityUrl: String? { get set}
+    var entity: CharacterData? { get set}
+    
+    func makeViewModel() -> CharacterViewModel?
 }

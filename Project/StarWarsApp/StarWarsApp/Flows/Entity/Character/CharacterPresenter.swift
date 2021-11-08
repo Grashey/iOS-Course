@@ -1,5 +1,5 @@
 //
-//  EntityPresenter.swift
+//  CharacterPresenter.swift
 //  StarWarsApp
 //
 //  Created by Aleksandr Fetisov on 20.10.2021.
@@ -7,13 +7,12 @@
 
 import UIKit
 
-class EntityPresenter: EntityPresenterProtocol {
+class CharacterPresenter: EntityPresenterProtocol {
     
     weak var viewController: EntityViewController?
     
-    var entity = EntityRoute.characters
     var viewModel: [EntityShortViewModel] = []
-    private let service = EntityNetworkService()
+    private let service = CharacterNetworkService()
     var characters: [CharacterData] = []
     var pageIndex: Int? = 1
     
@@ -31,9 +30,9 @@ class EntityPresenter: EntityPresenterProtocol {
                 case .success(let data):
                     self.characters.append(contentsOf: data.results)
                     
-                    self.viewModel = self.characters.map { EntityShortViewModel(name: $0.name) }
+                    guard let image = UIImage(named: Constants.ImageName.characters) else { return }
+                    self.viewModel = self.characters.map { EntityShortViewModel(name: $0.name, image: image) }
                     self.viewController?.collectionView.reloadData()
-//                    self.viewController?.collectionView.scrollToItem(at: IndexPath(item: .zero, section: .zero), at: .top, animated: false)
                     self.pageIndex = self.makeIndex(from: data.next)
                     
                 case .failure(let error):
@@ -44,13 +43,15 @@ class EntityPresenter: EntityPresenterProtocol {
         }
     }
     
-    func getTitleName() -> String {
-        switch entity {
-        case .characters: return Constants.Entity.characters
-        case .planets: return Constants.Entity.planets
-        case .species: return Constants.Entity.species
-        case .starships: return Constants.Entity.starships
-        case .vehicles: return Constants.Entity.vehicles
+    func start() {
+        getData()
+        
+        viewController?.onDetails = { name in
+            guard let character = self.characters.filter({ $0.name == name }).first else { return }
+            let vcAssembler = CharacterDetailViewControllerAssembler()
+            guard let detailsVC = vcAssembler.create() as? CharacterDetailViewController else { return }
+            detailsVC.presenter?.entity = character
+            self.viewController?.navigationController?.pushViewController(detailsVC, animated: true)
         }
     }
     

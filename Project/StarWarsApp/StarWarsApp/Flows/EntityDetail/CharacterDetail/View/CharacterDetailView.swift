@@ -226,8 +226,7 @@ class CharacterDetailView: UIView {
     }
     
     func configureWith(model: CharacterViewModel) {
-        guard let image = UIImage(named: "iconCharacters") else { return }
-        iconImageView.image = image
+        iconImageView.image = model.image
         
         nameLabel.text = model.name
         birthYearValueLabel.text = model.birthYear
