@@ -228,8 +228,7 @@ class VehicleDetailView: UIView {
     }
     
     func configureWith(model: VehicleViewModel) {
-        guard let image = UIImage(named: "iconVehicles") else { return }
-        iconImageView.image = image
+        iconImageView.image = model.image
         
         nameLabel.text = model.name
         modelValueLabel.text = model.model

@@ -9,6 +9,7 @@ import Foundation
 
 protocol VehicleDetailPresenterProtocol {
     
-    var model: VehicleViewModel? {get set}
-    var entityUrl: String? { get set}
+    var entity: VehicleData? { get set}
+    
+    func makeViewModel() -> VehicleViewModel?
 }

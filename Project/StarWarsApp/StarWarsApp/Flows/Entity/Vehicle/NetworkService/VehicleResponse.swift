@@ -29,5 +29,5 @@ struct VehicleData: Decodable {
     let films: [String]
     let pilots: [String]?
     let url: String
-    var imageData: Data?
+    let imageData: Data?
 }

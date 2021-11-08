@@ -5,7 +5,7 @@
 //  Created by Aleksandr Fetisov on 20.10.2021.
 //
 
-import Foundation
+import UIKit
 
 struct VehicleViewModel {
     
@@ -22,4 +22,5 @@ struct VehicleViewModel {
     let consumables: String
     let movies: [String]?
     let pilots: [String]?
+    let image: UIImage?
 }
