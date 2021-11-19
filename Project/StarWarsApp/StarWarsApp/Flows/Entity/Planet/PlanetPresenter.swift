@@ -13,14 +13,14 @@ class PlanetPresenter: EntityPresenterProtocol {
     
     var viewModel: [EntityShortViewModel] = []
     private let service = PlanetNetworkService()
-    var planets: [PlanetData] = []
-    var pageIndex: Int? = 1
+    private var planets: [PlanetData] = []
+    private var pageIndex: Int? = 1
     
     func getData() {
         viewController?.isLoading = true
         
         guard let pageIndex = pageIndex else {
-            self.viewController?.isLoading = false
+            viewController?.isLoading = false
             return
         }
         service.fetchPlanets(pageIndex: pageIndex) { [weak self] result in
@@ -29,7 +29,6 @@ class PlanetPresenter: EntityPresenterProtocol {
                 switch result {
                 case .success(let data):
                     self.planets.append(contentsOf: data.results)
-                    
                     guard let image = UIImage(named: Constants.ImageName.planets) else { return }
                     self.viewModel = self.planets.map { EntityShortViewModel(name: $0.name, image: image) }
                     self.viewController?.collectionView.reloadData()
@@ -56,12 +55,11 @@ class PlanetPresenter: EntityPresenterProtocol {
     }
     
     private func showAlert(message: String) {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: "Опаньки, что-то пошло не так!",
-                                          message: message,
-                                          preferredStyle: .alert)
-            self.viewController?.present(alert, animated: true)
-        }
+        let alert = UIAlertController(title: Constants.AlertTitle.message,
+                                      message: message,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: Constants.AlertTitle.ok, style: .default, handler: nil))
+        viewController?.present(alert, animated: true)
     }
     
     private func makeIndex(from string: String?)  -> Int? {

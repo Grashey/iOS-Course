@@ -25,7 +25,7 @@ struct PlanetData: Decodable {
     let terrain: String
     let surfaceWater: String
     let films: [String]
-    let residents: [String]?
+    let residents: [String]
     let url: String
     let imageData: Data?
 }

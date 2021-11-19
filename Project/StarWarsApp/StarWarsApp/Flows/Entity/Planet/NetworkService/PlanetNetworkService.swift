@@ -9,7 +9,7 @@ import Foundation
 
 class PlanetNetworkService {
 
-    let httpClient: EntityHTTPClientProtocol
+    private let httpClient: EntityHTTPClientProtocol
 
     init(httpClient: EntityHTTPClientProtocol = EntityHTTPClient()) {
         self.httpClient = httpClient
