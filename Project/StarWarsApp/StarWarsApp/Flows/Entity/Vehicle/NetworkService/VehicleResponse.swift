@@ -27,7 +27,7 @@ struct VehicleData: Decodable {
     let cargoCapacity: String
     let consumables: String
     let films: [String]
-    let pilots: [String]?
+    let pilots: [String]
     let url: String
     let imageData: Data?
 }

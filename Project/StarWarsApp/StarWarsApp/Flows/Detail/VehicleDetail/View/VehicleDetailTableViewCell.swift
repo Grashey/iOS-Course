@@ -1,5 +1,5 @@
 //
-//  VehicleDetailView.swift
+//  VehicleDetailTableViewCell.swift
 //  StarWarsApp
 //
 //  Created by Aleksandr Fetisov on 29.10.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class VehicleDetailView: UIView {
+class VehicleDetailTableViewCell: UITableViewCell {
     
     private struct LabelValues {
         static let model = "Model: "
@@ -20,33 +20,13 @@ class VehicleDetailView: UIView {
         static let maxAtmospheringSpeed = "Max. atmosphering speed: "
         static let cargoCapacity = "Cargo capacity: "
         static let consumables = "Consumables: "
+        static let related = "Related to: "
     }
     
-    private struct ButtonLabelValues {
-        static let movies = "Appearances in the movies"
-        static let pilots = "Piloted by"
-    }
-
     private let inset: CGFloat = 10
     private let smallFont = UIFont(name: Constants.Fonts.font, size: 12)
     private let bigFont = UIFont(name: Constants.Fonts.font, size: 18)
     private let titleColor: UIColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
-    
-    private lazy var scrollView: UIScrollView = {
-        $0.backgroundColor = .clear
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.contentInset = UIEdgeInsets(top: inset, left: .zero, bottom: inset, right: .zero)
-        $0.showsVerticalScrollIndicator = false
-        return $0
-    }(UIScrollView())
-    
-    private lazy var backgroundView: UIImageView = {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        if let image = UIImage(named: Constants.ImageName.backgroundImage) {
-            $0.image = image
-        }
-        return $0
-    }(UIImageView())
 
     private lazy var iconImageView: UIImageView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -111,6 +91,11 @@ class VehicleDetailView: UIView {
         return $0
     }(BaseLabel())
     
+    private lazy var relatedLabel: BaseLabel = {
+        $0.text = LabelValues.related
+        return $0
+    }(BaseLabel())
+    
     private lazy var modelValueLabel = BaseValueLabel()
     private lazy var vehicleClassValueLabel = BaseValueLabel()
     private lazy var manufacturerValueLabel = BaseValueLabel()
@@ -121,20 +106,6 @@ class VehicleDetailView: UIView {
     private lazy var cargoCapacityValueLabel = BaseValueLabel()
     private lazy var maxAtmospheringSpeedValueLabel = BaseValueLabel()
     private lazy var consumablesValueLabel = BaseValueLabel()
-    
-    lazy var moviesButton: UIButton = {
-        $0.titleLabel?.font = smallFont
-        $0.setTitleColor(titleColor, for: .normal)
-        $0.setTitle(ButtonLabelValues.movies, for: .normal)
-        return $0
-    }(UIButton())
-    
-    lazy var pilotsButton: UIButton = {
-        $0.titleLabel?.font = smallFont
-        $0.setTitleColor(titleColor, for: .normal)
-        $0.setTitle(ButtonLabelValues.pilots, for: .normal)
-        return $0
-    }(UIButton())
     
     private lazy var contentStackView: UIStackView = {
         $0.axis = .vertical
@@ -165,8 +136,8 @@ class VehicleDetailView: UIView {
     private lazy var maxAtmospheringSpeedStackView = BaseLabelStackView()
     private lazy var consumablesStackView = BaseLabelStackView()
      
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = .clear
         addSubviews()
         addConstraints()
@@ -177,11 +148,8 @@ class VehicleDetailView: UIView {
     }
     
     private func addSubviews() {
-        self.addSubview(backgroundView)
-        self.addSubview(scrollView)
-        
-        scrollView.addSubview(contentStackView)
-        
+        self.addSubview(contentStackView)
+
         contentStackView.addArrangedSubview(iconImageView)
         contentStackView.addArrangedSubview(nameLabel)
         contentStackView.addArrangedSubview(infoStackView)
@@ -205,33 +173,26 @@ class VehicleDetailView: UIView {
                 stackArray[index].addArrangedSubview(lastLabel)
             }
         }
+        infoStackView.addArrangedSubview(relatedLabel)
     }
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: self.layoutMarginsGuide.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: self.layoutMarginsGuide.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
-            
-            backgroundView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            backgroundView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            backgroundView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            backgroundView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            
-            contentStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            contentStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            contentStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentStackView.topAnchor.constraint(equalTo: self.topAnchor),
+            contentStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            contentStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            contentStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
             iconImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            infoStackView.widthAnchor.constraint(equalTo: self.layoutMarginsGuide.widthAnchor, constant: -inset*2)
+            infoStackView.widthAnchor.constraint(equalTo: self.widthAnchor)
         ])
+        modelLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
+        vehicleClassLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
+        manufacturerLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
     }
     
     func configureWith(model: VehicleViewModel) {
         iconImageView.image = model.image
-        
         nameLabel.text = model.name
         modelValueLabel.text = model.model
         vehicleClassValueLabel.text = model.vehicleClass
@@ -243,13 +204,5 @@ class VehicleDetailView: UIView {
         cargoCapacityValueLabel.text = model.cargoCapacity.formattedWithSeparator
         maxAtmospheringSpeedValueLabel.text = model.maxAtmospheringSpeed.formattedWithSeparator
         consumablesValueLabel.text = model.consumables
-        
-        if let _ = model.movies {
-            infoStackView.addArrangedSubview(moviesButton)
-        }
-        
-        if let _ = model.pilots {
-            infoStackView.addArrangedSubview(pilotsButton)
-        }
     }
 }
