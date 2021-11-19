@@ -15,6 +15,7 @@ class MovieTableViewCell: UITableViewCell {
     
     private let inset: CGFloat = 10
     private let posterImageSize = CGSize(width: 200, height: 300)
+    private let alternativeColor: UIColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
 
     private lazy var posterImageView: UIImageView = {
         $0.layer.cornerRadius = 10
@@ -27,20 +28,20 @@ class MovieTableViewCell: UITableViewCell {
     
     private lazy var episodeLabel: UILabel = {
         $0.font = UIFont(name: Constants.Fonts.font, size: 12)
-        $0.textColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
+        $0.textColor = alternativeColor
         $0.text = LabelValues.episode
         return $0
     }(UILabel())
     
     private lazy var episodeValueLabel: UILabel = {
         $0.font = UIFont(name: Constants.Fonts.font, size: 12)
-        $0.textColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
+        $0.textColor = alternativeColor
         return $0
     }(UILabel())
     
     private lazy var nameLabel: UILabel = {
         $0.font = UIFont(name: Constants.Fonts.font, size: 18)
-        $0.textColor = .white
+        $0.textColor = alternativeColor
         $0.numberOfLines = 0
         $0.lineBreakMode = .byWordWrapping
         return $0
@@ -50,6 +51,7 @@ class MovieTableViewCell: UITableViewCell {
         $0.axis = .vertical
         $0.distribution = .fill
         $0.alignment = .center
+        $0.spacing = inset
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UIStackView())
@@ -61,7 +63,9 @@ class MovieTableViewCell: UITableViewCell {
         return $0
     }(UIStackView())
     
-    private lazy var episodeStackView = BaseLabelStackView()
+    private lazy var episodeStackView: BaseLabelStackView = {
+        return $0
+    }(BaseLabelStackView())
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

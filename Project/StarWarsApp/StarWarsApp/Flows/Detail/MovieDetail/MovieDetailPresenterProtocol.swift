@@ -5,12 +5,14 @@
 //  Created by Aleksandr Fetisov on 24.10.2021.
 //
 
-import Foundation
+import UIKit
 
 protocol MovieDetailPresenterProtocol {
     
-    var model: MovieDetailViewModel? {get set}
+    var model: MovieDetailViewModel? {get}
     var movie: MovieData? {get set}
+    var specs: [[EntityShortViewModel]] {get}
     
-    func makeModel() -> MovieDetailViewModel?
+    func getData()
+    func makeLabelFor(section: Int) -> UILabel
 }

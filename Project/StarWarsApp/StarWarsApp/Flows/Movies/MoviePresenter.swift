@@ -15,32 +15,25 @@ class MoviePresenter: MoviePresenterProtocol {
     var movies: [MovieData] = []
     var viewModels: [MovieViewModel] = []
     
-    private var isLoading = false {
-        didSet {
-            guard oldValue != isLoading else { return }
-            viewController?.showSpinner(isShown: isLoading)
-        }
-    }
-    
     func getData() {
-        isLoading = true
+        viewController?.isLoading = true
         service.fetchMovies { [weak self] result in
             guard let self = self else { return }
-            switch result {
-            case .success(let data):
-                self.movies = data.results.sorted { $0.episodeId < $1.episodeId }
-                self.mapViewModel()
-                
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let data):
+                    self.movies = data.results.sorted { $0.episodeId < $1.episodeId }
+                    self.mapViewModel()
                     self.viewController?.reloadTable()
-                    self.isLoading = false
+                    
+                    for (index, _) in self.viewModels.enumerated() {
+                        self.getImage(for: index)
+                    }
+                    
+                case .failure(let error):
+                    self.showAlert(message: error.message)
                 }
-                
-                for (index, _) in self.viewModels.enumerated() {
-                    self.getImage(for: index)
-                }
-            case .failure(let error):
-                self.showAlert(message: error.message)
+                self.viewController?.isLoading = false
             }
         }
     }
@@ -52,6 +45,10 @@ class MoviePresenter: MoviePresenterProtocol {
             case .success(let data):
                 self.movies[index].imageData = data
                 self.viewModels[index].image = UIImage(data: data)
+                
+                let keeper = MoviePosterKeeper()
+                keeper.savePoster(for: self.viewModels[index])
+                
                 DispatchQueue.main.async {
                     self.viewController?.reloadCell(index: index)
                 }
@@ -62,12 +59,11 @@ class MoviePresenter: MoviePresenterProtocol {
     }
     
     private func showAlert(message: String) {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: "Опаньки, что-то пошло не так!",
-                                          message: message,
-                                          preferredStyle: .alert)
-            self.viewController?.present(alert, animated: true)
-        }
+        let alert = UIAlertController(title: Constants.AlertTitle.message,
+                                      message: message,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: Constants.AlertTitle.ok, style: .default, handler: nil))
+        viewController?.present(alert, animated: true)
     }
     
     private func mapViewModel() {

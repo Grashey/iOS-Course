@@ -7,30 +7,34 @@
 
 import UIKit
 
-class MovieViewController: UITableViewController {
+class MovieViewController: SpinnerManager {
     
     var presenter: MoviePresenterProtocol?
     
     var onDetails: ((MovieData) -> Void)?
-    private let spinner = SpinnerViewController()
+    
+    lazy var tableView: UITableView = {
+        if let image = UIImage(named: Constants.ImageName.backgroundImage) {
+            $0.backgroundView = UIImageView(image: image)
+        }
+        $0.separatorStyle = .none
+        $0.rowHeight = UITableView.automaticDimension
+        $0.estimatedRowHeight = UITableView.automaticDimension
+        $0.register(MovieTableViewCell.self, forCellReuseIdentifier: MovieTableViewCell.description())
+        return $0
+    }(UITableView())
+    
+    override func loadView() {
+        view = tableView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: MovieTableViewCell.description())
+        tableView.delegate = self
+        tableView.dataSource = self
         presenter?.getData()
         self.navigationItem.title = Constants.TabBarTitle.movies
-
-        guard let image = UIImage(named: Constants.ImageName.backgroundImage) else { return }
-        tableView.backgroundView = UIImageView(image: image)
-        tableView.separatorStyle = .none
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = UITableView.automaticDimension
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        spinner.view.frame = view.frame
     }
     
     func reloadTable() {
@@ -42,24 +46,15 @@ class MovieViewController: UITableViewController {
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
-    func showSpinner(isShown: Bool) {
-        if isShown {
-            addChild(spinner)
-            view.addSubview(spinner.view)
-            spinner.didMove(toParent: self)
-        } else {
-            spinner.willMove(toParent: nil)
-            spinner.view.removeFromSuperview()
-            spinner.removeFromParent()
-        }
-    }
-    
+}
     //MARK: TableView DataSource
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension MovieViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter?.viewModels.count ?? .zero
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.description(), for: indexPath)
         if let model = presenter?.viewModels[indexPath.row] {
             (cell as? MovieTableViewCell)?.configureWith(model: model)
@@ -67,8 +62,11 @@ class MovieViewController: UITableViewController {
         cell.selectionStyle = .none
         return cell
     }
+}
+
+extension MovieViewController: UITableViewDelegate {
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let movie = presenter?.movies[indexPath.row] {
             onDetails?(movie)
         }

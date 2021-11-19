@@ -10,7 +10,7 @@ import UIKit
 class MovieCoordinator {
 
     private var navigationController: UINavigationController
-    var vcAssembler: ViewControllerAssemblerProtocol
+    private var vcAssembler: ViewControllerAssemblerProtocol
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController

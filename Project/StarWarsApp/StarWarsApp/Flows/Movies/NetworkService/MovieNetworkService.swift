@@ -9,8 +9,8 @@ import Foundation
 
 class MovieNetworkService {
 
-    let httpClient: MovieHTTPClientProtocol
-    let imageDataLoader: ImageDataLoaderProtocol
+    private let httpClient: MovieHTTPClientProtocol
+    private let imageDataLoader: ImageDataLoaderProtocol
 
     init(httpClient: MovieHTTPClientProtocol = MovieHTTPClient(), imageDataLoader: ImageDataLoaderProtocol = ImageDataLoader()) {
         self.httpClient = httpClient

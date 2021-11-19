@@ -14,10 +14,5 @@ struct MovieDetailViewModel {
     let director: String
     let producer: String
     let releaseDate: String
-    let characters: [String]
-    let planets: [String]
-    let species: [String]
-    let starships: [String]
-    let vehicles: [String]
     var image: UIImage?
 }
