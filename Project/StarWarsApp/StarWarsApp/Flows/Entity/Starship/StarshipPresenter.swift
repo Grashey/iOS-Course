@@ -13,14 +13,14 @@ class StarshipPresenter: EntityPresenterProtocol {
     
     var viewModel: [EntityShortViewModel] = []
     private let service = StarshipNetworkService()
-    var starships: [StarshipData] = []
-    var pageIndex: Int? = 1
+    private var starships: [StarshipData] = []
+    private var pageIndex: Int? = 1
     
     func getData() {
         viewController?.isLoading = true
         
         guard let pageIndex = pageIndex else {
-            self.viewController?.isLoading = false
+            viewController?.isLoading = false
             return
         }
         service.fetchStarships(pageIndex: pageIndex) { [weak self] result in
@@ -29,7 +29,6 @@ class StarshipPresenter: EntityPresenterProtocol {
                 switch result {
                 case .success(let data):
                     self.starships.append(contentsOf: data.results)
-                    
                     guard let image = UIImage(named: Constants.ImageName.starships) else { return }
                     self.viewModel = self.starships.map { EntityShortViewModel(name: $0.name, image: image) }
                     self.viewController?.collectionView.reloadData()
@@ -56,12 +55,11 @@ class StarshipPresenter: EntityPresenterProtocol {
     }
     
     private func showAlert(message: String) {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: "Опаньки, что-то пошло не так!",
-                                          message: message,
-                                          preferredStyle: .alert)
-            self.viewController?.present(alert, animated: true)
-        }
+        let alert = UIAlertController(title: Constants.AlertTitle.message,
+                                      message: message,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: Constants.AlertTitle.ok, style: .default, handler: nil))
+        viewController?.present(alert, animated: true)
     }
     
     private func makeIndex(from string: String?)  -> Int? {

@@ -22,7 +22,5 @@ struct StarshipViewModel {
     let maxNumberOfMegalights: String
     let cargoCapacity: String
     let consumables: String
-    let movies: [String]?
-    let pilots: [String]?
     let image: UIImage?
 }
