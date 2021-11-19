@@ -13,14 +13,14 @@ class CharacterPresenter: EntityPresenterProtocol {
     
     var viewModel: [EntityShortViewModel] = []
     private let service = CharacterNetworkService()
-    var characters: [CharacterData] = []
-    var pageIndex: Int? = 1
+    private var characters: [CharacterData] = []
+    private var pageIndex: Int? = 1
     
     func getData() {
         viewController?.isLoading = true
         
         guard let pageIndex = pageIndex else {
-            self.viewController?.isLoading = false
+            viewController?.isLoading = false
             return
         }
         service.fetchCharacters(pageIndex: pageIndex) { [weak self] result in
@@ -29,7 +29,6 @@ class CharacterPresenter: EntityPresenterProtocol {
                 switch result {
                 case .success(let data):
                     self.characters.append(contentsOf: data.results)
-                    
                     guard let image = UIImage(named: Constants.ImageName.characters) else { return }
                     self.viewModel = self.characters.map { EntityShortViewModel(name: $0.name, image: image) }
                     self.viewController?.collectionView.reloadData()
@@ -56,12 +55,11 @@ class CharacterPresenter: EntityPresenterProtocol {
     }
     
     private func showAlert(message: String) {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: "Опаньки, что-то пошло не так!",
-                                          message: message,
-                                          preferredStyle: .alert)
-            self.viewController?.present(alert, animated: true)
-        }
+        let alert = UIAlertController(title: Constants.AlertTitle.message,
+                                      message: message,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: Constants.AlertTitle.ok, style: .default, handler: nil))
+        viewController?.present(alert, animated: true)
     }
     
     private func makeIndex(from string: String?)  -> Int? {

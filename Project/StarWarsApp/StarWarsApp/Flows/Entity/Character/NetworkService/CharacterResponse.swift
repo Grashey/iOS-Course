@@ -26,8 +26,8 @@ struct CharacterData: Decodable {
     let homeworld: String
     let films: [String]
     let species: [String]
-    let starships: [String]?
-    let vehicles: [String]?
+    let starships: [String]
+    let vehicles: [String]
     let url: String
     let imageData: Data?
 }

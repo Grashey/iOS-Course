@@ -18,9 +18,5 @@ struct CharacterViewModel {
     let height: String
     let skinColor: String
     let homeworld: String
-    let movies: [String]?
-    let species: [String]?
-    let starships: [String]?
-    let vehicles: [String]?
     let image: UIImage?
 }
