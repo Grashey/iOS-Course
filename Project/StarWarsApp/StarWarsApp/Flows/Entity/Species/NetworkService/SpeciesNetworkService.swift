@@ -9,7 +9,7 @@ import Foundation
 
 class SpeciesNetworkService {
 
-    let httpClient: EntityHTTPClientProtocol
+    private let httpClient: EntityHTTPClientProtocol
 
     init(httpClient: EntityHTTPClientProtocol = EntityHTTPClient()) {
         self.httpClient = httpClient

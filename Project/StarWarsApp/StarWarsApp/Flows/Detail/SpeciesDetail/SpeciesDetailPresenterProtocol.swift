@@ -5,11 +5,14 @@
 //  Created by Aleksandr Fetisov on 28.10.2021.
 //
 
-import Foundation
+import UIKit
 
 protocol SpeciesDetailPresenterProtocol {
     
     var entity: SpeciesData? { get set}
+    var model: SpeciesViewModel? {get}
+    var specs: [[EntityShortViewModel]] {get}
     
-    func makeViewModel() -> SpeciesViewModel?
+    func getData()
+    func makeLabelFor(section: Int) -> UILabel
 }

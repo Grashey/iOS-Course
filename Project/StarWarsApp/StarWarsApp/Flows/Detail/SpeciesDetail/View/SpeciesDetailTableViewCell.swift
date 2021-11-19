@@ -1,5 +1,5 @@
 //
-//  SpeciesDetailView.swift
+//  SpeciesDetailTableViewCell.swift
 //  StarWarsApp
 //
 //  Created by Aleksandr Fetisov on 28.10.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SpeciesDetailView: UIView {
+class SpeciesDetailTableViewCell: UITableViewCell {
     
     private struct LabelValues {
         static let classification = "Classification: "
@@ -19,33 +19,13 @@ class SpeciesDetailView: UIView {
         static let skinColors = "Skin colors: "
         static let language = "Language: "
         static let homeworld = "Homeworld: "
-    }
-    
-    private struct ButtonLabelValues {
-        static let movies = "Appearances in the movies"
-        static let people = "People"
+        static let related = "Related to: "
     }
 
     private let inset: CGFloat = 10
     private let smallFont = UIFont(name: Constants.Fonts.font, size: 12)
     private let bigFont = UIFont(name: Constants.Fonts.font, size: 18)
     private let titleColor: UIColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
-    
-    private lazy var scrollView: UIScrollView = {
-        $0.backgroundColor = .clear
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.contentInset = UIEdgeInsets(top: inset, left: .zero, bottom: inset, right: .zero)
-        $0.showsVerticalScrollIndicator = false
-        return $0
-    }(UIScrollView())
-    
-    private lazy var backgroundView: UIImageView = {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        if let image = UIImage(named: Constants.ImageName.backgroundImage) {
-            $0.image = image
-        }
-        return $0
-    }(UIImageView())
 
     private lazy var iconImageView: UIImageView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -105,6 +85,11 @@ class SpeciesDetailView: UIView {
         return $0
     }(BaseLabel())
     
+    private lazy var relatedLabel: BaseLabel = {
+        $0.text = LabelValues.related
+        return $0
+    }(BaseLabel())
+    
     private lazy var classificationValueLabel = BaseValueLabel()
     private lazy var designationValueLabel = BaseValueLabel()
     private lazy var averageHeightValueLabel = BaseValueLabel()
@@ -114,20 +99,6 @@ class SpeciesDetailView: UIView {
     private lazy var skinColorsValueLabel = BaseValueLabel()
     private lazy var languageValueLabel = BaseValueLabel()
     private lazy var homeworldValueLabel = BaseValueLabel()
-    
-    lazy var moviesButton: UIButton = {
-        $0.titleLabel?.font = smallFont
-        $0.setTitleColor(titleColor, for: .normal)
-        $0.setTitle(ButtonLabelValues.movies, for: .normal)
-        return $0
-    }(UIButton())
-    
-    lazy var peopleButton: UIButton = {
-        $0.titleLabel?.font = smallFont
-        $0.setTitleColor(titleColor, for: .normal)
-        $0.setTitle(ButtonLabelValues.people, for: .normal)
-        return $0
-    }(UIButton())
     
     private lazy var contentStackView: UIStackView = {
         $0.axis = .vertical
@@ -157,8 +128,8 @@ class SpeciesDetailView: UIView {
     private lazy var languageStackView = BaseLabelStackView()
     private lazy var homeworldStackView = BaseLabelStackView()
      
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = .clear
         addSubviews()
         addConstraints()
@@ -169,10 +140,7 @@ class SpeciesDetailView: UIView {
     }
     
     private func addSubviews() {
-        self.addSubview(backgroundView)
-        self.addSubview(scrollView)
-        
-        scrollView.addSubview(contentStackView)
+        self.addSubview(contentStackView)
         
         contentStackView.addArrangedSubview(iconImageView)
         contentStackView.addArrangedSubview(nameLabel)
@@ -196,33 +164,26 @@ class SpeciesDetailView: UIView {
                 stackArray[index].addArrangedSubview(lastLabel)
             }
         }
+        infoStackView.addArrangedSubview(relatedLabel)
     }
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: self.layoutMarginsGuide.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: self.layoutMarginsGuide.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
-            
-            backgroundView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            backgroundView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            backgroundView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            backgroundView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            
-            contentStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            contentStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            contentStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentStackView.topAnchor.constraint(equalTo: self.topAnchor),
+            contentStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            contentStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            contentStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
             iconImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            infoStackView.widthAnchor.constraint(equalTo: self.layoutMarginsGuide.widthAnchor, constant: -inset*2)
+            infoStackView.widthAnchor.constraint(equalTo: self.widthAnchor)
         ])
+        eyeColorsLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
+        hairColorsLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
+        skinColorsLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
     }
     
     func configureWith(model: SpeciesViewModel) {
         iconImageView.image = model.image
-        
         nameLabel.text = model.name
         classificationValueLabel.text = model.classification
         designationValueLabel.text = model.designation
@@ -233,13 +194,5 @@ class SpeciesDetailView: UIView {
         skinColorsValueLabel.text = model.skinColors
         languageValueLabel.text = model.language
         homeworldValueLabel.text = model.homeworld
-        
-        if let _ = model.movies {
-            infoStackView.addArrangedSubview(moviesButton)
-        }
-        
-        if let _ = model.characters {
-            infoStackView.addArrangedSubview(peopleButton)
-        }
     }
 }
