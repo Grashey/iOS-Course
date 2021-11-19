@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct EntityShortViewModel {
+struct EntityShortViewModel: Equatable {
     
     var name: String
     var image: UIImage? = nil

@@ -11,11 +11,10 @@ class EntityCollectionView: UICollectionView {
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
-        self.register(EntityCollectionViewCell.self, forCellWithReuseIdentifier: EntityCollectionViewCell.description())
+
         if let flowLayout = layout as? UICollectionViewFlowLayout {
-            let size = CGSize(width: 100, height: 100)
+            let size = CGSize(width: 130, height: 130)
             flowLayout.estimatedItemSize = size
-            
         }
     }
     

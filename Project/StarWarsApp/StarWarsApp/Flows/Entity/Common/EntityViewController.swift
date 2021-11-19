@@ -22,10 +22,13 @@ class EntityViewController: SpinnerManager {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
-        presenter?.start()
+        collectionView.register(EntityCollectionViewCell.self, forCellWithReuseIdentifier: EntityCollectionViewCell.description())
         guard let image = UIImage(named: Constants.ImageName.backgroundImage) else { return }
         collectionView.backgroundView = UIImageView(image: image)
+        
+        presenter?.start()
     }
+    
 }
 
 extension EntityViewController: UICollectionViewDataSource {
@@ -38,7 +41,7 @@ extension EntityViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EntityCollectionViewCell.description(), for: indexPath)
         if let model = presenter?.viewModel[indexPath.item] {
             if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-                let side = (collectionView.visibleSize.width - flowLayout.minimumLineSpacing*3)/3
+                let side = CGFloat(roundf(Float((collectionView.visibleSize.width - flowLayout.minimumLineSpacing*2))/3))
                 let size = CGSize(width: side, height: side)
                 (cell as? EntityCollectionViewCell)?.configureWith(model: model, imageSize: size)
             }
