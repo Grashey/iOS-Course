@@ -10,7 +10,7 @@ import Foundation
 enum Constants {
     
     enum Fonts {
-        static let font = "Star Jedi Outline"
+        static let font = "SFDistantGalaxy"
     }
     
     enum Entity {
@@ -54,5 +54,10 @@ enum Constants {
         static let episodeFour = "Star-Wars-New-Hope-IV-Poster_c217085b.jpeg"
         static let episodeFive = "Star-Wars-Empire-Strikes-Back-V-Poster_878f7fce.jpeg"
         static let episodeSix = "Star-Wars-Return-Jedi-VI-Poster_a10501d2.jpeg"
+    }
+    
+    enum AlertTitle {
+        static let message = "Опаньки, что-то пошло не так!"
+        static let ok = "OK"
     }
 }
