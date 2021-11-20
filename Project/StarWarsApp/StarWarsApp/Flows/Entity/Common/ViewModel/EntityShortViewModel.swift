@@ -8,7 +8,7 @@
 import UIKit
 
 struct EntityShortViewModel: Equatable {
-    
+
     var name: String
-    var image: UIImage? = nil
+    var image: UIImage?
 }

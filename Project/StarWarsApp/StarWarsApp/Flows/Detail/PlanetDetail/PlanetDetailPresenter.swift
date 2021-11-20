@@ -8,25 +8,25 @@
 import UIKit
 
 class PlanetDetailPresenter: PlanetDetailPresenterProtocol {
-    
+
     weak var viewController: PlanetDetailViewController?
-    
+
     var entity: PlanetData?
     var model: PlanetViewModel?
     var specs = [[EntityShortViewModel]]()
     private var titles = [String]()
     private let service = PlanetDetailNetworkService()
-    
+
     func getData() {
         viewController?.isLoading = true
-        makeDetails()
+        prepareSpecs()
         model = makeModel()
         viewController?.tableView.reloadData()
         getFilms()
     }
-    
+
     private func getFilms() {
-        guard let element = specs.firstIndex (where: { $0.isEmpty }),
+        guard let element = specs.firstIndex(where: { $0.isEmpty }),
                 let subIndex = specs.firstIndex(of: specs[element]),
                 let entity = self.entity, !entity.films.isEmpty else {
                     getCharacter()
@@ -56,15 +56,15 @@ class PlanetDetailPresenter: PlanetDetailPresenterProtocol {
             }
         }
     }
-    
+
     private func getCharacter() {
-        guard let element = specs.firstIndex (where: { $0.isEmpty }),
+        guard let element = specs.firstIndex(where: { $0.isEmpty }),
                 let subIndex = specs.firstIndex(of: specs[element]),
                 let entity = self.entity, !entity.residents.isEmpty else {
                     viewController?.isLoading = false
                     return
                 }
-        
+
         let characterIndexes = entity.residents.map { makeIndex(from: $0)}
         characterIndexes.forEach { index in
             self.service.fetchCharacter(index: index) { [weak self] result in
@@ -88,8 +88,8 @@ class PlanetDetailPresenter: PlanetDetailPresenterProtocol {
             }
         }
     }
-        
-    private func makeModel()  -> PlanetViewModel? {
+
+    private func makeModel() -> PlanetViewModel? {
         guard let image = UIImage(named: Constants.ImageName.planets), let entity = entity else { return nil }
         let model = PlanetViewModel(name: entity.name,
                                     diameter: entity.diameter,
@@ -103,22 +103,22 @@ class PlanetDetailPresenter: PlanetDetailPresenterProtocol {
                                     image: image)
         return model
     }
-    
-    private func makeIndex(from string: String)  -> String {
+
+    private func makeIndex(from string: String) -> String {
         let components = string.components(separatedBy: "/")
         let index = components[components.count - 2]
         return index
     }
-    
+
     private func showAlert(message: String) {
         let alert = UIAlertController(title: Constants.AlertTitle.message,
                                       message: message,
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: Constants.AlertTitle.ok, style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: Constants.AlertTitle.okey, style: .default, handler: nil))
         viewController?.present(alert, animated: true)
     }
-    
-    private func makeDetails() {
+
+    private func prepareSpecs() {
         var count = 0
         guard let entity = entity else { return }
 
@@ -132,7 +132,7 @@ class PlanetDetailPresenter: PlanetDetailPresenterProtocol {
         }
         specs = Array(repeating: [EntityShortViewModel](), count: count)
     }
-    
+
     func makeLabelFor(section: Int) -> UILabel {
         let label = BaseLabel()
         label.font = UIFont(name: Constants.Fonts.font, size: 18)

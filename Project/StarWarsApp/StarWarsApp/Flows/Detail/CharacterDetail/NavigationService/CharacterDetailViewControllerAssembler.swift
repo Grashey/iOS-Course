@@ -8,7 +8,7 @@
 import UIKit
 
 class CharacterDetailViewControllerAssembler: ViewControllerAssemblerProtocol {
-    
+
     func create() -> UIViewController {
         let controller = CharacterDetailViewController()
         let presenter = CharacterDetailPresenter()

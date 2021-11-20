@@ -8,7 +8,7 @@
 import UIKit
 
 class SpeciesViewControllerAssembler: ViewControllerAssemblerProtocol {
-    
+
     func create() -> UIViewController {
         let controller = EntityViewController()
         let presenter = SpeciesPresenter()

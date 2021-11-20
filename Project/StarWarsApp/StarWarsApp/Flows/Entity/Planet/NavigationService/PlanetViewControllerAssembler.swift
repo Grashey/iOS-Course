@@ -8,7 +8,7 @@
 import UIKit
 
 class PlanetViewControllerAssembler: ViewControllerAssemblerProtocol {
-    
+
     func create() -> UIViewController {
         let controller = EntityViewController()
         let presenter = PlanetPresenter()

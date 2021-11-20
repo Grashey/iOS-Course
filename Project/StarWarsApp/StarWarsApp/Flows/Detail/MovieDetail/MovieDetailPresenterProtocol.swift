@@ -8,11 +8,11 @@
 import UIKit
 
 protocol MovieDetailPresenterProtocol {
-    
+
     var model: MovieDetailViewModel? {get}
     var movie: MovieData? {get set}
     var specs: [[EntityShortViewModel]] {get}
-    
+
     func getData()
     func makeLabelFor(section: Int) -> UILabel
 }

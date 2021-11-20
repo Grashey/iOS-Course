@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MoviePresenterProtocol {
-    
+
     var movies: [MovieData] {get}
     var viewModels: [MovieViewModel] {get}
 

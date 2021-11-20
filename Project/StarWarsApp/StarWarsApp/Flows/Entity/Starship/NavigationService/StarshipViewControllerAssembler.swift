@@ -8,7 +8,7 @@
 import UIKit
 
 class StarshipViewControllerAssembler: ViewControllerAssemblerProtocol {
-    
+
     func create() -> UIViewController {
         let controller = EntityViewController()
         let presenter = StarshipPresenter()

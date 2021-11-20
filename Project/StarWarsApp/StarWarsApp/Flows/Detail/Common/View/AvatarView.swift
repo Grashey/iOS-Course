@@ -13,14 +13,14 @@ class AvatarView: UIView {
         case movie
         case entity
     }
-    
+
     private let inset: CGFloat = 6
-    
+
     private lazy var imageView: UIImageView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UIImageView())
-    
+
     private lazy var label: UILabel = {
         $0.font = UIFont(name: Constants.Fonts.font, size: 10)
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -37,16 +37,16 @@ class AvatarView: UIView {
         addSubviews()
         addConstraints()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func addSubviews() {
         self.addSubview(imageView)
         self.addSubview(label)
     }
-    
+
     private func addConstraints() {
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: self.topAnchor),
@@ -57,11 +57,11 @@ class AvatarView: UIView {
             label.leadingAnchor.constraint(equalTo: imageView.leadingAnchor),
             label.trailingAnchor.constraint(equalTo: imageView.trailingAnchor)
         ])
-        
+
         imageView.setContentCompressionResistancePriority(.required, for: .horizontal)
         imageView.setContentHuggingPriority(.required, for: .horizontal)
     }
-    
+
     func configureWith(name: String, image: UIImage, size: Size) {
         label.text = name
         switch size {
@@ -72,9 +72,8 @@ class AvatarView: UIView {
             let size = CGSize(width: 100, height: 100)
             imageView.image = resizeImage(image: image, targetSize: size)
         }
-        
     }
-    
+
     private func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage? {
         let size = image.size
         let widthRatio = targetSize.width / size.width
@@ -86,7 +85,7 @@ class AvatarView: UIView {
         image.draw(in: rect)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
+
         return newImage
     }
 }

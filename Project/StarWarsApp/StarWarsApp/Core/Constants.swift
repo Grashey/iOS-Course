@@ -8,11 +8,11 @@
 import Foundation
 
 enum Constants {
-    
+
     enum Fonts {
         static let font = "SFDistantGalaxy"
     }
-    
+
     enum Entity {
         static let characters = "Characters"
         static let planets = "Planets"
@@ -20,7 +20,7 @@ enum Constants {
         static let starships = "Starships"
         static let vehicles = "Vehicles"
     }
-    
+
     enum ImageName {
         static let menuIcon = "iconMenu"
         static let backgroundImage = "backgroundLayer"
@@ -30,12 +30,12 @@ enum Constants {
         static let starships = "iconStarships"
         static let vehicles = "iconVehicles"
     }
-    
+
     enum TabBarTitle {
         static let movies = "Movies"
         static let universe = "Universe"
     }
-    
+
     enum ApiMethods {
         static let baseUrl = "https://swapi.dev/api/"
         static let movies = "films/"
@@ -45,7 +45,7 @@ enum Constants {
         static let vehicles = "vehicles/"
         static let planets = "planets/"
     }
-    
+
     enum MoviePosterUrl {
         static let baseUrl = "https://lumiere-a.akamaihd.net/v1/images/"
         static let episodeOne = "Star-Wars-Phantom-Menace-I-Poster_3c1ff9eb.jpeg"
@@ -55,9 +55,9 @@ enum Constants {
         static let episodeFive = "Star-Wars-Empire-Strikes-Back-V-Poster_878f7fce.jpeg"
         static let episodeSix = "Star-Wars-Return-Jedi-VI-Poster_a10501d2.jpeg"
     }
-    
+
     enum AlertTitle {
         static let message = "Опаньки, что-то пошло не так!"
-        static let ok = "OK"
+        static let okey = "OK"
     }
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 struct PlanetViewModel {
-    
+
     let name: String
     let diameter: String
     let rotationPeriod: String

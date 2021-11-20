@@ -20,7 +20,7 @@ class MovieCoordinator {
     func start() {
         guard let controller = vcAssembler.create() as? MovieViewController else { return }
         navigationController.viewControllers = [controller]
-        
+
         controller.onDetails = {
             self.vcAssembler = MovieDetailViewControllerAssembler()
             guard let detailsVC = self.vcAssembler.create() as? MovieDetailViewController else { return }

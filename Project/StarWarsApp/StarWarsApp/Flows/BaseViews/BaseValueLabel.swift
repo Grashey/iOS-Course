@@ -8,7 +8,7 @@
 import UIKit
 
 class BaseValueLabel: UILabel {
-    
+
     private let smallFont = UIFont(name: Constants.Fonts.font, size: 14)
     private let labelTextColor: UIColor = .white
     private let topInset: CGFloat = 10
@@ -23,16 +23,16 @@ class BaseValueLabel: UILabel {
         self.numberOfLines = 0
         self.lineBreakMode = .byWordWrapping
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func drawText(in rect: CGRect) {
         let insets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
         super.drawText(in: rect.inset(by: insets))
     }
-    
+
     override public var intrinsicContentSize: CGSize {
         var intrinsicSuperViewContentSize = super.intrinsicContentSize
         intrinsicSuperViewContentSize.height += topInset + bottomInset

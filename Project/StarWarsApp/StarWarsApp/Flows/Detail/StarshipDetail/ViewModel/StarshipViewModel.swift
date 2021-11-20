@@ -8,7 +8,7 @@
 import UIKit
 
 struct StarshipViewModel {
-    
+
     let name: String
     let model: String
     let starshipClass: String

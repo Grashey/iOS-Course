@@ -18,11 +18,11 @@ class SpeciesDetailNetworkService {
     func fetchHomeworld(index: String, completion: @escaping (Result<PlanetData, NetworkServiceError>) -> Void) {
         entityHttpClient.request(for: EntityRoute.planets, index: index, completion: completion)
     }
-    
+
     func fetchMovie(index: String, completion: @escaping (Result<MovieData, NetworkServiceError>) -> Void) {
         entityHttpClient.request(for: MovieRoute.movies, index: index, completion: completion)
     }
-    
+
     func fetchCharacter(index: String, completion: @escaping (Result<CharacterData, NetworkServiceError>) -> Void) {
         entityHttpClient.request(for: EntityRoute.characters, index: index, completion: completion)
     }

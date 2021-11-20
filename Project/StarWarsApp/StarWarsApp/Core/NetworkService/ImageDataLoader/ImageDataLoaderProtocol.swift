@@ -8,6 +8,6 @@
 import Foundation
 
 protocol ImageDataLoaderProtocol {
-    
+
     func request(for route: Route, completion: @escaping (Result<Data, NetworkServiceError>) -> Void)
 }

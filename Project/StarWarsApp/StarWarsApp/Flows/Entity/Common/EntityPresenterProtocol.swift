@@ -8,7 +8,7 @@
 import Foundation
 
 protocol EntityPresenterProtocol {
-    
+
     var viewModel: [EntityShortViewModel] {get}
 
     func getData()

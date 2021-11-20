@@ -8,7 +8,7 @@
 import UIKit
 
 class PlanetDetailViewControllerAssembler: ViewControllerAssemblerProtocol {
-    
+
     func create() -> UIViewController {
         let controller = PlanetDetailViewController()
         let presenter = PlanetDetailPresenter()

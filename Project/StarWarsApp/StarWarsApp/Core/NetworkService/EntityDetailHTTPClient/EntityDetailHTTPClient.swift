@@ -11,13 +11,13 @@ class EntityDetailHTTPClient: EntityDetailHTTPClientProtocol {
 
     let session = URLSession(configuration: .default)
     typealias Handler = (Data?, URLResponse?, Error?) -> Void
-    let decoder:JSONDecoder = {
+    let decoder: JSONDecoder = {
         $0.keyDecodingStrategy = .convertFromSnakeCase
         return $0
-    } (JSONDecoder())
+    }(JSONDecoder())
 
     func request<ResponseType: Decodable>(for route: Route, index: String, completion: @escaping (Result<ResponseType, NetworkServiceError>) -> Void) {
-        
+
         let handler: Handler = { rawData, response, error in
             do {
                 let data = try self.httpResponse(data: rawData, response: response)
@@ -27,7 +27,7 @@ class EntityDetailHTTPClient: EntityDetailHTTPClientProtocol {
                 completion(.failure(error as? NetworkServiceError ?? .decodable))
             }
         }
-        
+
         do {
             let request: URLRequest = try makeRequest(route: route, index: index)
             session.dataTask(with: request, completionHandler: handler).resume()
@@ -36,7 +36,7 @@ class EntityDetailHTTPClient: EntityDetailHTTPClientProtocol {
         }
 
     }
-    
+
     private func httpResponse(data: Data?, response: URLResponse?) throws -> Data {
         guard let httpResponse = response as? HTTPURLResponse else {
             throw NetworkServiceError.response
@@ -52,7 +52,7 @@ class EntityDetailHTTPClient: EntityDetailHTTPClientProtocol {
         }
         return data
     }
-    
+
     private func makeRequest(route: Route, index: String) throws -> URLRequest {
         let components = URLComponents(string: route.makeURL().appending(index))
         guard let url = components?.url else { throw NetworkServiceError.wrongUrl }

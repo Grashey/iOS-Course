@@ -8,6 +8,6 @@
 import Foundation
 
 protocol MovieHTTPClientProtocol {
-    
+
     func request<ResponseType: Decodable>(for route: Route, completion: @escaping (Result<ResponseType, NetworkServiceError>) -> Void)
 }

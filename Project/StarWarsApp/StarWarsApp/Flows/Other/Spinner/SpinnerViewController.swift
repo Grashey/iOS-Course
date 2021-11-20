@@ -8,12 +8,12 @@
 import UIKit
 
 class SpinnerViewController: UIViewController {
+
     private let spinner = UIActivityIndicatorView(style: .large)
 
     override func loadView() {
         view = UIView()
         view.backgroundColor = .clear
-        
         spinner.color = .white
         spinner.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(spinner)
@@ -25,4 +25,3 @@ class SpinnerViewController: UIViewController {
         spinner.startAnimating()
     }
 }
-

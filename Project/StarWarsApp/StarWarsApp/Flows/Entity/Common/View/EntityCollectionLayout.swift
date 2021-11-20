@@ -7,19 +7,19 @@
 
 import UIKit
 
+// Не используется. Нужно доделать.
 class EntityCollectionLayout: UICollectionViewFlowLayout {
-    
+
     var cacheAttributes = [IndexPath: UICollectionViewLayoutAttributes]()
-    
+
     override func prepare() {
         super.prepare()
-        
+
         guard let collectionView = self.collectionView,
               let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         let itemsCount = collectionView.numberOfItems(inSection: 0)
         guard itemsCount > 0 else { return }
-        
-        
+
         // TODO: сделать смещение точки ориджин!!!
         for index in 0..<itemsCount {
             let indexPath = IndexPath(item: index, section: 0)
@@ -29,17 +29,17 @@ class EntityCollectionLayout: UICollectionViewFlowLayout {
             cacheAttributes[indexPath] = attributes
             }
         }
-    
+
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         return cacheAttributes.values.filter { attributes in
             return rect.intersects(attributes.frame)
         }
     }
-    
+
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         return cacheAttributes[indexPath]
     }
-    
+
     override var collectionViewContentSize: CGSize {
         return CGSize(width: collectionView?.frame.width ?? 0,
                       height: collectionView?.frame.height ?? 0)

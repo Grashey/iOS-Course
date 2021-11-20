@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Route  {
+protocol Route {
 
     var method: String { get }
 
@@ -23,7 +23,7 @@ protocol Route  {
 extension Route {
 
     var method: String { "GET" }
-    
+
     var parameters: [String: Int] { [:] }
 
     func makeURL() -> String {

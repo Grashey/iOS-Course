@@ -8,7 +8,7 @@
 import UIKit
 
 class StarshipDetailViewControllerAssembler: ViewControllerAssemblerProtocol {
-    
+
     func create() -> UIViewController {
         let controller = StarshipDetailViewController()
         let presenter = StarshipDetailPresenter()

@@ -8,40 +8,44 @@
 import UIKit
 
 class EntityViewController: SpinnerManager {
-    
+
     var presenter: EntityPresenterProtocol?
     var onDetails: ((String) -> Void)?
 
     lazy var collectionView = EntityCollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
-    
+
     override func loadView() {
         view = collectionView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(EntityCollectionViewCell.self, forCellWithReuseIdentifier: EntityCollectionViewCell.description())
-        guard let image = UIImage(named: Constants.ImageName.backgroundImage) else { return }
-        collectionView.backgroundView = UIImageView(image: image)
-        
+        if let image = UIImage(named: Constants.ImageName.backgroundImage) {
+            collectionView.backgroundView = UIImageView(image: image)
+        }
+
         presenter?.start()
     }
-    
+
 }
 
 extension EntityViewController: UICollectionViewDataSource {
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         presenter?.viewModel.count ?? .zero
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EntityCollectionViewCell.description(), for: indexPath)
         if let model = presenter?.viewModel[indexPath.item] {
             if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-                let side = CGFloat(roundf(Float((collectionView.visibleSize.width - flowLayout.minimumLineSpacing*2))/3))
+                let cellsInRowCount: Float = 3
+                let overalLineSpacing: CGFloat = flowLayout.minimumLineSpacing*2
+                let side = CGFloat(roundf(Float((collectionView.visibleSize.width - overalLineSpacing))/cellsInRowCount))
                 let size = CGSize(width: side, height: side)
                 (cell as? EntityCollectionViewCell)?.configureWith(model: model, imageSize: size)
             }
@@ -56,7 +60,7 @@ extension EntityViewController: UICollectionViewDelegate {
         guard let model = presenter?.viewModel[indexPath.item] else { return }
         onDetails?(model.name)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let count = presenter?.viewModel.count else { return }
         if indexPath.item == count - 1, !isLoading {

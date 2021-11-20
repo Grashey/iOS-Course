@@ -8,6 +8,6 @@
 import UIKit
 
 protocol ViewControllerAssemblerProtocol {
-    
+
     func create() -> UIViewController
 }

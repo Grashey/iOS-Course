@@ -12,7 +12,7 @@ enum MovieRoute {
 }
 
 extension MovieRoute: Route {
-    
+
     var baseURL: String {
         Constants.ApiMethods.baseUrl
     }

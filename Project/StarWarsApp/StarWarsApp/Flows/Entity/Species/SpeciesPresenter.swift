@@ -8,17 +8,17 @@
 import UIKit
 
 class SpeciesPresenter: EntityPresenterProtocol {
-    
+
     weak var viewController: EntityViewController?
-    
+
     var viewModel: [EntityShortViewModel] = []
     private let service = SpeciesNetworkService()
     private var species: [SpeciesData] = []
     private var pageIndex: Int? = 1
-    
+
     func getData() {
         viewController?.isLoading = true
-        
+
         guard let pageIndex = pageIndex else {
             viewController?.isLoading = false
             return
@@ -33,7 +33,6 @@ class SpeciesPresenter: EntityPresenterProtocol {
                     self.viewModel = self.species.map { EntityShortViewModel(name: $0.name, image: image) }
                     self.viewController?.collectionView.reloadData()
                     self.pageIndex = self.makeIndex(from: data.next)
-                    
                 case .failure(let error):
                     self.showAlert(message: error.message)
                 }
@@ -41,10 +40,10 @@ class SpeciesPresenter: EntityPresenterProtocol {
             }
         }
     }
-    
+
     func start() {
         getData()
-        
+
         viewController?.onDetails = { name in
             guard let species = self.species.filter({ $0.name == name }).first else { return }
             let vcAssembler = SpeciesDetailViewControllerAssembler()
@@ -53,19 +52,19 @@ class SpeciesPresenter: EntityPresenterProtocol {
             self.viewController?.navigationController?.pushViewController(detailsVC, animated: true)
         }
     }
-    
+
     private func showAlert(message: String) {
         let alert = UIAlertController(title: Constants.AlertTitle.message,
                                       message: message,
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: Constants.AlertTitle.ok, style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: Constants.AlertTitle.okey, style: .default, handler: nil))
         viewController?.present(alert, animated: true)
     }
-    
-    private func makeIndex(from string: String?)  -> Int? {
+
+    private func makeIndex(from string: String?) -> Int? {
         guard let string = string, let lastChar: Character = string.last,
             let number = NumberFormatter().number(from: String(lastChar)) else { return nil }
         return Int(truncating: number)
     }
-    
+
 }

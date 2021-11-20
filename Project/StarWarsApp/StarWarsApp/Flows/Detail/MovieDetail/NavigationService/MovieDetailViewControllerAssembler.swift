@@ -8,7 +8,7 @@
 import UIKit
 
 class MovieDetailViewControllerAssembler: ViewControllerAssemblerProtocol {
-    
+
     func create() -> UIViewController {
         let controller = MovieDetailViewController()
         let presenter = MovieDetailPresenter()

@@ -8,7 +8,7 @@
 import UIKit
 
 class StarshipDetailTableViewCell: UITableViewCell {
-    
+
     private struct LabelValues {
         static let model = "Model: "
         static let starshipClass = "Starship class: "
@@ -34,7 +34,7 @@ class StarshipDetailTableViewCell: UITableViewCell {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UIImageView())
-    
+
     private lazy var nameLabel: UILabel = {
         $0.font = bigFont
         $0.textColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
@@ -42,72 +42,72 @@ class StarshipDetailTableViewCell: UITableViewCell {
         $0.lineBreakMode = .byWordWrapping
         return $0
     }(UILabel())
-    
+
     private lazy var modelLabel: BaseLabel = {
         $0.text = LabelValues.model
         return $0
     }(BaseLabel())
-    
+
     private lazy var starshipClassLabel: BaseLabel = {
         $0.text = LabelValues.starshipClass
         return $0
     }(BaseLabel())
-    
+
     private lazy var manufacturerLabel: BaseLabel = {
         $0.text = LabelValues.manufacturer
         return $0
     }(BaseLabel())
-    
+
     private lazy var costInCreditsLabel: BaseLabel = {
         $0.text = LabelValues.costInCredits
         return $0
     }(BaseLabel())
-    
+
     private lazy var lengthLabel: BaseLabel = {
         $0.text = LabelValues.length
         return $0
     }(BaseLabel())
-    
+
     private lazy var crewLabel: BaseLabel = {
         $0.text = LabelValues.crew
         return $0
     }(BaseLabel())
-    
+
     private lazy var passengersLabel: BaseLabel = {
         $0.text = LabelValues.passengers
         return $0
     }(BaseLabel())
-    
+
     private lazy var cargoCapacityLabel: BaseLabel = {
         $0.text = LabelValues.cargoCapacity
         return $0
     }(BaseLabel())
-    
+
     private lazy var maxAtmospheringSpeedLabel: BaseLabel = {
         $0.text = LabelValues.maxAtmospheringSpeed
         return $0
     }(BaseLabel())
-    
+
     private lazy var hyperdriveRatingLabel: BaseLabel = {
         $0.text = LabelValues.hyperdriveRating
         return $0
     }(BaseLabel())
-    
+
     private lazy var maxNumberOfMegalightsLabel: BaseLabel = {
         $0.text = LabelValues.maxNumberOfMegalights
         return $0
     }(BaseLabel())
-    
+
     private lazy var consumablesLabel: BaseLabel = {
         $0.text = LabelValues.consumables
         return $0
     }(BaseLabel())
-    
+
     private lazy var relatedLabel: BaseLabel = {
         $0.text = LabelValues.related
         return $0
     }(BaseLabel())
-    
+
     private lazy var modelValueLabel = BaseValueLabel()
     private lazy var starshipClassValueLabel = BaseValueLabel()
     private lazy var manufacturerValueLabel = BaseValueLabel()
@@ -120,7 +120,7 @@ class StarshipDetailTableViewCell: UITableViewCell {
     private lazy var hyperdriveRatingValueLabel = BaseValueLabel()
     private lazy var maxNumberOfMegalightsValueLabel = BaseValueLabel()
     private lazy var consumablesValueLabel = BaseValueLabel()
-    
+
     private lazy var contentStackView: UIStackView = {
         $0.axis = .vertical
         $0.spacing = inset
@@ -129,7 +129,7 @@ class StarshipDetailTableViewCell: UITableViewCell {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UIStackView())
-    
+
     private lazy var infoStackView: UIStackView = {
         $0.axis = .vertical
         $0.spacing = inset
@@ -151,26 +151,28 @@ class StarshipDetailTableViewCell: UITableViewCell {
     private lazy var hyperdriveRatingStackView = BaseLabelStackView()
     private lazy var maxNumberOfMegalightsStackView = BaseLabelStackView()
     private lazy var consumablesStackView = BaseLabelStackView()
-     
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = .clear
         addSubviews()
         addConstraints()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func addSubviews() {
         self.addSubview(contentStackView)
-        
+
         contentStackView.addArrangedSubview(iconImageView)
         contentStackView.addArrangedSubview(nameLabel)
         contentStackView.addArrangedSubview(infoStackView)
-        
-        let stackArray = [modelStackView, starshipClassStackView, manufacturerStackView, costInCreditsStackView, lengthStackView, crewStackView, passengersStackView, cargoCapacityStackView, maxAtmospheringSpeedStackView, hyperdriveRatingStackView, maxNumberOfMegalightsStackView, consumablesStackView]
+
+        let stackArray = [modelStackView, starshipClassStackView, manufacturerStackView, costInCreditsStackView,
+                          lengthStackView, crewStackView, passengersStackView, cargoCapacityStackView, maxAtmospheringSpeedStackView,
+                          hyperdriveRatingStackView, maxNumberOfMegalightsStackView, consumablesStackView]
         let labelArray = [[modelLabel, modelValueLabel],
                           [starshipClassLabel, starshipClassValueLabel],
                           [manufacturerLabel, manufacturerValueLabel],
@@ -183,7 +185,7 @@ class StarshipDetailTableViewCell: UITableViewCell {
                           [hyperdriveRatingLabel, hyperdriveRatingValueLabel],
                           [maxNumberOfMegalightsLabel, maxNumberOfMegalightsValueLabel],
                           [consumablesLabel, consumablesValueLabel]
-        ]
+                        ]
         for index in Int.zero ..< stackArray.count {
             infoStackView.addArrangedSubview(stackArray[index])
             if let firstLabel = labelArray[index].first, let lastLabel = labelArray[index].last {
@@ -193,14 +195,14 @@ class StarshipDetailTableViewCell: UITableViewCell {
         }
         infoStackView.addArrangedSubview(relatedLabel)
     }
-    
+
     private func addConstraints() {
         NSLayoutConstraint.activate([
             contentStackView.topAnchor.constraint(equalTo: self.topAnchor),
             contentStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             contentStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             contentStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            
+
             iconImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             infoStackView.widthAnchor.constraint(equalTo: self.widthAnchor)
         ])
@@ -208,7 +210,7 @@ class StarshipDetailTableViewCell: UITableViewCell {
         starshipClassLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
         manufacturerLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
     }
-    
+
     func configureWith(model: StarshipViewModel) {
         iconImageView.image = model.image
         nameLabel.text = model.name

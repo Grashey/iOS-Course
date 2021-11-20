@@ -8,11 +8,11 @@
 import UIKit
 
 protocol CharacterDetailPresenterProtocol {
-    
+
     var entity: CharacterData? {get set}
     var model: CharacterViewModel? {get}
     var specs: [[EntityShortViewModel]] {get}
-    
+
     func getData()
     func makeLabelFor(section: Int) -> UILabel
 }

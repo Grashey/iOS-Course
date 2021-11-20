@@ -8,7 +8,7 @@
 import UIKit
 
 class SpeciesDetailTableViewCell: UITableViewCell {
-    
+
     private struct LabelValues {
         static let classification = "Classification: "
         static let designation = "Designation: "
@@ -31,7 +31,7 @@ class SpeciesDetailTableViewCell: UITableViewCell {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UIImageView())
-    
+
     private lazy var nameLabel: UILabel = {
         $0.font = bigFont
         $0.textColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
@@ -39,57 +39,57 @@ class SpeciesDetailTableViewCell: UITableViewCell {
         $0.lineBreakMode = .byWordWrapping
         return $0
     }(UILabel())
-    
+
     private lazy var classificationLabel: BaseLabel = {
         $0.text = LabelValues.classification
         return $0
     }(BaseLabel())
-        
+
     private lazy var designationLabel: BaseLabel = {
         $0.text = LabelValues.designation
         return $0
     }(BaseLabel())
-    
+
     private lazy var averageHeightLabel: BaseLabel = {
         $0.text = LabelValues.averageHeight
         return $0
     }(BaseLabel())
-    
+
     private lazy var averageLifespanLabel: BaseLabel = {
         $0.text = LabelValues.averageLifespan
         return $0
     }(BaseLabel())
-    
+
     private lazy var eyeColorsLabel: BaseLabel = {
         $0.text = LabelValues.eyeColors
         return $0
     }(BaseLabel())
-    
+
     private lazy var hairColorsLabel: BaseLabel = {
         $0.text = LabelValues.hairColors
         return $0
     }(BaseLabel())
-    
+
     private lazy var skinColorsLabel: BaseLabel = {
         $0.text = LabelValues.skinColors
         return $0
     }(BaseLabel())
-    
+
     private lazy var languageLabel: BaseLabel = {
         $0.text = LabelValues.language
         return $0
     }(BaseLabel())
-    
+
     private lazy var homeworldLabel: BaseLabel = {
         $0.text = LabelValues.homeworld
         return $0
     }(BaseLabel())
-    
+
     private lazy var relatedLabel: BaseLabel = {
         $0.text = LabelValues.related
         return $0
     }(BaseLabel())
-    
+
     private lazy var classificationValueLabel = BaseValueLabel()
     private lazy var designationValueLabel = BaseValueLabel()
     private lazy var averageHeightValueLabel = BaseValueLabel()
@@ -99,7 +99,7 @@ class SpeciesDetailTableViewCell: UITableViewCell {
     private lazy var skinColorsValueLabel = BaseValueLabel()
     private lazy var languageValueLabel = BaseValueLabel()
     private lazy var homeworldValueLabel = BaseValueLabel()
-    
+
     private lazy var contentStackView: UIStackView = {
         $0.axis = .vertical
         $0.spacing = inset
@@ -108,7 +108,7 @@ class SpeciesDetailTableViewCell: UITableViewCell {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UIStackView())
-    
+
     private lazy var infoStackView: UIStackView = {
         $0.axis = .vertical
         $0.spacing = inset
@@ -127,26 +127,27 @@ class SpeciesDetailTableViewCell: UITableViewCell {
     private lazy var skinColorsStackView = BaseLabelStackView()
     private lazy var languageStackView = BaseLabelStackView()
     private lazy var homeworldStackView = BaseLabelStackView()
-     
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = .clear
         addSubviews()
         addConstraints()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func addSubviews() {
         self.addSubview(contentStackView)
-        
+
         contentStackView.addArrangedSubview(iconImageView)
         contentStackView.addArrangedSubview(nameLabel)
         contentStackView.addArrangedSubview(infoStackView)
-        
-        let stackArray = [classificationStackView, designationStackView, averageHeightStackView, averageLifespanStackView, eyeColorsStackView, hairColorsStackView, skinColorsStackView, languageStackView, homeworldStackView]
+
+        let stackArray = [classificationStackView, designationStackView, averageHeightStackView, averageLifespanStackView,
+                          eyeColorsStackView, hairColorsStackView, skinColorsStackView, languageStackView, homeworldStackView]
         let labelArray = [[classificationLabel, classificationValueLabel],
                           [designationLabel, designationValueLabel],
                           [averageHeightLabel, averageHeightValueLabel],
@@ -156,7 +157,7 @@ class SpeciesDetailTableViewCell: UITableViewCell {
                           [skinColorsLabel, skinColorsValueLabel],
                           [languageLabel, languageValueLabel],
                           [homeworldLabel, homeworldValueLabel]
-        ]
+                        ]
         for index in Int.zero ..< stackArray.count {
             infoStackView.addArrangedSubview(stackArray[index])
             if let firstLabel = labelArray[index].first, let lastLabel = labelArray[index].last {
@@ -166,14 +167,14 @@ class SpeciesDetailTableViewCell: UITableViewCell {
         }
         infoStackView.addArrangedSubview(relatedLabel)
     }
-    
+
     private func addConstraints() {
         NSLayoutConstraint.activate([
             contentStackView.topAnchor.constraint(equalTo: self.topAnchor),
             contentStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             contentStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             contentStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            
+
             iconImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             infoStackView.widthAnchor.constraint(equalTo: self.widthAnchor)
         ])
@@ -181,7 +182,7 @@ class SpeciesDetailTableViewCell: UITableViewCell {
         hairColorsLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
         skinColorsLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
     }
-    
+
     func configureWith(model: SpeciesViewModel) {
         iconImageView.image = model.image
         nameLabel.text = model.name

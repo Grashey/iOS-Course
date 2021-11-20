@@ -8,21 +8,21 @@
 import UIKit
 
 class CharacterDetailPresenter: CharacterDetailPresenterProtocol {
-    
+
     weak var viewController: CharacterDetailViewController?
-    
+
     var entity: CharacterData?
     var model: CharacterViewModel?
     var specs = [[EntityShortViewModel]]()
     private var titles = [String]()
     private let service = CharacterDetailNetworkService()
-    
+
     func getData() {
-        makeDetails()
+        prepareSpecs()
         viewController?.isLoading = true
         getHomeworld()
     }
-    
+
     private func getHomeworld() {
         guard let entity = self.entity else { return }
         let index = makeIndex(from: entity.homeworld)
@@ -40,9 +40,9 @@ class CharacterDetailPresenter: CharacterDetailPresenterProtocol {
             }
         }
     }
-    
+
     private func getFilms() {
-        guard let element = specs.firstIndex (where: { $0.isEmpty }),
+        guard let element = specs.firstIndex(where: { $0.isEmpty }),
                 let subIndex = specs.firstIndex(of: specs[element]),
                 let entity = self.entity, !entity.films.isEmpty else {
                     getSpecies()
@@ -72,9 +72,9 @@ class CharacterDetailPresenter: CharacterDetailPresenterProtocol {
             }
         }
     }
-        
+
     private func getSpecies() {
-        guard let element = specs.firstIndex (where: { $0.isEmpty }),
+        guard let element = specs.firstIndex(where: { $0.isEmpty }),
                 let subIndex = specs.firstIndex(of: specs[element]),
                 let entity = self.entity, !entity.species.isEmpty else {
                     getStarships()
@@ -103,9 +103,9 @@ class CharacterDetailPresenter: CharacterDetailPresenterProtocol {
             }
         }
     }
-        
+
     private func getStarships() {
-        guard let element = specs.firstIndex (where: { $0.isEmpty }),
+        guard let element = specs.firstIndex(where: { $0.isEmpty }),
                 let subIndex = specs.firstIndex(of: specs[element]),
                 let entity = self.entity, !entity.starships.isEmpty else {
                     getVehicles()
@@ -134,15 +134,15 @@ class CharacterDetailPresenter: CharacterDetailPresenterProtocol {
             }
         }
     }
-    
+
     private func getVehicles() {
-        guard let element = specs.firstIndex (where: { $0.isEmpty }),
+        guard let element = specs.firstIndex(where: { $0.isEmpty }),
                 let subIndex = specs.firstIndex(of: specs[element]),
                 let entity = self.entity, !entity.vehicles.isEmpty else {
                     viewController?.isLoading = false
                     return
                 }
-        
+
         let vehicleIndexes = entity.vehicles.map { makeIndex(from: $0)}
         vehicleIndexes.forEach { index in
             self.service.fetchVehicle(index: index) { [weak self] result in
@@ -166,8 +166,8 @@ class CharacterDetailPresenter: CharacterDetailPresenterProtocol {
             }
         }
     }
-    
-    private func makeModel(with homeworld: String)  -> CharacterViewModel? {
+
+    private func makeModel(with homeworld: String) -> CharacterViewModel? {
         guard let image = UIImage(named: Constants.ImageName.characters), let entity = entity else { return nil }
         let model = CharacterViewModel(name: entity.name,
                                        birthYear: entity.birthYear,
@@ -182,22 +182,22 @@ class CharacterDetailPresenter: CharacterDetailPresenterProtocol {
         )
         return model
     }
-    
-    private func makeIndex(from string: String)  -> String {
+
+    private func makeIndex(from string: String) -> String {
         let components = string.components(separatedBy: "/")
         let index = components[components.count - 2]
         return index
     }
-    
+
     private func showAlert(message: String) {
         let alert = UIAlertController(title: Constants.AlertTitle.message,
                                       message: message,
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: Constants.AlertTitle.ok, style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: Constants.AlertTitle.okey, style: .default, handler: nil))
         viewController?.present(alert, animated: true)
     }
-    
-    private func makeDetails() {
+
+    private func prepareSpecs() {
         var count = 0
         guard let entity = entity else { return }
 
@@ -219,7 +219,7 @@ class CharacterDetailPresenter: CharacterDetailPresenterProtocol {
         }
         specs = Array(repeating: [EntityShortViewModel](), count: count)
     }
-    
+
     func makeLabelFor(section: Int) -> UILabel {
         let label = BaseLabel()
         label.font = UIFont(name: Constants.Fonts.font, size: 18)

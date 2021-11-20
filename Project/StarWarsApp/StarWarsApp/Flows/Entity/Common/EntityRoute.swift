@@ -16,15 +16,15 @@ enum EntityRoute {
 }
 
 extension EntityRoute: Route {
-    
-    var parameters: [String : Int] {
+
+    var parameters: [String: Int] {
         ["page": 1]
     }
 
     var baseURL: String {
         Constants.ApiMethods.baseUrl
     }
-    
+
     var url: String {
         switch self {
         case .characters:

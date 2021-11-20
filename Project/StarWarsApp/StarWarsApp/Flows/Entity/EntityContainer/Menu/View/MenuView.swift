@@ -14,55 +14,49 @@ class MenuView: UIView {
     private let titleColor: UIColor = .yellow
 
     lazy var charactersButton: UIButton = {
-        let button = UIButton()
-        button.titleLabel?.font = font
-        button.setTitleColor(titleColor, for: .normal)
-        button.setTitle(Constants.Entity.characters, for: .normal)
-        return button
-    }()
-    
+        $0.titleLabel?.font = font
+        $0.setTitleColor(titleColor, for: .normal)
+        $0.setTitle(Constants.Entity.characters, for: .normal)
+        return $0
+    }(UIButton())
+
     lazy var planetsButton: UIButton = {
-        let button = UIButton()
-        button.titleLabel?.font = font
-        button.setTitleColor(titleColor, for: .normal)
-        button.setTitle(Constants.Entity.planets, for: .normal)
-        return button
-    }()
-    
+        $0.titleLabel?.font = font
+        $0.setTitleColor(titleColor, for: .normal)
+        $0.setTitle(Constants.Entity.planets, for: .normal)
+        return $0
+    }(UIButton())
+
     lazy var speciesButton: UIButton = {
-        let button = UIButton()
-        button.titleLabel?.font = font
-        button.setTitleColor(titleColor, for: .normal)
-        button.setTitle(Constants.Entity.species, for: .normal)
-        return button
-    }()
-    
+        $0.titleLabel?.font = font
+        $0.setTitleColor(titleColor, for: .normal)
+        $0.setTitle(Constants.Entity.species, for: .normal)
+        return $0
+    }(UIButton())
+
     lazy var starshipsButton: UIButton = {
-        let button = UIButton()
-        button.titleLabel?.font = font
-        button.setTitleColor(titleColor, for: .normal)
-        button.setTitle(Constants.Entity.starships, for: .normal)
-        return button
-    }()
-    
+        $0.titleLabel?.font = font
+        $0.setTitleColor(titleColor, for: .normal)
+        $0.setTitle(Constants.Entity.starships, for: .normal)
+        return $0
+    }(UIButton())
+
     lazy var vehiclesButton: UIButton = {
-        let button = UIButton()
-        button.titleLabel?.font = font
-        button.setTitleColor(titleColor, for: .normal)
-        button.setTitle(Constants.Entity.vehicles, for: .normal)
-        return button
-    }()
-    
+        $0.titleLabel?.font = font
+        $0.setTitleColor(titleColor, for: .normal)
+        $0.setTitle(Constants.Entity.vehicles, for: .normal)
+        return $0
+    }(UIButton())
+
     private lazy var stackView: UIStackView = {
-        let stackview = UIStackView()
-        stackview.axis = .vertical
-        stackview.distribution = .fillProportionally
-        stackview.alignment = .leading
-        stackview.spacing = inset
-        stackview.translatesAutoresizingMaskIntoConstraints = false
-        return stackview
-    }()
-    
+        $0.axis = .vertical
+        $0.distribution = .fillProportionally
+        $0.alignment = .leading
+        $0.spacing = inset
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        return $0
+    }(UIStackView())
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .black
@@ -72,17 +66,17 @@ class MenuView: UIView {
         addSubviews()
         addConstraints()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func addSubviews() {
         self.addSubview(stackView)
         let buttonsArray = [charactersButton, planetsButton, speciesButton, starshipsButton, vehiclesButton]
         buttonsArray.forEach { stackView.addArrangedSubview($0) }
     }
-    
+
     private func addConstraints() {
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: self.topAnchor),

@@ -8,7 +8,7 @@
 import UIKit
 
 class MovieViewControllerAssembler: ViewControllerAssemblerProtocol {
-    
+
     func create() -> UIViewController {
         let controller = MovieViewController()
         let presenter = MoviePresenter()

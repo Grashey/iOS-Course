@@ -8,7 +8,7 @@
 import UIKit
 
 class SpeciesDetailViewControllerAssembler: ViewControllerAssemblerProtocol {
-    
+
     func create() -> UIViewController {
         let controller = SpeciesDetailViewController()
         let presenter = SpeciesDetailPresenter()

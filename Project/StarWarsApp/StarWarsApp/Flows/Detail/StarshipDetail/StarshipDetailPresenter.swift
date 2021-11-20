@@ -8,25 +8,25 @@
 import UIKit
 
 class StarshipDetailPresenter: StarshipDetailPresenterProtocol {
-    
+
     weak var viewController: StarshipDetailViewController?
-    
+
     var entity: StarshipData?
     var model: StarshipViewModel?
     var specs = [[EntityShortViewModel]]()
     private var titles = [String]()
     private let service = StarshipDetailNetworkService()
-    
+
     func getData() {
         viewController?.isLoading = true
-        makeDetails()
+        prepareSpecs()
         model = makeModel()
         viewController?.tableView.reloadData()
         getFilms()
     }
-    
+
     private func getFilms() {
-        guard let element = specs.firstIndex (where: { $0.isEmpty }),
+        guard let element = specs.firstIndex(where: { $0.isEmpty }),
                 let subIndex = specs.firstIndex(of: specs[element]),
                 let entity = self.entity, !entity.films.isEmpty else {
                     getCharacter()
@@ -56,15 +56,15 @@ class StarshipDetailPresenter: StarshipDetailPresenterProtocol {
             }
         }
     }
-    
+
     private func getCharacter() {
-        guard let element = specs.firstIndex (where: { $0.isEmpty }),
+        guard let element = specs.firstIndex(where: { $0.isEmpty }),
                 let subIndex = specs.firstIndex(of: specs[element]),
                 let entity = self.entity, !entity.pilots.isEmpty else {
                     viewController?.isLoading = false
                     return
                 }
-        
+
         let characterIndexes = entity.pilots.map { makeIndex(from: $0)}
         characterIndexes.forEach { index in
             self.service.fetchCharacter(index: index) { [weak self] result in
@@ -88,8 +88,8 @@ class StarshipDetailPresenter: StarshipDetailPresenterProtocol {
             }
         }
     }
-        
-    private func makeModel()  -> StarshipViewModel? {
+
+    private func makeModel() -> StarshipViewModel? {
         guard let image = UIImage(named: Constants.ImageName.starships), let entity = entity else { return nil }
         let model = StarshipViewModel(name: entity.name,
                                       model: entity.model,
@@ -107,22 +107,22 @@ class StarshipDetailPresenter: StarshipDetailPresenterProtocol {
                                       image: image)
         return model
     }
-    
-    private func makeIndex(from string: String)  -> String {
+
+    private func makeIndex(from string: String) -> String {
         let components = string.components(separatedBy: "/")
         let index = components[components.count - 2]
         return index
     }
-    
+
     private func showAlert(message: String) {
         let alert = UIAlertController(title: Constants.AlertTitle.message,
                                       message: message,
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: Constants.AlertTitle.ok, style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: Constants.AlertTitle.okey, style: .default, handler: nil))
         viewController?.present(alert, animated: true)
     }
-    
-    private func makeDetails() {
+
+    private func prepareSpecs() {
         var count = 0
         guard let entity = entity else { return }
 
@@ -136,7 +136,7 @@ class StarshipDetailPresenter: StarshipDetailPresenterProtocol {
         }
         specs = Array(repeating: [EntityShortViewModel](), count: count)
     }
-    
+
     func makeLabelFor(section: Int) -> UILabel {
         let label = BaseLabel()
         label.font = UIFont(name: Constants.Fonts.font, size: 18)

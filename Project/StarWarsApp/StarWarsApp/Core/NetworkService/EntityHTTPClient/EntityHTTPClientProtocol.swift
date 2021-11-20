@@ -8,6 +8,6 @@
 import Foundation
 
 protocol EntityHTTPClientProtocol {
-    
+
     func request<ResponseType: Decodable>(for route: Route, page: Int?, completion: @escaping (Result<ResponseType, NetworkServiceError>) -> Void)
 }

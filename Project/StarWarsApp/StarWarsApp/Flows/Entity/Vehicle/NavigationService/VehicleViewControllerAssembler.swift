@@ -8,7 +8,7 @@
 import UIKit
 
 class VehicleViewControllerAssembler: ViewControllerAssemblerProtocol {
-    
+
     func create() -> UIViewController {
         let controller = EntityViewController()
         let presenter = VehiclePresenter()

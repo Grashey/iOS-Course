@@ -8,7 +8,7 @@
 import UIKit
 
 struct VehicleViewModel {
-    
+
     let name: String
     let model: String
     let vehicleClass: String

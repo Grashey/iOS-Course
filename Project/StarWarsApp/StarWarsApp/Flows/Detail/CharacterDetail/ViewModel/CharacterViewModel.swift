@@ -8,7 +8,7 @@
 import UIKit
 
 struct CharacterViewModel {
-    
+
     let name: String
     let birthYear: String
     let eyeColor: String

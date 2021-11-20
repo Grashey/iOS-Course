@@ -8,28 +8,28 @@
 import UIKit
 
 class SpeciesDetailPresenter: SpeciesDetailPresenterProtocol {
-    
+
     weak var viewController: SpeciesDetailViewController?
-    
+
     var entity: SpeciesData?
     var model: SpeciesViewModel?
     var specs = [[EntityShortViewModel]]()
     private var titles = [String]()
     private let service = SpeciesDetailNetworkService()
-    
+
     func getData() {
-        makeDetails()
+        prepareSpecs()
         viewController?.isLoading = true
         getHomeworld()
     }
-    
+
     private func getHomeworld() {
         guard let entity = self.entity, let homeworld = entity.homeworld else {
             self.model = self.makeModel(with: "n/a")
             getFilms()
             return
         }
-        
+
         let index = makeIndex(from: homeworld)
         self.service.fetchHomeworld(index: index) { [weak self] result in
             guard let self = self else { return }
@@ -45,9 +45,9 @@ class SpeciesDetailPresenter: SpeciesDetailPresenterProtocol {
             }
         }
     }
-    
+
     private func getFilms() {
-        guard let element = specs.firstIndex (where: { $0.isEmpty }),
+        guard let element = specs.firstIndex(where: { $0.isEmpty }),
                 let subIndex = specs.firstIndex(of: specs[element]),
                 let entity = self.entity, !entity.films.isEmpty else {
                     getCharacter()
@@ -77,15 +77,15 @@ class SpeciesDetailPresenter: SpeciesDetailPresenterProtocol {
             }
         }
     }
-    
+
     private func getCharacter() {
-        guard let element = specs.firstIndex (where: { $0.isEmpty }),
+        guard let element = specs.firstIndex(where: { $0.isEmpty }),
                 let subIndex = specs.firstIndex(of: specs[element]),
               let entity = self.entity, !entity.people.isEmpty else {
                     viewController?.isLoading = false
                     return
                 }
-        
+
         let characterIndexes = entity.people.map { makeIndex(from: $0)}
         characterIndexes.forEach { index in
             self.service.fetchCharacter(index: index) { [weak self] result in
@@ -109,8 +109,8 @@ class SpeciesDetailPresenter: SpeciesDetailPresenterProtocol {
             }
         }
     }
-        
-    private func makeModel(with homeworld: String)  -> SpeciesViewModel? {
+
+    private func makeModel(with homeworld: String) -> SpeciesViewModel? {
         guard let image = UIImage(named: Constants.ImageName.species), let entity = entity else { return nil }
         let model = SpeciesViewModel(name: entity.name,
                                      classification: entity.classification,
@@ -126,22 +126,22 @@ class SpeciesDetailPresenter: SpeciesDetailPresenterProtocol {
         )
         return model
     }
-    
-    private func makeIndex(from string: String)  -> String {
+
+    private func makeIndex(from string: String) -> String {
         let components = string.components(separatedBy: "/")
         let index = components[components.count - 2]
         return index
     }
-    
+
     private func showAlert(message: String) {
         let alert = UIAlertController(title: Constants.AlertTitle.message,
                                       message: message,
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: Constants.AlertTitle.ok, style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: Constants.AlertTitle.okey, style: .default, handler: nil))
         viewController?.present(alert, animated: true)
     }
-    
-    private func makeDetails() {
+
+    private func prepareSpecs() {
         var count = 0
         guard let entity = entity else { return }
 
@@ -155,7 +155,7 @@ class SpeciesDetailPresenter: SpeciesDetailPresenterProtocol {
         }
         specs = Array(repeating: [EntityShortViewModel](), count: count)
     }
-    
+
     func makeLabelFor(section: Int) -> UILabel {
         let label = BaseLabel()
         label.font = UIFont(name: Constants.Fonts.font, size: 18)

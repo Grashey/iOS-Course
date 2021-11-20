@@ -8,31 +8,31 @@
 import UIKit
 
 class MovieDetailPresenter: MovieDetailPresenterProtocol {
-    
+
     weak var viewController: MovieDetailViewController?
-    
+
     var model: MovieDetailViewModel?
     var movie: MovieData?
     var specs = [[EntityShortViewModel]]()
     private var titles = [String]()
     private let service = MovieDetailNetworkService()
-    
+
     func getData() {
         model = makeModel()
-        makeDetails()
+        prepareSpecs()
         viewController?.tableView.reloadData()
         viewController?.isLoading = true
         getCharacter()
     }
-    
+
     private func getCharacter() {
-        guard let element = specs.firstIndex (where: { $0.isEmpty }),
+        guard let element = specs.firstIndex(where: { $0.isEmpty }),
                 let subIndex = specs.firstIndex(of: specs[element]),
                 let movie = self.movie, !movie.characters.isEmpty else {
                     getPlanet()
                     return
                 }
-        
+
         let characterIndexes = movie.characters.map { makeIndex(from: $0)}
         characterIndexes.forEach { index in
             self.service.fetchCharacter(index: index) { [weak self] result in
@@ -55,15 +55,15 @@ class MovieDetailPresenter: MovieDetailPresenterProtocol {
             }
         }
     }
-    
+
     private func getPlanet() {
-        guard let element = specs.firstIndex (where: { $0.isEmpty }),
+        guard let element = specs.firstIndex(where: { $0.isEmpty }),
                 let subIndex = specs.firstIndex(of: specs[element]),
                 let movie = self.movie, !movie.planets.isEmpty else {
                     getSpecies()
                     return
                 }
-        
+
         let planetIndexes = movie.planets.map { makeIndex(from: $0)}
         planetIndexes.forEach { index in
             self.service.fetchPlanet(index: index) { [weak self] result in
@@ -86,15 +86,15 @@ class MovieDetailPresenter: MovieDetailPresenterProtocol {
             }
         }
     }
-        
+
     private func getSpecies() {
-        guard let element = specs.firstIndex (where: { $0.isEmpty }),
+        guard let element = specs.firstIndex(where: { $0.isEmpty }),
                 let subIndex = specs.firstIndex(of: specs[element]),
                 let movie = self.movie, !movie.species.isEmpty else {
                     getStarships()
                     return
                 }
-        
+
         let speciesIndexes = movie.species.map { makeIndex(from: $0)}
         speciesIndexes.forEach { index in
             self.service.fetchSpecies(index: index) { [weak self] result in
@@ -117,15 +117,15 @@ class MovieDetailPresenter: MovieDetailPresenterProtocol {
             }
         }
     }
-        
+
     private func getStarships() {
-        guard let element = specs.firstIndex (where: { $0.isEmpty }),
+        guard let element = specs.firstIndex(where: { $0.isEmpty }),
                 let subIndex = specs.firstIndex(of: specs[element]),
                 let movie = self.movie, !movie.starships.isEmpty else {
                     getVehicles()
                     return
                 }
-        
+
         let starshipIndexes = movie.starships.map { makeIndex(from: $0)}
         starshipIndexes.forEach { index in
             self.service.fetchStarship(index: index) { [weak self] result in
@@ -148,15 +148,15 @@ class MovieDetailPresenter: MovieDetailPresenterProtocol {
             }
         }
     }
-    
+
     private func getVehicles() {
-        guard let element = specs.firstIndex (where: { $0.isEmpty }),
+        guard let element = specs.firstIndex(where: { $0.isEmpty }),
                 let subIndex = specs.firstIndex(of: specs[element]),
                 let movie = self.movie, !movie.vehicles.isEmpty else {
                     self.viewController?.isLoading = false
                     return
                 }
-        
+
         let vehicleIndexes = movie.vehicles.map { makeIndex(from: $0)}
         vehicleIndexes.forEach { index in
             self.service.fetchVehicle(index: index) { [weak self] result in
@@ -180,8 +180,8 @@ class MovieDetailPresenter: MovieDetailPresenterProtocol {
             }
         }
     }
-    
-    private func makeModel()  -> MovieDetailViewModel? {
+
+    private func makeModel() -> MovieDetailViewModel? {
         guard let movie = movie, let data  = movie.imageData, let image = UIImage(data: data) else { return nil }
         let model = MovieDetailViewModel(title: movie.title,
                                          episodeNumber: movie.episodeId,
@@ -192,25 +192,25 @@ class MovieDetailPresenter: MovieDetailPresenterProtocol {
                                          image: image)
         return model
     }
-    
-    private func makeIndex(from string: String)  -> String {
+
+    private func makeIndex(from string: String) -> String {
         let components = string.components(separatedBy: "/")
         let index = components[components.count - 2]
         return index
     }
-    
+
     private func showAlert(message: String) {
         let alert = UIAlertController(title: Constants.AlertTitle.message,
                                       message: message,
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: Constants.AlertTitle.ok, style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: Constants.AlertTitle.okey, style: .default, handler: nil))
         viewController?.present(alert, animated: true)
     }
-    
-    private func makeDetails() {
+
+    private func prepareSpecs() {
         var count = 0
         guard let movie = movie else { return }
-        
+
         if !movie.characters.isEmpty {
             count += 1
             titles.append(Constants.Entity.characters)
@@ -233,7 +233,7 @@ class MovieDetailPresenter: MovieDetailPresenterProtocol {
         }
         specs = Array(repeating: [EntityShortViewModel](), count: count)
     }
-    
+
     func makeLabelFor(section: Int) -> UILabel {
         let label = BaseLabel()
         label.font = UIFont(name: Constants.Fonts.font, size: 18)

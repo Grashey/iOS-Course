@@ -8,7 +8,7 @@
 import UIKit
 
 class CharacterViewControllerAssembler: ViewControllerAssemblerProtocol {
-    
+
     func create() -> UIViewController {
         let controller = EntityViewController()
         let presenter = CharacterPresenter()

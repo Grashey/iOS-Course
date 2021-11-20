@@ -17,7 +17,7 @@ enum MovieImageRoute {
 }
 
 extension MovieImageRoute: Route {
-    
+
     var baseURL: String {
         switch self {
         default:

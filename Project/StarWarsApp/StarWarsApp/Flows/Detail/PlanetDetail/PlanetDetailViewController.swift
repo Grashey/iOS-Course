@@ -10,7 +10,7 @@ import UIKit
 class PlanetDetailViewController: SpinnerManager {
 
     var presenter: PlanetDetailPresenterProtocol?
-    
+
     lazy var tableView: UITableView = {
         $0.dataSource = self
         $0.delegate = self
@@ -28,25 +28,25 @@ class PlanetDetailViewController: SpinnerManager {
     override func loadView() {
         view = tableView
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         presenter?.getData()
     }
-    
+
 }
 
 extension PlanetDetailViewController: UITableViewDataSource {
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return (presenter?.specs.count ?? .zero) + 1
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == .zero {
             let cell = tableView.dequeueReusableCell(withIdentifier: PlanetDetailTableViewCell.description(), for: indexPath)
@@ -71,7 +71,7 @@ extension PlanetDetailViewController: UITableViewDataSource {
 }
 
 extension PlanetDetailViewController: UITableViewDelegate {
-    
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch section {
         case .zero:
@@ -80,7 +80,7 @@ extension PlanetDetailViewController: UITableViewDelegate {
             return presenter?.makeLabelFor(section: section - 1)
         }
     }
-    
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let sectionHeaderHeight: CGFloat = 40
         if scrollView.contentOffset.y <= sectionHeaderHeight && scrollView.contentOffset.y >= .zero {

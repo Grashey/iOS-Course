@@ -20,10 +20,10 @@ class MovieNetworkService {
     func fetchMovies(completion: @escaping (Result<MovieResponse, NetworkServiceError>) -> Void) {
         httpClient.request(for: MovieRoute.movies, completion: completion)
     }
-    
+
     func fetchImage(for index: Int, completion: @escaping (Result<Data, NetworkServiceError>) -> Void) {
         var imageRoute: MovieImageRoute
-        
+
         switch index {
         case 0:
             imageRoute = MovieImageRoute.episodeOne

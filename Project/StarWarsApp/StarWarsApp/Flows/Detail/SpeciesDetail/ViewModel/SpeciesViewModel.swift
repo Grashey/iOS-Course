@@ -8,7 +8,7 @@
 import UIKit
 
 struct SpeciesViewModel {
-    
+
     let name: String
     let classification: String
     let designation: String
