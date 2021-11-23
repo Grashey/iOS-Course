@@ -5,7 +5,7 @@
 //  Created by Aleksandr Fetisov on 29.10.2021.
 //
 
-import UIKit
+import Foundation
 
 protocol VehicleDetailPresenterProtocol {
 
@@ -14,5 +14,5 @@ protocol VehicleDetailPresenterProtocol {
     var specs: [[EntityShortViewModel]] {get}
 
     func getData()
-    func makeLabelFor(section: Int) -> UILabel
+    func getLabelTitleFor(section: Int) -> String
 }

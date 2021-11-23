@@ -5,7 +5,7 @@
 //  Created by Aleksandr Fetisov on 28.10.2021.
 //
 
-import UIKit
+import Foundation
 
 protocol PlanetDetailPresenterProtocol {
 
@@ -14,5 +14,5 @@ protocol PlanetDetailPresenterProtocol {
     var specs: [[EntityShortViewModel]] {get}
 
     func getData()
-    func makeLabelFor(section: Int) -> UILabel
+    func getLabelTitleFor(section: Int) -> String
 }

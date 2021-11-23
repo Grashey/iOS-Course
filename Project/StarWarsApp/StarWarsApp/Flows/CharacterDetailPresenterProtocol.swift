@@ -5,7 +5,7 @@
 //  Created by Aleksandr Fetisov on 27.10.2021.
 //
 
-import UIKit
+import Foundation
 
 protocol CharacterDetailPresenterProtocol {
 
@@ -14,5 +14,5 @@ protocol CharacterDetailPresenterProtocol {
     var specs: [[EntityShortViewModel]] {get}
 
     func getData()
-    func makeLabelFor(section: Int) -> UILabel
+    func getLabelTitleFor(section: Int) -> String
 }

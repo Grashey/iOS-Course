@@ -77,7 +77,11 @@ extension PlanetDetailViewController: UITableViewDelegate {
         case .zero:
             return nil
         default:
-            return presenter?.makeLabelFor(section: section - 1)
+            let label = BaseLabel()
+            label.font = UIFont(name: Constants.Fonts.font, size: 18)
+            label.textColor = .yellow
+            label.text = presenter?.getLabelTitleFor(section: section - 1)
+            return label
         }
     }
 

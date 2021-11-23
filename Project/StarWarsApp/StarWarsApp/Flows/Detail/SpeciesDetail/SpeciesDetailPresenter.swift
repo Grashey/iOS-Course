@@ -156,11 +156,7 @@ class SpeciesDetailPresenter: SpeciesDetailPresenterProtocol {
         specs = Array(repeating: [EntityShortViewModel](), count: count)
     }
 
-    func makeLabelFor(section: Int) -> UILabel {
-        let label = BaseLabel()
-        label.font = UIFont(name: Constants.Fonts.font, size: 18)
-        label.textColor = .yellow
-        label.text = titles[section]
-        return label
+    func getLabelTitleFor(section: Int) -> String {
+        return titles[section]
     }
 }
