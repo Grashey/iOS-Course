@@ -9,7 +9,7 @@ import UIKit
 
 class MovieDetailTableViewCell: UITableViewCell {
 
-    private struct LabelValues {
+    private enum LabelValues {
         static let episode = "Episode "
         static let director = "Director :"
         static let producer = "Producer :"

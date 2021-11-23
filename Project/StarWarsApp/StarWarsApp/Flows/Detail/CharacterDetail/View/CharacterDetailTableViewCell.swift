@@ -9,7 +9,7 @@ import UIKit
 
 class CharacterDetailTableViewCell: UITableViewCell {
 
-    private struct LabelValues {
+    private enum LabelValues {
         static let birthYear = "Birth year: "
         static let gender = "Gender: "
         static let hairColor = "Hair color: "

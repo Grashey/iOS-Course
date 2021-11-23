@@ -9,7 +9,7 @@ import UIKit
 
 class SpeciesDetailTableViewCell: UITableViewCell {
 
-    private struct LabelValues {
+    private enum LabelValues {
         static let classification = "Classification: "
         static let designation = "Designation: "
         static let averageHeight = "Average height: "

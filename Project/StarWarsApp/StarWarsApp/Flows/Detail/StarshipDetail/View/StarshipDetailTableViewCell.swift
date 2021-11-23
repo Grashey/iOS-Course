@@ -9,7 +9,7 @@ import UIKit
 
 class StarshipDetailTableViewCell: UITableViewCell {
 
-    private struct LabelValues {
+    private enum LabelValues {
         static let model = "Model: "
         static let starshipClass = "Starship class: "
         static let manufacturer = "Manufacturer: "

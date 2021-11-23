@@ -9,7 +9,7 @@ import UIKit
 
 class PlanetDetailTableViewCell: UITableViewCell {
 
-    private struct LabelValues {
+    private enum LabelValues {
         static let diameter = "Diameter: "
         static let rotationPeriod = "Rotation period: "
         static let orbitalPeriod = "Orbital period: "

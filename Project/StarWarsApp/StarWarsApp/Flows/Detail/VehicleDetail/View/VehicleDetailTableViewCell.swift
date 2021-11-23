@@ -9,7 +9,7 @@ import UIKit
 
 class VehicleDetailTableViewCell: UITableViewCell {
 
-    private struct LabelValues {
+    private enum LabelValues {
         static let model = "Model: "
         static let vehicleClass = "Vehicle class: "
         static let manufacturer = "Manufacturer: "
