@@ -33,3 +33,5 @@ struct StarshipData: Decodable {
     let url: String
     let imageData: Data?
 }
+
+extension StarshipData: TransferDataProtocol {}

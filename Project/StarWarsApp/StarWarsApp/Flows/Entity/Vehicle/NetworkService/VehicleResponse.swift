@@ -31,3 +31,5 @@ struct VehicleData: Decodable {
     let url: String
     let imageData: Data?
 }
+
+extension VehicleData: TransferDataProtocol {}

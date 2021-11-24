@@ -31,3 +31,5 @@ struct CharacterData: Decodable {
     let url: String
     let imageData: Data?
 }
+
+extension CharacterData: TransferDataProtocol {}

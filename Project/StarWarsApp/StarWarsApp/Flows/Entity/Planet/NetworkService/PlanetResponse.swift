@@ -29,3 +29,5 @@ struct PlanetData: Decodable {
     let url: String
     let imageData: Data?
 }
+
+extension PlanetData: TransferDataProtocol {}

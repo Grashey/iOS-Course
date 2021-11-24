@@ -23,6 +23,7 @@ class CharacterPresenter: EntityPresenterProtocol {
             viewController?.isLoading = false
             return
         }
+
         service.fetchCharacters(pageIndex: pageIndex) { [weak self] result in
             guard let self = self else { return }
             DispatchQueue.main.async {
@@ -41,16 +42,8 @@ class CharacterPresenter: EntityPresenterProtocol {
         }
     }
 
-    func start() {
-        getData()
-
-        viewController?.onDetails = { name in
-            guard let character = self.characters.filter({ $0.name == name }).first else { return }
-            let vcAssembler = CharacterDetailViewControllerAssembler()
-            guard let detailsVC = vcAssembler.create() as? CharacterDetailViewController else { return }
-            detailsVC.presenter?.entity = character
-            self.viewController?.navigationController?.pushViewController(detailsVC, animated: true)
-        }
+    func makeEntity(name: String) -> TransferDataProtocol? {
+        return characters.filter({ $0.name == name }).first
     }
 
     private func showAlert(message: String) {

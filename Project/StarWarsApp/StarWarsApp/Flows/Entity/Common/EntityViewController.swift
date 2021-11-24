@@ -10,7 +10,7 @@ import UIKit
 class EntityViewController: SpinnerManager {
 
     var presenter: EntityPresenterProtocol?
-    var onDetails: ((String) -> Void)?
+    var onDetails: ((TransferDataProtocol) -> Void)?
 
     lazy var collectionView = EntityCollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
 
@@ -28,7 +28,7 @@ class EntityViewController: SpinnerManager {
             collectionView.backgroundView = UIImageView(image: image)
         }
 
-        presenter?.start()
+        presenter?.getData()
     }
 
 }
@@ -58,7 +58,8 @@ extension EntityViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let model = presenter?.viewModel[indexPath.item] else { return }
-        onDetails?(model.name)
+        guard let entity = presenter?.makeEntity(name: model.name) else { return }
+        onDetails?(entity)
     }
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

@@ -41,16 +41,8 @@ class VehiclePresenter: EntityPresenterProtocol {
         }
     }
 
-    func start() {
-        getData()
-
-        viewController?.onDetails = { name in
-            guard let vehicle = self.vehicles.filter({ $0.name == name }).first else { return }
-            let vcAssembler = VehicleDetailViewControllerAssembler()
-            guard let detailsVC = vcAssembler.create() as? VehicleDetailViewController else { return }
-            detailsVC.presenter?.entity = vehicle
-            self.viewController?.navigationController?.pushViewController(detailsVC, animated: true)
-        }
+    func makeEntity(name: String) -> TransferDataProtocol? {
+        return vehicles.filter({ $0.name == name }).first
     }
 
     private func showAlert(message: String) {

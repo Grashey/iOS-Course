@@ -12,5 +12,5 @@ protocol EntityPresenterProtocol {
     var viewModel: [EntityShortViewModel] {get}
 
     func getData()
-    func start()
+    func makeEntity(name: String) -> TransferDataProtocol?
 }

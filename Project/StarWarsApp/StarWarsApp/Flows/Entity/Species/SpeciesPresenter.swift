@@ -41,16 +41,8 @@ class SpeciesPresenter: EntityPresenterProtocol {
         }
     }
 
-    func start() {
-        getData()
-
-        viewController?.onDetails = { name in
-            guard let species = self.species.filter({ $0.name == name }).first else { return }
-            let vcAssembler = SpeciesDetailViewControllerAssembler()
-            guard let detailsVC = vcAssembler.create() as? SpeciesDetailViewController else { return }
-            detailsVC.presenter?.entity = species
-            self.viewController?.navigationController?.pushViewController(detailsVC, animated: true)
-        }
+    func makeEntity(name: String) -> TransferDataProtocol? {
+        return species.filter({ $0.name == name }).first
     }
 
     private func showAlert(message: String) {

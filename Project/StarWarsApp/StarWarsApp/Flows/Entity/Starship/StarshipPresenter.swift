@@ -41,16 +41,8 @@ class StarshipPresenter: EntityPresenterProtocol {
         }
     }
 
-    func start() {
-        getData()
-
-        viewController?.onDetails = { name in
-            guard let starship = self.starships.filter({ $0.name == name }).first else { return }
-            let vcAssembler = StarshipDetailViewControllerAssembler()
-            guard let detailsVC = vcAssembler.create() as? StarshipDetailViewController else { return }
-            detailsVC.presenter?.entity = starship
-            self.viewController?.navigationController?.pushViewController(detailsVC, animated: true)
-        }
+    func makeEntity(name: String) -> TransferDataProtocol? {
+        return starships.filter({ $0.name == name }).first
     }
 
     private func showAlert(message: String) {

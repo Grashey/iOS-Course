@@ -11,9 +11,9 @@ class EntityContainerViewController: UIViewController {
 
     private lazy var menuContainerView = UIView()
     private var entity: EntityRoute = .characters
-    private var childVC: UIViewController?
     private lazy var menuVC = MenuViewController()
     private var menuIsShown: Bool = false
+    var onEntity: ((EntityRoute) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,23 +24,7 @@ class EntityContainerViewController: UIViewController {
 
     private func switchVC() {
         navigationItem.title = getTitleName()
-        if let child = childVC {
-            removeChild(controller: child)
-        }
-        switch entity {
-        case .characters: makeVC(assembler: CharacterViewControllerAssembler())
-        case .planets: makeVC(assembler: PlanetViewControllerAssembler())
-        case .species: makeVC(assembler: SpeciesViewControllerAssembler())
-        case .starships: makeVC(assembler: StarshipViewControllerAssembler())
-        case .vehicles: makeVC(assembler: VehicleViewControllerAssembler())
-        }
-    }
-
-    private func makeVC(assembler: ViewControllerAssemblerProtocol) {
-        childVC = assembler.create() as? EntityViewController
-        guard let child = childVC else { return }
-        child.view.frame = view.frame
-        addChild(controller: child, containerView: view)
+        onEntity?(entity)
     }
 
     private func addMenuButton() {
@@ -89,8 +73,8 @@ class EntityContainerViewController: UIViewController {
         menuVC.completionHandler = { [weak self] in
             guard let self = self, self.entity != $0 else { return }
             self.entity = $0
-            self.switchVC()
             self.dismissMenuController()
+            self.switchVC()
         }
 
         menuIsShown = true

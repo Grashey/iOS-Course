@@ -23,6 +23,7 @@ class PlanetPresenter: EntityPresenterProtocol {
             viewController?.isLoading = false
             return
         }
+
         service.fetchPlanets(pageIndex: pageIndex) { [weak self] result in
             guard let self = self else { return }
             DispatchQueue.main.async {
@@ -41,16 +42,8 @@ class PlanetPresenter: EntityPresenterProtocol {
         }
     }
 
-    func start() {
-        getData()
-
-        viewController?.onDetails = { name in
-            guard let planet = self.planets.filter({ $0.name == name }).first else { return }
-            let vcAssembler = PlanetDetailViewControllerAssembler()
-            guard let detailsVC = vcAssembler.create() as? PlanetDetailViewController else { return }
-            detailsVC.presenter?.entity = planet
-            self.viewController?.navigationController?.pushViewController(detailsVC, animated: true)
-        }
+    func makeEntity(name: String) -> TransferDataProtocol? {
+        return planets.filter({ $0.name == name }).first
     }
 
     private func showAlert(message: String) {

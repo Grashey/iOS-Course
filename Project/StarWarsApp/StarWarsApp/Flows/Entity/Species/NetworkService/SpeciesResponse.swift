@@ -30,3 +30,5 @@ struct SpeciesData: Decodable {
     let url: String
     let imageData: Data?
 }
+
+extension SpeciesData: TransferDataProtocol {}
