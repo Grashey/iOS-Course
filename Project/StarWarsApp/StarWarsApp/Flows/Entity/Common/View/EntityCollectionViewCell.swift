@@ -59,9 +59,9 @@ class EntityCollectionViewCell: UICollectionViewCell {
     }
 
     func configureWith(model: EntityShortViewModel, imageSize: CGSize) {
+        self.label.text = model.name
         guard let image = model.image else { return }
         self.imageView.image = resizeImage(image: image, targetSize: imageSize)
-        self.label.text = model.name
     }
 
     private func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage? {

@@ -13,14 +13,16 @@ class TabBarCoordinator {
     let controller = TabBarController()
     lazy var movieCoordinator = MovieCoordinator(navigationController: controller.movieNavigation)
     lazy var entityCoordinator = EntityContainerCoordinator(navigationController: controller.entityNavigation)
+    lazy var favoritesCoordinator = FavoritesCoordinator(navigationController: controller.favoritesNavigation)
 
     init(window: UIWindow?) {
         self.window = window
     }
 
     func start() {
+        window?.rootViewController = controller
         movieCoordinator.start()
         entityCoordinator.start()
-        window?.rootViewController = controller
+        favoritesCoordinator.start()
     }
 }

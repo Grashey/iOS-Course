@@ -115,6 +115,12 @@
 		4AA2A098274DA0A20077573F /* StarshipCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A097274DA0A20077573F /* StarshipCoordinator.swift */; };
 		4AA2A09A274DA0D40077573F /* VehicleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A099274DA0D40077573F /* VehicleCoordinator.swift */; };
 		4AA2A09C274DAAA10077573F /* TranferDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A09B274DAAA00077573F /* TranferDataProtocol.swift */; };
+		4AA2A09E274E724C0077573F /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A09D274E724C0077573F /* FavoritesPresenter.swift */; };
+		4AA2A0A1274E727C0077573F /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A0A0274E727C0077573F /* FavoritesViewController.swift */; };
+		4AA2A0A3274E72980077573F /* FavoritesViewControllerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A0A2274E72980077573F /* FavoritesViewControllerAssembler.swift */; };
+		4AA2A0A6274E73290077573F /* FavoritesPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A0A5274E73290077573F /* FavoritesPresenterProtocol.swift */; };
+		4AA2A0A8274E74220077573F /* FavoritesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A0A7274E74220077573F /* FavoritesCoordinator.swift */; };
+		4AA2A0AA274E778B0077573F /* DataKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A0A9274E778B0077573F /* DataKeeper.swift */; };
 		4AF1D5FA272ACB2C00E897B2 /* PlanetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1D5F9272ACB2C00E897B2 /* PlanetDetailViewController.swift */; };
 		4AF1D5FD272ACC4500E897B2 /* PlanetDetailPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1D5FC272ACC4500E897B2 /* PlanetDetailPresenterProtocol.swift */; };
 		4AF1D5FF272ACC6400E897B2 /* PlanetDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1D5FE272ACC6400E897B2 /* PlanetDetailPresenter.swift */; };
@@ -254,6 +260,12 @@
 		4AA2A097274DA0A20077573F /* StarshipCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipCoordinator.swift; sourceTree = "<group>"; };
 		4AA2A099274DA0D40077573F /* VehicleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleCoordinator.swift; sourceTree = "<group>"; };
 		4AA2A09B274DAAA00077573F /* TranferDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranferDataProtocol.swift; sourceTree = "<group>"; };
+		4AA2A09D274E724C0077573F /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
+		4AA2A0A0274E727C0077573F /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		4AA2A0A2274E72980077573F /* FavoritesViewControllerAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewControllerAssembler.swift; sourceTree = "<group>"; };
+		4AA2A0A5274E73290077573F /* FavoritesPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenterProtocol.swift; sourceTree = "<group>"; };
+		4AA2A0A7274E74220077573F /* FavoritesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinator.swift; sourceTree = "<group>"; };
+		4AA2A0A9274E778B0077573F /* DataKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataKeeper.swift; sourceTree = "<group>"; };
 		4AF1D5F9272ACB2C00E897B2 /* PlanetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailViewController.swift; sourceTree = "<group>"; };
 		4AF1D5FC272ACC4500E897B2 /* PlanetDetailPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailPresenterProtocol.swift; sourceTree = "<group>"; };
 		4AF1D5FE272ACC6400E897B2 /* PlanetDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailPresenter.swift; sourceTree = "<group>"; };
@@ -433,6 +445,7 @@
 				4A25C66D2711DE1400EC8398 /* Movies */,
 				4A4E47FC27204CEE0047EE86 /* Entity */,
 				4A9BE1A42729CCDF00F0CD05 /* Detail */,
+				4AA2A09F274E72530077573F /* Favorites */,
 				4A4E47412712157A0047EE86 /* Other */,
 			);
 			path = Flows;
@@ -625,6 +638,7 @@
 				4A4E47422712170D0047EE86 /* RootCoordinator.swift */,
 				4A4E47F6272045860047EE86 /* ViewControllerAssemblerProtocol.swift */,
 				4AA2A013273B115F0077573F /* MoviePosterKeeper.swift */,
+				4AA2A0A9274E778B0077573F /* DataKeeper.swift */,
 				4A1804E62733FC7200E77660 /* NetworkService */,
 			);
 			path = Core;
@@ -963,6 +977,26 @@
 			path = StarWarsAppTests;
 			sourceTree = "<group>";
 		};
+		4AA2A09F274E72530077573F /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				4AA2A0A4274E729F0077573F /* NavigationService */,
+				4AA2A09D274E724C0077573F /* FavoritesPresenter.swift */,
+				4AA2A0A0274E727C0077573F /* FavoritesViewController.swift */,
+				4AA2A0A5274E73290077573F /* FavoritesPresenterProtocol.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		4AA2A0A4274E729F0077573F /* NavigationService */ = {
+			isa = PBXGroup;
+			children = (
+				4AA2A0A2274E72980077573F /* FavoritesViewControllerAssembler.swift */,
+				4AA2A0A7274E74220077573F /* FavoritesCoordinator.swift */,
+			);
+			path = NavigationService;
+			sourceTree = "<group>";
+		};
 		4AF1D5FB272ACB3100E897B2 /* PlanetDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -1185,6 +1219,7 @@
 				4AA2A096274DA0690077573F /* SpeciesCoordinator.swift in Sources */,
 				4A38560B2736FC9A00E99451 /* StarshipPresenter.swift in Sources */,
 				4A4E4747271218BB0047EE86 /* MovieCoordinator.swift in Sources */,
+				4AA2A0A8274E74220077573F /* FavoritesCoordinator.swift in Sources */,
 				4AA2A09C274DAAA10077573F /* TranferDataProtocol.swift in Sources */,
 				4A180484272C6A0500E77660 /* BaseLabel.swift in Sources */,
 				4A25C6702711DE7600EC8398 /* MovieDetailViewModel.swift in Sources */,
@@ -1197,6 +1232,7 @@
 				4AA2A00327398DAF0077573F /* Int + Extension.swift in Sources */,
 				4A4E47F9272045F60047EE86 /* MovieViewControllerAssembler.swift in Sources */,
 				4AF1D607272ADCBE00E897B2 /* SpeciesDetailViewController.swift in Sources */,
+				4AA2A0A6274E73290077573F /* FavoritesPresenterProtocol.swift in Sources */,
 				4A3856042736FBD900E99451 /* StarshipNetworkService.swift in Sources */,
 				4A4E480B2720594B0047EE86 /* EntityShortViewModel.swift in Sources */,
 				4A4E47FB27204CD40047EE86 /* EntityViewController.swift in Sources */,
@@ -1207,6 +1243,7 @@
 				4AA2A04127482E490077573F /* StarshipDetailNetworkService.swift in Sources */,
 				4AF1D61E272B345500E897B2 /* StarshipDetailTableViewCell.swift in Sources */,
 				4A1804EE2733FD0800E77660 /* EntityHTTPClient.swift in Sources */,
+				4AA2A0A3274E72980077573F /* FavoritesViewControllerAssembler.swift in Sources */,
 				4A3855F22736CF9E00E99451 /* PlanetViewControllerAssembler.swift in Sources */,
 				4A1804E22733FB6F00E77660 /* SpinnerViewController.swift in Sources */,
 				4A4E47FE2720513C0047EE86 /* EntityRoute.swift in Sources */,
@@ -1233,6 +1270,7 @@
 				4A9BE1A92729CE1100F0CD05 /* CharacterDetailPresenter.swift in Sources */,
 				4A4E480F272063580047EE86 /* CharacterPresenter.swift in Sources */,
 				4A1804EC2733FCF000E77660 /* EntityHTTPClientProtocol.swift in Sources */,
+				4AA2A0A1274E727C0077573F /* FavoritesViewController.swift in Sources */,
 				4A4E4823272334860047EE86 /* Constants.swift in Sources */,
 				4A4E4802272054AC0047EE86 /* PlanetViewModel.swift in Sources */,
 				4A25C6562711CF9400EC8398 /* AppDelegate.swift in Sources */,
@@ -1244,6 +1282,7 @@
 				4A3855D827344C4900E99451 /* SpeciesResponse.swift in Sources */,
 				4A4E4745271217C20047EE86 /* TabBarCoordinator.swift in Sources */,
 				4A180481272C626200E77660 /* VehicleDetailTableViewCell.swift in Sources */,
+				4AA2A09E274E724C0077573F /* FavoritesPresenter.swift in Sources */,
 				4A4E4740271215730047EE86 /* TabBarController.swift in Sources */,
 				4AA2A00227398DAF0077573F /* Formatter + Exetension.swift in Sources */,
 				4A1804E02733F85B00E77660 /* MoviePresenter.swift in Sources */,
@@ -1291,6 +1330,7 @@
 				4AF1D60C272ADDB300E897B2 /* SpeciesDetailPresenter.swift in Sources */,
 				4A1804FD2733FFD900E77660 /* MovieNetworkService.swift in Sources */,
 				4AA2A00B27399DC50077573F /* EntityDetailHTTPClientProtocol.swift in Sources */,
+				4AA2A0AA274E778B0077573F /* DataKeeper.swift in Sources */,
 				4AA2A0452748324D0077573F /* VehicleDetailNetworkService.swift in Sources */,
 				4A3855F52736CFEE00E99451 /* PlanetPresenter.swift in Sources */,
 			);

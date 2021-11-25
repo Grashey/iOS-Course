@@ -34,6 +34,7 @@ enum Constants {
     enum TabBarTitle {
         static let movies = "Movies"
         static let universe = "Universe"
+        static let favorites = "Favorites"
     }
 
     enum ApiMethods {
