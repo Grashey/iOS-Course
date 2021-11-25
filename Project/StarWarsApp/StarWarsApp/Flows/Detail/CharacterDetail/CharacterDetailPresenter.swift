@@ -16,8 +16,23 @@ class CharacterDetailPresenter: CharacterDetailPresenterProtocol {
     var specs = [[EntityShortViewModel]]()
     private var titles = [String]()
     private let service = CharacterDetailNetworkService()
+    private let keeper = DataKeeper()
+    var isSaved = false {
+        didSet {
+            guard oldValue != isSaved else { return }
+            viewController?.switchRightBarButtonItemTitle()
+        }
+    }
 
     func getData() {
+        guard let entity = entity else { return }
+        let array = keeper.load()
+        if array.contains(entity.name) {
+            isSaved = true
+        } else {
+            isSaved = false
+        }
+
         prepareSpecs()
         viewController?.isLoading = true
         getHomeworld()
@@ -222,5 +237,17 @@ class CharacterDetailPresenter: CharacterDetailPresenterProtocol {
 
     func getLabelTitleFor(section: Int) -> String {
         return titles[section]
+    }
+
+    func operateFavorites() {
+        guard let entity = entity else { return }
+        let array = keeper.load()
+        if array.contains(entity.name) {
+            keeper.remove(model: entity.name)
+            isSaved = false
+        } else {
+            keeper.save(model: entity.name)
+            isSaved = true
+        }
     }
 }
