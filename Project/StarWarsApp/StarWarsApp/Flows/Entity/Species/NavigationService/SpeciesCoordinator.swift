@@ -33,8 +33,7 @@ class SpeciesCoordinator {
         child.didMove(toParent: parent)
 
         child.onDetails = { entity in
-            self.vcAssembler = SpeciesDetailViewControllerAssembler()
-            guard let detailsVC = self.vcAssembler.create() as? SpeciesDetailViewController else { return }
+            guard let detailsVC = SpeciesDetailViewControllerAssembler().create() as? SpeciesDetailViewController else { return }
             detailsVC.presenter?.entity = entity as? SpeciesData
             child.navigationController?.pushViewController(detailsVC, animated: true)
         }

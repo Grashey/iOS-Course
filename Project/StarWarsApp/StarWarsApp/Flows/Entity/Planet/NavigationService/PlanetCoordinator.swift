@@ -21,8 +21,7 @@ class PlanetCoordinator {
         guard let child = vcAssembler.create() as? EntityViewController,
               let parent = navigationController.viewControllers.first else { return }
 
-        if let unwelcomeChild = parent.children.first as? EntityViewController {
-            unwelcomeChild.presenter = nil
+        if let unwelcomeChild = parent.children.first {
             unwelcomeChild.willMove(toParent: nil)
             unwelcomeChild.view.removeFromSuperview()
             unwelcomeChild.removeFromParent()
@@ -34,8 +33,7 @@ class PlanetCoordinator {
         child.didMove(toParent: parent)
 
         child.onDetails = { entity in
-            self.vcAssembler = PlanetDetailViewControllerAssembler()
-            guard let detailsVC = self.vcAssembler.create() as? PlanetDetailViewController else { return }
+            guard let detailsVC = PlanetDetailViewControllerAssembler().create() as? PlanetDetailViewController else { return }
             detailsVC.presenter?.entity = entity as? PlanetData
             child.navigationController?.pushViewController(detailsVC, animated: true)
         }

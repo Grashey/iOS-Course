@@ -33,8 +33,7 @@ class VehicleCoordinator {
         child.didMove(toParent: parent)
 
         child.onDetails = { entity in
-            self.vcAssembler = VehicleDetailViewControllerAssembler()
-            guard let detailsVC = self.vcAssembler.create() as? VehicleDetailViewController else { return }
+            guard let detailsVC = VehicleDetailViewControllerAssembler().create() as? VehicleDetailViewController else { return }
             detailsVC.presenter?.entity = entity as? VehicleData
             child.navigationController?.pushViewController(detailsVC, animated: true)
         }

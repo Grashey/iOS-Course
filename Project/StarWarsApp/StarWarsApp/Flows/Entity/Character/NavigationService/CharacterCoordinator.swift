@@ -21,8 +21,7 @@ class CharacterCoordinator {
         guard let child = vcAssembler.create() as? EntityViewController,
               let parent = navigationController.viewControllers.first else { return }
 
-        if let unwelcomeChild = parent.children.first as? EntityViewController {
-            unwelcomeChild.presenter = nil
+        if let unwelcomeChild = parent.children.first {
             unwelcomeChild.willMove(toParent: nil)
             unwelcomeChild.view.removeFromSuperview()
             unwelcomeChild.removeFromParent()
@@ -34,8 +33,7 @@ class CharacterCoordinator {
         child.didMove(toParent: parent)
 
         child.onDetails = { entity in
-            self.vcAssembler = CharacterDetailViewControllerAssembler()
-            guard let detailsVC = self.vcAssembler.create() as? CharacterDetailViewController else { return }
+            guard let detailsVC = CharacterDetailViewControllerAssembler().create() as? CharacterDetailViewController else { return }
 
             detailsVC.presenter?.entity = entity as? CharacterData
             child.navigationController?.pushViewController(detailsVC, animated: true)
