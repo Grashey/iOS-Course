@@ -31,6 +31,11 @@ enum Constants {
         static let vehicles = "iconVehicles"
     }
 
+    enum FavoriteButtonImage {
+        static let isFavorite = "heartRed"
+        static let isNotFavorite = "heartBlack"
+    }
+
     enum TabBarTitle {
         static let movies = "Movies"
         static let universe = "Universe"
