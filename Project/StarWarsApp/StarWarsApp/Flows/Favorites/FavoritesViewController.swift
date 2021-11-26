@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class FavoritesViewController: SpinnerManager {
 
@@ -20,7 +21,7 @@ class FavoritesViewController: SpinnerManager {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        presenter?.getData()
         navigationItem.title = Constants.TabBarTitle.favorites
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -28,11 +29,6 @@ class FavoritesViewController: SpinnerManager {
         if let image = UIImage(named: Constants.ImageName.backgroundImage) {
             collectionView.backgroundView = UIImageView(image: image)
         }
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        presenter?.getData()
     }
 
 }
@@ -71,5 +67,13 @@ extension FavoritesViewController: UICollectionViewDelegate {
         if indexPath.item == count - 1, !isLoading {
             presenter?.getData()
         }
+    }
+}
+
+extension FavoritesViewController: NSFetchedResultsControllerDelegate {
+
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        presenter?.makeModels()
+        collectionView.reloadData()
     }
 }

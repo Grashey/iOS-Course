@@ -29,6 +29,18 @@ class StarshipDetailViewController: SpinnerManager {
         view = tableView
     }
 
+    lazy var favoriteButton: UIButton = {
+        $0.frame = CGRect(x: .zero, y: .zero, width: 45, height: 45)
+        $0.addTarget(self, action: #selector(operate), for: .touchUpInside)
+        return $0
+    }(UIButton())
+
+    lazy var favoriteButtonView: UIView = {
+        $0.frame = CGRect(x: .zero, y: .zero, width: 45, height: 45)
+        $0.addSubview(favoriteButton)
+        return $0
+    }(UIView())
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,18 +51,18 @@ class StarshipDetailViewController: SpinnerManager {
     private func makeFavoritesButton() {
         let menuButton = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(operate))
         navigationItem.rightBarButtonItem = menuButton
-        switchRightBarButtonItemTitle()
+        switchRightBarButtonItemImage()
     }
 
     @objc func operate() {
         presenter?.operateFavorites()
     }
 
-    func switchRightBarButtonItemTitle() {
+    func switchRightBarButtonItemImage() {
         if let isSaved = presenter?.isSaved, isSaved {
-            navigationItem.rightBarButtonItem?.title = "Remove"
+            favoriteButton.setImage(UIImage(named: Constants.FavoriteButtonImage.isFavorite), for: .normal)
         } else {
-            navigationItem.rightBarButtonItem?.title = "Add"
+            favoriteButton.setImage(UIImage(named: Constants.FavoriteButtonImage.isNotFavorite), for: .normal)
         }
     }
 

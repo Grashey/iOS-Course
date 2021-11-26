@@ -20,7 +20,7 @@ class StarshipDetailPresenter: StarshipDetailPresenterProtocol {
     var isSaved = false {
         didSet {
             guard oldValue != isSaved else { return }
-            viewController?.switchRightBarButtonItemTitle()
+            viewController?.switchRightBarButtonItemImage()
         }
     }
 

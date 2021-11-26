@@ -12,5 +12,6 @@ protocol FavoritesPresenterProtocol {
     var viewModel: [EntityShortViewModel] {get}
 
     func getData()
+    func makeModels()
     func makeEntity(name: String) -> TransferDataProtocol?
 }
