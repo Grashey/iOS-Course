@@ -121,6 +121,11 @@
 		4AA2A0A6274E73290077573F /* FavoritesPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A0A5274E73290077573F /* FavoritesPresenterProtocol.swift */; };
 		4AA2A0A8274E74220077573F /* FavoritesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A0A7274E74220077573F /* FavoritesCoordinator.swift */; };
 		4AA2A0AA274E778B0077573F /* DataKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A0A9274E778B0077573F /* DataKeeper.swift */; };
+		4AA2A0AF275128730077573F /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A0AD275128730077573F /* CoreDataModel.xcdatamodeld */; };
+		4AA2A0B22751297A0077573F /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A0B12751297A0077573F /* DIContainer.swift */; };
+		4AA2A0B4275129A60077573F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A0B3275129A60077573F /* CoreDataStack.swift */; };
+		4AA2A0BF27513A350077573F /* CoreDataEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A0BD27513A350077573F /* CoreDataEntity+CoreDataClass.swift */; };
+		4AA2A0C027513A350077573F /* CoreDataEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A0BE27513A350077573F /* CoreDataEntity+CoreDataProperties.swift */; };
 		4AF1D5FA272ACB2C00E897B2 /* PlanetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1D5F9272ACB2C00E897B2 /* PlanetDetailViewController.swift */; };
 		4AF1D5FD272ACC4500E897B2 /* PlanetDetailPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1D5FC272ACC4500E897B2 /* PlanetDetailPresenterProtocol.swift */; };
 		4AF1D5FF272ACC6400E897B2 /* PlanetDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1D5FE272ACC6400E897B2 /* PlanetDetailPresenter.swift */; };
@@ -266,6 +271,11 @@
 		4AA2A0A5274E73290077573F /* FavoritesPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenterProtocol.swift; sourceTree = "<group>"; };
 		4AA2A0A7274E74220077573F /* FavoritesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinator.swift; sourceTree = "<group>"; };
 		4AA2A0A9274E778B0077573F /* DataKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataKeeper.swift; sourceTree = "<group>"; };
+		4AA2A0AE275128730077573F /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		4AA2A0B12751297A0077573F /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		4AA2A0B3275129A60077573F /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		4AA2A0BD27513A350077573F /* CoreDataEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4AA2A0BE27513A350077573F /* CoreDataEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4AF1D5F9272ACB2C00E897B2 /* PlanetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailViewController.swift; sourceTree = "<group>"; };
 		4AF1D5FC272ACC4500E897B2 /* PlanetDetailPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailPresenterProtocol.swift; sourceTree = "<group>"; };
 		4AF1D5FE272ACC6400E897B2 /* PlanetDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailPresenter.swift; sourceTree = "<group>"; };
@@ -418,6 +428,7 @@
 				4A25C66E2711DE4700EC8398 /* Flows */,
 				4AA29FFE27398DAF0077573F /* Extensions */,
 				4A4E47ED271D28630047EE86 /* Resources */,
+				4AA2A0B02751287A0077573F /* CoreData */,
 				4A25C6602711CF9700EC8398 /* LaunchScreen.storyboard */,
 				4A25C6632711CF9700EC8398 /* Info.plist */,
 			);
@@ -997,6 +1008,18 @@
 			path = NavigationService;
 			sourceTree = "<group>";
 		};
+		4AA2A0B02751287A0077573F /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				4AA2A0BD27513A350077573F /* CoreDataEntity+CoreDataClass.swift */,
+				4AA2A0BE27513A350077573F /* CoreDataEntity+CoreDataProperties.swift */,
+				4AA2A0AD275128730077573F /* CoreDataModel.xcdatamodeld */,
+				4AA2A0B12751297A0077573F /* DIContainer.swift */,
+				4AA2A0B3275129A60077573F /* CoreDataStack.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		4AF1D5FB272ACB3100E897B2 /* PlanetDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -1238,6 +1261,7 @@
 				4A4E47FB27204CD40047EE86 /* EntityViewController.swift in Sources */,
 				4AF1D617272B331200E897B2 /* StarshipDetailPresenterProtocol.swift in Sources */,
 				4A4E483C2725B1F70047EE86 /* MovieDetailViewControllerAssembler.swift in Sources */,
+				4AA2A0AF275128730077573F /* CoreDataModel.xcdatamodeld in Sources */,
 				4A9BE1A72729CDC300F0CD05 /* CharacterDetailPresenterProtocol.swift in Sources */,
 				4A1804FB2733FF9F00E77660 /* MovieImageRoute.swift in Sources */,
 				4AA2A04127482E490077573F /* StarshipDetailNetworkService.swift in Sources */,
@@ -1245,6 +1269,7 @@
 				4A1804EE2733FD0800E77660 /* EntityHTTPClient.swift in Sources */,
 				4AA2A0A3274E72980077573F /* FavoritesViewControllerAssembler.swift in Sources */,
 				4A3855F22736CF9E00E99451 /* PlanetViewControllerAssembler.swift in Sources */,
+				4AA2A0BF27513A350077573F /* CoreDataEntity+CoreDataClass.swift in Sources */,
 				4A1804E22733FB6F00E77660 /* SpinnerViewController.swift in Sources */,
 				4A4E47FE2720513C0047EE86 /* EntityRoute.swift in Sources */,
 				4A4E48042720557D0047EE86 /* StarshipViewModel.swift in Sources */,
@@ -1278,6 +1303,7 @@
 				4AA2A0342746E9160077573F /* MovieDetailNetworkService.swift in Sources */,
 				4AA2A09A274DA0D40077573F /* VehicleCoordinator.swift in Sources */,
 				4A4E4800272052ED0047EE86 /* CharacterViewModel.swift in Sources */,
+				4AA2A0B22751297A0077573F /* DIContainer.swift in Sources */,
 				4A4E47F5271D56A30047EE86 /* MovieDetailTableViewCell.swift in Sources */,
 				4A3855D827344C4900E99451 /* SpeciesResponse.swift in Sources */,
 				4A4E4745271217C20047EE86 /* TabBarCoordinator.swift in Sources */,
@@ -1295,6 +1321,7 @@
 				4A3855D627344BAE00E99451 /* PlanetResponse.swift in Sources */,
 				4A38561627370F1800E99451 /* VehiclePresenter.swift in Sources */,
 				4A4E4811272063AF0047EE86 /* CharacterViewControllerAssembler.swift in Sources */,
+				4AA2A0B4275129A60077573F /* CoreDataStack.swift in Sources */,
 				4A4E4806272056B20047EE86 /* VehicleViewModel.swift in Sources */,
 				4A3855E12736A5F300E99451 /* EntityContainerViewController.swift in Sources */,
 				4A3856062736FC0D00E99451 /* StarshipViewControllerAssembler.swift in Sources */,
@@ -1327,6 +1354,7 @@
 				4A4E47F7272045860047EE86 /* ViewControllerAssemblerProtocol.swift in Sources */,
 				4A1804F92733FEE300E77660 /* MovieRoute.swift in Sources */,
 				4A1804F62733FE6300E77660 /* MovieResponse.swift in Sources */,
+				4AA2A0C027513A350077573F /* CoreDataEntity+CoreDataProperties.swift in Sources */,
 				4AF1D60C272ADDB300E897B2 /* SpeciesDetailPresenter.swift in Sources */,
 				4A1804FD2733FFD900E77660 /* MovieNetworkService.swift in Sources */,
 				4AA2A00B27399DC50077573F /* EntityDetailHTTPClientProtocol.swift in Sources */,
@@ -1615,6 +1643,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4AA2A0AD275128730077573F /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4AA2A0AE275128730077573F /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 4AA2A0AE275128730077573F /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4A25C64A2711CF9300EC8398 /* Project object */;
 }
