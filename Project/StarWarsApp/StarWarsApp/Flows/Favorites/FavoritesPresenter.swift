@@ -5,7 +5,6 @@
 //  Created by Aleksandr Fetisov on 24.11.2021.
 //
 
-import Foundation
 import CoreData
 import UIKit
 
@@ -40,6 +39,10 @@ class FavoritesPresenter: FavoritesPresenterProtocol {
         guard let objects = frc.fetchedObjects else { return }
         let models = objects.map { EntityShortViewModel(name: $0.name ?? "", image: UIImage(data: $0.image ?? Data()))}
         viewModel = models
+    }
+
+    func removeAll() {
+        coreDataStack.deleteAll()
     }
 
 }

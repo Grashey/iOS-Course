@@ -26,13 +26,13 @@ class CharacterDetailViewController: SpinnerManager {
     }(UITableView())
 
     lazy var favoriteButton: UIButton = {
-        $0.frame = CGRect(x: .zero, y: .zero, width: 45, height: 45)
-        $0.addTarget(self, action: #selector(operate), for: .touchUpInside)
+        $0.frame = CGRect(x: .zero, y: .zero, width: 30, height: 30)
+        $0.addTarget(self, action: #selector(operateFavorites), for: .touchUpInside)
         return $0
     }(UIButton())
 
     lazy var favoriteButtonView: UIView = {
-        $0.frame = CGRect(x: .zero, y: .zero, width: 45, height: 45)
+        $0.frame = CGRect(x: .zero, y: .zero, width: 30, height: 30)
         $0.addSubview(favoriteButton)
         return $0
     }(UIView())
@@ -48,12 +48,17 @@ class CharacterDetailViewController: SpinnerManager {
         makeFavoritesButton()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.checkIsFavorite()
+    }
+
     private func makeFavoritesButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: favoriteButtonView)
         switchRightBarButtonItemImage()
     }
 
-    @objc func operate() {
+    @objc func operateFavorites() {
         presenter?.operateFavorites()
     }
 

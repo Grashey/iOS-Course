@@ -16,7 +16,7 @@ class StarshipDetailPresenter: StarshipDetailPresenterProtocol {
     var specs = [[EntityShortViewModel]]()
     private var titles = [String]()
     private let service = StarshipDetailNetworkService()
-    private let coreDataStack = Container.shared.coreDataStack
+    private let dataService: DataKeeperProtocol
     var isSaved = false {
         didSet {
             guard oldValue != isSaved else { return }
@@ -24,10 +24,12 @@ class StarshipDetailPresenter: StarshipDetailPresenterProtocol {
         }
     }
 
+    init(dataService: DataKeeperProtocol = Container.shared.coreDataStack) {
+        self.dataService = dataService
+    }
+
     func getData() {
-        if let entity = self.entity {
-            isSaved = coreDataStack.check(name: entity.name)
-        }
+        checkIsFavorite()
         viewController?.isLoading = true
         prepareSpecs()
         model = makeModel()
@@ -155,11 +157,17 @@ class StarshipDetailPresenter: StarshipDetailPresenterProtocol {
         guard let model = model else { return }
         if !isSaved {
             guard let imageData = model.image?.pngData() else { return }
-            coreDataStack.addEntity(name: model.name, type: Constants.Entity.starships, imageData: imageData)
+            dataService.addEntity(name: model.name, type: Constants.Entity.starships, imageData: imageData)
             isSaved = true
         } else {
-            coreDataStack.delete(name: model.name)
+            dataService.delete(name: model.name)
             isSaved = false
+        }
+    }
+
+    func checkIsFavorite() {
+        if let entity = self.entity {
+            isSaved = dataService.check(name: entity.name)
         }
     }
 }

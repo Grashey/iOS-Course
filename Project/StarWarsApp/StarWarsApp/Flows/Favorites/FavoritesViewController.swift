@@ -29,6 +29,11 @@ class FavoritesViewController: SpinnerManager {
         if let image = UIImage(named: Constants.ImageName.backgroundImage) {
             collectionView.backgroundView = UIImageView(image: image)
         }
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Remove All", style: .plain, target: self, action: #selector(removeAll))
+    }
+
+    @objc func removeAll() {
+        presenter?.removeAll()
     }
 
 }

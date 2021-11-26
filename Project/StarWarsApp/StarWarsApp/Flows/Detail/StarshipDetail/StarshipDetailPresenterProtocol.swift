@@ -17,4 +17,5 @@ protocol StarshipDetailPresenterProtocol {
     func getData()
     func getLabelTitleFor(section: Int) -> String
     func operateFavorites()
+    func checkIsFavorite()
 }

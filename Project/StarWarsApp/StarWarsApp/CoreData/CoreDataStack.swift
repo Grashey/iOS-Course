@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class CoreDataStack {
+class CoreDataStack: DataKeeperProtocol {
 
     private let container: NSPersistentContainer
 
@@ -47,16 +47,8 @@ class CoreDataStack {
                                                object: self.backgroundContext)
     }
 
-    func loadAll() {
-        container.loadPersistentStores { _, error in
-            if let error = error {
-                assertionFailure(error.localizedDescription)
-            }
-        }
-    }
-
     func check(name: String) -> Bool {
-        self.fetchRequest.predicate = .init(format: "name == '\(name)'")
+        fetchRequest.predicate = .init(format: "name == '\(name)'")
         var favorites = [CoreDataEntity]()
         backgroundContext.performAndWait {
             let result = try? fetchRequest.execute()
@@ -72,6 +64,7 @@ class CoreDataStack {
     }
 
     func deleteAll() {
+        fetchRequest.predicate = nil
         backgroundContext.performAndWait {
             let favorites = try? fetchRequest.execute()
             favorites?.forEach {

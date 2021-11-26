@@ -120,7 +120,7 @@
 		4AA2A0A3274E72980077573F /* FavoritesViewControllerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A0A2274E72980077573F /* FavoritesViewControllerAssembler.swift */; };
 		4AA2A0A6274E73290077573F /* FavoritesPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A0A5274E73290077573F /* FavoritesPresenterProtocol.swift */; };
 		4AA2A0A8274E74220077573F /* FavoritesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A0A7274E74220077573F /* FavoritesCoordinator.swift */; };
-		4AA2A0AA274E778B0077573F /* DataKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A0A9274E778B0077573F /* DataKeeper.swift */; };
+		4AA2A0AA274E778B0077573F /* DataKeeperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A0A9274E778B0077573F /* DataKeeperProtocol.swift */; };
 		4AA2A0AF275128730077573F /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A0AD275128730077573F /* CoreDataModel.xcdatamodeld */; };
 		4AA2A0B22751297A0077573F /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A0B12751297A0077573F /* DIContainer.swift */; };
 		4AA2A0B4275129A60077573F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A0B3275129A60077573F /* CoreDataStack.swift */; };
@@ -270,7 +270,7 @@
 		4AA2A0A2274E72980077573F /* FavoritesViewControllerAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewControllerAssembler.swift; sourceTree = "<group>"; };
 		4AA2A0A5274E73290077573F /* FavoritesPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenterProtocol.swift; sourceTree = "<group>"; };
 		4AA2A0A7274E74220077573F /* FavoritesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinator.swift; sourceTree = "<group>"; };
-		4AA2A0A9274E778B0077573F /* DataKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataKeeper.swift; sourceTree = "<group>"; };
+		4AA2A0A9274E778B0077573F /* DataKeeperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataKeeperProtocol.swift; sourceTree = "<group>"; };
 		4AA2A0AE275128730077573F /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		4AA2A0B12751297A0077573F /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		4AA2A0B3275129A60077573F /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -649,7 +649,7 @@
 				4A4E47422712170D0047EE86 /* RootCoordinator.swift */,
 				4A4E47F6272045860047EE86 /* ViewControllerAssemblerProtocol.swift */,
 				4AA2A013273B115F0077573F /* MoviePosterKeeper.swift */,
-				4AA2A0A9274E778B0077573F /* DataKeeper.swift */,
+				4AA2A0A9274E778B0077573F /* DataKeeperProtocol.swift */,
 				4A1804E62733FC7200E77660 /* NetworkService */,
 			);
 			path = Core;
@@ -1358,7 +1358,7 @@
 				4AF1D60C272ADDB300E897B2 /* SpeciesDetailPresenter.swift in Sources */,
 				4A1804FD2733FFD900E77660 /* MovieNetworkService.swift in Sources */,
 				4AA2A00B27399DC50077573F /* EntityDetailHTTPClientProtocol.swift in Sources */,
-				4AA2A0AA274E778B0077573F /* DataKeeper.swift in Sources */,
+				4AA2A0AA274E778B0077573F /* DataKeeperProtocol.swift in Sources */,
 				4AA2A0452748324D0077573F /* VehicleDetailNetworkService.swift in Sources */,
 				4A3855F52736CFEE00E99451 /* PlanetPresenter.swift in Sources */,
 			);
