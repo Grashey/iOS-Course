@@ -29,6 +29,7 @@ class VehicleDetailTableViewCell: UITableViewCell {
     private let titleColor: UIColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
 
     private lazy var iconImageView: UIImageView = {
+        $0.image = UIImage(named: Constants.ImageName.defaultIcon)
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UIImageView())

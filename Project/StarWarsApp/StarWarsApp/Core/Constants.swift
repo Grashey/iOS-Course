@@ -22,6 +22,7 @@ enum Constants {
     }
 
     enum ImageName {
+        static let defaultIcon = "iconDefault"
         static let menuIcon = "iconMenu"
         static let backgroundImage = "backgroundLayer"
         static let characters = "iconCharacters"
