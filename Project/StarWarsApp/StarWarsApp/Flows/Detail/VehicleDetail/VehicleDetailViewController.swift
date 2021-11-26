@@ -33,6 +33,25 @@ class VehicleDetailViewController: SpinnerManager {
         super.viewDidLoad()
 
         presenter?.getData()
+        makeFavoritesButton()
+    }
+
+    private func makeFavoritesButton() {
+        let menuButton = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(operate))
+        navigationItem.rightBarButtonItem = menuButton
+        switchRightBarButtonItemTitle()
+    }
+
+    @objc func operate() {
+        presenter?.operateFavorites()
+    }
+
+    func switchRightBarButtonItemTitle() {
+        if let isSaved = presenter?.isSaved, isSaved {
+            navigationItem.rightBarButtonItem?.title = "Remove"
+        } else {
+            navigationItem.rightBarButtonItem?.title = "Add"
+        }
     }
 
 }

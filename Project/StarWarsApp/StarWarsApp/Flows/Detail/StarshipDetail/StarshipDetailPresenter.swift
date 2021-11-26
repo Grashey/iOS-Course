@@ -16,8 +16,18 @@ class StarshipDetailPresenter: StarshipDetailPresenterProtocol {
     var specs = [[EntityShortViewModel]]()
     private var titles = [String]()
     private let service = StarshipDetailNetworkService()
+    private let coreDataStack = Container.shared.coreDataStack
+    var isSaved = false {
+        didSet {
+            guard oldValue != isSaved else { return }
+            viewController?.switchRightBarButtonItemTitle()
+        }
+    }
 
     func getData() {
+        if let entity = self.entity {
+            isSaved = coreDataStack.check(name: entity.name)
+        }
         viewController?.isLoading = true
         prepareSpecs()
         model = makeModel()
@@ -139,5 +149,17 @@ class StarshipDetailPresenter: StarshipDetailPresenterProtocol {
 
     func getLabelTitleFor(section: Int) -> String {
         return titles[section]
+    }
+
+    func operateFavorites() {
+        guard let model = model else { return }
+        if !isSaved {
+            guard let imageData = model.image?.pngData() else { return }
+            coreDataStack.addEntity(name: model.name, type: Constants.Entity.starships, imageData: imageData)
+            isSaved = true
+        } else {
+            coreDataStack.delete(name: model.name)
+            isSaved = false
+        }
     }
 }

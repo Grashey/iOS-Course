@@ -12,7 +12,9 @@ protocol PlanetDetailPresenterProtocol {
     var entity: PlanetData? { get set}
     var model: PlanetViewModel? {get}
     var specs: [[EntityShortViewModel]] {get}
+    var isSaved: Bool {get set}
 
     func getData()
     func getLabelTitleFor(section: Int) -> String
+    func operateFavorites()
 }

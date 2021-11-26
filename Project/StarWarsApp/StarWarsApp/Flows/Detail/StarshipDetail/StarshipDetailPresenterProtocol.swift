@@ -12,7 +12,9 @@ protocol StarshipDetailPresenterProtocol {
     var entity: StarshipData? { get set}
     var model: StarshipViewModel? {get}
     var specs: [[EntityShortViewModel]] {get}
+    var isSaved: Bool {get set}
 
     func getData()
     func getLabelTitleFor(section: Int) -> String
+    func operateFavorites()
 }

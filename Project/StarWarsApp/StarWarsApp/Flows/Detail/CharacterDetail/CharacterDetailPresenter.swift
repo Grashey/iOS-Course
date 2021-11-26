@@ -16,7 +16,7 @@ class CharacterDetailPresenter: CharacterDetailPresenterProtocol {
     var specs = [[EntityShortViewModel]]()
     private var titles = [String]()
     private let service = CharacterDetailNetworkService()
-    private let keeper = DataKeeper()
+    private let coreDataStack = Container.shared.coreDataStack
     var isSaved = false {
         didSet {
             guard oldValue != isSaved else { return }
@@ -25,14 +25,9 @@ class CharacterDetailPresenter: CharacterDetailPresenterProtocol {
     }
 
     func getData() {
-        guard let entity = entity else { return }
-        let array = keeper.load()
-        if array.contains(entity.name) {
-            isSaved = true
-        } else {
-            isSaved = false
+        if let entity = self.entity {
+            isSaved = coreDataStack.check(name: entity.name)
         }
-
         prepareSpecs()
         viewController?.isLoading = true
         getHomeworld()
@@ -240,14 +235,14 @@ class CharacterDetailPresenter: CharacterDetailPresenterProtocol {
     }
 
     func operateFavorites() {
-        guard let entity = entity else { return }
-        let array = keeper.load()
-        if array.contains(entity.name) {
-            keeper.remove(model: entity.name)
-            isSaved = false
-        } else {
-            keeper.save(model: entity.name)
+        guard let model = model else { return }
+        if !isSaved {
+            guard let imageData = model.image?.pngData() else { return }
+            coreDataStack.addEntity(name: model.name, type: Constants.Entity.characters, imageData: imageData)
             isSaved = true
+        } else {
+            coreDataStack.delete(name: model.name)
+            isSaved = false
         }
     }
 }

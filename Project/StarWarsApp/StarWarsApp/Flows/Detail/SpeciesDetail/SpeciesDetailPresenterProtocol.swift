@@ -12,7 +12,9 @@ protocol SpeciesDetailPresenterProtocol {
     var entity: SpeciesData? { get set}
     var model: SpeciesViewModel? {get}
     var specs: [[EntityShortViewModel]] {get}
+    var isSaved: Bool {get set}
 
     func getData()
     func getLabelTitleFor(section: Int) -> String
+    func operateFavorites()
 }

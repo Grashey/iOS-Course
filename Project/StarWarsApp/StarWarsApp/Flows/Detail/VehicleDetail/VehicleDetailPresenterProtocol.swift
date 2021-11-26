@@ -12,7 +12,9 @@ protocol VehicleDetailPresenterProtocol {
     var entity: VehicleData? { get set}
     var model: VehicleViewModel? {get}
     var specs: [[EntityShortViewModel]] {get}
+    var isSaved: Bool {get set}
 
     func getData()
     func getLabelTitleFor(section: Int) -> String
+    func operateFavorites()
 }
