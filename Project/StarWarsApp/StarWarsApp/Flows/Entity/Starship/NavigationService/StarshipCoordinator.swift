@@ -33,6 +33,7 @@ class StarshipCoordinator {
         child.didMove(toParent: parent)
 
         child.onDetails = { entity in
+            self.vcAssembler = StarshipDetailViewControllerAssembler()
             guard let detailsVC = self.vcAssembler.create() as? StarshipDetailViewController else { return }
             detailsVC.presenter?.entity = entity as? StarshipData
             child.navigationController?.pushViewController(detailsVC, animated: true)

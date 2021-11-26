@@ -34,6 +34,7 @@ class PlanetCoordinator {
         child.didMove(toParent: parent)
 
         child.onDetails = { entity in
+            self.vcAssembler = PlanetDetailViewControllerAssembler()
             guard let detailsVC = self.vcAssembler.create() as? PlanetDetailViewController else { return }
             detailsVC.presenter?.entity = entity as? PlanetData
             child.navigationController?.pushViewController(detailsVC, animated: true)
