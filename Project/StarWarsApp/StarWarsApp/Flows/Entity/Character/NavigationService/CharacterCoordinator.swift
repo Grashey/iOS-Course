@@ -34,7 +34,6 @@ class CharacterCoordinator {
 
         child.onDetails = { entity in
             guard let detailsVC = CharacterDetailViewControllerAssembler().create() as? CharacterDetailViewController else { return }
-
             detailsVC.presenter?.entity = entity as? CharacterData
             child.navigationController?.pushViewController(detailsVC, animated: true)
         }

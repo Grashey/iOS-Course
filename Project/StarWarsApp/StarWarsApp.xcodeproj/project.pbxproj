@@ -102,7 +102,6 @@
 		4AA2A020273D118F0077573F /* SfDistantGalaxy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4AA2A01F273D118F0077573F /* SfDistantGalaxy.ttf */; };
 		4AA2A022273D31070077573F /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A021273D31070077573F /* DetailTableViewCell.swift */; };
 		4AA2A024273D372E0077573F /* CharacterDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A023273D372E0077573F /* CharacterDetailTableViewCell.swift */; };
-		4AA2A02F27466EEE0077573F /* EntityCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A02E27466EEE0077573F /* EntityCollectionLayout.swift */; };
 		4AA2A0342746E9160077573F /* MovieDetailNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A0332746E9160077573F /* MovieDetailNetworkService.swift */; };
 		4AA2A039274811C40077573F /* PlanetDetailNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A038274811C40077573F /* PlanetDetailNetworkService.swift */; };
 		4AA2A03D2748254E0077573F /* SpeciesDetailNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2A03C2748254E0077573F /* SpeciesDetailNetworkService.swift */; };
@@ -251,7 +250,6 @@
 		4AA2A01F273D118F0077573F /* SfDistantGalaxy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SfDistantGalaxy.ttf; sourceTree = "<group>"; };
 		4AA2A021273D31070077573F /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		4AA2A023273D372E0077573F /* CharacterDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailTableViewCell.swift; sourceTree = "<group>"; };
-		4AA2A02E27466EEE0077573F /* EntityCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityCollectionLayout.swift; sourceTree = "<group>"; };
 		4AA2A0332746E9160077573F /* MovieDetailNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailNetworkService.swift; sourceTree = "<group>"; };
 		4AA2A038274811C40077573F /* PlanetDetailNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailNetworkService.swift; sourceTree = "<group>"; };
 		4AA2A03C2748254E0077573F /* SpeciesDetailNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesDetailNetworkService.swift; sourceTree = "<group>"; };
@@ -790,7 +788,6 @@
 			children = (
 				4A4E4826272343B00047EE86 /* EntityCollectionViewCell.swift */,
 				4A9BE1A02729C5B600F0CD05 /* EntityCollectionView.swift */,
-				4AA2A02E27466EEE0077573F /* EntityCollectionLayout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1285,7 +1282,6 @@
 				4AA2A01A273BF0AB0077573F /* AvatarView.swift in Sources */,
 				4AA2A00D27399F740077573F /* EntityDetailHTTPClient.swift in Sources */,
 				4A3855DF27344E6900E99451 /* CharacterNetworkService.swift in Sources */,
-				4AA2A02F27466EEE0077573F /* EntityCollectionLayout.swift in Sources */,
 				4AF1D601272ACCBB00E897B2 /* PlanetDetailViewControllerAssembler.swift in Sources */,
 				4A9BE1A12729C5B600F0CD05 /* EntityCollectionView.swift in Sources */,
 				4AF1D604272ACD0900E897B2 /* PlanetDetailTableViewCell.swift in Sources */,

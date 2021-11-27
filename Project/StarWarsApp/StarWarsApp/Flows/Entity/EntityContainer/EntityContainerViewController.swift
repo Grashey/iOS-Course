@@ -58,7 +58,6 @@ class EntityContainerViewController: UIViewController {
     }
 
     private func showMenuController() {
-        // TODO: написать custom presentation controller
         menuContainerView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(menuContainerView)
 
