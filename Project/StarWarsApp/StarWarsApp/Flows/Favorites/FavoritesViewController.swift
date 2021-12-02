@@ -8,10 +8,9 @@
 import UIKit
 import CoreData
 
-class FavoritesViewController: SpinnerManager {
+class FavoritesViewController: UIViewController {
 
     var presenter: FavoritesPresenterProtocol?
-    var onDetails: ((TransferDataProtocol) -> Void)?
 
     lazy var collectionView = EntityCollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
 
@@ -24,7 +23,6 @@ class FavoritesViewController: SpinnerManager {
         presenter?.getData()
         navigationItem.title = Constants.TabBarTitle.favorites
         collectionView.dataSource = self
-        collectionView.delegate = self
         collectionView.register(EntityCollectionViewCell.self, forCellWithReuseIdentifier: EntityCollectionViewCell.description())
         if let image = UIImage(named: Constants.ImageName.backgroundImage) {
             collectionView.backgroundView = UIImageView(image: image)
@@ -56,22 +54,6 @@ extension FavoritesViewController: UICollectionViewDataSource {
             }
         }
         return cell
-    }
-}
-
-extension FavoritesViewController: UICollectionViewDelegate {
-
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let model = presenter?.viewModel[indexPath.item] else { return }
-        guard let entity = presenter?.makeEntity(name: model.name) else { return }
-        onDetails?(entity)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let count = presenter?.viewModel.count else { return }
-        if indexPath.item == count - 1, !isLoading {
-            presenter?.getData()
-        }
     }
 }
 

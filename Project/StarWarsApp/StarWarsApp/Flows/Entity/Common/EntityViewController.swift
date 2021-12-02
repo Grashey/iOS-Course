@@ -31,6 +31,18 @@ class EntityViewController: SpinnerManager {
         presenter?.getData()
     }
 
+    func reloadView() {
+        collectionView.reloadData()
+    }
+
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: Constants.AlertTitle.message,
+                                      message: message,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: Constants.AlertTitle.okey, style: .default, handler: nil))
+        present(alert, animated: true)
+    }
+
 }
 
 extension EntityViewController: UICollectionViewDataSource {

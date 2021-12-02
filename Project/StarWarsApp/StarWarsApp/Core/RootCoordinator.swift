@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RootCoordinator {
+class RootCoordinator: CoordinatorProtocol {
 
     let window: UIWindow?
 

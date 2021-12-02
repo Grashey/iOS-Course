@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SpeciesCoordinator {
+class SpeciesCoordinator: CoordinatorProtocol {
 
     private var navigationController: UINavigationController
     private var vcAssembler: ViewControllerAssemblerProtocol

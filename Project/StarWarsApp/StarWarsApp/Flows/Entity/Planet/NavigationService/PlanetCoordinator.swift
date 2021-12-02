@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PlanetCoordinator {
+class PlanetCoordinator: CoordinatorProtocol {
 
     private var navigationController: UINavigationController
     private var vcAssembler: ViewControllerAssemblerProtocol

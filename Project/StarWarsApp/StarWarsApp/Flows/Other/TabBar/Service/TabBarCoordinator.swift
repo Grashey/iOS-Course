@@ -11,7 +11,7 @@ class TabBarCoordinator {
 
     var window: UIWindow?
     let controller = TabBarController()
-    lazy var movieCoordinator = MovieCoordinator(navigationController: controller.movieNavigation)
+    lazy var movieCoordinator = MovieCoordinator(navigationController: controller.movieNavigation, vcAssembler: MovieViewControllerAssembler())
     lazy var entityCoordinator = EntityContainerCoordinator(navigationController: controller.entityNavigation)
     lazy var favoritesCoordinator = FavoritesCoordinator(navigationController: controller.favoritesNavigation)
 

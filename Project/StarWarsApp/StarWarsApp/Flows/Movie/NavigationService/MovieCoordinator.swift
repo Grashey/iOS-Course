@@ -7,14 +7,14 @@
 
 import UIKit
 
-class MovieCoordinator {
+class MovieCoordinator: CoordinatorProtocol {
 
     private var navigationController: UINavigationController
     private var vcAssembler: ViewControllerAssemblerProtocol
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, vcAssembler: ViewControllerAssemblerProtocol) {
         self.navigationController = navigationController
-        vcAssembler = MovieViewControllerAssembler()
+        self.vcAssembler = vcAssembler
     }
 
     func start() {

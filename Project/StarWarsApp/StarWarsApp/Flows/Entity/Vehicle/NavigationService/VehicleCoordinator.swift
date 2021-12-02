@@ -7,7 +7,7 @@
 
 import UIKit
 
-class VehicleCoordinator {
+class VehicleCoordinator: CoordinatorProtocol {
 
     private var navigationController: UINavigationController
     private var vcAssembler: ViewControllerAssemblerProtocol

@@ -7,7 +7,12 @@
 
 import Foundation
 
-class CharacterNetworkService {
+protocol CharacterNetworkServiceProtocol {
+
+    func fetchCharacters(pageIndex: Int, completion: @escaping (Result<CharacterResponse, NetworkServiceError>) -> Void)
+}
+
+class CharacterNetworkService: CharacterNetworkServiceProtocol {
 
     private let httpClient: EntityHTTPClientProtocol
 

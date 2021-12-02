@@ -7,7 +7,16 @@
 
 import Foundation
 
-class MovieDetailNetworkService {
+protocol MovieDetailNetworkServiceProtocol {
+
+    func fetchCharacter(index: String, completion: @escaping (Result<CharacterData, NetworkServiceError>) -> Void)
+    func fetchPlanet(index: String, completion: @escaping (Result<PlanetData, NetworkServiceError>) -> Void)
+    func fetchSpecies(index: String, completion: @escaping (Result<SpeciesData, NetworkServiceError>) -> Void)
+    func fetchStarship(index: String, completion: @escaping (Result<StarshipData, NetworkServiceError>) -> Void)
+    func fetchVehicle(index: String, completion: @escaping (Result<VehicleData, NetworkServiceError>) -> Void)
+}
+
+class MovieDetailNetworkService: MovieDetailNetworkServiceProtocol {
 
     private let entityHttpClient: EntityDetailHTTPClientProtocol
 

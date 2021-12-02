@@ -7,10 +7,10 @@
 
 import UIKit
 
-class FavoritesCoordinator {
+class FavoritesCoordinator: CoordinatorProtocol {
 
     private var navigationController: UINavigationController
-    private var vcAssembler: ViewControllerAssemblerProtocol
+    var vcAssembler: ViewControllerAssemblerProtocol
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController

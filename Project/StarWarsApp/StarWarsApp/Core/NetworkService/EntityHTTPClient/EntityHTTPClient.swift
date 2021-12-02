@@ -22,9 +22,13 @@ class EntityHTTPClient: EntityHTTPClientProtocol {
             do {
                 let data = try self.httpResponse(data: rawData, response: response)
                 let decoded = try self.decoder.decode(ResponseType.self, from: data)
-                completion(.success(decoded))
+                DispatchQueue.main.async {
+                    completion(.success(decoded))
+                }
             } catch {
-                completion(.failure(error as? NetworkServiceError ?? .decodable))
+                DispatchQueue.main.async {
+                    completion(.failure(error as? NetworkServiceError ?? .decodable))
+                }
             }
         }
 
@@ -32,7 +36,9 @@ class EntityHTTPClient: EntityHTTPClientProtocol {
             let request: URLRequest = try makeRequest(route: route, page: page)
             session.dataTask(with: request, completionHandler: handler).resume()
         } catch {
-            completion(.failure(error as? NetworkServiceError ?? .unknown))
+            DispatchQueue.main.async {
+                completion(.failure(error as? NetworkServiceError ?? .unknown))
+            }
         }
 
     }

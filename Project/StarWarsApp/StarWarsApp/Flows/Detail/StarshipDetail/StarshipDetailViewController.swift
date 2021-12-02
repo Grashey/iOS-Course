@@ -70,6 +70,23 @@ class StarshipDetailViewController: SpinnerManager {
         }
     }
 
+    func reloadTable() {
+        self.tableView.reloadData()
+    }
+
+    func reloadCell(index: Int) {
+        let indexPath = IndexPath(row: .zero, section: index)
+        self.tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: Constants.AlertTitle.message,
+                                      message: message,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: Constants.AlertTitle.okey, style: .default, handler: nil))
+        present(alert, animated: true)
+    }
+
 }
 
 extension StarshipDetailViewController: UITableViewDataSource {

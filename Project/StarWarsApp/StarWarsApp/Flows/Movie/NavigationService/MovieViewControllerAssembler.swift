@@ -11,7 +11,7 @@ class MovieViewControllerAssembler: ViewControllerAssemblerProtocol {
 
     func create() -> UIViewController {
         let controller = MovieViewController()
-        let presenter = MoviePresenter()
+        let presenter = MoviePresenter(networkService: MovieNetworkService(), imageKeeper: MoviePosterKeeper())
         controller.presenter = presenter
         presenter.viewController = controller
         return controller

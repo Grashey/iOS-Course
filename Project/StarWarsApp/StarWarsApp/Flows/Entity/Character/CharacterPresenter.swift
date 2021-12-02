@@ -26,32 +26,22 @@ class CharacterPresenter: EntityPresenterProtocol {
 
         service.fetchCharacters(pageIndex: pageIndex) { [weak self] result in
             guard let self = self else { return }
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let data):
-                    self.characters.append(contentsOf: data.results)
-                    guard let image = UIImage(named: Constants.ImageName.characters) else { return }
-                    self.viewModel = self.characters.map { EntityShortViewModel(name: $0.name, image: image) }
-                    self.viewController?.collectionView.reloadData()
-                    self.pageIndex = self.makeIndex(from: data.next)
-                case .failure(let error):
-                    self.showAlert(message: error.message)
-                }
-                self.viewController?.isLoading = false
+            switch result {
+            case .success(let data):
+                self.characters.append(contentsOf: data.results)
+                guard let image = UIImage(named: Constants.ImageName.characters) else { return }
+                self.viewModel = self.characters.map { EntityShortViewModel(name: $0.name, image: image) }
+                self.viewController?.reloadView()
+                self.pageIndex = self.makeIndex(from: data.next)
+            case .failure(let error):
+                self.viewController?.showAlert(message: error.message)
             }
+            self.viewController?.isLoading = false
         }
     }
 
     func makeEntity(name: String) -> TransferDataProtocol? {
         return characters.filter({ $0.name == name }).first
-    }
-
-    private func showAlert(message: String) {
-        let alert = UIAlertController(title: Constants.AlertTitle.message,
-                                      message: message,
-                                      preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: Constants.AlertTitle.okey, style: .default, handler: nil))
-        viewController?.present(alert, animated: true)
     }
 
     private func makeIndex(from string: String?) -> Int? {

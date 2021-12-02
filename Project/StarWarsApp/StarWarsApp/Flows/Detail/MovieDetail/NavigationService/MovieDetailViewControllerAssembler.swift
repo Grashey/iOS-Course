@@ -11,7 +11,7 @@ class MovieDetailViewControllerAssembler: ViewControllerAssemblerProtocol {
 
     func create() -> UIViewController {
         let controller = MovieDetailViewController()
-        let presenter = MovieDetailPresenter()
+        let presenter = MovieDetailPresenter(networkService: MovieDetailNetworkService())
         controller.presenter = presenter
         presenter.viewController = controller
         return controller

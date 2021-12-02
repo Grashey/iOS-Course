@@ -7,7 +7,15 @@
 
 import UIKit
 
-class MovieViewController: SpinnerManager {
+protocol MovieViewControllerProtocol: AnyObject {
+
+    var isLoading: Bool {get set}
+    func reloadTable()
+    func reloadCell(index: Int)
+    func showAlert(message: String)
+}
+
+class MovieViewController: SpinnerManager, MovieViewControllerProtocol {
 
     var presenter: MoviePresenterProtocol?
 
@@ -38,12 +46,20 @@ class MovieViewController: SpinnerManager {
     }
 
     func reloadTable() {
-        tableView.reloadData()
+        self.tableView.reloadData()
     }
 
     func reloadCell(index: Int) {
         let indexPath = IndexPath(row: index, section: .zero)
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        self.tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: Constants.AlertTitle.message,
+                                      message: message,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: Constants.AlertTitle.okey, style: .default, handler: nil))
+        self.present(alert, animated: true)
     }
 
 }

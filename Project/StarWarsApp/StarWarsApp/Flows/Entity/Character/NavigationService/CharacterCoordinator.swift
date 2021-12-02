@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CharacterCoordinator {
+class CharacterCoordinator: CoordinatorProtocol {
 
     private var navigationController: UINavigationController
     private var vcAssembler: ViewControllerAssemblerProtocol

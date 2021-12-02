@@ -14,7 +14,7 @@ struct MovieResponse: Decodable {
     let results: [MovieData]
 }
 
-struct MovieData: Decodable {
+struct MovieData: Decodable, Equatable {
     let episodeId: Int
     let title: String
     let openingCrawl: String

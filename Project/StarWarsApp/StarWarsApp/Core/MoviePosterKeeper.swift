@@ -7,16 +7,22 @@
 
 import UIKit
 
-class MoviePosterKeeper {
+protocol ImageKeeperProtocol {
+
+    func saveImage(for model: MovieViewModel)
+    func getImage(for title: String) -> UIImage
+}
+
+class MoviePosterKeeper: ImageKeeperProtocol {
 
     private let defaults = UserDefaults.standard
 
-    func savePoster(for model: MovieViewModel) {
+    func saveImage(for model: MovieViewModel) {
         let data = model.image?.pngData()
         defaults.set(data, forKey: model.title)
     }
 
-    func loadPoster(for title: String) -> UIImage {
+    func getImage(for title: String) -> UIImage {
         if let data = defaults.object(forKey: title) as? Data, let poster = UIImage(data: data) {
             return poster
         }

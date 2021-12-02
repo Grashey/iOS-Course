@@ -7,7 +7,14 @@
 
 import Foundation
 
-class MovieNetworkService {
+protocol MovieNetworkServiceProtocol {
+
+    func fetchMovies(completion: @escaping (Result<MovieResponse, NetworkServiceError>) -> Void)
+
+    func fetchImage(for index: Int, completion: @escaping (Result<Data, NetworkServiceError>) -> Void)
+}
+
+class MovieNetworkService: MovieNetworkServiceProtocol {
 
     private let httpClient: MovieHTTPClientProtocol
     private let imageDataLoader: ImageDataLoaderProtocol

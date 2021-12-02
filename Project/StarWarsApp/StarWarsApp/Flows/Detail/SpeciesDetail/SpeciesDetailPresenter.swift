@@ -17,6 +17,7 @@ class SpeciesDetailPresenter: SpeciesDetailPresenterProtocol {
     private var titles = [String]()
     private let service = SpeciesDetailNetworkService()
     private let dataService: DataKeeperProtocol
+    private let keeper: ImageKeeperProtocol
     var isSaved = false {
         didSet {
             guard oldValue != isSaved else { return }
@@ -26,6 +27,7 @@ class SpeciesDetailPresenter: SpeciesDetailPresenterProtocol {
 
     init(dataService: DataKeeperProtocol = Container.shared.coreDataStack) {
         self.dataService = dataService
+        self.keeper = MoviePosterKeeper()
     }
 
     func getData() {
@@ -45,15 +47,13 @@ class SpeciesDetailPresenter: SpeciesDetailPresenterProtocol {
         let index = makeIndex(from: homeworld)
         self.service.fetchHomeworld(index: index) { [weak self] result in
             guard let self = self else { return }
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let data):
-                    self.model = self.makeModel(with: data.name)
-                    self.viewController?.tableView.reloadData()
-                    self.getFilms()
-                case .failure(let error):
-                    self.showAlert(message: error.message)
-                }
+            switch result {
+            case .success(let data):
+                self.model = self.makeModel(with: data.name)
+                self.viewController?.reloadTable()
+                self.getFilms()
+            case .failure(let error):
+                self.viewController?.showAlert(message: error.message)
             }
         }
     }
@@ -67,24 +67,20 @@ class SpeciesDetailPresenter: SpeciesDetailPresenterProtocol {
                 }
 
         let movieIndexes = entity.films.map { makeIndex(from: $0)}
-        let keeper = MoviePosterKeeper()
         movieIndexes.forEach { index in
             self.service.fetchMovie(index: index) { [weak self] result in
                 guard let self = self else { return }
-                DispatchQueue.main.async {
-                    switch result {
-                    case .success(let data):
-                        let image = keeper.loadPoster(for: data.title)
-                        let movie = EntityShortViewModel(name: data.title, image: image)
-                        self.specs[subIndex].append(movie)
-                        if index == movieIndexes.last {
-                            let indexPath = IndexPath(item: .zero, section: subIndex + 1)
-                            self.viewController?.tableView.reloadRows(at: [indexPath], with: .automatic)
-                            self.getCharacter()
-                        }
-                    case .failure(let error):
-                        self.showAlert(message: error.message)
+                switch result {
+                case .success(let data):
+                    let image = self.keeper.getImage(for: data.title)
+                    let movie = EntityShortViewModel(name: data.title, image: image)
+                    self.specs[subIndex].append(movie)
+                    if index == movieIndexes.last {
+                        self.viewController?.reloadCell(index: subIndex + 1)
+                        self.getCharacter()
                     }
+                case .failure(let error):
+                    self.viewController?.showAlert(message: error.message)
                 }
             }
         }
@@ -102,21 +98,18 @@ class SpeciesDetailPresenter: SpeciesDetailPresenterProtocol {
         characterIndexes.forEach { index in
             self.service.fetchCharacter(index: index) { [weak self] result in
                 guard let self = self else { return }
-                DispatchQueue.main.async {
-                    switch result {
-                    case .success(let data):
-                        let image = UIImage(named: Constants.ImageName.characters)
-                        let character = EntityShortViewModel(name: data.name, image: image)
-                        self.specs[subIndex].append(character)
-                        if index == characterIndexes.last {
-                            let indexPath = IndexPath(item: .zero, section: subIndex + 1)
-                            self.viewController?.tableView.reloadRows(at: [indexPath], with: .automatic)
-                            self.viewController?.isLoading = false
-                        }
-                    case .failure(let error):
+                switch result {
+                case .success(let data):
+                    let image = UIImage(named: Constants.ImageName.characters)
+                    let character = EntityShortViewModel(name: data.name, image: image)
+                    self.specs[subIndex].append(character)
+                    if index == characterIndexes.last {
+                        self.viewController?.reloadCell(index: subIndex + 1)
                         self.viewController?.isLoading = false
-                        self.showAlert(message: error.message)
                     }
+                case .failure(let error):
+                    self.viewController?.isLoading = false
+                    self.viewController?.showAlert(message: error.message)
                 }
             }
         }
@@ -143,14 +136,6 @@ class SpeciesDetailPresenter: SpeciesDetailPresenterProtocol {
         let components = string.components(separatedBy: "/")
         let index = components[components.count - 2]
         return index
-    }
-
-    private func showAlert(message: String) {
-        let alert = UIAlertController(title: Constants.AlertTitle.message,
-                                      message: message,
-                                      preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: Constants.AlertTitle.okey, style: .default, handler: nil))
-        viewController?.present(alert, animated: true)
     }
 
     private func prepareSpecs() {

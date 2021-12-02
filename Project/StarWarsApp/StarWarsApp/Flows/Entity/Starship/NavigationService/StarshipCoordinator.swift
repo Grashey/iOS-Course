@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StarshipCoordinator {
+class StarshipCoordinator: CoordinatorProtocol {
 
     private var navigationController: UINavigationController
     private var vcAssembler: ViewControllerAssemblerProtocol

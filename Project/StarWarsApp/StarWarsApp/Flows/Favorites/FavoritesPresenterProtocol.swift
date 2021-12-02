@@ -13,6 +13,5 @@ protocol FavoritesPresenterProtocol {
 
     func getData()
     func makeModels()
-    func makeEntity(name: String) -> TransferDataProtocol?
     func removeAll()
 }

@@ -19,7 +19,7 @@ class FavoritesPresenter: FavoritesPresenterProtocol {
         let request = NSFetchRequest<CoreDataEntity>(entityName: "CoreDataEntity")
         request.sortDescriptors = [.init(key: "entityType", ascending: true)]
         let frc = NSFetchedResultsController(fetchRequest: request,
-                                          managedObjectContext: Container.shared.coreDataStack.mainContext,
+                                          managedObjectContext: coreDataStack.mainContext,
                                           sectionNameKeyPath: nil,
                                           cacheName: nil)
         frc.delegate = viewController
@@ -29,10 +29,6 @@ class FavoritesPresenter: FavoritesPresenterProtocol {
     func getData() {
         try? frc.performFetch()
         makeModels()
-    }
-
-    func makeEntity(name: String) -> TransferDataProtocol? {
-        return nil
     }
 
     func makeModels() {

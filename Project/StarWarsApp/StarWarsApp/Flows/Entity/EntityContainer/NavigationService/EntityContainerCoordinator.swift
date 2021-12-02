@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EntityContainerCoordinator {
+class EntityContainerCoordinator: CoordinatorProtocol {
 
     private var navigationController: UINavigationController
     private lazy var characterCoordinator = CharacterCoordinator(navigationController: navigationController)
