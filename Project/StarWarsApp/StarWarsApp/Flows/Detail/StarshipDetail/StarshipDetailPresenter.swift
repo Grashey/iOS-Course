@@ -11,6 +11,11 @@ class StarshipDetailPresenter: StarshipDetailPresenterProtocol {
 
     weak var viewController: StarshipDetailViewController?
 
+    private enum Title {
+        static let movies = "Movies"
+        static let pilots = "Pilots"
+    }
+
     var entity: StarshipData?
     var model: StarshipViewModel?
     var specs = [[EntityShortViewModel]]()
@@ -127,11 +132,11 @@ class StarshipDetailPresenter: StarshipDetailPresenterProtocol {
 
         if !entity.films.isEmpty {
             count += 1
-            titles.append(Constants.TabBarTitle.movies)
+            titles.append(Title.movies)
         }
         if !entity.pilots.isEmpty {
             count += 1
-            titles.append(Constants.Entity.characters)
+            titles.append(Title.pilots)
         }
         specs = Array(repeating: [EntityShortViewModel](), count: count)
     }

@@ -11,6 +11,11 @@ class VehicleDetailPresenter: VehicleDetailPresenterProtocol {
 
     weak var viewController: VehicleDetailViewController?
 
+    private enum Title {
+        static let movies = "Movies"
+        static let pilots = "Pilots"
+    }
+
     var entity: VehicleData?
     var model: VehicleViewModel?
     var specs = [[EntityShortViewModel]]()
@@ -125,11 +130,11 @@ class VehicleDetailPresenter: VehicleDetailPresenterProtocol {
 
         if !entity.films.isEmpty {
             count += 1
-            titles.append(Constants.TabBarTitle.movies)
+            titles.append(Title.movies)
         }
         if !entity.pilots.isEmpty {
             count += 1
-            titles.append(Constants.Entity.characters)
+            titles.append(Title.pilots)
         }
         specs = Array(repeating: [EntityShortViewModel](), count: count)
     }

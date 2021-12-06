@@ -28,10 +28,20 @@ class FavoritesViewController: UIViewController {
             collectionView.backgroundView = UIImageView(image: image)
         }
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Remove All", style: .plain, target: self, action: #selector(removeAll))
+        switchButton()
     }
 
     @objc func removeAll() {
         presenter?.removeAll()
+    }
+
+    private func switchButton() {
+        guard let isEmpty = presenter?.viewModel.isEmpty else { return }
+        if isEmpty {
+            navigationItem.rightBarButtonItem?.isEnabled = false
+        } else {
+            navigationItem.rightBarButtonItem?.isEnabled = true
+        }
     }
 
 }
@@ -61,6 +71,7 @@ extension FavoritesViewController: NSFetchedResultsControllerDelegate {
 
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         presenter?.makeModels()
+        switchButton()
         collectionView.reloadData()
     }
 }

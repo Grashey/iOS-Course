@@ -11,6 +11,10 @@ class PlanetDetailPresenter: PlanetDetailPresenterProtocol {
 
     weak var viewController: PlanetDetailViewController?
 
+    private enum Title {
+        static let movies = "Movies"
+        static let residents = "Residents"
+    }
     var entity: PlanetData?
     var model: PlanetViewModel?
     var specs = [[EntityShortViewModel]]()
@@ -122,11 +126,11 @@ class PlanetDetailPresenter: PlanetDetailPresenterProtocol {
 
         if !entity.films.isEmpty {
             count += 1
-            titles.append(Constants.TabBarTitle.movies)
+            titles.append(Title.movies)
         }
         if !entity.residents.isEmpty {
             count += 1
-            titles.append(Constants.Entity.characters)
+            titles.append(Title.residents)
         }
         specs = Array(repeating: [EntityShortViewModel](), count: count)
     }

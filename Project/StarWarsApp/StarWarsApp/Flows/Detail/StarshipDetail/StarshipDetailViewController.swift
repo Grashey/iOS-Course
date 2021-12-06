@@ -127,7 +127,9 @@ extension StarshipDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch section {
         case .zero:
-            return nil
+            let view = UIView()
+            view.backgroundColor = .clear
+            return view
         default:
             let label = BaseLabel()
             label.font = UIFont(name: Constants.Fonts.font, size: 18)
