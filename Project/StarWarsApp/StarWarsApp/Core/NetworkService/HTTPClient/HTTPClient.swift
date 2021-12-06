@@ -1,13 +1,13 @@
 //
-//  MovieHTTPClient.swift
+//  HTTPClient.swift
 //  StarWarsApp
 //
-//  Created by Aleksandr Fetisov on 08.11.2021.
+//  Created by Aleksandr Fetisov on 06.12.2021.
 //
 
 import Foundation
 
-class MovieHTTPClient: MovieHTTPClientProtocol {
+class HTTPClient: HTTPClientProtocol {
 
     let session = URLSession(configuration: .default)
     typealias Handler = (Data?, URLResponse?, Error?) -> Void
@@ -16,14 +16,20 @@ class MovieHTTPClient: MovieHTTPClientProtocol {
         return $0
     }(JSONDecoder())
 
-    func request<ResponseType: Decodable>(for route: Route, completion: @escaping (Result<ResponseType, NetworkServiceError>) -> Void) {
+    func request<ResponseType: Decodable>(request: URLRequest, completion: @escaping (Result<ResponseType, NetworkServiceError>) -> Void) {
 
         let handler: Handler = { rawData, response, error in
             do {
-                let data = try self.httpResponse(data: rawData, response: response)
-                let decoded = try self.decoder.decode(ResponseType.self, from: data)
+                guard let data = rawData as? ResponseType else {
+                    let data = try self.httpResponse(data: rawData, response: response)
+                    let decoded = try self.decoder.decode(ResponseType.self, from: data)
+                    DispatchQueue.main.async {
+                        completion(.success(decoded))
+                    }
+                    return
+                }
                 DispatchQueue.main.async {
-                    completion(.success(decoded))
+                    completion(.success(data))
                 }
             } catch {
                 DispatchQueue.main.async {
@@ -31,15 +37,7 @@ class MovieHTTPClient: MovieHTTPClientProtocol {
                 }
             }
         }
-
-        do {
-            let request: URLRequest = try makeRequest(route: route)
-            session.dataTask(with: request, completionHandler: handler).resume()
-        } catch {
-            DispatchQueue.main.async {
-                completion(.failure(error as? NetworkServiceError ?? .unknown))
-            }
-        }
+        self.session.dataTask(with: request, completionHandler: handler).resume()
 
     }
 
@@ -59,11 +57,4 @@ class MovieHTTPClient: MovieHTTPClientProtocol {
         return data
     }
 
-    private func makeRequest(route: Route) throws -> URLRequest {
-        let components = URLComponents(string: route.makeURL())
-        guard let url = components?.url else { throw NetworkServiceError.wrongUrl }
-        var request = URLRequest(url: url)
-        request.httpMethod = route.method
-        return request
-    }
 }

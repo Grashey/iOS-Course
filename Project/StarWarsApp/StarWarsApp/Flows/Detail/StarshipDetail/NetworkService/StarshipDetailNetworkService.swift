@@ -9,17 +9,21 @@ import Foundation
 
 class StarshipDetailNetworkService {
 
-    private let entityHttpClient: EntityDetailHTTPClientProtocol
+    private let requestBuilder: RequestBuilderProtocol
+    private let httpClient: HTTPClientProtocol
 
-    init(entityHttpClient: EntityDetailHTTPClientProtocol = EntityDetailHTTPClient()) {
-        self.entityHttpClient = entityHttpClient
+    init(httpClient: HTTPClientProtocol = HTTPClient(), requestBuilder: RequestBuilderProtocol = RequestBuilder()) {
+        self.httpClient = httpClient
+        self.requestBuilder = requestBuilder
     }
 
     func fetchMovie(index: String, completion: @escaping (Result<MovieData, NetworkServiceError>) -> Void) {
-        entityHttpClient.request(for: MovieRoute.movies, index: index, completion: completion)
+        let request = requestBuilder.makeRequest(route: MovieRoute.movies, index: index, page: nil)
+        httpClient.request(request: request, completion: completion)
     }
 
     func fetchCharacter(index: String, completion: @escaping (Result<CharacterData, NetworkServiceError>) -> Void) {
-        entityHttpClient.request(for: EntityRoute.characters, index: index, completion: completion)
+        let request = requestBuilder.makeRequest(route: EntityRoute.characters, index: index, page: nil)
+        httpClient.request(request: request, completion: completion)
     }
 }

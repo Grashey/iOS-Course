@@ -9,13 +9,16 @@ import Foundation
 
 class StarshipNetworkService {
 
-    private let httpClient: EntityHTTPClientProtocol
+    private let requestBuilder: RequestBuilderProtocol
+    private let httpClient: HTTPClientProtocol
 
-    init(httpClient: EntityHTTPClientProtocol = EntityHTTPClient()) {
+    init(httpClient: HTTPClientProtocol = HTTPClient(), requestBuilder: RequestBuilderProtocol = RequestBuilder()) {
         self.httpClient = httpClient
+        self.requestBuilder = requestBuilder
     }
 
     func fetchStarships(pageIndex: Int, completion: @escaping (Result<StarshipResponse, NetworkServiceError>) -> Void) {
-        httpClient.request(for: EntityRoute.starships, page: pageIndex, completion: completion)
+        let request = requestBuilder.makeRequest(route: EntityRoute.starships, index: nil, page: pageIndex)
+        httpClient.request(request: request, completion: completion)
     }
 }

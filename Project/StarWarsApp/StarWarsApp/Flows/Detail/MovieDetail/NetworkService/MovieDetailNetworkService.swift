@@ -18,29 +18,36 @@ protocol MovieDetailNetworkServiceProtocol {
 
 class MovieDetailNetworkService: MovieDetailNetworkServiceProtocol {
 
-    private let entityHttpClient: EntityDetailHTTPClientProtocol
+    private let requestBuilder: RequestBuilderProtocol
+    private let httpClient: HTTPClientProtocol
 
-    init(entityHttpClient: EntityDetailHTTPClientProtocol = EntityDetailHTTPClient()) {
-        self.entityHttpClient = entityHttpClient
+    init(httpClient: HTTPClientProtocol = HTTPClient(), requestBuilder: RequestBuilderProtocol = RequestBuilder()) {
+        self.httpClient = httpClient
+        self.requestBuilder = requestBuilder
     }
 
     func fetchCharacter(index: String, completion: @escaping (Result<CharacterData, NetworkServiceError>) -> Void) {
-        entityHttpClient.request(for: EntityRoute.characters, index: index, completion: completion)
+        let request = requestBuilder.makeRequest(route: EntityRoute.characters, index: index, page: nil)
+        httpClient.request(request: request, completion: completion)
     }
 
     func fetchPlanet(index: String, completion: @escaping (Result<PlanetData, NetworkServiceError>) -> Void) {
-        entityHttpClient.request(for: EntityRoute.planets, index: index, completion: completion)
+        let request = requestBuilder.makeRequest(route: EntityRoute.planets, index: index, page: nil)
+        httpClient.request(request: request, completion: completion)
     }
 
     func fetchSpecies(index: String, completion: @escaping (Result<SpeciesData, NetworkServiceError>) -> Void) {
-        entityHttpClient.request(for: EntityRoute.species, index: index, completion: completion)
+        let request = requestBuilder.makeRequest(route: EntityRoute.species, index: index, page: nil)
+        httpClient.request(request: request, completion: completion)
     }
 
     func fetchStarship(index: String, completion: @escaping (Result<StarshipData, NetworkServiceError>) -> Void) {
-        entityHttpClient.request(for: EntityRoute.starships, index: index, completion: completion)
+        let request = requestBuilder.makeRequest(route: EntityRoute.starships, index: index, page: nil)
+        httpClient.request(request: request, completion: completion)
     }
 
     func fetchVehicle(index: String, completion: @escaping (Result<VehicleData, NetworkServiceError>) -> Void) {
-        entityHttpClient.request(for: EntityRoute.vehicles, index: index, completion: completion)
+        let request = requestBuilder.makeRequest(route: EntityRoute.vehicles, index: index, page: nil)
+        httpClient.request(request: request, completion: completion)
     }
 }

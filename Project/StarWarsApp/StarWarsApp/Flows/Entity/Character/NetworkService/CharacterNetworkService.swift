@@ -14,13 +14,16 @@ protocol CharacterNetworkServiceProtocol {
 
 class CharacterNetworkService: CharacterNetworkServiceProtocol {
 
-    private let httpClient: EntityHTTPClientProtocol
+    private let requestBuilder: RequestBuilderProtocol
+    private let httpClient: HTTPClientProtocol
 
-    init(httpClient: EntityHTTPClientProtocol = EntityHTTPClient()) {
+    init(httpClient: HTTPClientProtocol = HTTPClient(), requestBuilder: RequestBuilderProtocol = RequestBuilder()) {
         self.httpClient = httpClient
+        self.requestBuilder = requestBuilder
     }
 
     func fetchCharacters(pageIndex: Int, completion: @escaping (Result<CharacterResponse, NetworkServiceError>) -> Void) {
-        httpClient.request(for: EntityRoute.characters, page: pageIndex, completion: completion)
+        let request = requestBuilder.makeRequest(route: EntityRoute.characters, index: nil, page: pageIndex)
+        httpClient.request(request: request, completion: completion)
     }
 }

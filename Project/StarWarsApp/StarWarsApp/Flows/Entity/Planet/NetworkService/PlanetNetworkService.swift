@@ -9,13 +9,16 @@ import Foundation
 
 class PlanetNetworkService {
 
-    private let httpClient: EntityHTTPClientProtocol
+    private let requestBuilder: RequestBuilderProtocol
+    private let httpClient: HTTPClientProtocol
 
-    init(httpClient: EntityHTTPClientProtocol = EntityHTTPClient()) {
+    init(httpClient: HTTPClientProtocol = HTTPClient(), requestBuilder: RequestBuilderProtocol = RequestBuilder()) {
         self.httpClient = httpClient
+        self.requestBuilder = requestBuilder
     }
 
     func fetchPlanets(pageIndex: Int, completion: @escaping (Result<PlanetResponse, NetworkServiceError>) -> Void) {
-        httpClient.request(for: EntityRoute.planets, page: pageIndex, completion: completion)
+        let request = requestBuilder.makeRequest(route: EntityRoute.planets, index: nil, page: pageIndex)
+        httpClient.request(request: request, completion: completion)
     }
 }

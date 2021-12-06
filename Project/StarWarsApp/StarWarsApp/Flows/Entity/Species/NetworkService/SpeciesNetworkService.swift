@@ -9,13 +9,16 @@ import Foundation
 
 class SpeciesNetworkService {
 
-    private let httpClient: EntityHTTPClientProtocol
+    private let requestBuilder: RequestBuilderProtocol
+    private let httpClient: HTTPClientProtocol
 
-    init(httpClient: EntityHTTPClientProtocol = EntityHTTPClient()) {
+    init(httpClient: HTTPClientProtocol = HTTPClient(), requestBuilder: RequestBuilderProtocol = RequestBuilder()) {
         self.httpClient = httpClient
+        self.requestBuilder = requestBuilder
     }
 
     func fetchSpecies(pageIndex: Int, completion: @escaping (Result<SpeciesResponse, NetworkServiceError>) -> Void) {
-        httpClient.request(for: EntityRoute.species, page: pageIndex, completion: completion)
+        let request = requestBuilder.makeRequest(route: EntityRoute.species, index: nil, page: pageIndex)
+        httpClient.request(request: request, completion: completion)
     }
 }

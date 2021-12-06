@@ -16,16 +16,17 @@ protocol MovieNetworkServiceProtocol {
 
 class MovieNetworkService: MovieNetworkServiceProtocol {
 
-    private let httpClient: MovieHTTPClientProtocol
-    private let imageDataLoader: ImageDataLoaderProtocol
+    private let requestBuilder: RequestBuilderProtocol
+    private let httpClient: HTTPClientProtocol
 
-    init(httpClient: MovieHTTPClientProtocol = MovieHTTPClient(), imageDataLoader: ImageDataLoaderProtocol = ImageDataLoader()) {
+    init(httpClient: HTTPClientProtocol = HTTPClient(), requestBuilder: RequestBuilderProtocol = RequestBuilder()) {
         self.httpClient = httpClient
-        self.imageDataLoader = imageDataLoader
+        self.requestBuilder = requestBuilder
     }
 
     func fetchMovies(completion: @escaping (Result<MovieResponse, NetworkServiceError>) -> Void) {
-        httpClient.request(for: MovieRoute.movies, completion: completion)
+        let request = requestBuilder.makeRequest(route: MovieRoute.movies, index: nil, page: nil)
+        httpClient.request(request: request, completion: completion)
     }
 
     func fetchImage(for index: Int, completion: @escaping (Result<Data, NetworkServiceError>) -> Void) {
@@ -46,6 +47,7 @@ class MovieNetworkService: MovieNetworkServiceProtocol {
             imageRoute = MovieImageRoute.episodeSix
         default: return
         }
-        imageDataLoader.request(for: imageRoute, completion: completion)
+        let request = requestBuilder.makeRequest(route: imageRoute, index: nil, page: nil)
+        httpClient.request(request: request, completion: completion)
     }
 }

@@ -9,13 +9,16 @@ import Foundation
 
 class VehicleNetworkService {
 
-    private let httpClient: EntityHTTPClientProtocol
+    private let requestBuilder: RequestBuilderProtocol
+    private let httpClient: HTTPClientProtocol
 
-    init(httpClient: EntityHTTPClientProtocol = EntityHTTPClient()) {
+    init(httpClient: HTTPClientProtocol = HTTPClient(), requestBuilder: RequestBuilderProtocol = RequestBuilder()) {
         self.httpClient = httpClient
+        self.requestBuilder = requestBuilder
     }
 
     func fetchVehicles(pageIndex: Int, completion: @escaping (Result<VehicleResponse, NetworkServiceError>) -> Void) {
-        httpClient.request(for: EntityRoute.vehicles, page: pageIndex, completion: completion)
+        let request = requestBuilder.makeRequest(route: EntityRoute.vehicles, index: nil, page: pageIndex)
+        httpClient.request(request: request, completion: completion)
     }
 }
