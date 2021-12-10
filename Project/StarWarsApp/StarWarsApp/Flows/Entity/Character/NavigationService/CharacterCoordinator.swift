@@ -21,10 +21,10 @@ class CharacterCoordinator: CoordinatorProtocol {
         guard let child = vcAssembler.create() as? EntityViewController,
               let parent = navigationController.viewControllers.first else { return }
 
-        if let unwelcomeChild = parent.children.first {
-            unwelcomeChild.willMove(toParent: nil)
-            unwelcomeChild.view.removeFromSuperview()
-            unwelcomeChild.removeFromParent()
+        if let childToRemove = parent.children.first {
+            childToRemove.willMove(toParent: nil)
+            childToRemove.view.removeFromSuperview()
+            childToRemove.removeFromParent()
         }
 
         child.view.frame = parent.view.frame
@@ -32,10 +32,10 @@ class CharacterCoordinator: CoordinatorProtocol {
         parent.addChild(child)
         child.didMove(toParent: parent)
 
-        child.onDetails = { entity in
+        child.onDetails = { [weak child] entity in
             guard let detailsVC = CharacterDetailViewControllerAssembler().create() as? CharacterDetailViewController else { return }
             detailsVC.presenter?.entity = entity as? CharacterData
-            child.navigationController?.pushViewController(detailsVC, animated: true)
+            child?.navigationController?.pushViewController(detailsVC, animated: true)
         }
     }
 }

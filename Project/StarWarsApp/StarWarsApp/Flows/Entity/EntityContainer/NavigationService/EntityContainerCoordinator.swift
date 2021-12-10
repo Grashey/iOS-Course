@@ -10,11 +10,7 @@ import UIKit
 class EntityContainerCoordinator: CoordinatorProtocol {
 
     private var navigationController: UINavigationController
-    private lazy var characterCoordinator = CharacterCoordinator(navigationController: navigationController)
-    private lazy var planetCoordinator = PlanetCoordinator(navigationController: navigationController)
-    private lazy var speciesCoordinator = SpeciesCoordinator(navigationController: navigationController)
-    private lazy var starshipCoordinator = StarshipCoordinator(navigationController: navigationController)
-    private lazy var vehicleCoordinator = VehicleCoordinator(navigationController: navigationController)
+    private lazy var coordinator: CoordinatorProtocol = CharacterCoordinator(navigationController: navigationController)
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -26,11 +22,21 @@ class EntityContainerCoordinator: CoordinatorProtocol {
 
         controller.onEntity = { entity in
             switch entity {
-            case .characters: self.characterCoordinator.start()
-            case .planets: self.planetCoordinator.start()
-            case .species: self.speciesCoordinator.start()
-            case .starships: self.starshipCoordinator.start()
-            case .vehicles: self.vehicleCoordinator.start()
+            case .characters:
+                self.coordinator = CharacterCoordinator(navigationController: self.navigationController)
+                self.coordinator.start()
+            case .planets:
+                self.coordinator = PlanetCoordinator(navigationController: self.navigationController)
+                self.coordinator.start()
+            case .species:
+                self.coordinator = SpeciesCoordinator(navigationController: self.navigationController)
+                self.coordinator.start()
+            case .starships:
+                self.coordinator = StarshipCoordinator(navigationController: self.navigationController)
+                self.coordinator.start()
+            case .vehicles:
+                self.coordinator = VehicleCoordinator(navigationController: self.navigationController)
+                self.coordinator.start()
             }
         }
     }
