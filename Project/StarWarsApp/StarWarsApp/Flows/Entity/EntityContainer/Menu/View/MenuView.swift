@@ -10,7 +10,7 @@ import UIKit
 class MenuView: UIView {
 
     private let inset: CGFloat = 10
-    private let font = UIFont(name: Constants.Fonts.font, size: 16)
+    private let font = UIFont(name: Constants.Fonts.main, size: 16)
     private let titleColor: UIColor = .yellow
 
     lazy var charactersButton: UIButton = {

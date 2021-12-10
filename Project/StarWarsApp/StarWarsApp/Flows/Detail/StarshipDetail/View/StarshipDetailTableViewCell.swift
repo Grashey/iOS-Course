@@ -26,8 +26,8 @@ class StarshipDetailTableViewCell: UITableViewCell {
     }
 
     private let inset: CGFloat = 10
-    private let smallFont = UIFont(name: Constants.Fonts.font, size: 12)
-    private let bigFont = UIFont(name: Constants.Fonts.font, size: 18)
+    private let smallFont = UIFont(name: Constants.Fonts.main, size: 12)
+    private let bigFont = UIFont(name: Constants.Fonts.main, size: 18)
     private let titleColor: UIColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
 
     private lazy var iconImageView: UIImageView = {

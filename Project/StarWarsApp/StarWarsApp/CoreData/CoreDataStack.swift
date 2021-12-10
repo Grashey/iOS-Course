@@ -56,11 +56,7 @@ class CoreDataStack: DataKeeperProtocol {
                 favorites = result
             }
         }
-        if !favorites.isEmpty {
-            return true
-        } else {
-            return false
-        }
+        return !favorites.isEmpty ? true : false
     }
 
     func deleteAll() {

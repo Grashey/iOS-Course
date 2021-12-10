@@ -10,8 +10,8 @@ import UIKit
 class AvatarView: UIView {
 
     enum Size {
-        case movie
-        case entity
+        case poster
+        case avatar
     }
 
     private let inset: CGFloat = 6
@@ -22,7 +22,7 @@ class AvatarView: UIView {
     }(UIImageView())
 
     private lazy var label: UILabel = {
-        $0.font = UIFont(name: Constants.Fonts.font, size: 10)
+        $0.font = UIFont(name: Constants.Fonts.main, size: 10)
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.textAlignment = .center
         $0.numberOfLines = 0
@@ -65,10 +65,10 @@ class AvatarView: UIView {
     func configureWith(name: String, image: UIImage, size: Size) {
         label.text = name
         switch size {
-        case .movie:
+        case .poster:
             let size = CGSize(width: 100, height: 150)
             imageView.image = resizeImage(image: image, targetSize: size)
-        case .entity:
+        case .avatar:
             let size = CGSize(width: 100, height: 100)
             imageView.image = resizeImage(image: image, targetSize: size)
         }

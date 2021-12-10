@@ -9,7 +9,7 @@ import UIKit
 
 class BaseValueLabel: UILabel {
 
-    private let smallFont = UIFont(name: Constants.Fonts.font, size: 14)
+    private let smallFont = UIFont(name: Constants.Fonts.main, size: 14)
     private let labelTextColor: UIColor = .white
     private let topInset: CGFloat = 10
     private let leftInset: CGFloat = .zero

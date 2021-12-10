@@ -10,7 +10,7 @@ import Foundation
 enum Constants {
 
     enum Fonts {
-        static let font = "SFDistantGalaxy"
+        static let main = "SFDistantGalaxy"
     }
 
     enum Entity {

@@ -109,13 +109,13 @@ extension StarshipDetailViewController: UITableViewDataSource {
         } else if indexPath.section == 1, let entity = presenter?.entity, !entity.films.isEmpty {
             let cell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.description(), for: indexPath)
             if let models = presenter?.specs[indexPath.section - 1] {
-                (cell as? DetailTableViewCell)?.configure(models: models, size: .movie)
+                (cell as? DetailTableViewCell)?.configure(models: models, size: .poster)
             }
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.description(), for: indexPath)
             if let models = presenter?.specs[indexPath.section - 1] {
-                (cell as? DetailTableViewCell)?.configure(models: models, size: .entity)
+                (cell as? DetailTableViewCell)?.configure(models: models, size: .avatar)
             }
             return cell
         }
@@ -132,7 +132,7 @@ extension StarshipDetailViewController: UITableViewDelegate {
             return view
         default:
             let label = BaseLabel()
-            label.font = UIFont(name: Constants.Fonts.font, size: 18)
+            label.font = UIFont(name: Constants.Fonts.main, size: 18)
             label.textColor = .yellow
             label.text = presenter?.getLabelTitleFor(section: section - 1)
             return label

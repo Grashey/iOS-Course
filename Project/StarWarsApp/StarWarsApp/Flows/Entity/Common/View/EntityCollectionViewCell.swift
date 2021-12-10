@@ -20,7 +20,7 @@ class EntityCollectionViewCell: UICollectionViewCell {
 
     private lazy var label: UILabel = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.font = UIFont(name: Constants.Fonts.font, size: 10)
+        $0.font = UIFont(name: Constants.Fonts.main, size: 10)
         $0.numberOfLines = 0
         $0.lineBreakMode = .byWordWrapping
         $0.textColor = .white

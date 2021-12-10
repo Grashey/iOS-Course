@@ -27,20 +27,20 @@ class MovieTableViewCell: UITableViewCell {
     }(UIImageView())
 
     private lazy var episodeLabel: UILabel = {
-        $0.font = UIFont(name: Constants.Fonts.font, size: 12)
+        $0.font = UIFont(name: Constants.Fonts.main, size: 12)
         $0.textColor = alternativeColor
         $0.text = LabelValues.episode
         return $0
     }(UILabel())
 
     private lazy var episodeValueLabel: UILabel = {
-        $0.font = UIFont(name: Constants.Fonts.font, size: 12)
+        $0.font = UIFont(name: Constants.Fonts.main, size: 12)
         $0.textColor = alternativeColor
         return $0
     }(UILabel())
 
     private lazy var nameLabel: UILabel = {
-        $0.font = UIFont(name: Constants.Fonts.font, size: 18)
+        $0.font = UIFont(name: Constants.Fonts.main, size: 18)
         $0.textColor = alternativeColor
         $0.numberOfLines = 0
         $0.lineBreakMode = .byWordWrapping

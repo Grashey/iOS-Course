@@ -83,7 +83,7 @@ extension MovieDetailViewController: UITableViewDataSource {
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.description(), for: indexPath)
             if let models = presenter?.specs[indexPath.section - 1] {
-                (cell as? DetailTableViewCell)?.configure(models: models, size: .entity)
+                (cell as? DetailTableViewCell)?.configure(models: models, size: .avatar)
             }
             return cell
         }
@@ -100,7 +100,7 @@ extension MovieDetailViewController: UITableViewDelegate {
             return view
         default:
             let label = BaseLabel()
-            label.font = UIFont(name: Constants.Fonts.font, size: 18)
+            label.font = UIFont(name: Constants.Fonts.main, size: 18)
             label.textColor = .yellow
             label.text = presenter?.getLabelTitleFor(section: section - 1)
             return label

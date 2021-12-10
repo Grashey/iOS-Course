@@ -18,9 +18,9 @@ class MovieDetailTableViewCell: UITableViewCell {
     }
 
     private let inset: CGFloat = 10
-    private let smallFont = UIFont(name: Constants.Fonts.font, size: 14)
-    private let mediumFont = UIFont(name: Constants.Fonts.font, size: 18)
-    private let bigFont = UIFont(name: Constants.Fonts.font, size: 22)
+    private let smallFont = UIFont(name: Constants.Fonts.main, size: 14)
+    private let mediumFont = UIFont(name: Constants.Fonts.main, size: 18)
+    private let bigFont = UIFont(name: Constants.Fonts.main, size: 22)
     private let labelTextColor: UIColor = .lightGray
     private let alternativeColor: UIColor = #colorLiteral(red: 0.9089605212, green: 0.8589437604, blue: 0.3372781873, alpha: 1)
 
