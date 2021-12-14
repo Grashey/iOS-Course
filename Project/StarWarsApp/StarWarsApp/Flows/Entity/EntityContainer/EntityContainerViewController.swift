@@ -9,7 +9,11 @@ import UIKit
 
 class EntityContainerViewController: UIViewController {
 
-    private lazy var menuContainerView = UIView()
+    private lazy var menuContainerView: UIView = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        return $0
+    }(UIView())
+
     private var entity: EntityRoute = .characters
     private lazy var menuVC = MenuViewController()
     private var menuIsShown: Bool = false
@@ -33,13 +37,12 @@ class EntityContainerViewController: UIViewController {
         let image = UIImage(named: Constants.ImageName.menuIcon)
         button.setBackgroundImage(image, for: .normal)
         button.addTarget(self, action: #selector(showMenu), for: .touchUpInside)
-        button.frame = CGRect(x: 0, y: 0, width: side, height: side)
+        button.frame = CGRect(x: .zero, y: .zero, width: side, height: side)
 
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: side, height: side))
+        let view = UIView(frame: CGRect(x: .zero, y: .zero, width: side, height: side))
         view.bounds = view.bounds.offsetBy(dx: 10, dy: 3)
         view.addSubview(button)
-        let menuButton = UIBarButtonItem(customView: view)
-        navigationItem.leftBarButtonItem = menuButton
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: view)
     }
 
     @objc private func showMenu() {
@@ -52,14 +55,18 @@ class EntityContainerViewController: UIViewController {
 
     @objc private func dismissMenuController() {
         view.gestureRecognizers?.removeLast()
-        removeChild(controller: menuVC)
+        menuVC.willMove(toParent: nil)
+        menuVC.view.removeFromSuperview()
+        menuVC.removeFromParent()
         menuContainerView.removeFromSuperview()
         menuIsShown = false
     }
 
     private func showMenuController() {
-        menuContainerView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(menuContainerView)
+        view.addSubview(menuContainerView)
+        menuContainerView.addSubview(menuVC.view)
+        addChild(menuVC)
+        menuVC.didMove(toParent: self)
 
         NSLayoutConstraint.activate([
             menuContainerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -68,7 +75,6 @@ class EntityContainerViewController: UIViewController {
             menuContainerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
 
-        addChild(controller: menuVC, containerView: menuContainerView)
         menuVC.completionHandler = { [weak self] in
             guard let self = self, self.entity != $0 else { return }
             self.entity = $0
@@ -78,19 +84,7 @@ class EntityContainerViewController: UIViewController {
 
         menuIsShown = true
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissMenuController))
-        self.view.addGestureRecognizer(tapGestureRecognizer)
-    }
-
-    private func addChild(controller: UIViewController, containerView: UIView) {
-        containerView.addSubview(controller.view)
-        self.addChild(controller)
-        controller.didMove(toParent: self)
-    }
-
-    private func removeChild(controller: UIViewController) {
-        controller.willMove(toParent: nil)
-        controller.view.removeFromSuperview()
-        controller.removeFromParent()
+        view.addGestureRecognizer(tapGestureRecognizer)
     }
 
     private func getTitleName() -> String {

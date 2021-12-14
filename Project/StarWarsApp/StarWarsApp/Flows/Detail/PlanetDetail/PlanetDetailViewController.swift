@@ -106,16 +106,14 @@ extension PlanetDetailViewController: UITableViewDataSource {
                 (cell as? PlanetDetailTableViewCell)?.configureWith(model: model)
             }
             return cell
-        } else if indexPath.section == 1, let entity = presenter?.entity, !entity.films.isEmpty {
-            let cell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.description(), for: indexPath)
-            if let models = presenter?.specs[indexPath.section - 1] {
-                (cell as? DetailTableViewCell)?.configure(models: models, size: .poster)
-            }
-            return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.description(), for: indexPath)
             if let models = presenter?.specs[indexPath.section - 1] {
-                (cell as? DetailTableViewCell)?.configure(models: models, size: .avatar)
+                if indexPath.section == 1, let entity = presenter?.entity, !entity.films.isEmpty {
+                    (cell as? DetailTableViewCell)?.configure(models: models, size: .poster)
+                } else {
+                    (cell as? DetailTableViewCell)?.configure(models: models, size: .avatar)
+                }
             }
             return cell
         }
